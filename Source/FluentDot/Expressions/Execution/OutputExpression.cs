@@ -66,13 +66,13 @@ namespace FluentDot.Expressions.Execution
 
         #endregion
 
-        #region Internal Members
+        #region Public
 
         /// <summary>
         /// Gets the output parameters.
         /// </summary>
         /// <value>The output parameters.</value>
-        internal IList<OutputFileWithFormatParameter> OutputParameters {
+        public IList<OutputFileWithFormatParameter> OutputParameters {
             get { return outputParameters; }
         }
 
