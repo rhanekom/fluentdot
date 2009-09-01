@@ -53,7 +53,7 @@ namespace FluentDot.Samples.Demos.API
                 {
                     x.From.NodeWithName("a").To.NodeWithName("b");
                     x.From.NodeWithName("a").To.NodeWithName("c");
-                    x.From.NodeWithName("c").To.NodeWithName("d");
+                    x.From.NodeWithName("c").To.NodeWithName("d").WithLabel("Label Override");
                     x.From.NodeWithName("b").To.NodeWithName("d");
                     x.From.NodeWithName("d").To.NodeWithName("e");
                 })
