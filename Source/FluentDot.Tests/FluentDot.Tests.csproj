@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E599156B-4E0F-4A66-B5A1-10A63A1E4D14}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FluentDot.Tests</RootNamespace>
+    <AssemblyName>FluentDot.Tests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.5.0.1337, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Rhino.Mocks\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\Edges\ArrowDirectionAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\ArrowHeadAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\ArrowSizeAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\ArrowTailAttributeTest.cs" />
+    <Compile Include="Attributes\Graphs\BackgroundColorAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\ClusterStyleTests.cs" />
+    <Compile Include="Attributes\Shared\BooleanValueTests.cs" />
+    <Compile Include="Attributes\Graphs\CenterAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\ConcentrateAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\ConstraintAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\FillColorAttributeTests.cs" />
+    <Compile Include="Attributes\Nodes\FixedSizeAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\FontColorAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\FontNameAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\FontSizeAttributeTests.cs" />
+    <Compile Include="Attributes\Nodes\GroupAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\HeadLabelAttributeTests.cs" />
+    <Compile Include="Attributes\Nodes\HeightAttributeTests.cs" />
+    <Compile Include="Attributes\Nodes\ImageAttributeTests.cs" />
+    <Compile Include="Attributes\Nodes\ImageScaleAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\LabelAngleAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\LabelDistanceAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\LabelFloatAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\LabelFontColorAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\LabelFontNameAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\LabelFontSizeAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\LabelJustificationAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\LabelLocationAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\MarginAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\MinimumLengthAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\NodeSeperationAttributeTests.cs" />
+    <Compile Include="Attributes\Nodes\NodeShapeAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\NoJustifyAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\OrderingAttributeTests.cs" />
+    <Compile Include="Attributes\Nodes\OrientationAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\PointValueTests.cs" />
+    <Compile Include="Attributes\Graphs\RotateAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\StyleAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\TailLabelAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\UriValueTests.cs" />
+    <Compile Include="Attributes\Shared\URLAttributeTests.cs" />
+    <Compile Include="Attributes\Nodes\WidthAttributeTests.cs" />
+    <Compile Include="Configuration\ConfigurationProviderTests.cs" />
+    <Compile Include="Configuration\GlobalConfigurationProviderTests.cs" />
+    <Compile Include="Common\AbstractTypedEnumTests.cs" />
+    <Compile Include="Common\StringEnumTests.cs" />
+    <Compile Include="Conventions\ConventionTrackerTests.cs" />
+    <Compile Include="Entities\EntityDefaultsBaseTests.cs" />
+    <Compile Include="Entities\Graphs\AbstractGraphTests.cs" />
+    <Compile Include="Attributes\AbstractDotAttributeTests.cs" />
+    <Compile Include="Attributes\AttributeCollectionTests.cs" />
+    <Compile Include="Attributes\Shared\ColorAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\ColorValueTests.cs" />
+    <Compile Include="Attributes\Shared\LabelAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\ArrowDirectionTests.cs" />
+    <Compile Include="Attributes\Edges\ArrowShapeTests.cs" />
+    <Compile Include="Entities\Graphs\ClusterTests.cs" />
+    <Compile Include="Entities\Graphs\ClusterTrackerTests.cs" />
+    <Compile Include="Attributes\Edges\CompositeArrowShapeTests.cs" />
+    <Compile Include="Entities\Edges\DirectedEdgeTests.cs" />
+    <Compile Include="Entities\Graphs\DirectedGraphTests.cs" />
+    <Compile Include="Entities\Edges\AbstractEdgeTests.cs" />
+    <Compile Include="Attributes\Edges\EdgeStyleTests.cs" />
+    <Compile Include="Entities\Edges\EdgeTrackerTests.cs" />
+    <Compile Include="Entities\Nodes\ElementTrackerTests.cs" />
+    <Compile Include="Entities\Graphs\GraphNodeTests.cs" />
+    <Compile Include="Attributes\Graphs\JustificationTests.cs" />
+    <Compile Include="Attributes\Nodes\NodeStyleTests.cs" />
+    <Compile Include="Entities\Nodes\NodeTargetTests.cs" />
+    <Compile Include="Entities\Nodes\NodeTrackerTests.cs" />
+    <Compile Include="Attributes\Graphs\OrderingTests.cs" />
+    <Compile Include="Entities\Nodes\RecordElementTests.cs" />
+    <Compile Include="Entities\Nodes\RecordGroupTests.cs" />
+    <Compile Include="Entities\Nodes\RecordNodeTests.cs" />
+    <Compile Include="Entities\Edges\UndirectedEdgeTests.cs" />
+    <Compile Include="Entities\Graphs\UndirectedGraphTests.cs" />
+    <Compile Include="Execution\DotExecutorTests.cs" />
+    <Compile Include="Execution\InputFileParameterTests.cs" />
+    <Compile Include="Execution\OutputFileParameterTests.cs" />
+    <Compile Include="Execution\OutputFileWithFormatParameterTests.cs" />
+    <Compile Include="Execution\OutputFormatTests.cs" />
+    <Compile Include="Expectations\CodeFormat.cs" />
+    <Compile Include="Expressions\Conventions\ConventionCollectionModifiersExpressionTests.cs" />
+    <Compile Include="Expressions\Conventions\ConventionCollectionSetupExpressionTests.cs" />
+    <Compile Include="Expressions\Graphs\ClusterCollectionModifiersExpressionTests.cs" />
+    <Compile Include="Expressions\Graphs\ClusterExpressionTests.cs" />
+    <Compile Include="Expressions\Graphs\DefaultsExpressionTests.cs" />
+    <Compile Include="Expressions\Graphs\GraphExpressionTests.cs" />
+    <Compile Include="Expressions\Shared\ActionExpressionTests.cs" />
+    <Compile Include="Expressions\Configuration\ConfigurationExpressionTests.cs" />
+    <Compile Include="Expressions\Edges\EdgeCollectionAddExpressionTests.cs" />
+    <Compile Include="Expressions\Edges\EdgeCollectionModifiersExpressionTests.cs" />
+    <Compile Include="Expressions\Edges\EdgeDestinationExpressionTests.cs" />
+    <Compile Include="Expressions\Edges\EdgeDestinationSelectionExpressionTests.cs" />
+    <Compile Include="Expressions\Edges\EdgeExpressionTests.cs" />
+    <Compile Include="Expressions\Edges\EdgeSourceExpressionTests.cs" />
+    <Compile Include="Expressions\Execution\FileOutputExpressionTests.cs" />
+    <Compile Include="Expressions\Nodes\NodeCollectionAddExpressionTests.cs" />
+    <Compile Include="Expressions\Nodes\NodeCollectionModifiersExpressionTests.cs" />
+    <Compile Include="Expressions\Nodes\NodeExpressionTests.cs" />
+    <Compile Include="Expressions\Execution\OutputExpressionTests.cs" />
+    <Compile Include="Expressions\Nodes\RecordCollectionAddExpressionTests.cs" />
+    <Compile Include="Expressions\Nodes\RecordElementExpressionTests.cs" />
+    <Compile Include="Expressions\Nodes\RecordExpressionTests.cs" />
+    <Compile Include="Expressions\Nodes\RecordGroupExpressionTests.cs" />
+    <Compile Include="Expressions\Nodes\RootRecordExpressionTests.cs" />
+    <Compile Include="Expressions\Shared\MultiActionExpressionTests.cs" />
+    <Compile Include="FluentlyTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FluentDot\FluentDot.csproj">
+      <Project>{B6D86A70-C795-451D-B81F-0331ED3C79A6}</Project>
+      <Name>FluentDot</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

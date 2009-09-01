@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6D86A70-C795-451D-B81F-0331ED3C79A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FluentDot</RootNamespace>
+    <AssemblyName>FluentDot</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\Edges\ArrowDirectionAttribute.cs" />
+    <Compile Include="Attributes\Edges\ArrowHeadAttribute.cs" />
+    <Compile Include="Attributes\Edges\ArrowSizeAttribute.cs" />
+    <Compile Include="Attributes\Edges\ArrowTailAttribute.cs" />
+    <Compile Include="Attributes\Graphs\BackgroundColorAttribute.cs" />
+    <Compile Include="Attributes\Graphs\ClusterStyle.cs" />
+    <Compile Include="Attributes\Shared\BooleanValue.cs" />
+    <Compile Include="Attributes\Graphs\CenterAttribute.cs" />
+    <Compile Include="Attributes\Graphs\ConcentrateAttribute.cs" />
+    <Compile Include="Attributes\Edges\ConstraintAttribute.cs" />
+    <Compile Include="Attributes\Shared\FillColorAttribute.cs" />
+    <Compile Include="Attributes\Nodes\FixedSizeAttribute.cs" />
+    <Compile Include="Attributes\Shared\FontColorAttribute.cs" />
+    <Compile Include="Attributes\Shared\FontNameAttribute.cs" />
+    <Compile Include="Attributes\Shared\FontSizeAttribute.cs" />
+    <Compile Include="Attributes\Nodes\GroupAttribute.cs" />
+    <Compile Include="Attributes\Edges\HeadLabelAttribute.cs" />
+    <Compile Include="Attributes\Nodes\HeightAttribute.cs" />
+    <Compile Include="Attributes\Nodes\ImageAttribute.cs" />
+    <Compile Include="Attributes\Nodes\ImageScaleAttribute.cs" />
+    <Compile Include="Attributes\Edges\LabelAngleAttribute.cs" />
+    <Compile Include="Attributes\Edges\LabelDistanceAttribute.cs" />
+    <Compile Include="Attributes\Edges\LabelFloatAttribute.cs" />
+    <Compile Include="Attributes\Edges\LabelFontColorAttribute.cs" />
+    <Compile Include="Attributes\Edges\LabelFontNameAttribute.cs" />
+    <Compile Include="Attributes\Edges\LabelFontSizeAttribute.cs" />
+    <Compile Include="Attributes\Graphs\LabelJustificationAttribute.cs" />
+    <Compile Include="Attributes\Shared\LabelLocationAttribute.cs" />
+    <Compile Include="Attributes\Shared\MarginAttribute.cs" />
+    <Compile Include="Attributes\Edges\MinimumLengthAttribute.cs" />
+    <Compile Include="Attributes\Graphs\NodeSeperationAttribute.cs" />
+    <Compile Include="Attributes\Nodes\NodeShapeAttribute.cs" />
+    <Compile Include="Attributes\Shared\NoJustifyAttribute.cs" />
+    <Compile Include="Attributes\Graphs\OrderingAttribute.cs" />
+    <Compile Include="Attributes\Nodes\OrientationAttribute.cs" />
+    <Compile Include="Attributes\Shared\PointValue.cs" />
+    <Compile Include="Attributes\Graphs\RotateAttribute.cs" />
+    <Compile Include="Attributes\Shared\StyleAttribute.cs" />
+    <Compile Include="Attributes\Edges\TailLabelAttribute.cs" />
+    <Compile Include="Attributes\Shared\UriValue.cs" />
+    <Compile Include="Attributes\Shared\URLAttribute.cs" />
+    <Compile Include="Attributes\Nodes\WidthAttribute.cs" />
+    <Compile Include="Configuration\ConfigurationProvider.cs" />
+    <Compile Include="Configuration\GlobalConfiguration.cs" />
+    <Compile Include="Configuration\IConfigurationProvider.cs" />
+    <Compile Include="Common\AbstractTypedEnum.cs" />
+    <Compile Include="Common\ITypedEnum.cs" />
+    <Compile Include="Common\StringEnum.cs" />
+    <Compile Include="Conventions\ConventionTracker.cs" />
+    <Compile Include="Conventions\EdgeInfo.cs" />
+    <Compile Include="Conventions\IConvention.cs" />
+    <Compile Include="Conventions\IConventionTracker.cs" />
+    <Compile Include="Conventions\IEdgeConvention.cs" />
+    <Compile Include="Conventions\IEdgeInfo.cs" />
+    <Compile Include="Conventions\INodeConvention.cs" />
+    <Compile Include="Conventions\INodeInfo.cs" />
+    <Compile Include="Conventions\NodeInfo.cs" />
+    <Compile Include="Entities\Edges\EdgeDefaults.cs" />
+    <Compile Include="Entities\EntityDefaultsBase.cs" />
+    <Compile Include="Entities\Graphs\AbstractGraph.cs" />
+    <Compile Include="Attributes\AttributeCollection.cs" />
+    <Compile Include="Entities\Edges\AbstractEdge.cs" />
+    <Compile Include="Attributes\Shared\ColorAttribute.cs" />
+    <Compile Include="Attributes\Shared\ColorValue.cs" />
+    <Compile Include="Attributes\IAttributeCollection.cs" />
+    <Compile Include="Attributes\IDotAttribute.cs" />
+    <Compile Include="Attributes\Edges\ArrowDirection.cs" />
+    <Compile Include="Attributes\Edges\ArrowShape.cs" />
+    <Compile Include="Attributes\Edges\ArrowShapeModifier.cs" />
+    <Compile Include="Entities\AttributeBasedEntity.cs" />
+    <Compile Include="Entities\Graphs\Cluster.cs" />
+    <Compile Include="Entities\Graphs\ClusterTracker.cs" />
+    <Compile Include="Attributes\Edges\CompositeArrowShape.cs" />
+    <Compile Include="Entities\Edges\DirectedEdge.cs" />
+    <Compile Include="Attributes\Edges\EdgeStyle.cs" />
+    <Compile Include="Entities\Edges\EdgeTracker.cs" />
+    <Compile Include="Entities\Nodes\ElementTracker.cs" />
+    <Compile Include="Attributes\Edges\IArrowShape.cs" />
+    <Compile Include="Entities\IAttributeBasedEntity.cs" />
+    <Compile Include="Entities\Graphs\ICluster.cs" />
+    <Compile Include="Entities\Graphs\IClusterTracker.cs" />
+    <Compile Include="Entities\Edges\IEdge.cs" />
+    <Compile Include="Attributes\Shared\LabelAttribute.cs" />
+    <Compile Include="Entities\Graphs\DirectedGraph.cs" />
+    <Compile Include="Attributes\AbstractDotAttribute.cs" />
+    <Compile Include="Entities\Graphs\GraphNode.cs" />
+    <Compile Include="Entities\Graphs\GraphType.cs" />
+    <Compile Include="Entities\Graphs\IDirectedGraph.cs" />
+    <Compile Include="Common\IDotElement.cs" />
+    <Compile Include="Entities\Edges\IEdgeTracker.cs" />
+    <Compile Include="Entities\Nodes\IElementTracker.cs" />
+    <Compile Include="Entities\IEntityDefaults.cs" />
+    <Compile Include="Entities\Graphs\IGraph.cs" />
+    <Compile Include="Entities\Graphs\IGraphNode.cs" />
+    <Compile Include="Entities\Edges\ILookupEdges.cs" />
+    <Compile Include="Entities\Nodes\ILookupNodes.cs" />
+    <Compile Include="Entities\Nodes\INodeTracker.cs" />
+    <Compile Include="Entities\Nodes\IRecordElement.cs" />
+    <Compile Include="Entities\Nodes\IRecordElementGroup.cs" />
+    <Compile Include="Entities\Nodes\IRecordNode.cs" />
+    <Compile Include="Entities\Nodes\IRecordItem.cs" />
+    <Compile Include="Entities\Graphs\IUndirectedGraph.cs" />
+    <Compile Include="Attributes\Graphs\Justification.cs" />
+    <Compile Include="Attributes\Shared\Location.cs" />
+    <Compile Include="Entities\Nodes\NodeDefaults.cs" />
+    <Compile Include="Attributes\Nodes\NodeStyle.cs" />
+    <Compile Include="Entities\Nodes\NodeTracker.cs" />
+    <Compile Include="Attributes\Nodes\NodeShape.cs" />
+    <Compile Include="Attributes\Graphs\Ordering.cs" />
+    <Compile Include="Entities\Nodes\RecordElement.cs" />
+    <Compile Include="Entities\Nodes\RecordGroup.cs" />
+    <Compile Include="Entities\Nodes\RecordNode.cs" />
+    <Compile Include="Entities\Edges\UndirectedEdge.cs" />
+    <Compile Include="Entities\Graphs\UndirectedGraph.cs" />
+    <Compile Include="Execution\CommandProcessor.cs" />
+    <Compile Include="Execution\DotExecutor.cs" />
+    <Compile Include="Execution\ExecutionException.cs" />
+    <Compile Include="Execution\ICommandParameter.cs" />
+    <Compile Include="Execution\ICommandProcessor.cs" />
+    <Compile Include="Execution\IDotExecutor.cs" />
+    <Compile Include="Execution\InputFileParameter.cs" />
+    <Compile Include="Execution\OutputFileParameter.cs" />
+    <Compile Include="Execution\OutputFileWithFormatParameter.cs" />
+    <Compile Include="Execution\OutputFormat.cs" />
+    <Compile Include="Expressions\Conventions\ConventionCollectionModifiersExpression.cs" />
+    <Compile Include="Expressions\Conventions\ConventionCollectionSetupExpression.cs" />
+    <Compile Include="Expressions\Conventions\IConventionCollectionSetupExpression.cs" />
+    <Compile Include="Expressions\Conventions\IConventionCollectionModifiersExpression.cs" />
+    <Compile Include="Expressions\Graphs\ClusterCollectionModifiersExpression.cs" />
+    <Compile Include="Expressions\Graphs\ClusterExpression.cs" />
+    <Compile Include="Expressions\Graphs\DefaultsExpression.cs" />
+    <Compile Include="Expressions\Graphs\GraphExpression.cs" />
+    <Compile Include="Expressions\Graphs\IDefaultsExpression.cs" />
+    <Compile Include="Expressions\Shared\ActionExpression.cs" />
+    <Compile Include="Expressions\Configuration\ConfigurationExpression.cs" />
+    <Compile Include="Expressions\Edges\EdgeCollectionAddExpression.cs" />
+    <Compile Include="Expressions\Edges\EdgeCollectionModifiersExpression.cs" />
+    <Compile Include="Expressions\Edges\EdgeDestinationExpression.cs" />
+    <Compile Include="Expressions\Edges\EdgeDestinationSelectionExpression.cs" />
+    <Compile Include="Expressions\Edges\EdgeExpression.cs" />
+    <Compile Include="Expressions\Edges\EdgeSourceExpression.cs" />
+    <Compile Include="Expressions\Execution\FileOutputExpression.cs" />
+    <Compile Include="Expressions\Shared\IActionExpression.cs" />
+    <Compile Include="Expressions\Graphs\IClusterCollectionModifiersExpression.cs" />
+    <Compile Include="Expressions\Graphs\IClusterExpression.cs" />
+    <Compile Include="Expressions\Configuration\IConfigurationExpression.cs" />
+    <Compile Include="Expressions\Edges\IEdgeCollectionAddExpression.cs" />
+    <Compile Include="Expressions\Edges\IEdgeCollectionModifiersExpression.cs" />
+    <Compile Include="Expressions\Edges\IEdgeDestinationExpression.cs" />
+    <Compile Include="Expressions\Edges\IEdgeDestinationSelectionExpression.cs" />
+    <Compile Include="Expressions\Edges\IEdgeExpression.cs" />
+    <Compile Include="Expressions\Edges\IEdgeSourceExpression.cs" />
+    <Compile Include="Expressions\Execution\IFileOutputExpression.cs" />
+    <Compile Include="Expressions\Graphs\IGraphExpression.cs" />
+    <Compile Include="Expressions\Nodes\INodeCollectionAddExpression.cs" />
+    <Compile Include="Expressions\Nodes\INodeCollectionModifiersExpression.cs" />
+    <Compile Include="Expressions\Nodes\INodeExpression.cs" />
+    <Compile Include="Entities\Nodes\INodeTarget.cs" />
+    <Compile Include="Expressions\Execution\IOutputExpression.cs" />
+    <Compile Include="Expressions\Nodes\IRecordCollectionAddExpression.cs" />
+    <Compile Include="Expressions\Nodes\IRecordElementExpression.cs" />
+    <Compile Include="Expressions\Nodes\IRecordExpression.cs" />
+    <Compile Include="Expressions\Nodes\IRecordGroupExpression.cs" />
+    <Compile Include="Expressions\Nodes\IRootRecordExpression.cs" />
+    <Compile Include="Expressions\Nodes\NodeCollectionExpression.cs" />
+    <Compile Include="Expressions\Nodes\NodeCollectionModifiersExpression.cs" />
+    <Compile Include="Expressions\Nodes\NodeExpression.cs" />
+    <Compile Include="Entities\Nodes\NodeTarget.cs" />
+    <Compile Include="Expressions\Execution\OutputExpression.cs" />
+    <Compile Include="Expressions\Nodes\RecordCollectionAddExpression.cs" />
+    <Compile Include="Expressions\Nodes\RecordElementExpression.cs" />
+    <Compile Include="Expressions\Nodes\RecordExpression.cs" />
+    <Compile Include="Expressions\Nodes\RecordGroupExpression.cs" />
+    <Compile Include="Expressions\Nodes\RootRecordExpression.cs" />
+    <Compile Include="Expressions\Shared\IMultiActionExpression.cs" />
+    <Compile Include="Expressions\Shared\MultiActionExpression.cs" />
+    <Compile Include="Fluently.cs" />
+    <Compile Include="Common\FileService.cs" />
+    <Compile Include="Common\IFileService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
