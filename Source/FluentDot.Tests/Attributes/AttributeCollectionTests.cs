@@ -15,12 +15,14 @@ namespace FluentDot.Tests.Attributes
 {
     [TestFixture]
     public class AttributeCollectionTests {
+        
+        #region Tests
 
         [Test]
         public void Add_Adds_Attribute_To_Collection()
         {
             var attribute1 = MockRepository.GenerateMock<IDotAttribute>();
-            var attribute2 = MockRepository.GenerateMock<IDotAttribute>();
+            var attribute2 = MockRepository.GenerateMock<OtherDotAttribute>();
             
             var collection = new AttributeCollection();
             
@@ -35,10 +37,26 @@ namespace FluentDot.Tests.Attributes
         }
 
         [Test]
+        public void Add_Does_Not_Replace_Existing_Attributes() {
+            var attribute1 = new TestDotAttribute();
+            var attribute2 = new TestDotAttribute();
+            
+            var collection = new AttributeCollection();
+
+            collection.AddAttribute(attribute1);
+            Assert.AreEqual(collection.CurrentAttributes.Count, 1);
+            Assert.AreSame(collection.CurrentAttributes[0], attribute1);
+            
+            collection.AddAttribute(attribute2);
+            Assert.AreEqual(collection.CurrentAttributes.Count, 1);
+            Assert.AreSame(collection.CurrentAttributes[0], attribute1);
+        }
+
+        [Test]
         public void ToDot_Generates_Dot_For_All_Attributes()
         {
             var attribute1 = MockRepository.GenerateMock<IDotAttribute>();
-            var attribute2 = MockRepository.GenerateMock<IDotAttribute>();
+            var attribute2 = MockRepository.GenerateMock<OtherDotAttribute>();
 
             var collection = new AttributeCollection();
 
@@ -78,5 +96,37 @@ namespace FluentDot.Tests.Attributes
             var collection = new AttributeCollection();
             Assert.AreEqual(collection.ToDot(), String.Empty);
         }
+
+        #endregion
+
+        #region Private Members
+
+        public interface OtherDotAttribute : IDotAttribute {
+        }
+
+        private class TestDotAttribute : IDotAttribute {
+
+            #region IDotAttribute Members
+
+            public string Name {
+                get { throw new NotImplementedException(); }
+            }
+
+            public object Value {
+                get { throw new NotImplementedException(); }
+            }
+
+            #endregion
+
+            #region IDotElement Members
+
+            public string ToDot() {
+                throw new NotImplementedException();
+            }
+
+            #endregion
+        }
+
+        #endregion
     }
 }

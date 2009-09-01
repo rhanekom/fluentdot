@@ -6,8 +6,9 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 
 namespace FluentDot.Attributes
@@ -19,7 +20,7 @@ namespace FluentDot.Attributes
 
         #region Globals
 
-        private readonly List<IDotAttribute> attributes = new List<IDotAttribute>();
+        private readonly Dictionary<Type, IDotAttribute> attributes = new Dictionary<Type, IDotAttribute>();
 
         #endregion
 
@@ -30,7 +31,12 @@ namespace FluentDot.Attributes
         /// </summary>
         /// <param name="attribute">The attribute.</param>
         public void AddAttribute(IDotAttribute attribute) {
-            attributes.Add(attribute);
+            var attributeType = attribute.GetType();
+
+            if (!attributes.ContainsKey(attributeType))
+            {
+                attributes.Add(attributeType, attribute);
+            }
         }
 
         /// <summary>
@@ -38,7 +44,7 @@ namespace FluentDot.Attributes
         /// </summary>
         /// <value>The current attributes.</value>
         public IList<IDotAttribute> CurrentAttributes {
-            get { return new ReadOnlyCollection<IDotAttribute>(attributes); }
+            get { return attributes.Values.ToList(); }
         }
 
         #endregion
@@ -59,10 +65,9 @@ namespace FluentDot.Attributes
             }
 
             var sb = new StringBuilder("[");
-
-            for (int i = 0; i< attributes.Count; i++)
-            {
-                sb.Append(attributes[i].ToDot()).Append(", ");
+            
+            foreach (var attribute in attributes.Values) {
+                sb.Append(attribute.ToDot()).Append(", ");
             }
 
             // Remove our last comma and space
