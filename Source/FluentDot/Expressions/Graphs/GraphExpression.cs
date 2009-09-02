@@ -263,6 +263,29 @@ namespace FluentDot.Expressions.Graphs
         }
 
         /// <summary>
+        /// Specifies the output order of thr graph.
+        /// </summary>
+        /// <param name="outputMode">The output mode the graph should use.</param>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression WithOutputOrder(OutputMode outputMode)
+        {
+            graph.Attributes.AddAttribute(new OutputOrderAttribute(outputMode));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies the padding, in inches, to extend the drawing area around the graph.
+        /// </summary>
+        /// <param name="x">The x padding.</param>
+        /// <param name="y">The y padding.</param>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression WithPadding(float x, float y)
+        {
+            graph.Attributes.AddAttribute(new PadAttribute(x, y));
+            return this;
+        }
+
+        /// <summary>
         /// Sets the defaults entity values on this graph.
         /// </summary>
         /// <value>

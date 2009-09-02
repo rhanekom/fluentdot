@@ -18,8 +18,8 @@ namespace FluentDot.Configuration
         
         #region Globals
 
-        private int dotProcessTimeout = 5000;
-        private string dotExecutableLocation = "C:\\Program Files\\Graphviz 2.21\\bin\\dot.exe";
+        private int dotProcessTimeout = 30000;
+        private string dotExecutableLocation = @"C:\Program Files\Graphviz 2.21\bin\dot.exe";
         private OutputFormat defaultFileFormat = OutputFormat.GIF;
 
         #endregion

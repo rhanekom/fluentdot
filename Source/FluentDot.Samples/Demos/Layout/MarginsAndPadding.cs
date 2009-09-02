@@ -12,9 +12,9 @@ using FluentDot.Expressions.Graphs;
 namespace FluentDot.Samples.Demos.Layout {
 
     /// <summary>
-    /// A demo of graph and node margins.
+    /// A demo of graph and node margins and padding.
     /// </summary>
-    public class MArgins : AbstractGraphDemo {
+    public class MarginsAndPadding : AbstractGraphDemo {
 
         #region AbstractGraphDemo Members
 
@@ -23,7 +23,7 @@ namespace FluentDot.Samples.Demos.Layout {
         /// </summary>
         /// <value>The friendly name of the demo.</value>
         public override string FriendlyName {
-            get { return "Margins"; }
+            get { return "Margins and Padding"; }
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace FluentDot.Samples.Demos.Layout {
         /// </summary>
         /// <value>The description.</value>
         public override string Description {
-            get { return "A demo of graph and node margins."; }
+            get { return "A demo of graph and node margins and padding."; }
         }
 
         /// <summary>
@@ -69,8 +69,9 @@ namespace FluentDot.Samples.Demos.Layout {
                     edges.From.NodeWithName("e").To.NodeWithName("g");
                 })
                 .WithBackgroundColor(Color.Gainsboro)
-                .WithLabel("2 Point Graph Margin")
-                .WithMargin(2, 2);
+                .WithLabel("2 Point Graph Margin, 1 Inch Margin Around Graph")
+                .WithMargin(2, 2)
+                .WithPadding(1, 1);
         }
 
         #endregion

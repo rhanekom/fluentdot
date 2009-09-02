@@ -266,6 +266,20 @@ namespace FluentDot.Tests.Expressions.Graphs
             Assert.IsNotNull(new TestGraphExpression().TheDefaults);
         }
 
+        [Test]
+        public void WithOutputOrder_Should_Set_Output_Order()
+        {
+            AssertAttributeAdded(expression => expression.WithOutputOrder(OutputMode.NodesFirst),
+                                 typeof(OutputOrderAttribute), OutputMode.NodesFirst);
+        }
+
+        [Test]
+        public void WithPadding_Should_Set_Padding()
+        {
+            AssertAttributeAdded(expression => expression.WithPadding(0.1f, 0.09f),
+                                 typeof(PadAttribute), new PointValue(0.1f, 0.09f));
+        }
+
         #endregion
 
         #region Private Members

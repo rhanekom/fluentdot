@@ -158,6 +158,20 @@ namespace FluentDot.Expressions.Graphs
         /// <returns>The current expression instance.</returns>
         IGraphExpression DoNotJustify();
 
+        /// <summary>
+        /// Specifies the output order of thr graph.
+        /// </summary>
+        /// <param name="outputMode">The output mode the graph should use.</param>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithOutputOrder(OutputMode outputMode);
+
+        /// <summary>
+        /// Specifies the padding, in inches, to extend the drawing area around the graph.
+        /// </summary>
+        /// <param name="x">The x padding.</param>
+        /// <param name="y">The y padding.</param>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithPadding(float x, float y);
 
         /// <summary>
         /// Sets the defaults entity values on this graph.
