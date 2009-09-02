@@ -6,10 +6,10 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-namespace FluentDot.Entities {
-
+namespace FluentDot.Entities.Nodes
+{
     /// <summary>
-    /// A record element - 
+    /// A record element.
     /// </summary>
     public interface IRecordElement : IRecordItem {
 

@@ -8,7 +8,7 @@
 
 using FluentDot.Entities.Graphs;
 
-namespace FluentDot.Entities
+namespace FluentDot.Entities.Nodes
 {
     /// <summary>
     /// A record node.

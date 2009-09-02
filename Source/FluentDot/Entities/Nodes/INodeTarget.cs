@@ -9,7 +9,7 @@
 using FluentDot.Common;
 using FluentDot.Entities.Graphs;
 
-namespace FluentDot.Entities
+namespace FluentDot.Entities.Nodes
 {
     /// <summary>
     /// A class that keeps track of node selected.

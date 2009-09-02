@@ -9,7 +9,7 @@
 using System.Collections.Generic;
 using FluentDot.Entities.Graphs;
 
-namespace FluentDot.Entities
+namespace FluentDot.Entities.Nodes
 {
     /// <summary>
     /// A concrete implementation of a <see cref="INodeTracker"/>.

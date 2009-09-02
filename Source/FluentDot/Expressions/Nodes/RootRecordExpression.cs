@@ -8,7 +8,7 @@
 
 
 using System;
-using FluentDot.Entities;
+using FluentDot.Entities.Nodes;
 
 namespace FluentDot.Expressions.Nodes
 {

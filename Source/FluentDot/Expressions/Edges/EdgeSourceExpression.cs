@@ -7,8 +7,8 @@
 */
 
 using System;
-using FluentDot.Entities;
 using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Nodes;
 
 namespace FluentDot.Expressions.Edges

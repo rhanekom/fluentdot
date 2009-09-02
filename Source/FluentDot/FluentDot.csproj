@@ -93,6 +93,7 @@
     <Compile Include="Attributes\Shared\UriValue.cs" />
     <Compile Include="Attributes\Shared\URLAttribute.cs" />
     <Compile Include="Attributes\Nodes\WidthAttribute.cs" />
+    <Compile Include="Common\IValidator.cs" />
     <Compile Include="Configuration\ConfigurationProvider.cs" />
     <Compile Include="Configuration\GlobalConfiguration.cs" />
     <Compile Include="Configuration\IConfigurationProvider.cs" />

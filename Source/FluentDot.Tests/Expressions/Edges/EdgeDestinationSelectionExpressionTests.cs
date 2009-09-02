@@ -8,9 +8,9 @@
 
 using System;
 using FluentDot.Attributes.Shared;
-using FluentDot.Entities;
 using FluentDot.Entities.Edges;
 using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Edges;
 using NUnit.Framework;
 using Rhino.Mocks;

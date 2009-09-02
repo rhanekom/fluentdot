@@ -8,7 +8,7 @@
 
 using System.Collections.Generic;
 
-namespace FluentDot.Entities
+namespace FluentDot.Entities.Nodes
 {
     /// <summary>
     /// A concrete implementation of a <see cref="IElementTracker"/>.

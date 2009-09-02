@@ -9,8 +9,8 @@
 using System.Collections.Generic;
 using FluentDot.Entities.Graphs;
 
-namespace FluentDot.Entities {
-
+namespace FluentDot.Entities.Nodes
+{
     /// <summary>
     /// An object that keeps track of nodes added to a graph.
     /// </summary>

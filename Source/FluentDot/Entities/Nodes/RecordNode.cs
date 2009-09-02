@@ -11,8 +11,8 @@ using FluentDot.Attributes.Nodes;
 using FluentDot.Attributes.Shared;
 using FluentDot.Entities.Graphs;
 
-namespace FluentDot.Entities {
-
+namespace FluentDot.Entities.Nodes
+{
     /// <summary>
     /// A node that is of type record.
     /// </summary>
@@ -42,7 +42,7 @@ namespace FluentDot.Entities {
             this.group = group;
 
             ElementTracker = group.ElementTracker;
-        }
+            }
 
         #endregion
 

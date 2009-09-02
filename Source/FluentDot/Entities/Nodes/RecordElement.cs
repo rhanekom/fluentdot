@@ -8,8 +8,8 @@
 
 using System;
 
-namespace FluentDot.Entities {
-
+namespace FluentDot.Entities.Nodes
+{
     /// <summary>
     /// A single element in a record group.
     /// </summary>
@@ -76,8 +76,8 @@ namespace FluentDot.Entities {
             label = label.Replace(" ", @"\ ");
 
             return IsInverted
-                ? String.Format(@"{{<{0}> {1}}}", Name, label)
-                : String.Format("<{0}> {1}", Name, label);
+                       ? String.Format(@"{{<{0}> {1}}}", Name, label)
+                       : String.Format("<{0}> {1}", Name, label);
         }
 
         #endregion

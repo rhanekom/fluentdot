@@ -8,8 +8,8 @@
 
 using System.Collections.Generic;
 
-namespace FluentDot.Entities {
-
+namespace FluentDot.Entities.Nodes
+{
     /// <summary>
     /// A tracker for record elements.
     /// </summary>

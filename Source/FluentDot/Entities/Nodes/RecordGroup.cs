@@ -10,8 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FluentDot.Entities {
-
+namespace FluentDot.Entities.Nodes
+{
     /// <summary>
     /// A group of entries in a record node.
     /// </summary>

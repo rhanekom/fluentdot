@@ -6,8 +6,8 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using FluentDot.Entities;
 using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using NUnit.Framework;
 
 namespace FluentDot.Tests.Entities.Nodes
@@ -18,12 +18,12 @@ namespace FluentDot.Tests.Entities.Nodes
         [Test]
         public void ToDot_Should_Produce_Correct_Output_For_Normal_Nodes()
         {
-            Assert.AreEqual(new NodeTarget(new GraphNode("a")).ToDot(), "a");
+            Assert.AreEqual(new NodeTarget(new GraphNode("a")).ToDot(), "\"a\"");
         }
 
         [Test]
         public void ToDot_Should_Produce_Correct_Output_For_Record_Nodes() {
-            Assert.AreEqual(new NodeTarget(new RecordNode("a", new RecordGroup()), "b").ToDot(), "a:b");
+            Assert.AreEqual(new NodeTarget(new RecordNode("a", new RecordGroup()), "b").ToDot(), "\"a\":\"b\"");
         }
     }
 }

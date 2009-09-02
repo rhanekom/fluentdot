@@ -50,7 +50,7 @@ namespace FluentDot.Tests.Entities.Graphs
             attribute.Expect(x => x.ToDot()).Return("att=custom");
             node.Attributes.AddAttribute(attribute);
 
-            Assert.AreEqual(node.ToDot(), "ff [att=custom]");
+            Assert.AreEqual(node.ToDot(), "\"ff\" [att=custom]");
 
             attribute.VerifyAllExpectations();
         }

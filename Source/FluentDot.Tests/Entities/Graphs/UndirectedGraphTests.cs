@@ -21,7 +21,7 @@ namespace FluentDot.Tests.Entities.Graphs
             var graph = new UndirectedGraph { Name = "a" };
             var dot = graph.ToDot();
             
-            Assert.IsTrue(Regex.Match(dot, @"^graph a \{[^}]*\}$", RegexOptions.Multiline).Success);
+            Assert.IsTrue(Regex.Match(dot, "^graph \\\"a\\\" \\{[^}]*\\}$", RegexOptions.Multiline).Success);
         }
     }
 }

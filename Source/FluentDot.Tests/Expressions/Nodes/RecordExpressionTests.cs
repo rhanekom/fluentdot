@@ -7,7 +7,7 @@
 */
 
 using System;
-using FluentDot.Entities;
+using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Nodes;
 using NUnit.Framework;
 

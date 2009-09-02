@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using FluentDot.Common;
 using FluentDot.Conventions;
 using FluentDot.Entities.Edges;
+using FluentDot.Entities.Nodes;
 
 namespace FluentDot.Entities.Graphs
 {

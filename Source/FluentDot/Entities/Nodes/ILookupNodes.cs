@@ -9,8 +9,8 @@
 
 using FluentDot.Entities.Graphs;
 
-namespace FluentDot.Entities {
-
+namespace FluentDot.Entities.Nodes
+{
     /// <summary>
     /// An interface for looking up nodes.
     /// </summary>

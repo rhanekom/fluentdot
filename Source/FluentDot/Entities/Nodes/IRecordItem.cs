@@ -8,8 +8,8 @@
 
 using FluentDot.Common;
 
-namespace FluentDot.Entities {
-
+namespace FluentDot.Entities.Nodes
+{
     /// <summary>
     /// A single record item whether that be a group, or a single element.
     /// </summary>

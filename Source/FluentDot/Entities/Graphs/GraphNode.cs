@@ -15,6 +15,10 @@ namespace FluentDot.Entities.Graphs
     /// </summary>
     public class GraphNode : AttributeBasedEntity, IGraphNode {
         
+        #region Globals
+
+        #endregion
+
         #region Construction
 
         /// <summary>
@@ -59,7 +63,7 @@ namespace FluentDot.Entities.Graphs
         public virtual string ToDot()
         {
             var attributes = Attributes;
-            return attributes.CurrentAttributes.Count == 0 ? Name : string.Format("{0} {1}", Name, attributes.ToDot());
+            return attributes.CurrentAttributes.Count == 0 ? Name : string.Format("\"{0}\" {1}", Name, attributes.ToDot());
         }
 
         #endregion

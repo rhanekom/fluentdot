@@ -7,6 +7,7 @@
 */
 
 using System;
+using FluentDot.Entities.Nodes;
 
 namespace FluentDot.Entities.Edges
 {

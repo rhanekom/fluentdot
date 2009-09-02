@@ -8,7 +8,7 @@
 
 using FluentDot.Entities.Graphs;
 
-namespace FluentDot.Entities
+namespace FluentDot.Entities.Nodes
 {
     /// <summary>
     /// A concrete implementation of a <see cref="INodeTarget"/>.
@@ -62,8 +62,8 @@ namespace FluentDot.Entities
         /// </returns>
         public string ToDot() {
             return ElementName == null 
-                       ? Node.Name 
-                       : string.Format("{0}:{1}", Node.Name, ElementName);
+                       ? string.Format("\"{0}\"", Node.Name )
+                       : string.Format("\"{0}\":\"{1}\"", Node.Name, ElementName);
         }
 
         #endregion

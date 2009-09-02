@@ -7,9 +7,9 @@
 */
 
 using FluentDot.Attributes;
-using FluentDot.Entities;
 using FluentDot.Entities.Edges;
 using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using NUnit.Framework;
 using Rhino.Mocks;
 
@@ -27,7 +27,7 @@ namespace FluentDot.Tests.Entities.Edges
             var b = new GraphNode("b");
 
             var edge = new TestEdge(a, b);
-            Assert.AreEqual(edge.ToDot(), "a ** b");
+            Assert.AreEqual(edge.ToDot(), "\"a\" ** \"b\"");
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace FluentDot.Tests.Entities.Edges
             
             var edge = new TestEdge(a, b);
             edge.Attributes.AddAttribute(attribute);
-            Assert.AreEqual(edge.ToDot(), "a ** b [att=custom]");
+            Assert.AreEqual(edge.ToDot(), "\"a\" ** \"b\" [att=custom]");
         }
 
         #endregion

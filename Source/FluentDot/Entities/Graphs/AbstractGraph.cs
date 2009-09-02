@@ -219,7 +219,7 @@ namespace FluentDot.Entities.Graphs
         {
             var sb = new StringBuilder();
 
-            sb.Append(GraphIndicator).Append(" ").Append(Name);
+            sb.Append(GraphIndicator).Append(" \"").Append(Name).Append("\"");
 
             sb.AppendLine(" {");
 

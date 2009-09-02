@@ -10,9 +10,9 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using FluentDot.Attributes;
-using FluentDot.Entities;
 using FluentDot.Entities.Edges;
 using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using NUnit.Framework;
 using Rhino.Mocks;
 
@@ -86,7 +86,7 @@ namespace FluentDot.Tests.Entities.Graphs
 
             attribute.VerifyAllExpectations();
 
-            Assert.IsTrue(Regex.Match(dot, @"^testGraph a {[^}]*graph \[a=bb\][^}]*}$", RegexOptions.Multiline).Success);
+            Assert.IsTrue(Regex.Match(dot, "^testGraph \\\"a\\\" {[^}]*graph \\[a=bb\\][^}]*}$", RegexOptions.Multiline).Success);
         }
        
 

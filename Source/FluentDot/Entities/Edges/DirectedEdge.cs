@@ -6,6 +6,8 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
+using FluentDot.Entities.Nodes;
+
 namespace FluentDot.Entities.Edges
 {
     /// <summary>

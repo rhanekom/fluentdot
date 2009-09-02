@@ -6,9 +6,9 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using FluentDot.Entities;
 using FluentDot.Entities.Edges;
 using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Graphs;
 using NUnit.Framework;
 using Rhino.Mocks;

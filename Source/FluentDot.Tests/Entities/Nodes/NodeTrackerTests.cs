@@ -7,8 +7,8 @@
 */
 
 using System.Linq;
-using FluentDot.Entities;
 using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using NUnit.Framework;
 
 namespace FluentDot.Tests.Entities.Nodes

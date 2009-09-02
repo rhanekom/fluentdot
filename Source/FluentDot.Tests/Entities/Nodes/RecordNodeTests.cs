@@ -6,7 +6,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using FluentDot.Entities;
+using FluentDot.Entities.Nodes;
 using NUnit.Framework;
 
 namespace FluentDot.Tests.Entities.Nodes
@@ -20,7 +20,7 @@ namespace FluentDot.Tests.Entities.Nodes
             var recordGroup = new RecordGroup(new RecordElement("name"));
             Assert.AreEqual(
                 new RecordNode("nodeName", recordGroup).ToDot(),
-                "nodeName [shape=record, label=\"" + recordGroup.ToDot() + "\"]");
+                "\"nodeName\" [shape=record, label=\"" + recordGroup.ToDot() + "\"]");
         }
 
         [Test]
@@ -28,7 +28,7 @@ namespace FluentDot.Tests.Entities.Nodes
             var recordGroup = new RecordGroup(new RecordElement("name"));
             Assert.AreEqual(
                 new RecordNode("nodeName", recordGroup) { HasRoundedCorners = true }.ToDot(),
-                "nodeName [shape=Mrecord, label=\"" + recordGroup.ToDot() + "\"]");
+                "\"nodeName\" [shape=Mrecord, label=\"" + recordGroup.ToDot() + "\"]");
         }
     }
 }
