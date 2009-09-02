@@ -39,7 +39,7 @@ namespace FluentDot.Tests.Entities.Graphs
         [Test]
         public void ToDot_Should_Output_Name()
         {
-            Assert.AreEqual(new GraphNode("ff").ToDot(), "ff");
+            Assert.AreEqual(new GraphNode("ff").ToDot(), "\"ff\"");
         }
 
         [Test]

@@ -9,6 +9,7 @@
 using System;
 using System.Windows.Forms;
 using FluentDot.Samples.Forms;
+using FluentDot.Samples.Properties;
 
 namespace FluentDot.Samples {
     static class Program {
@@ -19,6 +20,9 @@ namespace FluentDot.Samples {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            Fluently.Configure(x => x.DotFilePath.Is(Settings.Default.DotLocation));
+
             Application.Run(new MainForm());
         }
     }

@@ -43,10 +43,12 @@ namespace FluentDot.Samples.Forms
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.listView = new System.Windows.Forms.ListView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.tbDot = new System.Windows.Forms.TextBox();
+            this.pictureBox = new FluentDot.Samples.Forms.ScrollablePictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.timeStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.pictureBox = new FluentDot.Samples.Forms.ScrollablePictureBox();
+            this.tbDot = new System.Windows.Forms.TextBox();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,6 +63,7 @@ namespace FluentDot.Samples.Forms
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -153,15 +156,18 @@ namespace FluentDot.Samples.Forms
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList.Images.SetKeyName(0, "Photo.png");
             // 
-            // tbDot
+            // pictureBox
             // 
-            this.tbDot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbDot.Location = new System.Drawing.Point(0, 0);
-            this.tbDot.Multiline = true;
-            this.tbDot.Name = "tbDot";
-            this.tbDot.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbDot.Size = new System.Drawing.Size(674, 133);
-            this.tbDot.TabIndex = 1;
+            this.pictureBox.AutoScroll = true;
+            this.pictureBox.AutoScrollMinSize = new System.Drawing.Size(200, 200);
+            this.pictureBox.AutoSize = true;
+            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox.Image = null;
+            this.pictureBox.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(503, 360);
+            this.pictureBox.TabIndex = 2;
+            this.pictureBox.TabStop = false;
             // 
             // statusStrip1
             // 
@@ -180,18 +186,30 @@ namespace FluentDot.Samples.Forms
             this.timeStatusLabel.Text = "timeStatusLabel";
             this.timeStatusLabel.Visible = false;
             // 
-            // pictureBox
+            // tbDot
             // 
-            this.pictureBox.AutoScroll = true;
-            this.pictureBox.AutoScrollMinSize = new System.Drawing.Size(200, 200);
-            this.pictureBox.AutoSize = true;
-            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Image = null;
-            this.pictureBox.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(503, 360);
-            this.pictureBox.TabIndex = 2;
-            this.pictureBox.TabStop = false;
+            this.tbDot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbDot.Location = new System.Drawing.Point(0, 0);
+            this.tbDot.Multiline = true;
+            this.tbDot.Name = "tbDot";
+            this.tbDot.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbDot.Size = new System.Drawing.Size(674, 133);
+            this.tbDot.TabIndex = 1;
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.toolsToolStripMenuItem.Text = "&Tools";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Text = "O&ptions";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -235,6 +253,8 @@ namespace FluentDot.Samples.Forms
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel timeStatusLabel;
         private ScrollablePictureBox pictureBox;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
 
     }
 }

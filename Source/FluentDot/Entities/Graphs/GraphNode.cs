@@ -63,7 +63,7 @@ namespace FluentDot.Entities.Graphs
         public virtual string ToDot()
         {
             var attributes = Attributes;
-            return attributes.CurrentAttributes.Count == 0 ? Name : string.Format("\"{0}\" {1}", Name, attributes.ToDot());
+            return attributes.CurrentAttributes.Count == 0 ? string.Format("\"{0}\"", Name) : string.Format("\"{0}\" {1}", Name, attributes.ToDot());
         }
 
         #endregion

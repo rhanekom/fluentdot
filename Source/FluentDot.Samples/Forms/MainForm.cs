@@ -8,9 +8,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using FluentDot.Samples.Demos;
 using System.Diagnostics;
+using System.Windows.Forms;
+using FluentDot.Execution;
+using FluentDot.Samples.Demos;
 
 namespace FluentDot.Samples.Forms
 {
@@ -52,17 +53,27 @@ namespace FluentDot.Samples.Forms
             {
                 var stopWatch = new Stopwatch();
                 stopWatch.Start();
-                
-                string dot;
-                pictureBox.Image = demo.DrawGraph(out dot);
-                tbDot.Text = dot;
-                
-                stopWatch.Stop();
 
-                TimeSpan elapsedTime = stopWatch.Elapsed;
-                timeStatusLabel.Text = String.Format("Time taken : {0}ms ({1} seconds)", 
-                    elapsedTime.TotalMilliseconds, elapsedTime.TotalSeconds);
-                timeStatusLabel.Visible = true;
+                try {
+                    string dot;
+                    pictureBox.Image = demo.DrawGraph(out dot);
+
+                    tbDot.Text = dot;
+                } catch (Exception ex) {
+                    MessageBox.Show(
+                        "Error on generating graph : " + ex.Message +
+                        "  Please ensure that graphviz is installed, and that the configured location is correct.",
+                        "FluentDot.Samples", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                } 
+                finally
+                {
+                    stopWatch.Stop();
+
+                    TimeSpan elapsedTime = stopWatch.Elapsed;
+                    timeStatusLabel.Text = String.Format("Time taken : {0}ms ({1} seconds)",
+                                                         elapsedTime.TotalMilliseconds, elapsedTime.TotalSeconds);
+                    timeStatusLabel.Visible = true;
+                }
             }
         }
 
@@ -97,5 +108,10 @@ namespace FluentDot.Samples.Forms
         }
 
         #endregion
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e) {
+            var options = new Options();
+            options.ShowDialog();
+        }
     }
 }
