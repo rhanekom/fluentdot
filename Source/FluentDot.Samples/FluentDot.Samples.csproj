@@ -62,6 +62,7 @@
     <Compile Include="Demos\Layout\Constraints.cs" />
     <Compile Include="Demos\Layout\EdgeOrdeningIn.cs" />
     <Compile Include="Demos\Layout\EdgeOrdeningOut.cs" />
+    <Compile Include="Demos\Layout\GraphRatio.cs" />
     <Compile Include="Demos\Layout\LandscapeGraph.cs" />
     <Compile Include="Demos\Layout\LabelPlacements.cs" />
     <Compile Include="Demos\Layout\MarginsAndPadding.cs" />

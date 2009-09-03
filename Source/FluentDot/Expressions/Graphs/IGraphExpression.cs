@@ -191,6 +191,20 @@ namespace FluentDot.Expressions.Graphs
         IGraphExpression WithPageDirection(PageDirection pageDirection);
 
         /// <summary>
+        /// Sets the ratio behaviour of the graph.
+        /// </summary>
+        /// <param name="ratio">The ratio of the graph.</param>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithRatio(Ratio ratio);
+
+        /// <summary>
+        /// Sets the ratio value of the graph.
+        /// </summary>
+        /// <param name="value">The value of the ratio.</param>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithRatio(double value);
+
+        /// <summary>
         /// Sets the defaults entity values on this graph.
         /// </summary>
         /// <value>A defaults expression for setting default values for entities on the graph.</value>

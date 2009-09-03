@@ -124,6 +124,13 @@ namespace FluentDot.Expressions.Graphs
         IClusterExpression WithPenWidth(double penWidth);
 
         /// <summary>
+        /// Set number of peripheries used in the cluster boundaries.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>The current expression instance.</returns>
+        IClusterExpression WithPeripheries(int value);
+
+        /// <summary>
         /// Edits the node collection for this cluster.
         /// </summary>
         /// <value>The expression for acting upon the node collection.</value>

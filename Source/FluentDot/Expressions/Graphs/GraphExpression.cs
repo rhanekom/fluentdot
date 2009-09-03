@@ -307,7 +307,31 @@ namespace FluentDot.Expressions.Graphs
         public IGraphExpression WithPageDirection(PageDirection pageDirection)
         {
             graph.Attributes.AddAttribute(new PageDirectionAttribute(pageDirection));
-            return this;}
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the ratio behaviour of the graph.
+        /// </summary>
+        /// <param name="ratio">The ratio of the graph.</param>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression WithRatio(Ratio ratio)
+        {
+            graph.Attributes.AddAttribute(new RatioAttribute(ratio));
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the ratio value of the graph.
+        /// </summary>
+        /// <param name="value">The value of the ratio.</param>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression WithRatio(double value)
+        {
+            graph.Attributes.AddAttribute(new RatioAttribute(value));
+            return this;
+        }
+
 
         /// <summary>
         /// Sets the defaults entity values on this graph.

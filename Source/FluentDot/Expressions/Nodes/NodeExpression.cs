@@ -6,6 +6,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
+using System;
 using System.Drawing;
 using FluentDot.Attributes;
 using FluentDot.Attributes.Nodes;
@@ -273,6 +274,17 @@ namespace FluentDot.Expressions.Nodes
         public INodeExpression WithPenWidth(double penWidth)
         {
             node.Attributes.AddAttribute(new PenWidthAttribute(penWidth));
+            return this;
+        }
+
+        /// <summary>
+        /// Set number of peripheries used in the polygonal shapes.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>The current expression instance.</returns>
+        public INodeExpression WithPeripheries(int value)
+        {
+            node.Attributes.AddAttribute(new PeripheriesAttribute(value));
             return this;
         }
 

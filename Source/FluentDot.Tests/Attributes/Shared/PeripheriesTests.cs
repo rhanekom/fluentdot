@@ -13,19 +13,19 @@ using NUnit.Framework;
 namespace FluentDot.Tests.Attributes.Shared {
     
     [TestFixture]
-    public class PenWidthAttributeTests {
+    public class PeripheriesTests {
 
         [Test]
-        public void ToDot_Produces_Correct_Outpu()
+        public void ToDot_Should_Produce_Correct_Output()
         {
-            Assert.AreEqual(new PenWidthAttribute(1.2).ToDot(), "penwidth=1.2");
+            Assert.AreEqual(new PeripheriesAttribute(2).ToDot(), "peripheries=2");
         }
 
         [Test]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Constructor_Should_Throw_For_Value_Less_Than_0()
+        public void Constructor_Should_Throw_If_Value_Less_Than_0()
         {
-            new PenWidthAttribute(-0.1);
+            new PeripheriesAttribute(-1);
         }
     }
 }

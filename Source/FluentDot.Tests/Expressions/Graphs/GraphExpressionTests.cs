@@ -294,6 +294,19 @@ namespace FluentDot.Tests.Expressions.Graphs
                                  typeof(PageAttribute), new PointValue(2.3f, 4.5f));
         }
 
+        [Test]
+        public void WithRatio_Ratio_Sets_Attribute()
+        {
+            AssertAttributeAdded(expression => expression.WithRatio(Ratio.Compress),
+                                 typeof(RatioAttribute), Ratio.Compress);
+        }
+
+        [Test]
+        public void WithRatio_Value_Sets_Attribute() {
+            AssertAttributeAdded(expression => expression.WithRatio(2.4),
+                                 typeof(RatioAttribute), 2.4);
+        }
+
         #endregion
 
         #region Private Members

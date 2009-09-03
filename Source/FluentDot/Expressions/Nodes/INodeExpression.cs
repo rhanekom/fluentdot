@@ -171,5 +171,12 @@ namespace FluentDot.Expressions.Nodes
         /// <param name="penWidth">Width of the pen used to draw the node.</param>
         /// <returns>The current expression instance.</returns>
         INodeExpression WithPenWidth(double penWidth);
+
+        /// <summary>
+        /// Set number of peripheries used in the polygonal shapes.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>The current expression instance.</returns>
+        INodeExpression WithPeripheries(int value);
     }
 }

@@ -214,6 +214,21 @@ namespace FluentDot.Expressions.Graphs
         }
 
         /// <summary>
+        /// Set number of peripheries used in the cluster boundaries.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>The current expression instance.</returns>
+        public IClusterExpression WithPeripheries(int value)
+        {
+            if (value > 1) {
+                throw new ArgumentOutOfRangeException("value", "Peripheries for clusters can not be greater than 1.");
+            }
+
+            cluster.Attributes.AddAttribute(new PeripheriesAttribute(value));
+            return this;
+        }
+
+        /// <summary>
         /// Edits the node collection for this cluster.
         /// </summary>
         /// <value>The expression for acting upon the node collection.</value>

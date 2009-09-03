@@ -178,6 +178,12 @@ namespace FluentDot.Tests.Expressions.Nodes
                                  typeof(PenWidthAttribute), 1.3);
         }
 
+        [Test]
+        public void WithPeripheries_Should_Set_Peripheries() {
+            AssertAttributeAdded(expression => expression.WithPeripheries(2),
+                                 typeof(PeripheriesAttribute), 2);
+        }
+
         #endregion
 
         #region Private Members

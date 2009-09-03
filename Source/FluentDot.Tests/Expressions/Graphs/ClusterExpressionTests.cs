@@ -130,6 +130,21 @@ namespace FluentDot.Tests.Expressions.Graphs
                                  typeof(PenWidthAttribute), 1.3);
         }
 
+        [Test]
+        public void WithPeripheries_Should_Set_Peripheries()
+        {
+            AssertAttributeAdded(expression => expression.WithPeripheries(1),
+                                 typeof(PeripheriesAttribute), 1);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void WithPeripheries_Should_Throw_If_Value_Larger_Than_1() {
+            AssertAttributeAdded(expression => expression.WithPeripheries(2),
+                                 typeof(PeripheriesAttribute), 2);
+        }
+
+
 
         #endregion
 
