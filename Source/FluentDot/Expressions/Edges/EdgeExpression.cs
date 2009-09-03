@@ -6,6 +6,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
+using System;
 using System.Drawing;
 using FluentDot.Attributes;
 using FluentDot.Attributes.Edges;
@@ -177,6 +178,17 @@ namespace FluentDot.Expressions.Edges
         public IEdgeExpression DoNotJustify()
         {
             edge.Attributes.AddAttribute(new NoJustifyAttribute(true));
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the width of the pen color used to draw the edge.
+        /// </summary>
+        /// <param name="penWidth">Width of the pen used to draw the edge.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithPenWidth(double penWidth)
+        {
+            edge.Attributes.AddAttribute(new PenWidthAttribute(penWidth));
             return this;
         }
 

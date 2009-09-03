@@ -88,6 +88,7 @@
     <Compile Include="Demos\SimpleGraphs\SimpleUndirectedGraph.cs" />
     <Compile Include="Demos\VisualElements\NodeSizes.cs" />
     <Compile Include="Demos\VisualElements\NodeStyles.cs" />
+    <Compile Include="Demos\VisualElements\PenModifiers.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

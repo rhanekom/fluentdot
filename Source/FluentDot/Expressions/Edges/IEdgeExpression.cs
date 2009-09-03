@@ -191,6 +191,13 @@ namespace FluentDot.Expressions.Edges
         IEdgeExpression DoNotJustify();
 
         /// <summary>
+        /// Sets the width of the pen color used to draw the edge.
+        /// </summary>
+        /// <param name="penWidth">Width of the pen used to draw the edge.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithPenWidth(double penWidth);
+
+        /// <summary>
         /// Specifies a custom attribute that should be applied to the edge.
         /// </summary>
         /// <param name="attribute">The attribute to apply to the edge.</param>

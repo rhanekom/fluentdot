@@ -6,12 +6,10 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System;
 using System.Drawing;
 using FluentDot.Attributes;
 using FluentDot.Attributes.Nodes;
 using FluentDot.Attributes.Shared;
-using FluentDot.Expressions.Edges;
 
 namespace FluentDot.Expressions.Nodes
 {
@@ -19,16 +17,7 @@ namespace FluentDot.Expressions.Nodes
     /// An expression for adding nodes.
     /// </summary>
     public interface INodeExpression {
-
-        /*
-        /// <summary>
-        /// Adds an edge to the graph emanating from the current node with the specified configuration.
-        /// </summary>
-        /// <param name="edgeConfiguration">The edge configuration to apply to the edge.</param>
-        /// <returns>The current expression instance.</returns>
-        INodeExpression WithEdgeTo(Action<IEdgeDestinationSelectionExpression> edgeConfiguration);
-        */
-
+        
         /// <summary>
         /// Specifies the label to apply to the node.
         /// </summary>
@@ -175,5 +164,12 @@ namespace FluentDot.Expressions.Nodes
         /// </summary>
         /// <returns>The current expression instance.</returns>
         INodeExpression DoNotJustify();
+
+        /// <summary>
+        /// Sets the width of the pen color used to draw the node.
+        /// </summary>
+        /// <param name="penWidth">Width of the pen used to draw the node.</param>
+        /// <returns>The current expression instance.</returns>
+        INodeExpression WithPenWidth(double penWidth);
     }
 }

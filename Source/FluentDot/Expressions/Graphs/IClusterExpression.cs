@@ -110,6 +110,20 @@ namespace FluentDot.Expressions.Graphs
         IClusterExpression WithStyle(ClusterStyle style);
 
         /// <summary>
+        /// Sets the pen color used to draw the bounding box of the cluster.
+        /// </summary>
+        /// <param name="penColor">The pen color used to draw the bounding box of the cluster.</param>
+        /// <returns>The current expression instance.</returns>
+        IClusterExpression WithPenColor(Color penColor);
+
+        /// <summary>
+        /// Sets the width of the pen color used to draw the bounding box of the cluster.
+        /// </summary>
+        /// <param name="penWidth">Width of the pen used to draw the bounding box of the cluster.</param>
+        /// <returns>The current expression instance.</returns>
+        IClusterExpression WithPenWidth(double penWidth);
+
+        /// <summary>
         /// Edits the node collection for this cluster.
         /// </summary>
         /// <value>The expression for acting upon the node collection.</value>

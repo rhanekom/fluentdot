@@ -1,0 +1,35 @@
+﻿/*
+ Copyright 2009 Riaan Hanekom
+
+ This program is licensed under the GNU Lesser General Public License (LGPL).  You should 
+ have received a copy of the license along with the source code.  If not, an online copy
+ of the license can be found at http://www.gnu.org/copyleft/lesser.html.
+*/
+
+using System;
+
+namespace FluentDot.Attributes.Shared {
+
+    /// <summary>
+    /// An attribute that can set the pen width on clusters, nodes, and edges.
+    /// </summary>
+    public class PenWidthAttribute : AbstractDotAttribute {
+
+        #region Construction
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PenWidthAttribute"/> class.
+        /// </summary>
+        /// <param name="width">The width.</param>
+        public PenWidthAttribute(double width)
+            : base("penwidth", width, false)
+        {
+            if (width < 0)
+            {
+                throw new ArgumentOutOfRangeException("width", "Width can not be less than 0.");
+            }
+        }
+
+        #endregion
+    }
+}

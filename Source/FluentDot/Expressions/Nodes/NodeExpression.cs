@@ -265,6 +265,17 @@ namespace FluentDot.Expressions.Nodes
             return this;
         }
 
+        /// <summary>
+        /// Sets the width of the pen color used to draw the node.
+        /// </summary>
+        /// <param name="penWidth">Width of the pen used to draw the node.</param>
+        /// <returns>The current expression instance.</returns>
+        public INodeExpression WithPenWidth(double penWidth)
+        {
+            node.Attributes.AddAttribute(new PenWidthAttribute(penWidth));
+            return this;
+        }
+
         #endregion
     }
 }

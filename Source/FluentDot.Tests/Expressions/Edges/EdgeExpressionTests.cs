@@ -202,6 +202,12 @@ namespace FluentDot.Tests.Expressions.Edges
                                  typeof(NoJustifyAttribute), new BooleanValue(true));
         }
 
+        [Test]
+        public void WithPenWidth_Should_Set_PenWidth() {
+            AssertAttributeAdded(expression => expression.WithPenWidth(1.3),
+                                 typeof(PenWidthAttribute), 1.3);
+        }
+
         #endregion
 
         #region Private Members

@@ -61,6 +61,7 @@
     <Compile Include="Attributes\Graphs\PageAttribute.cs" />
     <Compile Include="Attributes\Graphs\PageDirection.cs" />
     <Compile Include="Attributes\Graphs\PageDirectionAttribute.cs" />
+    <Compile Include="Attributes\Graphs\PenColorAttribute.cs" />
     <Compile Include="Attributes\Graphs\VerticalDirection.cs" />
     <Compile Include="Attributes\Shared\BooleanValue.cs" />
     <Compile Include="Attributes\Graphs\CenterAttribute.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Attributes\Shared\NoJustifyAttribute.cs" />
     <Compile Include="Attributes\Graphs\OrderingAttribute.cs" />
     <Compile Include="Attributes\Nodes\OrientationAttribute.cs" />
+    <Compile Include="Attributes\Shared\PenWidthAttribute.cs" />
     <Compile Include="Attributes\Shared\PointValue.cs" />
     <Compile Include="Attributes\Graphs\RotateAttribute.cs" />
     <Compile Include="Attributes\Shared\StyleAttribute.cs" />

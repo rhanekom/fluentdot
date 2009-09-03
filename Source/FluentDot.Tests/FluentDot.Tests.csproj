@@ -69,6 +69,7 @@
     <Compile Include="Attributes\Graphs\PageAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\PageDirectionAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\PageDirectionTests.cs" />
+    <Compile Include="Attributes\Graphs\PenColorAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\VerticalDirectionTests.cs" />
     <Compile Include="Attributes\Shared\BooleanValueTests.cs" />
     <Compile Include="Attributes\Graphs\CenterAttributeTests.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Attributes\Shared\NoJustifyAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\OrderingAttributeTests.cs" />
     <Compile Include="Attributes\Nodes\OrientationAttributeTests.cs" />
+    <Compile Include="Attributes\Shared\PenWidthAttributeTests.cs" />
     <Compile Include="Attributes\Shared\PointValueTests.cs" />
     <Compile Include="Attributes\Graphs\RotateAttributeTests.cs" />
     <Compile Include="Attributes\Shared\StyleAttributeTests.cs" />

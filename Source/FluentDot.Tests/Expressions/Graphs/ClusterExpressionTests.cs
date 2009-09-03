@@ -116,6 +116,21 @@ namespace FluentDot.Tests.Expressions.Graphs
                                  typeof(StyleAttribute), ClusterStyle.Filled);
         }
 
+        [Test]
+        public void WithPenColor_Should_Set_Pen_Color()
+        {
+            AssertAttributeAdded(expression => expression.WithPenColor(Color.BlanchedAlmond),
+                                 typeof(PenColorAttribute), new ColorValue(Color.BlanchedAlmond));
+        }
+
+        [Test]
+        public void WithPenWidth_Should_Set_PenWidth()
+        {
+            AssertAttributeAdded(expression => expression.WithPenWidth(1.3),
+                                 typeof(PenWidthAttribute), 1.3);
+        }
+
+
         #endregion
 
         #region Private Members
