@@ -12,7 +12,7 @@ namespace FluentDot.Attributes.Shared
 {
     /// <summary>
     /// An attribute that sets the margin around the graph or the label of a node.  Nothing is drawn in the margin - if you want to extend the
-    /// background of the graph, use the <see cref="PadAttribute"/>.
+    /// background of the graph, use the <see cref="FluentDot.Attributes.Graphs.PadAttribute"/>.
     /// </summary>
     public class MarginAttribute : AbstractDotAttribute {
 

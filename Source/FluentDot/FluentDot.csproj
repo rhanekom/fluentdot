@@ -54,9 +54,14 @@
     <Compile Include="Attributes\Edges\ArrowTailAttribute.cs" />
     <Compile Include="Attributes\Graphs\BackgroundColorAttribute.cs" />
     <Compile Include="Attributes\Graphs\ClusterStyle.cs" />
+    <Compile Include="Attributes\Graphs\HorizontalDirection.cs" />
     <Compile Include="Attributes\Graphs\OutputMode.cs" />
     <Compile Include="Attributes\Graphs\OutputOrderAttribute.cs" />
     <Compile Include="Attributes\Graphs\PadAttribute.cs" />
+    <Compile Include="Attributes\Graphs\PageAttribute.cs" />
+    <Compile Include="Attributes\Graphs\PageDirection.cs" />
+    <Compile Include="Attributes\Graphs\PageDirectionAttribute.cs" />
+    <Compile Include="Attributes\Graphs\VerticalDirection.cs" />
     <Compile Include="Attributes\Shared\BooleanValue.cs" />
     <Compile Include="Attributes\Graphs\CenterAttribute.cs" />
     <Compile Include="Attributes\Graphs\ConcentrateAttribute.cs" />

@@ -11,27 +11,27 @@ using FluentDot.Common;
 namespace FluentDot.Attributes.Graphs
 {
     /// <summary>
-    /// Specifies the manner in which the graph is exported.
+    /// Specifies the horizontal direction in which rectangle can be traversed.
     /// </summary>
-    public class OutputMode : StringEnum, IDotElement
+    public class HorizontalDirection : StringEnum, IDotElement
     {
         #region Constants
 
-        public static readonly OutputMode BreadthFirst = new OutputMode("breadthfirst");
-        public static readonly OutputMode NodesFirst = new OutputMode("nodesfirst");
-        public static readonly OutputMode EdgesFirst = new OutputMode("edgesfirst");
+        public static readonly HorizontalDirection LeftToRight = new HorizontalDirection("L");
+        public static readonly HorizontalDirection RightToLeft = new HorizontalDirection("R");
 
         #endregion
 
         #region Construction
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OutputMode"/> class.
+        /// Initializes a new instance of the <see cref="HorizontalDirection"/> class.
         /// </summary>
         /// <param name="value">The value that this instance represents..</param>
-        public OutputMode(string value) : base(value)
+        public HorizontalDirection(string value)
+            : base(value)
         {
-            
+
         }
 
         #endregion

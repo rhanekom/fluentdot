@@ -62,9 +62,14 @@
     <Compile Include="Attributes\Edges\ArrowTailAttributeTest.cs" />
     <Compile Include="Attributes\Graphs\BackgroundColorAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\ClusterStyleTests.cs" />
+    <Compile Include="Attributes\Graphs\HorizontalDirectionTests.cs" />
     <Compile Include="Attributes\Graphs\OutputModeTests.cs" />
     <Compile Include="Attributes\Graphs\OutputOrderAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\PadAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\PageAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\PageDirectionAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\PageDirectionTests.cs" />
+    <Compile Include="Attributes\Graphs\VerticalDirectionTests.cs" />
     <Compile Include="Attributes\Shared\BooleanValueTests.cs" />
     <Compile Include="Attributes\Graphs\CenterAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\ConcentrateAttributeTests.cs" />

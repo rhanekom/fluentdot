@@ -174,6 +174,23 @@ namespace FluentDot.Expressions.Graphs
         IGraphExpression WithPadding(float x, float y);
 
         /// <summary>
+        /// Sets the output of the graph to split among pages with the specified width and height.
+        /// Pages will be output in the direction set by the page direction.
+        /// </summary>
+        /// <remarks>Only applicable for PostScript.</remarks>
+        /// <param name="pageWidth">Width of the page.</param>
+        /// <param name="pageHeight">Height of the page.</param>
+        /// <returns>The current graph expression.</returns>
+        IGraphExpression WithPageSize(float pageWidth, float pageHeight);
+
+        /// <summary>
+        /// If the graph is set as paged, this specifies the order in which pages are emitted.
+        /// </summary>
+        /// <param name="pageDirection">The page direction in which pages are emitted.</param>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithPageDirection(PageDirection pageDirection);
+
+        /// <summary>
         /// Sets the defaults entity values on this graph.
         /// </summary>
         /// <value>A defaults expression for setting default values for entities on the graph.</value>

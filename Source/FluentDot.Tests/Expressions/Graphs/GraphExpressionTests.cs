@@ -280,6 +280,20 @@ namespace FluentDot.Tests.Expressions.Graphs
                                  typeof(PadAttribute), new PointValue(0.1f, 0.09f));
         }
 
+        [Test]
+        public void WithPageDirection_Should_Set_PageDirection()
+        {
+            AssertAttributeAdded(expression => expression.WithPageDirection(PageDirection.BottomToTopRightToLeft),
+                                 typeof(PageDirectionAttribute), PageDirection.BottomToTopRightToLeft);
+        }
+
+        [Test]
+        public void WithPageSize_Sets_Page_Attribute()
+        {
+            AssertAttributeAdded(expression => expression.WithPageSize(2.3f, 4.5f),
+                                 typeof(PageAttribute), new PointValue(2.3f, 4.5f));
+        }
+
         #endregion
 
         #region Private Members

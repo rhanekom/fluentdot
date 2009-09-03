@@ -17,9 +17,24 @@ namespace FluentDot.Attributes.Edges
 
         #region Constants
 
+        /// <summary>
+        /// Sets the edge arrow to point to the tail node of the edge.
+        /// </summary>
         public static readonly ArrowDirection Forward = new ArrowDirection("forward");
+
+        /// <summary>
+        /// Sets the edge arrow to point to the head node of the edge.
+        /// </summary>
         public static readonly ArrowDirection Back = new ArrowDirection("back");
+
+        /// <summary>
+        /// Sets the edge arrow to point to both the head node and the tail node of the edge.
+        /// </summary>
         public static readonly ArrowDirection Both = new ArrowDirection("both");
+
+        /// <summary>
+        /// Configures the edge to have no arrow.
+        /// </summary>
         public static readonly ArrowDirection None = new ArrowDirection("none");
         
         #endregion

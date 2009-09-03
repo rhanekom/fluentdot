@@ -17,7 +17,6 @@ namespace FluentDot.Attributes.Edges
     /// </summary>
     public class ArrowShape : StringEnum, IArrowShape
     {
-
         #region Constants
 
         public static ArrowShape Box = new ArrowShape("box", true, true);
