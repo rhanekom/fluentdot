@@ -74,10 +74,10 @@ namespace FluentDot.Entities.Graphs
         void AddCluster(ICluster cluster);
 
         /// <summary>
-        /// Gets the cluster lookup.
+        /// Gets the sub graph lookup.
         /// </summary>
-        /// <value>The cluster lookup.</value>
-        IClusterTracker ClusterLookup { get; }
+        /// <value>The sub graph lookup.</value>
+        ISubGraphTracker SubGraphLookup { get; }
 
         /// <summary>
         /// Gets the node defaults.

@@ -6,12 +6,18 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-namespace FluentDot.Entities.Graphs
+namespace FluentDot.Samples.Core.Demos.API
 {
-    /// <summary>
-    /// Interface for clusters (subgraphs with a bounding box);
-    /// </summary>
-    public interface ICluster : ISubGraph {
+    public static class IntExtensions
+    {
+        public static bool IsEven(this int value)
+        {
+            return value % 2 == 0;
+        }
 
+        public static bool IsOdd(this int value)
+        {
+            return !IsEven(value);
+        }
     }
 }

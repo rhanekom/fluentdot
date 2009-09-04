@@ -1,4 +1,4 @@
-/*
+﻿/*
  Copyright 2009 Riaan Hanekom
 
  This program is licensed under the GNU Lesser General Public License (LGPL).  You should 
@@ -11,9 +11,15 @@ using System;
 namespace FluentDot.Entities.Graphs
 {
     /// <summary>
-    /// An implementation of a cluster.
+    /// An implementation of a subgraph.
     /// </summary>
-    public class Cluster : SubGraph, ICluster {
+    public class SubGraph : AbstractGraph, ISubGraph
+    {
+        #region Globals
+
+        private readonly GraphType subGraphType = GraphType.Undirected;
+
+        #endregion
 
         #region Construction
 
@@ -21,44 +27,32 @@ namespace FluentDot.Entities.Graphs
         /// Initializes a new instance of the <see cref="Cluster"/> class.
         /// </summary>
         /// <param name="parentGraph">The parent graph.</param>
-        public Cluster(IGraph parentGraph)
-            : base(parentGraph)
+        public SubGraph(IGraph parentGraph)
+            : base(parentGraph.NodeLookup, parentGraph.EdgeLookup)
         {
-            
+            subGraphType = parentGraph.Type;
+            Name = Guid.NewGuid().ToString("N");
         }
-
+        
         #endregion
 
         #region AbstractGraph Members
 
         /// <summary>
-        /// Gets or sets the name of the graph.
+        /// Gets or sets the type of graph this instance represents.
         /// </summary>
-        /// <value>The name of the graph.</value>
-        public override sealed string Name {
-            get { return base.Name; }
-            set {
-                if (String.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentNullException("value");
-                }
-
-                if (value.StartsWith("cluster")) 
-                {
-                    base.Name = value;
-                } 
-                else 
-                {
-                    base.Name = "cluster" + value;
-                }
-            }
+        /// <value>The type of graph.</value>
+        public override GraphType Type
+        {
+            get { return subGraphType; }
         }
 
         /// <summary>
         /// Gets the graph indicator.
         /// </summary>
         /// <value>The graph indicator.</value>
-        protected override string GraphIndicator {
+        protected override string GraphIndicator
+        {
             get { return "subgraph"; }
         }
 

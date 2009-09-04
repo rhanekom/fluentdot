@@ -44,12 +44,12 @@ namespace FluentDot.Expressions.Graphs
         /// </summary>
         /// <param name="addExpression">The add expression to modify.</param>
         /// <returns>The parent expression instance.</returns>
-        public IGraphExpression Add(System.Action<IClusterExpression> addExpression) {
+        public IGraphExpression Add(System.Action<IClusterCollectionAddExpression> addExpression)
+        {
             if (addExpression != null)
             {
-                var expression = new ClusterExpression(graph);
+                var expression = new ClusterCollectionAddExpression(graph);
                 addExpression(expression);
-                graph.AddCluster(expression.Cluster);
             }
 
             return parent;

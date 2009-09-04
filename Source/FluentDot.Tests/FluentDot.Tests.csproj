@@ -126,13 +126,14 @@
     <Compile Include="Attributes\Edges\ArrowDirectionTests.cs" />
     <Compile Include="Attributes\Edges\ArrowShapeTests.cs" />
     <Compile Include="Entities\Graphs\ClusterTests.cs" />
-    <Compile Include="Entities\Graphs\ClusterTrackerTests.cs" />
+    <Compile Include="Entities\Graphs\SubGraphTrackerTests.cs" />
     <Compile Include="Attributes\Edges\CompositeArrowShapeTests.cs" />
     <Compile Include="Entities\Edges\DirectedEdgeTests.cs" />
     <Compile Include="Entities\Graphs\DirectedGraphTests.cs" />
     <Compile Include="Entities\Edges\AbstractEdgeTests.cs" />
     <Compile Include="Attributes\Edges\EdgeStyleTests.cs" />
     <Compile Include="Entities\Edges\EdgeTrackerTests.cs" />
+    <Compile Include="Entities\Graphs\SubGraphTests.cs" />
     <Compile Include="Entities\Nodes\ElementTrackerTests.cs" />
     <Compile Include="Entities\Graphs\GraphNodeTests.cs" />
     <Compile Include="Attributes\Graphs\JustificationTests.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Expectations\CodeFormat.cs" />
     <Compile Include="Expressions\Conventions\ConventionCollectionModifiersExpressionTests.cs" />
     <Compile Include="Expressions\Conventions\ConventionCollectionSetupExpressionTests.cs" />
+    <Compile Include="Expressions\Graphs\ClusterCollectionAddExpressionTests.cs" />
     <Compile Include="Expressions\Graphs\ClusterCollectionModifiersExpressionTests.cs" />
     <Compile Include="Expressions\Graphs\ClusterExpressionTests.cs" />
     <Compile Include="Expressions\Graphs\DefaultsExpressionTests.cs" />

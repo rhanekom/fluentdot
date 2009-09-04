@@ -6,19 +6,19 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-namespace FluentDot.Expressions.Nodes
+namespace FluentDot.Expressions.Graphs
 {
     /// <summary>
     /// An expression for adding nodes in a graph.
     /// </summary>
-    public interface INodeCollectionAddExpression
+    public interface IClusterCollectionAddExpression
     {
 
         /// <summary>
-        /// Adds a node with the specified name to the graph.
+        /// Adds a cluster with the specified name to the graph.
         /// </summary>
-        /// <param name="name">The name of the node to create.</param>
-        /// <returns>A node expression for configuring the node.</returns>
-        INodeExpression WithName(string name);
+        /// <param name="name">The name of the cluster to create.</param>
+        /// <returns>A cluster expression for configuring the clsuter.</returns>
+        IClusterExpression WithName(string name);
     }
 }

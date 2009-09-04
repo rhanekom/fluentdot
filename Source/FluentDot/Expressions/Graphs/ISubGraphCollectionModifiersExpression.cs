@@ -13,13 +13,14 @@ namespace FluentDot.Expressions.Graphs
     /// <summary>
     /// An expression for modifying a node collection.
     /// </summary>
-    public interface IClusterCollectionModifiersExpression {
+    public interface ISubGraphCollectionModifiersExpression
+    {
 
         /// <summary>
-        /// Adds clusters to the graph.
+        /// Adds sub graphs to the graph.
         /// </summary>
         /// <param name="addExpression">The add expression to modify.</param>
         /// <returns>The parent expression instance.</returns>
-        IGraphExpression Add(Action<IClusterCollectionAddExpression> addExpression);
+        IGraphExpression Add(Action<ISubGraphCollectionAddExpression> addExpression);
     }
 }

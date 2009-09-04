@@ -6,12 +6,17 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-namespace FluentDot.Entities.Graphs
+namespace FluentDot.Samples.Core.Demos
 {
     /// <summary>
-    /// Interface for clusters (subgraphs with a bounding box);
+    /// The type of demo.
     /// </summary>
-    public interface ICluster : ISubGraph {
-
+    public enum DemoType {
+        
+        SimpleGraphs = 0,
+        VisualElements = 1,
+        Layout = 2,
+        AdvancedGraphs = 3,
+        API = 4
     }
 }

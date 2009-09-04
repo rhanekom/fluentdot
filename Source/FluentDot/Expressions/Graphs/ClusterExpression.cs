@@ -57,17 +57,6 @@ namespace FluentDot.Expressions.Graphs
         #region IClusterExpression Memebers
 
         /// <summary>
-        /// Sets the name of the cluster.
-        /// </summary>
-        /// <param name="clusterName">Name of the cluster.</param>
-        /// <returns>The current expression instance.</returns>
-        public IClusterExpression WithName(string clusterName)
-        {
-            cluster.Name = clusterName;
-            return this;
-        }
-
-        /// <summary>
         /// Sets the background color of the cluster.
         /// </summary>
         /// <param name="color">The color to set the background to.</param>

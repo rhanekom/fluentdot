@@ -99,8 +99,8 @@ namespace FluentDot.Tests.Entities.Graphs
             var graph = new TestGraph();
             graph.AddCluster(cluster);
 
-            Assert.AreEqual(graph.ClusterLookup.Clusters.Count(), 1);
-            Assert.AreEqual(graph.ClusterLookup.Clusters.First(), cluster);
+            Assert.AreEqual(graph.SubGraphLookup.Clusters.Count(), 1);
+            Assert.AreEqual(graph.SubGraphLookup.Clusters.First(), cluster);
         }
 
         #endregion

@@ -24,14 +24,14 @@ namespace FluentDot.Entities.Graphs
 
         private readonly INodeTracker nodeTracker;
         private readonly IEdgeTracker edgeTracker;
-        private readonly IClusterTracker clusterTracker;
+        private readonly ISubGraphTracker subGraphTracker;
         private readonly IConventionTracker conventionTracker = new ConventionTracker();
         private IEntityDefaults nodeDefaults;
         private IEntityDefaults edgeDefaults;
 
         private readonly List<IGraphNode> nodes = new List<IGraphNode>();
         private readonly List<IEdge> edges = new List<IEdge>();
-
+        
         #endregion
 
         #region Construction
@@ -61,7 +61,7 @@ namespace FluentDot.Entities.Graphs
 
             this.nodeTracker = nodeTracker;
             this.edgeTracker = edgeTracker;
-            clusterTracker = new ClusterTracker();
+            subGraphTracker = new SubGraphTracker();
         }
 
         #endregion
@@ -151,16 +151,16 @@ namespace FluentDot.Entities.Graphs
         /// <param name="cluster">The cluster to add.</param>
         public void AddCluster(ICluster cluster)
         {
-            clusterTracker.AddCluster(cluster);
+            subGraphTracker.AddSubGraph(cluster);
         }
 
         /// <summary>
         /// Gets the cluster lookup.
         /// </summary>
         /// <value>The cluster lookup.</value>
-        public IClusterTracker ClusterLookup
+        public ISubGraphTracker SubGraphLookup
         {
-            get { return clusterTracker; }
+            get { return subGraphTracker; }
         }
 
         /// <summary>
@@ -268,7 +268,7 @@ namespace FluentDot.Entities.Graphs
         }
 
         private void WriteClusters(StringBuilder sb) {
-            foreach (var cluster in clusterTracker.Clusters) {
+            foreach (var cluster in subGraphTracker.Clusters) {
                 sb.AppendLine(cluster.ToDot());
             }
 

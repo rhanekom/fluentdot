@@ -50,46 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Demos\AbstractGraphDemo.cs" />
-    <Compile Include="Demos\API\Conventions.cs" />
-    <Compile Include="Demos\API\OddToEvenEdgeConvention.cs" />
-    <Compile Include="Demos\API\EvenNodeColouringConvention.cs" />
-    <Compile Include="Demos\API\EvenToOddEdgeConvention.cs" />
-    <Compile Include="Demos\API\IntExtensions.cs" />
-    <Compile Include="Demos\API\NodeTagLabelConvention.cs" />
-    <Compile Include="Demos\API\OddNodeColouringConvention.cs" />
-    <Compile Include="Demos\Layout\Clusters.cs" />
-    <Compile Include="Demos\Layout\Constraints.cs" />
-    <Compile Include="Demos\Layout\EdgeOrdeningIn.cs" />
-    <Compile Include="Demos\Layout\EdgeOrdeningOut.cs" />
-    <Compile Include="Demos\Layout\GraphRatio.cs" />
-    <Compile Include="Demos\Layout\LandscapeGraph.cs" />
-    <Compile Include="Demos\Layout\LabelPlacements.cs" />
-    <Compile Include="Demos\Layout\MarginsAndPadding.cs" />
-    <Compile Include="Demos\Layout\NodeOrientation.cs" />
-    <Compile Include="Demos\Layout\NodeSeperation.cs" />
-    <Compile Include="Demos\Layout\Records.cs" />
-    <Compile Include="Demos\VisualElements\EdgeLabels.cs" />
-    <Compile Include="Demos\VisualElements\ArrowDirections.cs" />
-    <Compile Include="Demos\VisualElements\ArrowShapeModifiers.cs" />
-    <Compile Include="Demos\VisualElements\ArrowShapes.cs" />
-    <Compile Include="Demos\DemoRegister.cs" />
-    <Compile Include="Demos\DemoType.cs" />
-    <Compile Include="Demos\VisualElements\ArrowSizes.cs" />
-    <Compile Include="Demos\VisualElements\CompositeArrowShapes.cs" />
-    <Compile Include="Demos\VisualElements\EdgeStyles.cs" />
-    <Compile Include="Demos\VisualElements\Fonts.cs" />
-    <Compile Include="Demos\VisualElements\GraphBackgroundColor.cs" />
-    <Compile Include="Demos\VisualElements\GraphDefaults.cs" />
-    <Compile Include="Demos\VisualElements\NodeAndEdgeColors.cs" />
-    <Compile Include="Demos\IGraphDemo.cs" />
-    <Compile Include="Demos\VisualElements\NodeImages.cs" />
-    <Compile Include="Demos\VisualElements\NodeShapes.cs" />
-    <Compile Include="Demos\SimpleGraphs\SimpleDirectedGraph.cs" />
-    <Compile Include="Demos\SimpleGraphs\SimpleUndirectedGraph.cs" />
-    <Compile Include="Demos\VisualElements\NodeSizes.cs" />
-    <Compile Include="Demos\VisualElements\NodeStyles.cs" />
-    <Compile Include="Demos\VisualElements\PenModifiers.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,19 +98,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FluentDot.Samples.Core\FluentDot.Samples.Core.csproj">
+      <Project>{8ADB4D65-CE5C-461C-B0C6-693596428DC6}</Project>
+      <Name>FluentDot.Samples.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FluentDot\FluentDot.csproj">
       <Project>{B6D86A70-C795-451D-B81F-0331ED3C79A6}</Project>
       <Name>FluentDot</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Images\FullMoon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Science.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Photo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

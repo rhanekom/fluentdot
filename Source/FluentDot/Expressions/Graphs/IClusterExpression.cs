@@ -20,13 +20,6 @@ namespace FluentDot.Expressions.Graphs
     public interface IClusterExpression {
 
         /// <summary>
-        /// Sets the name of the cluster.
-        /// </summary>
-        /// <param name="clusterName">Name of the cluster.</param>
-        /// <returns>The current expression instance.</returns>
-        IClusterExpression WithName(string clusterName);
-
-        /// <summary>
         /// Sets the background color of the cluster.
         /// </summary>
         /// <param name="color">The color to set the background to.</param>

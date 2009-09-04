@@ -10,12 +10,9 @@ using System;
 using System.Drawing;
 using FluentDot.Attributes.Graphs;
 using FluentDot.Attributes.Shared;
-using FluentDot.Entities.Edges;
 using FluentDot.Entities.Graphs;
-using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Graphs;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Expressions.Graphs
 {
@@ -23,23 +20,6 @@ namespace FluentDot.Tests.Expressions.Graphs
     public class ClusterExpressionTests
     {
         #region Tests
-
-        [Test]
-        public void WithName_Sets_Name_On_Cluster()
-        {
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var edgeTracker = MockRepository.GenerateMock<IEdgeTracker>();
-            var nodeTracker = MockRepository.GenerateMock<INodeTracker>();
-
-            graph.Expect(x => x.Type).Return(GraphType.Directed);
-            graph.Expect(x => x.NodeLookup).Return(nodeTracker);
-            graph.Expect(x => x.EdgeLookup).Return(edgeTracker);
-
-            var expression = new ClusterExpression(graph);
-            expression.WithName("blabla");
-
-            Assert.IsTrue(expression.Cluster.Name.Contains("blabla"));
-        }
 
         [Test]
         public void WithColor_Applies_Color_Attribute()

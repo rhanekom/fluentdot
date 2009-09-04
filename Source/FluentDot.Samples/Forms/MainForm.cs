@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using FluentDot.Execution;
-using FluentDot.Samples.Demos;
+using FluentDot.Samples.Core.Demos;
 
 namespace FluentDot.Samples.Forms
 {

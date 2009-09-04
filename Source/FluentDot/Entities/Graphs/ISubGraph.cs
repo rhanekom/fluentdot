@@ -9,9 +9,9 @@
 namespace FluentDot.Entities.Graphs
 {
     /// <summary>
-    /// Interface for clusters (subgraphs with a bounding box);
+    /// A subgraph that is contained within a graph.
     /// </summary>
-    public interface ICluster : ISubGraph {
-
+    public interface ISubGraph : IGraph
+    {
     }
 }
