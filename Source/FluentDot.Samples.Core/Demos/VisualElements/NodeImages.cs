@@ -7,6 +7,8 @@
 */
 
 using FluentDot.Expressions.Graphs;
+using System.IO;
+using FluentDot.Samples.Core.Images;
 
 namespace FluentDot.Samples.Core.Demos.VisualElements
 {
@@ -14,6 +16,13 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
     /// A simple demo of edge constraints.
     /// </summary>
     public class NodeImages : AbstractGraphDemo {
+
+        #region Globals
+
+        private string fullMoon;
+        private string science;
+
+        #endregion
 
         #region AbstractGraphDemo Members
 
@@ -46,8 +55,8 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
         /// </summary>
         /// <returns>DOT.</returns>
         protected override IGraphExpression CreateGraph() {
-            const string fullMoon = @"Images\\FullMoon.png";
-            const string science = @"Images\\Science.png";
+            CleanUp();
+            SaveImages();
 
             return Fluently.CreateDirectedGraph()
                 .Nodes.Add(nodes =>
@@ -73,6 +82,36 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                    edges.From.NodeWithName("g").To.NodeWithName("h");
                                }
                 );
+        }
+
+        public override void CleanUp() {
+            DeleteTemporaryFile(fullMoon);
+            DeleteTemporaryFile(science);
+        }
+
+        #endregion
+
+        #region Private Members
+
+        private void SaveImages() {
+            fullMoon = Path.GetTempFileName();
+            science = Path.GetTempFileName();
+
+            using (var bitmap = ImageResources.FullMoon) {
+                bitmap.Save(fullMoon);
+            }
+
+            using (var bitmap = ImageResources.Science) {
+                bitmap.Save(science);
+            }
+        }
+
+        private static void DeleteTemporaryFile(string fileName) {
+            if (fileName != null) {
+                if (File.Exists(fileName)) {
+                    File.Delete(fileName);
+                }
+            }
         }
 
         #endregion

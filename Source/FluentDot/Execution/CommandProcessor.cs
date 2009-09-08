@@ -40,25 +40,29 @@ namespace FluentDot.Execution
                 processInfo.RedirectStandardInput = true;
             }
 
-            Process process = Process.Start(processInfo);
-
-            if (process != null) {
-
-                if (!String.IsNullOrEmpty(standardInput))
+            using (Process process = Process.Start(processInfo))
+            {
+                if (process != null)
                 {
-                    process.StandardInput.Write(standardInput);
-                    process.StandardInput.Close();
-                }
 
-                process.WaitForExit(timeOut);
+                    if (!String.IsNullOrEmpty(standardInput))
+                    {
+                        process.StandardInput.Write(standardInput);
+                        process.StandardInput.Close();
+                    }
 
-                if (!process.HasExited) {
-                    process.Kill();
-                    throw new ExecutionException("External process has timed out.");
-                }
+                    process.WaitForExit(timeOut);
 
-                if (process.ExitCode != 0) {
-                    throw new ExecutionException("Process returned non-zero - exit code : " + process.ExitCode);
+                    if (!process.HasExited)
+                    {
+                        process.Kill();
+                        throw new ExecutionException("External process has timed out.");
+                    }
+
+                    if (process.ExitCode != 0)
+                    {
+                        throw new ExecutionException("Process returned non-zero - exit code : " + process.ExitCode);
+                    }
                 }
             }
         }

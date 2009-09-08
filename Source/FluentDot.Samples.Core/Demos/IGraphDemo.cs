@@ -38,5 +38,10 @@ namespace FluentDot.Samples.Core.Demos
         /// </summary>
         /// <value>The rank.</value>
         DemoType Type { get; }
+
+        /// <summary>
+        /// Cleans up any resources that this graph might have acquired.
+        /// </summary>
+        void CleanUp();
     }
 }

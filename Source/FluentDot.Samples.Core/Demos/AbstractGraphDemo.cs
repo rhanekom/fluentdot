@@ -7,6 +7,7 @@
 */
 
 
+using System;
 using System.Drawing;
 using System.IO;
 using FluentDot.Execution;
@@ -33,9 +34,13 @@ namespace FluentDot.Samples.Core.Demos
             dot = graph.GenerateDot();
             graph.Save(x => x.ToFile(fileName).UsingFormat(OutputFormat.PNG));
 
-            var ms = new MemoryStream(File.ReadAllBytes(fileName));
-            File.Delete(fileName);
-            return Image.FromStream(ms);
+            CleanUp();
+
+            using (var ms = new MemoryStream(File.ReadAllBytes(fileName)))
+            {
+                File.Delete(fileName);
+                return Image.FromStream(ms);
+            }
         }
 
         /// <summary>
@@ -55,6 +60,14 @@ namespace FluentDot.Samples.Core.Demos
         /// </summary>
         /// <value>The type of demo.</value>
         public abstract DemoType Type { get; }
+
+        /// <summary>
+        /// Cleans up any resources that this graph might have acquired.
+        /// </summary>
+        public virtual void CleanUp()
+        {
+            
+        }
 
         #endregion
 
