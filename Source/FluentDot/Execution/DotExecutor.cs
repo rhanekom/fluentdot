@@ -74,7 +74,7 @@ namespace FluentDot.Execution
                                                                               outputFiles.Select(x => x.ToCommandLine())
                                                                                   .ToArray()),
                                                                   new InputFileParameter(dotFile).ToCommandLine()),
-                                        FileName = configurationProvider.DotExecutableLocation,
+                                        FileName = Environment.ExpandEnvironmentVariables(configurationProvider.DotExecutableLocation),
                                         WindowStyle = ProcessWindowStyle.Hidden,
                                         UseShellExecute = false,
                                         CreateNoWindow = true,

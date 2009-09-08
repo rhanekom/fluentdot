@@ -7,7 +7,6 @@
 */
 
 using System;
-using System.IO;
 using FluentDot.Configuration;
 using NUnit.Framework;
 
@@ -15,13 +14,6 @@ namespace FluentDot.Tests.Configuration {
     
     [TestFixture]
     public class ConfigurationProviderTests {
-
-        [Test]
-        public void DotExecutableLocation_Default_Must_Be_Valid_Path()
-        {
-            string location = new ConfigurationProvider().DotExecutableLocation;
-            Assert.AreEqual(Path.GetFullPath(location), location);
-        }
 
         [Test]
         [ExpectedException(typeof(ArgumentException))]
