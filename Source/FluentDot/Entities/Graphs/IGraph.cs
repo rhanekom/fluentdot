@@ -68,10 +68,10 @@ namespace FluentDot.Entities.Graphs
         IEdgeTracker EdgeLookup { get; }
 
         /// <summary>
-        /// Adds the cluster to the graph.
+        /// Adds the sub graph to the graph.
         /// </summary>
-        /// <param name="cluster">The cluster to add.</param>
-        void AddCluster(ICluster cluster);
+        /// <param name="subGraph">The sub graph to add.</param>
+        void AddSubGraph(ISubGraph subGraph);
 
         /// <summary>
         /// Gets the sub graph lookup.

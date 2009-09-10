@@ -14,6 +14,7 @@ using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Edges;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Rhino.Mocks.Constraints;
 
 namespace FluentDot.Tests.Expressions.Edges
 {
@@ -57,15 +58,21 @@ namespace FluentDot.Tests.Expressions.Edges
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
-        public void NodeWithName_Should_Throw_Exception_If_Node_Not_Found() {
+        public void NodeWithName_Should_AddNode_If_Node_Not_Found() {
             var fromNode = MockRepository.GenerateMock<IGraphNode>();
             var graph = MockRepository.GenerateMock<IGraph>();
             var nodeLookup = MockRepository.GenerateMock<INodeTracker>();
             
             graph.Expect(x => x.NodeLookup).Return(nodeLookup);
+            graph.Expect(x => x.AddNode(null))
+                .IgnoreArguments()
+                .Constraints(Is.Matching<IGraphNode>(x => x.Name == "b"));
+
             nodeLookup.Expect(x => x.GetNodeByName("b")).Return(null);
             new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).NodeWithName("b");
+
+            nodeLookup.VerifyAllExpectations();
+            graph.VerifyAllExpectations();
         }
 
 

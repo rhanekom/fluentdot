@@ -32,7 +32,7 @@ namespace FluentDot.Tests.Expressions.Graphs
             graph.Expect(x => x.Type).Return(GraphType.Directed);
 
 
-            graph.Expect(x => x.AddCluster(null))
+            graph.Expect(x => x.AddSubGraph(null))
                 .IgnoreArguments()
                 .Constraints(
                 Is.Matching<ICluster>(x => x.Name.Contains("bla"))

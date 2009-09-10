@@ -178,5 +178,19 @@ namespace FluentDot.Expressions.Nodes
         /// <param name="value">The value.</param>
         /// <returns>The current expression instance.</returns>
         INodeExpression WithPeripheries(int value);
+
+        /// <summary>
+        /// Sets the distortion on the node.  Only used when the node shape is a polygon.
+        /// </summary>
+        /// <param name="value">The value to set the distortion to.</param>
+        /// <returns>The current expression instance.</returns>
+        INodeExpression WithDistortion(double value);
+
+        /// <summary>
+        /// Sets the comment on the node. 
+        /// </summary>
+        /// <param name="comment">The comment to include in the output.</param>
+        /// <returns>The current expression instance.</returns>
+        INodeExpression WithComment(string comment);
     }
 }

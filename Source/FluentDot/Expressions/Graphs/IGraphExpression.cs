@@ -205,6 +205,13 @@ namespace FluentDot.Expressions.Graphs
         IGraphExpression WithRatio(double value);
 
         /// <summary>
+        /// Sets the comment on the graph. 
+        /// </summary>
+        /// <param name="comment">The comment to include in the output.</param>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithComment(string comment);
+
+        /// <summary>
         /// Sets the defaults entity values on this graph.
         /// </summary>
         /// <value>A defaults expression for setting default values for entities on the graph.</value>
@@ -227,6 +234,12 @@ namespace FluentDot.Expressions.Graphs
         /// </summary>
         /// <value>The expression for acting upon the edge collection.</value>
         IEdgeCollectionModifiersExpression<IGraphExpression> Edges { get; }
+
+        /// <summary>
+        /// Edits the sub graph collection for this graph.
+        /// </summary>
+        /// <value>The expression for acting upon the subgraph collection.</value>
+        ISubGraphCollectionModifiersExpression SubGraphs { get; }
 
         /// <summary>
         /// Edits the cluster collection for this graph.

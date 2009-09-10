@@ -146,12 +146,12 @@ namespace FluentDot.Entities.Graphs
         }
 
         /// <summary>
-        /// Adds the cluster to the graph.
+        /// Adds the sub graph to the graph.
         /// </summary>
-        /// <param name="cluster">The cluster to add.</param>
-        public void AddCluster(ICluster cluster)
+        /// <param name="subGraph">The sub graph to add.</param>
+        public void AddSubGraph(ISubGraph subGraph)
         {
-            subGraphTracker.AddSubGraph(cluster);
+            subGraphTracker.AddSubGraph(subGraph);
         }
 
         /// <summary>

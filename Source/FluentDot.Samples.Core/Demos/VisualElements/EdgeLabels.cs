@@ -58,6 +58,8 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                    nodes.WithName("f");
                                    nodes.WithName("g");
                                    nodes.WithName("h");
+                                   nodes.WithName("i");
+                                   nodes.WithName("j");
                                })
                 .Edges.Add(edges =>
                                {
@@ -69,8 +71,11 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                    edges.From.NodeWithName("e").To.NodeWithName("f").WithLabelFontColor(Color.Blue).WithLabelFontSize(28).WithLabelFontName("Times-Roman").WithHeadLabel("Blue Times-Roman 28 Point");
                                    edges.From.NodeWithName("e").To.NodeWithName("g").FloatLabel().WithLabel("Floating Label");
                                    edges.From.NodeWithName("g").To.NodeWithName("h").WithLabelFontColor(Color.Red).WithLabelFontSize(7).WithLabelFontName("Helvetica").WithTailLabel("Red Helvetica 14 Point");
+                                   edges.From.NodeWithName("g").To.NodeWithName("i").Decorate().WithLabel("Decorated Label");
+                                   edges.From.NodeWithName("e").To.NodeWithName("j").Decorate().WithLabel("Decorated Label");
                                }
-                );
+                )
+                .WithMinimumNodeSeperation(2);
         }
 
         #endregion

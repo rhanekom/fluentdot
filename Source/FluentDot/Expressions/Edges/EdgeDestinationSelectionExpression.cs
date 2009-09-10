@@ -52,7 +52,8 @@ namespace FluentDot.Expressions.Edges
             var toNode = graph.NodeLookup.GetNodeByName(name);
 
             if (toNode == null) {
-                throw new ArgumentException("Could not find node with name " + name, "name");
+                toNode = new GraphNode(name);
+                graph.AddNode(toNode);
             }
 
             return AddNode(new NodeTarget(toNode));

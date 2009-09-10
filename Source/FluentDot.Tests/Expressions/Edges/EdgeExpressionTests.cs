@@ -46,7 +46,7 @@ namespace FluentDot.Tests.Expressions.Edges
         [Test]
         public void WithUrl_Should_Set_Url_Attribute()
         {
-            AssertAttributeAdded(expression => expression.WithUrl("http://www.google.com"),
+            AssertAttributeAdded(expression => expression.WithURL("http://www.google.com"),
                                  typeof(URLAttribute), "http://www.google.com");
         }
 
@@ -206,6 +206,55 @@ namespace FluentDot.Tests.Expressions.Edges
         public void WithPenWidth_Should_Set_PenWidth() {
             AssertAttributeAdded(expression => expression.WithPenWidth(1.3),
                                  typeof(PenWidthAttribute), 1.3);
+        }
+
+        [Test]
+        public void WithComment_Should_Set_Comment()
+        {
+            AssertAttributeAdded(expression => expression.WithComment("testComment"),
+                                typeof(CommentAttribute), "testComment");
+        }
+
+        [Test]
+        public void Decorate_Should_Set_Decorate()
+        {
+            AssertAttributeAdded(expression => expression.Decorate(),
+                                typeof(DecorateAttribute), new BooleanValue(true));
+        }
+
+        [Test]
+        public void WithEdgeTooltip_Should_Set_Tooltip()
+        {
+            AssertAttributeAdded(expression => expression.WithEdgeTooltip("customTooltip"),
+                                typeof(EdgeTooltipAttribute), "customTooltip");
+        }
+
+        [Test]
+        public void WithEdgeURL_Should_Set_URL()
+        {
+            AssertAttributeAdded(expression => expression.WithEdgeURL("http://www.google.com"),
+                                typeof(EdgeURLAttribute), "http://www.google.com");
+        }
+
+        [Test]
+        public void WithEdgeURL_Should_Set_URL_And_Target()
+        {
+            var node1 = MockRepository.GenerateMock<IGraphNode>();
+            var node2 = MockRepository.GenerateMock<IGraphNode>();
+            var edge = new DirectedEdge(new NodeTarget(node1), new NodeTarget(node2));
+
+            var expression = new EdgeExpression(edge);
+            Assert.IsNotNull(expression.WithEdgeURL("http://www.google.com", "_new"));
+
+            Assert.AreEqual(edge.Attributes.CurrentAttributes.Count, 2);
+
+            var attribute = edge.Attributes.CurrentAttributes[0];
+            Assert.IsInstanceOfType(typeof(EdgeURLAttribute), attribute);
+            Assert.AreEqual(attribute.Value, "http://www.google.com");
+
+            attribute = edge.Attributes.CurrentAttributes[1];
+            Assert.IsInstanceOfType(typeof(EdgeTargetAttribute), attribute);
+            Assert.AreEqual(attribute.Value, "_new");
         }
 
         #endregion

@@ -37,7 +37,7 @@ namespace FluentDot.Expressions.Edges
         /// </summary>
         /// <param name="url">The URL that should be set on the edge.</param>
         /// <returns>The current expression instance.</returns>
-        IEdgeExpression WithUrl(string url);
+        IEdgeExpression WithURL(string url);
 
         /// <summary>
         /// Specifies the color of the edge.
@@ -197,6 +197,41 @@ namespace FluentDot.Expressions.Edges
         /// <returns>The current expression instance.</returns>
         IEdgeExpression WithPenWidth(double penWidth);
 
+        /// <summary>
+        /// Sets the comment on the edge. 
+        /// </summary>
+        /// <param name="comment">The comment to include in the output.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithComment(string comment);
+
+        /// <summary>
+        /// Sets the edge labels to be decorated.
+        /// </summary>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression Decorate();
+
+        /// <summary>
+        /// Specifies a tooltip to be applied to the edge.  Tooltips are only used if an url is specified for the edge.
+        /// </summary>
+        /// <param name="tooltip">The tooltip to use.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithEdgeTooltip(string tooltip);
+
+        /// <summary>
+        /// Specifies a url for the edge.
+        /// </summary>
+        /// <param name="url">The URL for the edge.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithEdgeURL(string url);
+
+        /// <summary>
+        /// Specifies a url for the edge.
+        /// </summary>
+        /// <param name="url">The URL for the edge.</param>
+        /// <param name="target">The target for the url to open in.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithEdgeURL(string url, string target);
+        
         /// <summary>
         /// Specifies a custom attribute that should be applied to the edge.
         /// </summary>

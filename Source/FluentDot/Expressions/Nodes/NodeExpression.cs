@@ -288,6 +288,28 @@ namespace FluentDot.Expressions.Nodes
             return this;
         }
 
+        /// <summary>
+        /// Sets the distortion on the node.  Only used when the node shape is a polygon.
+        /// </summary>
+        /// <param name="value">The value to set the distortion to.</param>
+        /// <returns>The current expression instance.</returns>
+        public INodeExpression WithDistortion(double value)
+        {
+            node.Attributes.AddAttribute(new DistortionAttribute(value));
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the comment on the node.
+        /// </summary>
+        /// <param name="comment">The comment to include in the output.</param>
+        /// <returns>The current expression instance.</returns>
+        public INodeExpression WithComment(string comment)
+        {
+            node.Attributes.AddAttribute(new CommentAttribute(comment));
+            return this;
+        }
+
         #endregion
     }
 }

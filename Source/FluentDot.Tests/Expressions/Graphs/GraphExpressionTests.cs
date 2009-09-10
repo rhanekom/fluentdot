@@ -138,6 +138,11 @@ namespace FluentDot.Tests.Expressions.Graphs
         }
 
         [Test]
+        public void SubGraphs_Does_Not_Return_Null() {
+            Assert.IsNotNull(new TestGraphExpression().SubGraphs);
+        }
+
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Save_Should_Throw_If_Null_Was_Passed()
         {
@@ -305,6 +310,13 @@ namespace FluentDot.Tests.Expressions.Graphs
         public void WithRatio_Value_Sets_Attribute() {
             AssertAttributeAdded(expression => expression.WithRatio(2.4),
                                  typeof(RatioAttribute), 2.4);
+        }
+
+        [Test]
+        public void WithComment_Should_Set_Comment()
+        {
+            AssertAttributeAdded(expression => expression.WithComment("testComment"),
+                                typeof(CommentAttribute), "testComment");
         }
 
         #endregion

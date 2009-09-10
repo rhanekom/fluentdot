@@ -17,10 +17,10 @@ using Rhino.Mocks.Constraints;
 namespace FluentDot.Tests.Expressions.Graphs
 {
     [TestFixture]
-    public class ClusterCollectionAddExpressionTests
+    public class SubGraphCollectionAddExpressionTests
     {
         [Test]
-        public void WithName_Should_Add_Cluster_To_Graph()
+        public void WithName_Should_Add_SubGraph_To_Graph()
         {
             var graph = MockRepository.GenerateMock<IGraph>();
             var edgeTracker = MockRepository.GenerateMock<IEdgeTracker>();
@@ -34,10 +34,10 @@ namespace FluentDot.Tests.Expressions.Graphs
             graph.Expect(x => x.AddSubGraph(null))
                 .IgnoreArguments()
                 .Constraints(
-                Is.Matching<ICluster>(x => x.Name.Contains("bla"))
+                Is.Matching<ISubGraph>(x => x.Name.Contains("bla"))
                 );
 
-            var expression = new ClusterCollectionAddExpression(graph);
+            var expression = new SubGraphCollectionAddExpression(graph);
             expression.WithName("bla");
 
             graph.VerifyAllExpectations();

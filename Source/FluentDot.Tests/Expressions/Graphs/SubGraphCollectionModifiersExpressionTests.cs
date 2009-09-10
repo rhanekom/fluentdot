@@ -14,15 +14,14 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using Rhino.Mocks.Constraints;
 
-namespace FluentDot.Tests.Expressions.Graphs
-{
+namespace FluentDot.Tests.Expressions.Graphs {
     [TestFixture]
-    public class ClusterCollectionAddExpressionTests
-    {
+    public class SubGraphCollectionModifiersExpressionTests {
+
         [Test]
-        public void WithName_Should_Add_Cluster_To_Graph()
-        {
+        public void Add_Should_Apply_Action_And_Add_SubGraph_To_Graph() {
             var graph = MockRepository.GenerateMock<IGraph>();
+            var graphExpression = MockRepository.GenerateMock<IGraphExpression>();
             var edgeTracker = MockRepository.GenerateMock<IEdgeTracker>();
             var nodeTracker = MockRepository.GenerateMock<INodeTracker>();
 
@@ -34,11 +33,11 @@ namespace FluentDot.Tests.Expressions.Graphs
             graph.Expect(x => x.AddSubGraph(null))
                 .IgnoreArguments()
                 .Constraints(
-                Is.Matching<ICluster>(x => x.Name.Contains("bla"))
+                Is.Matching<ISubGraph>(x => x.Name.Contains("bla"))
                 );
 
-            var expression = new ClusterCollectionAddExpression(graph);
-            expression.WithName("bla");
+            var expression = new SubGraphCollectionModifiersExpression(graph, graphExpression);
+            expression.Add(x => x.WithName("bla"));
 
             graph.VerifyAllExpectations();
         }

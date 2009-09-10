@@ -18,7 +18,7 @@ namespace FluentDot.Expressions.Graphs
         /// Adds a cluster with the specified name to the graph.
         /// </summary>
         /// <param name="name">The name of the cluster to create.</param>
-        /// <returns>A cluster expression for configuring the clsuter.</returns>
+        /// <returns>A cluster expression for configuring the cluster.</returns>
         IClusterExpression WithName(string name);
     }
 }

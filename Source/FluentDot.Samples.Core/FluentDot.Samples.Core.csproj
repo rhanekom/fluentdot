@@ -61,6 +61,7 @@
     <Compile Include="Demos\IGraphDemo.cs" />
     <Compile Include="Demos\Layout\Clusters.cs" />
     <Compile Include="Demos\Layout\Constraints.cs" />
+    <Compile Include="Demos\Layout\SubGraphsAndRanks.cs" />
     <Compile Include="Demos\Layout\EdgeOrdeningIn.cs" />
     <Compile Include="Demos\Layout\EdgeOrdeningOut.cs" />
     <Compile Include="Demos\Layout\GraphRatio.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Demos\VisualElements\GraphBackgroundColor.cs" />
     <Compile Include="Demos\VisualElements\GraphDefaults.cs" />
     <Compile Include="Demos\VisualElements\NodeAndEdgeColors.cs" />
+    <Compile Include="Demos\VisualElements\NodeDistortion.cs" />
     <Compile Include="Demos\VisualElements\NodeImages.cs" />
     <Compile Include="Demos\VisualElements\NodeShapes.cs" />
     <Compile Include="Demos\VisualElements\NodeSizes.cs" />

@@ -49,7 +49,8 @@ namespace FluentDot.Expressions.Edges
 
             if (fromNode == null)
             {
-                throw new ArgumentException("Could not find node with name " + name, "name");
+                fromNode = new GraphNode(name);
+                graph.AddNode(fromNode);
             }
 
             return new EdgeDestinationExpression(new NodeTarget(fromNode), graph);

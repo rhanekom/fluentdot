@@ -39,14 +39,19 @@ namespace FluentDot.Tests.Expressions.Edges
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
-        public void NodeWithName_Should_Throw_Exception_If_Node_Not_Found() {
+        public void NodeWithName_Should_Add_Node_If_Node_Not_Found() {
             var graph = MockRepository.GenerateMock<IGraph>();
             var nodeLookup = MockRepository.GenerateMock<INodeTracker>();
 
             graph.Expect(x => x.NodeLookup).Return(nodeLookup);
+            graph.Expect(x => x.AddNode(null))
+                .IgnoreArguments()
+                .Constraints(Is.Matching<IGraphNode>(x => x.Name == "b"));
+
             nodeLookup.Expect(x => x.GetNodeByName("b")).Return(null);
             new EdgeSourceExpression(graph).NodeWithName("b");
+
+            graph.VerifyAllExpectations();
         }
 
 

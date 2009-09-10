@@ -24,7 +24,6 @@ namespace FluentDot.Expressions.Graphs
         #region Globals
 
         private readonly Cluster cluster;
-        private readonly IGraph graph;
 
         #endregion
 
@@ -37,7 +36,6 @@ namespace FluentDot.Expressions.Graphs
         public ClusterExpression(IGraph graph)
         {
             cluster = new Cluster(graph);
-            this.graph = graph;
         }
 
         #endregion

@@ -332,6 +332,17 @@ namespace FluentDot.Expressions.Graphs
             return this;
         }
 
+        /// <summary>
+        /// Sets the comment on the graph.
+        /// </summary>
+        /// <param name="comment">The comment to include in the output.</param>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression WithComment(string comment)
+        {
+            graph.Attributes.AddAttribute(new CommentAttribute(comment));
+            return this;
+        }
+
 
         /// <summary>
         /// Sets the defaults entity values on this graph.
@@ -380,6 +391,15 @@ namespace FluentDot.Expressions.Graphs
         public IEdgeCollectionModifiersExpression<IGraphExpression> Edges
         {
             get { return new EdgeCollectionModifiersExpression<IGraphExpression>(graph, this); }
+        }
+
+        /// <summary>
+        /// Edits the sub graph collection for this graph.
+        /// </summary>
+        /// <value>The expression for acting upon the subgraph collection.</value>
+        public ISubGraphCollectionModifiersExpression SubGraphs
+        {
+            get { return new SubGraphCollectionModifiersExpression(graph, this); }
         }
 
         /// <summary>

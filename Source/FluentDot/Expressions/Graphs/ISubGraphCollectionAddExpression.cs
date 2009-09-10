@@ -15,10 +15,10 @@ namespace FluentDot.Expressions.Graphs
     {
 
         /// <summary>
-        /// Adds a cluster with the specified name to the graph.
+        /// Adds a subgraph with the specified name to the graph.
         /// </summary>
-        /// <param name="name">The name of the cluster to create.</param>
-        /// <returns>A cluster expression for configuring the clsuter.</returns>
-        IClusterExpression WithName(string name);
+        /// <param name="name">The name of the subgraph to create.</param>
+        /// <returns>A subgraph expression for configuring the graph.</returns>
+        ISubGraphExpression WithName(string name);
     }
 }

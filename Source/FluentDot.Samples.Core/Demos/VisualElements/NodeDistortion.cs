@@ -10,33 +10,38 @@ using System.Linq;
 using System.Reflection;
 using FluentDot.Attributes.Edges;
 using FluentDot.Expressions.Graphs;
+using FluentDot.Attributes.Nodes;
 
 namespace FluentDot.Samples.Core.Demos.VisualElements
 {
     /// <summary>
     /// A demo of the different node styles Dot provides.
     /// </summary>
-    public class EdgeStyles : AbstractGraphDemo {
+    public class NodeDistortion : AbstractGraphDemo
+    {
 
         #region AbstractGraphDemo Members
 
-        public override string FriendlyName {
-            get { return "Edge Styles"; }
+        public override string FriendlyName
+        {
+            get { return "Node Distortion"; }
         }
 
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
         /// <value>The description.</value>
-        public override string Description {
-            get { return "A demo of the different edge styles that DOT provides."; }
+        public override string Description
+        {
+            get { return "A demo of how distortion affects the node shape."; }
         }
 
         /// <summary>
         /// Gets or sets the type of demo.
         /// </summary>
         /// <value>The type of demo.</value>
-        public override DemoType Type {
+        public override DemoType Type
+        {
             get { return DemoType.VisualElements; }
         }
 
@@ -44,24 +49,25 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
-            var graph = Fluently.CreateDirectedGraph();
+        protected override IGraphExpression CreateGraph()
+        {
+            var graph = Fluently.CreateDirectedGraph()
+                .TheDefaults.ForNodes.Are(x => x.WithShape(NodeShape.Polygon))
+                .WithLabel("Distortion of polygon node shapes. The values on the edges indicate the distortion value.");
 
             int a = 1;
             int b = 2;
 
-            foreach (var item in typeof(EdgeStyle).GetFields(BindingFlags.Public | BindingFlags.Static).Where(x => typeof(EdgeStyle).IsAssignableFrom(x.FieldType))) {
-                var style = (EdgeStyle)item.GetValue(null);
+            for (double i = -3; i < 3; i+= 0.5 )
+            {
                 graph.Nodes.Add(
                     x =>
-                        {
-                            x.WithName(a.ToString());
-                            x.WithName(b.ToString());
-                        })
+                    {
+                        x.WithName(a.ToString()).WithDistortion(i);
+                        x.WithName(b.ToString()).WithDistortion(i);
+                    })
                     .Edges.Add(
-                    x => x.From.NodeWithName(a.ToString()).To.NodeWithName(b.ToString())
-                             .WithLabel(item.Name)
-                             .WithStyle(style)
+                        x => x.From.NodeWithName(a.ToString()).To.NodeWithName(b.ToString()).WithLabel(i.ToString())
                     );
 
                 a += 2;

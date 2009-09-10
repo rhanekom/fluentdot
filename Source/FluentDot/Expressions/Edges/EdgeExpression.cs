@@ -68,7 +68,7 @@ namespace FluentDot.Expressions.Edges
         /// </summary>
         /// <param name="url">The URL that should be set on the edge.</param>
         /// <returns>The current expression instance.</returns>
-        public IEdgeExpression WithUrl(string url)
+        public IEdgeExpression WithURL(string url)
         {
             edge.Attributes.AddAttribute(new URLAttribute(url));
             return this;
@@ -189,6 +189,62 @@ namespace FluentDot.Expressions.Edges
         public IEdgeExpression WithPenWidth(double penWidth)
         {
             edge.Attributes.AddAttribute(new PenWidthAttribute(penWidth));
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the comment on the edge.
+        /// </summary>
+        /// <param name="comment">The comment to include in the output.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithComment(string comment)
+        {
+            edge.Attributes.AddAttribute(new CommentAttribute(comment));
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the edge labels to be decorated.
+        /// </summary>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression Decorate()
+        {
+            edge.Attributes.AddAttribute(new DecorateAttribute(true));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies a tooltip to be applied to the edge.  Tooltips are only used if an url is specified for the edge.
+        /// </summary>
+        /// <param name="tooltip">The tooltip to use.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithEdgeTooltip(string tooltip)
+        {
+            edge.Attributes.AddAttribute(new EdgeTooltipAttribute(tooltip));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies a url for the edge.
+        /// </summary>
+        /// <param name="url">The URL for the edge.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithEdgeURL(string url)
+        {
+            edge.Attributes.AddAttribute(new EdgeURLAttribute(url));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies a url for the edge.
+        /// </summary>
+        /// <param name="url">The URL for the edge.</param>
+        /// <param name="target">The target for the url to open in.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithEdgeURL(string url, string target)
+        {
+            edge.Attributes.AddAttribute(new EdgeURLAttribute(url));
+            edge.Attributes.AddAttribute(new EdgeTargetAttribute(target));
             return this;
         }
 

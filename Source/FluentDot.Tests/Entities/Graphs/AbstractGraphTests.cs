@@ -97,7 +97,7 @@ namespace FluentDot.Tests.Entities.Graphs
             cluster.Expect(x => x.Name).Return("a");
 
             var graph = new TestGraph();
-            graph.AddCluster(cluster);
+            graph.AddSubGraph(cluster);
 
             Assert.AreEqual(graph.SubGraphLookup.Clusters.Count(), 1);
             Assert.AreEqual(graph.SubGraphLookup.Clusters.First(), cluster);

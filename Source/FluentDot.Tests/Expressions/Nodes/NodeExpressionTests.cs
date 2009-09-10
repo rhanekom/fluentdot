@@ -184,6 +184,20 @@ namespace FluentDot.Tests.Expressions.Nodes
                                  typeof(PeripheriesAttribute), 2);
         }
 
+        [Test]
+        public void WithComment_Should_Set_Comment()
+        {
+            AssertAttributeAdded(expression => expression.WithComment("testComment"),
+                                typeof(CommentAttribute), "testComment");
+        }
+
+        [Test]
+        public void WithDistortion_Sets_Distortion_Attribute()
+        {
+            AssertAttributeAdded(expression => expression.WithDistortion(1.2),
+                                typeof(DistortionAttribute), 1.2);
+        }
+
         #endregion
 
         #region Private Members

@@ -6,6 +6,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
+using FluentDot.Attributes.Graphs;
 using FluentDot.Expressions.Edges;
 using FluentDot.Expressions.Nodes;
 
@@ -17,15 +18,22 @@ namespace FluentDot.Expressions.Graphs
     public interface ISubGraphExpression
     {
         /// <summary>
+        /// Specifies the rank type for this subgraph.
+        /// </summary>
+        /// <param name="rank">The rank of the subgraph.</param>
+        /// <returns>The current expression instance.</returns>
+        ISubGraphExpression WithRank(RankType rank);
+
+        /// <summary>
         /// Edits the node collection for this cluster.
         /// </summary>
         /// <value>The expression for acting upon the node collection.</value>
-        INodeCollectionModifiersExpression<IClusterExpression> Nodes { get; }
+        INodeCollectionModifiersExpression<ISubGraphExpression> Nodes { get; }
 
         /// <summary>
         /// Edits the edge collection for this cluster.
         /// </summary>
         /// <value>The expression for acting upon the edge collection.</value>
-        IEdgeCollectionModifiersExpression<IClusterExpression> Edges { get; }
+        IEdgeCollectionModifiersExpression<ISubGraphExpression> Edges { get; }
     }
 }

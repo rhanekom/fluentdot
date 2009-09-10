@@ -41,13 +41,13 @@ namespace FluentDot.Expressions.Graphs
         /// </summary>
         /// <param name="name">The name of the cluster to create.</param>
         /// <returns>
-        /// A cluster expression for configuring the clsuter.
+        /// A cluster expression for configuring the cluster.
         /// </returns>
         public IClusterExpression WithName(string name)
         {
             var expression = new ClusterExpression(graph);
             expression.Cluster.Name = name;
-            graph.AddCluster(expression.Cluster);
+            graph.AddSubGraph(expression.Cluster);
             return expression;
         }
 
