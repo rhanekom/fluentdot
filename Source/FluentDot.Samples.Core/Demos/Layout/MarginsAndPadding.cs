@@ -46,7 +46,9 @@ namespace FluentDot.Samples.Core.Demos.Layout
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .Nodes.Add(nodes =>
                                {
@@ -72,6 +74,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
                 .WithLabel("2 Point Graph Margin, 1 Inch Margin Around Graph")
                 .WithMargin(2, 2)
                 .WithPadding(1, 1);
+            #endregion
         }
 
         #endregion

@@ -58,6 +58,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
             CleanUp();
             SaveImages();
 
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .Nodes.Add(nodes =>
                                {
@@ -82,6 +83,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                    edges.From.NodeWithName("g").To.NodeWithName("h");
                                }
                 );
+            #endregion
         }
 
         public override void CleanUp() {

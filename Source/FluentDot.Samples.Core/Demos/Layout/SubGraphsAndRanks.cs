@@ -46,8 +46,9 @@ namespace FluentDot.Samples.Core.Demos.Layout
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
-            
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .SubGraphs.Add(s => s.WithName("c0")
                                         .WithRank(RankType.Maximum)
@@ -103,6 +104,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
                 edge.From.NodeWithName("gg").To.NodeWithName("jj");
                 edge.From.NodeWithName("jj").To.NodeWithName("mm");
             });
+            #endregion
         }
 
         #endregion

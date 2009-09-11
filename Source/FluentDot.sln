@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentDot.Samples", "Fluent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentDot.Samples.Core", "FluentDot.Samples.Core\FluentDot.Samples.Core.csproj", "{8ADB4D65-CE5C-461C-B0C6-693596428DC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentDot.Samples.Exporter", "FluentDot.Samples.Exporter\FluentDot.Samples.Exporter.csproj", "{A0D9F13D-2F15-469F-9BA9-3643EFB77FB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{8ADB4D65-CE5C-461C-B0C6-693596428DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ADB4D65-CE5C-461C-B0C6-693596428DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ADB4D65-CE5C-461C-B0C6-693596428DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0D9F13D-2F15-469F-9BA9-3643EFB77FB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0D9F13D-2F15-469F-9BA9-3643EFB77FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0D9F13D-2F15-469F-9BA9-3643EFB77FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0D9F13D-2F15-469F-9BA9-3643EFB77FB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +52,6 @@ Global
 		{E599156B-4E0F-4A66-B5A1-10A63A1E4D14} = {D6E871D1-49B1-49B8-BEAF-042035374F5F}
 		{FD8EE043-06AE-4153-B9C7-868233F51A00} = {90AFFFCF-9BED-4EC4-9C1D-5F9E76A27C3D}
 		{8ADB4D65-CE5C-461C-B0C6-693596428DC6} = {90AFFFCF-9BED-4EC4-9C1D-5F9E76A27C3D}
+		{A0D9F13D-2F15-469F-9BA9-3643EFB77FB1} = {90AFFFCF-9BED-4EC4-9C1D-5F9E76A27C3D}
 	EndGlobalSection
 EndGlobal

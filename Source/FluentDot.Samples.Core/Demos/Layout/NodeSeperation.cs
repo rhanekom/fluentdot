@@ -50,6 +50,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
         /// <returns>DOT.</returns>
         protected override IGraphExpression CreateGraph()
         {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .Nodes.Add(nodes =>
                                {
@@ -68,6 +69,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                })
                 .WithLabel("Minimum Node Seperation of 2 inches.")
                 .WithMinimumNodeSeperation(2);
+            #endregion
         }
 
         #endregion

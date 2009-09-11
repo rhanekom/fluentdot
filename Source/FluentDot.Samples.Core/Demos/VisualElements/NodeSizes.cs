@@ -41,7 +41,9 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .Nodes.Add(nodes =>
                                {
@@ -57,6 +59,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                    edges.From.NodeWithName("TinyWidth_Expanded").To.NodeWithName("Fixed_Size1");
                                    edges.From.NodeWithName("Fixed_Size1").To.NodeWithName("Fixed_Size2");
                                });
+            #endregion
         }
 
         #endregion

@@ -1,0 +1,21 @@
+#summary ${DemoName}
+
+= Description =
+
+${DemoDescription}
+
+= Graph =
+
+http://fluentdot.googlecode.com/svn/wiki/Images/${ImageFileName}
+
+= Code =
+
+{{{
+${Code}
+}}}
+
+= Dot Produced =
+
+{{{
+${Dot}
+}}}

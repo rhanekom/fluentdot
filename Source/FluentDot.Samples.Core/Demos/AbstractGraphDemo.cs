@@ -7,6 +7,7 @@
 */
 
 
+using System;
 using System.Drawing;
 using System.IO;
 using FluentDot.Execution;
@@ -40,6 +41,15 @@ namespace FluentDot.Samples.Core.Demos
                 File.Delete(fileName);
                 return Image.FromStream(ms);
             }
+        }
+
+        /// <summary>
+        /// Gets the graph.
+        /// </summary>
+        /// <returns>A built up graph expression.</returns>
+        public IGraphExpression GetGraph()
+        {
+            return CreateGraph();
         }
 
         /// <summary>

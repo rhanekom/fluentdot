@@ -31,8 +31,9 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
-
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .Nodes.Add(x =>
                                {
@@ -51,6 +52,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                    x.From.NodeWithName("b").To.NodeWithName("d");
                                }
                 ).WithBackgroundColor(Color.SlateBlue);
+            #endregion
         }
 
         /// <summary>

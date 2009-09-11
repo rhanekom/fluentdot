@@ -42,7 +42,9 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
             var graph = Fluently.CreateDirectedGraph();
             
             int a = 1;
@@ -91,6 +93,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
             }
 
             return graph;
+            #endregion
         }
 
         /// <summary>

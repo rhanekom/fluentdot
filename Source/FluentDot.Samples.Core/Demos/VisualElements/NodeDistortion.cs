@@ -6,9 +6,6 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System.Linq;
-using System.Reflection;
-using FluentDot.Attributes.Edges;
 using FluentDot.Expressions.Graphs;
 using FluentDot.Attributes.Nodes;
 
@@ -51,6 +48,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
         /// <returns>DOT.</returns>
         protected override IGraphExpression CreateGraph()
         {
+            #region ExportCode
             var graph = Fluently.CreateDirectedGraph()
                 .TheDefaults.ForNodes.Are(x => x.WithShape(NodeShape.Polygon))
                 .WithLabel("Distortion of polygon node shapes. The values on the edges indicate the distortion value.");
@@ -75,6 +73,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
             }
 
             return graph;
+            #endregion
         }
 
         #endregion

@@ -43,6 +43,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
         /// <returns>DOT.</returns>
         protected override IGraphExpression CreateGraph()
         {
+            #region ExportCode
             var graph = Fluently.CreateDirectedGraph();
             
             graph.Nodes.Add(x => x.WithName("D0").WithOrientation(0));
@@ -54,6 +55,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
             }
 
             return graph;
+            #endregion
         }
 
         /// <summary>

@@ -6,6 +6,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
+using System.Text.RegularExpressions;
 using FluentDot.Common;
 using NUnit.Framework;
 
@@ -19,6 +20,13 @@ namespace FluentDot.Tests.Common
         {
             var e = new AbstractTypedEnum<int>(5);
             Assert.AreEqual(e.Value, 5);
+        }
+
+        [Test]
+        public void Stuff()
+        {
+            Assert.IsTrue((Regex.Match("   #endregion  ", @"^(\ )*\#endregion(\ )*$", RegexOptions.Singleline).Success));
+
         }
     }
 }

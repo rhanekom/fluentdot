@@ -36,7 +36,13 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
             get { return DemoType.VisualElements; }
         }
 
-        protected override IGraphExpression CreateGraph() {
+        /// <summary>
+        /// Produces the dot for the specified demo.
+        /// </summary>
+        /// <returns>DOT.</returns>
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
             var graph =  Fluently.CreateUndirectedGraph();
             
             foreach (var item in typeof(NodeShape).GetFields(BindingFlags.Public | BindingFlags.Static).Where(x => typeof(NodeShape).IsAssignableFrom(x.FieldType)))
@@ -46,6 +52,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
             }
 
             return graph;
+            #endregion
         }
 
         #endregion

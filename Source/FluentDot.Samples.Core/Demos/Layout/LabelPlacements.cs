@@ -47,7 +47,9 @@ namespace FluentDot.Samples.Core.Demos.Layout
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .Nodes.Add(nodes =>
                                {
@@ -74,6 +76,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
                 .WithLabel("Bottom Right Graph Label")
                 .WithLabelJustification(Justification.Right)
                 .WithLabelLocation(Location.Bottom);
+            #endregion
         }
 
         #endregion

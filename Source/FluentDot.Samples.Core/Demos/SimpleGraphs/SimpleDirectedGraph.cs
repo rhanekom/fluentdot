@@ -8,22 +8,31 @@
 
 using FluentDot.Expressions.Graphs;
 
-namespace FluentDot.Samples.Core.Demos.SimpleGraph
+namespace FluentDot.Samples.Core.Demos.SimpleGraphs
 {
     /// <summary>
-    /// A simple undirected graph.
+    /// A simple directed graph.
     /// </summary>
-    public class SimpleUnirectedGraph : AbstractGraphDemo {
+    public class SimpleDirectedGraph : AbstractGraphDemo {
 
         #region AbstractGraphDemo Members
+
+        /// <summary>
+        /// Gets or sets the rank.
+        /// </summary>
+        /// <value>The rank.</value>
+        public override DemoType Type {
+            get { return DemoType.SimpleGraphs; }
+        }
 
         /// <summary>
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
-
-            return Fluently.CreateUndirectedGraph()
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
+            return Fluently.CreateDirectedGraph()
                 .Nodes.Add(x =>
                                {
                                    x.WithName("A");
@@ -40,10 +49,11 @@ namespace FluentDot.Samples.Core.Demos.SimpleGraph
                                    x.From.NodeWithName("B").To.NodeWithName("D");
                                }
                 );
+            #endregion
         }
 
         public override string FriendlyName {
-            get { return "Simple Undirected Graph"; }
+            get { return "Simple Directed Graph"; }
         }
 
         /// <summary>
@@ -51,15 +61,7 @@ namespace FluentDot.Samples.Core.Demos.SimpleGraph
         /// </summary>
         /// <value>The description.</value>
         public override string Description {
-            get { return "An illustration of a simple undirected graph."; }
-        }
-
-        /// <summary>
-        /// Gets or sets the rank.
-        /// </summary>
-        /// <value>The rank.</value>
-        public override DemoType Type {
-            get { return DemoType.SimpleGraphs; }
+            get { return "An illustration of a simple directed graph."; }
         }
 
         #endregion

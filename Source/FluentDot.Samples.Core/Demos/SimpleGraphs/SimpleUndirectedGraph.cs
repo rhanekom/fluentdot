@@ -8,30 +8,23 @@
 
 using FluentDot.Expressions.Graphs;
 
-namespace FluentDot.Samples.Core.Demos.SimpleGraph
+namespace FluentDot.Samples.Core.Demos.SimpleGraphs
 {
     /// <summary>
-    /// A simple directed graph.
+    /// A simple undirected graph.
     /// </summary>
-    public class SimpleDirectedGraph : AbstractGraphDemo {
+    public class SimpleUndirectedGraph : AbstractGraphDemo {
 
         #region AbstractGraphDemo Members
-
-        /// <summary>
-        /// Gets or sets the rank.
-        /// </summary>
-        /// <value>The rank.</value>
-        public override DemoType Type {
-            get { return DemoType.SimpleGraphs; }
-        }
 
         /// <summary>
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
-
-            return Fluently.CreateDirectedGraph()
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
+            return Fluently.CreateUndirectedGraph()
                 .Nodes.Add(x =>
                                {
                                    x.WithName("A");
@@ -48,10 +41,11 @@ namespace FluentDot.Samples.Core.Demos.SimpleGraph
                                    x.From.NodeWithName("B").To.NodeWithName("D");
                                }
                 );
+            #endregion
         }
 
         public override string FriendlyName {
-            get { return "Simple Directed Graph"; }
+            get { return "Simple Undirected Graph"; }
         }
 
         /// <summary>
@@ -59,7 +53,15 @@ namespace FluentDot.Samples.Core.Demos.SimpleGraph
         /// </summary>
         /// <value>The description.</value>
         public override string Description {
-            get { return "An illustration of a simple directed graph."; }
+            get { return "An illustration of a simple undirected graph."; }
+        }
+
+        /// <summary>
+        /// Gets or sets the rank.
+        /// </summary>
+        /// <value>The rank.</value>
+        public override DemoType Type {
+            get { return DemoType.SimpleGraphs; }
         }
 
         #endregion

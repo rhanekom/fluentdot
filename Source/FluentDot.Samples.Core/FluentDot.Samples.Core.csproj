@@ -71,8 +71,8 @@
     <Compile Include="Demos\Layout\NodeOrientation.cs" />
     <Compile Include="Demos\Layout\NodeSeperation.cs" />
     <Compile Include="Demos\Layout\Records.cs" />
-    <Compile Include="Demos\SimpleGraph\SimpleDirectedGraph.cs" />
-    <Compile Include="Demos\SimpleGraph\SimpleUndirectedGraph.cs" />
+    <Compile Include="Demos\SimpleGraphs\SimpleDirectedGraph.cs" />
+    <Compile Include="Demos\SimpleGraphs\SimpleUndirectedGraph.cs" />
     <Compile Include="Demos\VisualElements\ArrowDirections.cs" />
     <Compile Include="Demos\VisualElements\ArrowShapeModifiers.cs" />
     <Compile Include="Demos\VisualElements\ArrowShapes.cs" />

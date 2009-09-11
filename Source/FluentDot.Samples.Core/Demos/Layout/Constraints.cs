@@ -47,6 +47,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
         /// <returns>DOT.</returns>
         protected override IGraphExpression CreateGraph()
         {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .Nodes.Add(nodes =>
                                {
@@ -71,6 +72,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                    edges.From.NodeWithName("g").To.NodeWithName("h").DoNotConstrainNodes().WithLabel("Not Constrained");
                                }
                 );
+            #endregion
         }
 
         #endregion

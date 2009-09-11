@@ -7,6 +7,7 @@
 */
 
 using System.Drawing;
+using FluentDot.Expressions.Graphs;
 
 namespace FluentDot.Samples.Core.Demos
 {
@@ -20,6 +21,12 @@ namespace FluentDot.Samples.Core.Demos
         /// </summary>
         /// <returns>An image.</returns>
         Image DrawGraph(out string dot);
+
+        /// <summary>
+        /// Gets the graph.
+        /// </summary>
+        /// <returns>A built up graph expression.</returns>
+        IGraphExpression GetGraph();
 
         /// <summary>
         /// Gets or sets the name of the friendly.

@@ -45,8 +45,9 @@ namespace FluentDot.Samples.Core.Demos.Layout
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
-
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .Nodes.AddRecord(record =>
                                      {
@@ -78,6 +79,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                    edges.From.RecordWithName("struct1", "f1").To.RecordWithName("struct2", "f0");
                                    edges.From.RecordWithName("struct1", "f2").To.RecordWithName("struct3", "here");
                                });
+            #endregion
         }
 
         #endregion

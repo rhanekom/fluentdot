@@ -51,6 +51,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
         /// <returns>DOT.</returns>
         protected override IGraphExpression CreateGraph()
         {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .Nodes.Add(nodes =>
                                {
@@ -76,6 +77,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                })
                 .WithEdgeOrdering(Ordering.In)
                 .WithLabel("In Ordering of edges");
+            #endregion
         }
 
         #endregion

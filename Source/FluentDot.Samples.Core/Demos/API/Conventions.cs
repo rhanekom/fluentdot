@@ -32,6 +32,7 @@ namespace FluentDot.Samples.Core.Demos.API
         /// <returns>DOT.</returns>
         protected override IGraphExpression CreateGraph()
         {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .Conventions.Setup(x => {
                                             x.AddType<EvenNodeColouringConvention>();
@@ -57,6 +58,7 @@ namespace FluentDot.Samples.Core.Demos.API
                                    x.From.NodeWithName("d").To.NodeWithName("e");
                                })
                 .WithLabel(@"Conventions\nEven and odd numbered nodes are coloured differently\nEven to odd and odd to even edges are marked\nThe labels of all nodes are the tags of the nodes");
+            #endregion
         }
 
         /// <summary>

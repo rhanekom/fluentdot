@@ -31,8 +31,9 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
-
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .TheDefaults.ForEdges.Are(x => x.WithLabel("Default Color Blue").WithColor(Color.Blue))
                 .TheDefaults.ForNodes.Are(x => x.WithShape(NodeShape.Diamond).WithColor(Color.Green).WithLabel("Green Diamond"))
@@ -53,6 +54,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                    x.From.NodeWithName("b").To.NodeWithName("d");
                                }
                 );
+            #endregion
         }
 
         /// <summary>

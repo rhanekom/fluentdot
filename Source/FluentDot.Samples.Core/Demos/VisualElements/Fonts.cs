@@ -42,7 +42,9 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
         /// Produces the dot for the specified demo.
         /// </summary>
         /// <returns>DOT.</returns>
-        protected override IGraphExpression CreateGraph() {
+        protected override IGraphExpression CreateGraph()
+        {
+            #region ExportCode
             return Fluently.CreateDirectedGraph()
                 .WithLabel("Courier Purple SizedUp Graph Label")
                 .WithFontColor(Color.Purple)
@@ -70,6 +72,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                    edges.From.NodeWithName("NormalSize").To.NodeWithName("Helvetica").WithFontName("Times-Roman").WithLabel("Times-Roman");
                                    edges.From.NodeWithName("Helvetica").To.NodeWithName("Courier").WithFontName("Helvetica").WithLabel("Helvetica");
                                });
+            #endregion
         }
 
         #endregion
