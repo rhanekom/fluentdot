@@ -76,8 +76,8 @@ namespace FluentDot.Samples.Core.Demos.Layout
                 )
                 .Edges.Add(edges =>
                                {
-                                   edges.From.RecordWithName("struct1", "f1").To.RecordWithName("struct2", "f0");
-                                   edges.From.RecordWithName("struct1", "f2").To.RecordWithName("struct3", "here");
+                                   edges.FromRecordWithName("struct1", "f1").ToRecordWithName("struct2", "f0");
+                                   edges.FromRecordWithName("struct1", "f2").ToRecordWithName("struct3", "here");
                                });
             #endregion
         }

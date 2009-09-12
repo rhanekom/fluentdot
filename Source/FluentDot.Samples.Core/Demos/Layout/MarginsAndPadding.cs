@@ -58,12 +58,12 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                })
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("a").To.NodeWithName("b");
-                                   edges.From.NodeWithName("a").To.NodeWithName("c");
-                                   edges.From.NodeWithName("b").To.NodeWithName("c");
-                                   edges.From.NodeWithName("c").To.NodeWithName("e");
-                                   edges.From.NodeWithName("e").To.NodeWithName("f");
-                                   edges.From.NodeWithName("e").To.NodeWithName("g");
+                                   edges.FromNodeWithName("a").ToNodeWithName("b");
+                                   edges.FromNodeWithName("a").ToNodeWithName("c");
+                                   edges.FromNodeWithName("b").ToNodeWithName("c");
+                                   edges.FromNodeWithName("c").ToNodeWithName("e");
+                                   edges.FromNodeWithName("e").ToNodeWithName("f");
+                                   edges.FromNodeWithName("e").ToNodeWithName("g");
                                })
                 .WithBackgroundColor(Color.Gainsboro)
                 .WithLabel("2 Point Graph Margin, 1 Inch Margin Around Graph")

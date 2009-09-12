@@ -51,11 +51,11 @@ namespace FluentDot.Samples.Core.Demos.API
                                })
                 .Edges.Add(x =>
                                {
-                                   x.From.NodeWithName("a").To.NodeWithName("b");
-                                   x.From.NodeWithName("a").To.NodeWithName("c");
-                                   x.From.NodeWithName("c").To.NodeWithName("d").WithLabel("Label Override");
-                                   x.From.NodeWithName("b").To.NodeWithName("d");
-                                   x.From.NodeWithName("d").To.NodeWithName("e");
+                                   x.FromNodeWithName("a").ToNodeWithName("b");
+                                   x.FromNodeWithName("a").ToNodeWithName("c");
+                                   x.FromNodeWithName("c").ToNodeWithName("d").WithLabel("Label Override");
+                                   x.FromNodeWithName("b").ToNodeWithName("d");
+                                   x.FromNodeWithName("d").ToNodeWithName("e");
                                })
                 .WithLabel(@"Conventions\nEven and odd numbered nodes are coloured differently\nEven to odd and odd to even edges are marked\nThe labels of all nodes are the tags of the nodes");
             #endregion

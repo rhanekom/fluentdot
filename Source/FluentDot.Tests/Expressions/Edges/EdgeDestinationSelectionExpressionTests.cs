@@ -40,7 +40,7 @@ namespace FluentDot.Tests.Expressions.Edges
                 .IgnoreArguments()
                 .WhenCalled(x => edge = (IEdge) x.Arguments[0]);
 
-            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).NodeWithName("b");
+            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToNodeWithName("b");
 
             graph.VerifyAllExpectations();
             nodeLookup.VerifyAllExpectations();
@@ -69,7 +69,7 @@ namespace FluentDot.Tests.Expressions.Edges
                 .Constraints(Is.Matching<IGraphNode>(x => x.Name == "b"));
 
             nodeLookup.Expect(x => x.GetNodeByName("b")).Return(null);
-            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).NodeWithName("b");
+            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToNodeWithName("b");
 
             nodeLookup.VerifyAllExpectations();
             graph.VerifyAllExpectations();
@@ -95,7 +95,7 @@ namespace FluentDot.Tests.Expressions.Edges
                 .IgnoreArguments()
                 .WhenCalled(x => edge = (IEdge)x.Arguments[0]);
 
-            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).NodeWithTag(7);
+            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToNodeWithTag(7);
 
             graph.VerifyAllExpectations();
             nodeLookup.VerifyAllExpectations();
@@ -123,7 +123,7 @@ namespace FluentDot.Tests.Expressions.Edges
             graph.Expect(x => x.NodeLookup).Return(nodeLookup);
             nodeLookup.Expect(x => x.GetNodeByTag(7)).Return(null);
             
-            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).NodeWithTag(7);
+            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToNodeWithTag(7);
         }
 
         [Test]
@@ -140,7 +140,7 @@ namespace FluentDot.Tests.Expressions.Edges
                 .WhenCalled(x => edge = (IEdge)x.Arguments[0]);
 
             var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph)
-                .NewNode("a");
+                .ToNewNode("a");
 
             graph.VerifyAllExpectations();
             nodeLookup.VerifyAllExpectations();
@@ -166,7 +166,7 @@ namespace FluentDot.Tests.Expressions.Edges
                 .WhenCalled(x => edge = (IEdge)x.Arguments[0]);
 
             var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph)
-                .NewNode("a", x => x.WithLabel("aa"));
+                .ToNewNode("a", x => x.WithLabel("aa"));
 
             graph.VerifyAllExpectations();
             nodeLookup.VerifyAllExpectations();
@@ -203,7 +203,7 @@ namespace FluentDot.Tests.Expressions.Edges
             toNode.Expect(x => x.ElementTracker).Return(elementTracker);
             elementTracker.Expect(x => x.ContainsElement("c")).Return(true);
 
-            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).RecordWithName("b", "c");
+            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToRecordWithName("b", "c");
 
             graph.VerifyAllExpectations();
             nodeLookup.VerifyAllExpectations();
@@ -232,7 +232,7 @@ namespace FluentDot.Tests.Expressions.Edges
             toNode.Expect(x => x.ElementTracker).Return(elementTracker);
             elementTracker.Expect(x => x.ContainsElement("c")).Return(false);
 
-            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).RecordWithName("b", "c");
+            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToRecordWithName("b", "c");
         }
 
 
@@ -257,7 +257,7 @@ namespace FluentDot.Tests.Expressions.Edges
             toNode.Expect(x => x.ElementTracker).Return(elementTracker);
             elementTracker.Expect(x => x.ContainsElement("c")).Return(true);
 
-            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).RecordWithTag("tag", "c");
+            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToRecordWithTag("tag", "c");
 
             graph.VerifyAllExpectations();
             nodeLookup.VerifyAllExpectations();
@@ -286,7 +286,7 @@ namespace FluentDot.Tests.Expressions.Edges
             toNode.Expect(x => x.ElementTracker).Return(elementTracker);
             elementTracker.Expect(x => x.ContainsElement("c")).Return(false);
 
-            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).RecordWithTag("tag", "c");
+            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToRecordWithTag("tag", "c");
         }
        
     }

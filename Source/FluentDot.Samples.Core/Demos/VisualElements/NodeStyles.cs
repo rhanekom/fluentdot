@@ -61,7 +61,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                             x.WithName(b.ToString()).WithStyle(style);
                         })
                     .Edges.Add(
-                    x => x.From.NodeWithName(a.ToString()).To.NodeWithName(b.ToString()).WithLabel(item.Name));
+                    x => x.FromNodeWithName(a.ToString()).ToNodeWithName(b.ToString()).WithLabel(item.Name));
 
                 a += 2;
                 b += 2;

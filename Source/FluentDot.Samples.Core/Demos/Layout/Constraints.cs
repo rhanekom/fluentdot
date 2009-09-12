@@ -51,14 +51,14 @@ namespace FluentDot.Samples.Core.Demos.Layout
             return Fluently.CreateDirectedGraph()
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("a").To.NodeWithName("b");
-                                   edges.From.NodeWithName("a").To.NodeWithName("c");
-                                   edges.From.NodeWithName("b").To.NodeWithName("c").DoNotConstrainNodes().WithLabel("Not Constrained");
-                                   edges.From.NodeWithName("c").To.NodeWithName("d").DoNotConstrainNodes().WithLabel("Not Constrained");
-                                   edges.From.NodeWithName("b").To.NodeWithName("e");
-                                   edges.From.NodeWithName("e").To.NodeWithName("f").WithMinimumLength(2).WithLabel("Minimum Length : 2");
-                                   edges.From.NodeWithName("e").To.NodeWithName("g").WithMinimumLength(3).WithLabel("Minimum Length : 3");
-                                   edges.From.NodeWithName("g").To.NodeWithName("h").DoNotConstrainNodes().WithLabel("Not Constrained");
+                                   edges.FromNodeWithName("a").ToNodeWithName("b");
+                                   edges.FromNodeWithName("a").ToNodeWithName("c");
+                                   edges.FromNodeWithName("b").ToNodeWithName("c").DoNotConstrainNodes().WithLabel("Not Constrained");
+                                   edges.FromNodeWithName("c").ToNodeWithName("d").DoNotConstrainNodes().WithLabel("Not Constrained");
+                                   edges.FromNodeWithName("b").ToNodeWithName("e");
+                                   edges.FromNodeWithName("e").ToNodeWithName("f").WithMinimumLength(2).WithLabel("Minimum Length : 2");
+                                   edges.FromNodeWithName("e").ToNodeWithName("g").WithMinimumLength(3).WithLabel("Minimum Length : 3");
+                                   edges.FromNodeWithName("g").ToNodeWithName("h").DoNotConstrainNodes().WithLabel("Not Constrained");
                                }
                 );
             #endregion

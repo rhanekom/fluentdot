@@ -50,7 +50,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
             for (int i = 30; i < 360; i += 30)
             {
                 graph.Nodes.Add(x => x.WithName("D" + i).WithOrientation(i).WithShape(NodeShape.Polygon));
-                graph.Edges.Add(edge => edge.From.NodeWithName("D" + (i - 30).ToString()).To.NodeWithName("D" + i));
+                graph.Edges.Add(edge => edge.FromNodeWithName("D" + (i - 30).ToString()).ToNodeWithName("D" + i));
             }
 
             return graph;

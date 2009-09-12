@@ -62,14 +62,14 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                })
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("a").To.NodeWithName("b");
-                                   edges.From.NodeWithName("a").To.NodeWithName("c");
-                                   edges.From.NodeWithName("b").To.NodeWithName("c");
-                                   edges.From.NodeWithName("c").To.NodeWithName("d").DoNotJustify().WithLabel(@"Label\nNot\nJustified");
-                                   edges.From.NodeWithName("b").To.NodeWithName("e");
-                                   edges.From.NodeWithName("e").To.NodeWithName("f").DoNotJustify().WithLabel(@"Label\nNot\nJustified");
-                                   edges.From.NodeWithName("e").To.NodeWithName("g");
-                                   edges.From.NodeWithName("g").To.NodeWithName("h");
+                                   edges.FromNodeWithName("a").ToNodeWithName("b");
+                                   edges.FromNodeWithName("a").ToNodeWithName("c");
+                                   edges.FromNodeWithName("b").ToNodeWithName("c");
+                                   edges.FromNodeWithName("c").ToNodeWithName("d").DoNotJustify().WithLabel(@"Label\nNot\nJustified");
+                                   edges.FromNodeWithName("b").ToNodeWithName("e");
+                                   edges.FromNodeWithName("e").ToNodeWithName("f").DoNotJustify().WithLabel(@"Label\nNot\nJustified");
+                                   edges.FromNodeWithName("e").ToNodeWithName("g");
+                                   edges.FromNodeWithName("g").ToNodeWithName("h");
                                })
                 .WithLabel("Bottom Right Graph Label")
                 .WithLabelJustification(Justification.Right)

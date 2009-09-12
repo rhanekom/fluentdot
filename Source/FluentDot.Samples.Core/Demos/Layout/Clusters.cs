@@ -54,9 +54,9 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                         .WithName("c0")
                                         .Edges.Add(edges =>
                                                        {
-                                                           edges.From.NodeWithName("a0").To.NodeWithName("a1");
-                                                           edges.From.NodeWithName("a1").To.NodeWithName("a2");
-                                                           edges.From.NodeWithName("a2").To.NodeWithName("a3");
+                                                           edges.FromNodeWithName("a0").ToNodeWithName("a1");
+                                                           edges.FromNodeWithName("a1").ToNodeWithName("a2");
+                                                           edges.FromNodeWithName("a2").ToNodeWithName("a3");
                                                        })
                 )
                 .Clusters.Add(c1 => c1
@@ -64,19 +64,19 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                         .WithBackgroundColor(Color.Gainsboro)
                                         .Edges.Add(edges =>
                                                        {
-                                                           edges.From.NodeWithName("b0").To.NodeWithName("b1");
-                                                           edges.From.NodeWithName("b1").To.NodeWithName("b2");
-                                                           edges.From.NodeWithName("b2").To.NodeWithName("b3");
+                                                           edges.FromNodeWithName("b0").ToNodeWithName("b1");
+                                                           edges.FromNodeWithName("b1").ToNodeWithName("b2");
+                                                           edges.FromNodeWithName("b2").ToNodeWithName("b3");
                                                        }) 
                 )
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("x").To.NodeWithName("a0");
-                                   edges.From.NodeWithName("x").To.NodeWithName("b0");
-                                   edges.From.NodeWithName("a1").To.NodeWithName("b1");
-                                   edges.From.NodeWithName("a3").To.NodeWithName("a0");
-                                   edges.From.NodeWithName("a3").To.NodeWithName("z");
-                                   edges.From.NodeWithName("b3").To.NodeWithName("z");
+                                   edges.FromNodeWithName("x").ToNodeWithName("a0");
+                                   edges.FromNodeWithName("x").ToNodeWithName("b0");
+                                   edges.FromNodeWithName("a1").ToNodeWithName("b1");
+                                   edges.FromNodeWithName("a3").ToNodeWithName("a0");
+                                   edges.FromNodeWithName("a3").ToNodeWithName("z");
+                                   edges.FromNodeWithName("b3").ToNodeWithName("z");
                                });
             #endregion
         }

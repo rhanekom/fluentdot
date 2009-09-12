@@ -44,10 +44,10 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                      .WithLabel("Override of Shape and Color"))
                 .Edges.Add(x =>
                                {
-                                   x.From.NodeWithName("a").To.NodeWithName("b");
-                                   x.From.NodeWithName("a").To.NodeWithName("c").WithColor(Color.Red).WithLabel("Override of Red Color");
-                                   x.From.NodeWithName("c").To.NodeWithName("d");
-                                   x.From.NodeWithName("b").To.NodeWithName("d");
+                                   x.FromNodeWithName("a").ToNodeWithName("b");
+                                   x.FromNodeWithName("a").ToNodeWithName("c").WithColor(Color.Red).WithLabel("Override of Red Color");
+                                   x.FromNodeWithName("c").ToNodeWithName("d");
+                                   x.FromNodeWithName("b").ToNodeWithName("d");
                                }
                 );
             #endregion

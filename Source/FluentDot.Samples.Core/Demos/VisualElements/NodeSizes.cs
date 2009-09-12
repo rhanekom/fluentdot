@@ -54,10 +54,10 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                })
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("TinyHeight_Expanded").To.NodeWithName("TinyWidth_Expanded");
-                                   edges.From.NodeWithName("TinyHeight_Expanded").To.NodeWithName("Fixed_Size1");
-                                   edges.From.NodeWithName("TinyWidth_Expanded").To.NodeWithName("Fixed_Size1");
-                                   edges.From.NodeWithName("Fixed_Size1").To.NodeWithName("Fixed_Size2");
+                                   edges.FromNodeWithName("TinyHeight_Expanded").ToNodeWithName("TinyWidth_Expanded");
+                                   edges.FromNodeWithName("TinyHeight_Expanded").ToNodeWithName("Fixed_Size1");
+                                   edges.FromNodeWithName("TinyWidth_Expanded").ToNodeWithName("Fixed_Size1");
+                                   edges.FromNodeWithName("Fixed_Size1").ToNodeWithName("Fixed_Size2");
                                });
             #endregion
         }

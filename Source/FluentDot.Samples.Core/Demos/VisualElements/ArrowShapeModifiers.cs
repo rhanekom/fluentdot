@@ -77,8 +77,8 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                     shape = shape.Modify(modifier);
 
                     graph.Edges.Add(
-                        x => x.From.NodeWithName(a.ToString())
-                                 .To.NodeWithName(b.ToString())
+                        x => x.FromNodeWithName(a.ToString())
+                                 .ToNodeWithName(b.ToString())
                                  .WithArrowHead(shape)
                                  .WithArrowTail(shape)
                                  .WithLabel(item.Name + " - " + modifier.ToString()));

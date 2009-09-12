@@ -48,7 +48,7 @@ namespace FluentDot.Expressions.Edges
         /// </summary>
         /// <param name="name">The name of the node to choose as the source of the edge.</param>
         /// <returns>The current expression instance.</returns>
-        public IEdgeExpression NodeWithName(string name) {
+        public IEdgeExpression ToNodeWithName(string name) {
             var toNode = graph.NodeLookup.GetNodeByName(name);
 
             if (toNode == null) {
@@ -65,7 +65,7 @@ namespace FluentDot.Expressions.Edges
         /// <typeparam name="T">The type of tag.</typeparam>
         /// <param name="tag">The tag to match.</param>
         /// <returns>The current expression instance.</returns>
-        public IEdgeExpression NodeWithTag<T>(T tag) {
+        public IEdgeExpression ToNodeWithTag<T>(T tag) {
             var toNode = graph.NodeLookup.GetNodeByTag(tag);
 
             if (toNode == null)
@@ -82,7 +82,7 @@ namespace FluentDot.Expressions.Edges
         /// <param name="name">The name of the record to choose as the source of the edge.</param>
         /// <param name="elementName">Name of the element.</param>
         /// <returns>The current expression instance.</returns>
-        public IEdgeExpression RecordWithName(string name, string elementName) {
+        public IEdgeExpression ToRecordWithName(string name, string elementName) {
             var toNode = graph.NodeLookup.GetNodeByName(name);
 
             if (toNode == null) {
@@ -109,7 +109,7 @@ namespace FluentDot.Expressions.Edges
         /// <param name="tag">The tag to match.</param>
         /// <param name="elementName">Name of the element.</param>
         /// <returns>The current expression instance.</returns>
-        public IEdgeExpression RecordWithTag<T>(T tag, string elementName) {
+        public IEdgeExpression ToRecordWithTag<T>(T tag, string elementName) {
 
             var toNode = graph.NodeLookup.GetNodeByTag(tag);
 
@@ -135,9 +135,9 @@ namespace FluentDot.Expressions.Edges
         /// </summary>
         /// <param name="nodeName">Name of the node.</param>
         /// <returns>The current expression instance.</returns>
-        public IEdgeExpression NewNode(string nodeName)
+        public IEdgeExpression ToNewNode(string nodeName)
         {
-            return NewNode(nodeName, null);
+            return ToNewNode(nodeName, null);
         }
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace FluentDot.Expressions.Edges
         /// <param name="nodeName">Name of the node.</param>
         /// <param name="nodeConfiguration">The node configuration to apply to the node.</param>
         /// <returns>The current expression instance.</returns>
-        public IEdgeExpression NewNode(string nodeName, Action<INodeExpression> nodeConfiguration)
+        public IEdgeExpression ToNewNode(string nodeName, Action<INodeExpression> nodeConfiguration)
         {
             var toNode = new GraphNode(nodeName);
             graph.AddNode(toNode);

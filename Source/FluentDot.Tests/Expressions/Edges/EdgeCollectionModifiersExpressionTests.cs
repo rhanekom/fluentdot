@@ -37,8 +37,8 @@ namespace FluentDot.Tests.Expressions.Edges
             expression.Add(
                 edges =>
                     {
-                        edges.From.NodeWithName("a").To.NodeWithName("b");
-                        edges.From.NodeWithName("c").To.NodeWithName("d");
+                        edges.FromNodeWithName("a").ToNodeWithName("b");
+                        edges.FromNodeWithName("c").ToNodeWithName("d");
                     }
                 );
 
@@ -66,7 +66,7 @@ namespace FluentDot.Tests.Expressions.Edges
             var graphExpression = new GraphExpression<IUndirectedGraph>(graph);
             var expression = new EdgeCollectionModifiersExpression<IGraphExpression>(graph, graphExpression);
             
-            var instance = expression.Add(edges => edges.From.NodeWithName("a").To.NodeWithName("b"));
+            var instance = expression.Add(edges => edges.FromNodeWithName("a").ToNodeWithName("b"));
             Assert.AreSame(instance, graphExpression);
         }
     }

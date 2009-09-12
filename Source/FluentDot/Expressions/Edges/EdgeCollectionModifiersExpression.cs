@@ -44,11 +44,11 @@ namespace FluentDot.Expressions.Edges
         /// </summary>
         /// <param name="addExpression">The add expression.</param>
         /// <returns>The current expression instance.</returns>
-        public T Add(System.Action<IEdgeCollectionAddExpression> addExpression) {
+        public T Add(System.Action<IEdgeSourceExpression> addExpression) {
 
             if (addExpression != null)
             {
-                addExpression(new EdgeCollectionAddExpression(graph));
+                addExpression(new EdgeSourceExpression(graph));
             }
 
             return parent;

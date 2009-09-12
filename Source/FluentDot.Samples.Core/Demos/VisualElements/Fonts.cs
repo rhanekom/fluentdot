@@ -62,14 +62,14 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                })
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("RedFont").To.NodeWithName("BlueFont").WithFontColor(Color.Brown).WithLabel("BrownFont");
-                                   edges.From.NodeWithName("RedFont").To.NodeWithName("SizeUp").WithFontColor(Color.HotPink).WithLabel("HotPink");
-                                   edges.From.NodeWithName("BlueFont").To.NodeWithName("SizeUp");
-                                   edges.From.NodeWithName("SizeUp").To.NodeWithName("SizeDown");
-                                   edges.From.NodeWithName("BlueFont").To.NodeWithName("NormalSize").WithFontSize(28.0).WithLabel("SizeUp");
-                                   edges.From.NodeWithName("NormalSize").To.NodeWithName("TimesRoman").WithFontSize(7.0).WithLabel("SizeDown");
-                                   edges.From.NodeWithName("NormalSize").To.NodeWithName("Helvetica").WithFontName("Times-Roman").WithLabel("Times-Roman");
-                                   edges.From.NodeWithName("Helvetica").To.NodeWithName("Courier").WithFontName("Helvetica").WithLabel("Helvetica");
+                                   edges.FromNodeWithName("RedFont").ToNodeWithName("BlueFont").WithFontColor(Color.Brown).WithLabel("BrownFont");
+                                   edges.FromNodeWithName("RedFont").ToNodeWithName("SizeUp").WithFontColor(Color.HotPink).WithLabel("HotPink");
+                                   edges.FromNodeWithName("BlueFont").ToNodeWithName("SizeUp");
+                                   edges.FromNodeWithName("SizeUp").ToNodeWithName("SizeDown");
+                                   edges.FromNodeWithName("BlueFont").ToNodeWithName("NormalSize").WithFontSize(28.0).WithLabel("SizeUp");
+                                   edges.FromNodeWithName("NormalSize").ToNodeWithName("TimesRoman").WithFontSize(7.0).WithLabel("SizeDown");
+                                   edges.FromNodeWithName("NormalSize").ToNodeWithName("Helvetica").WithFontName("Times-Roman").WithLabel("Times-Roman");
+                                   edges.FromNodeWithName("Helvetica").ToNodeWithName("Courier").WithFontName("Helvetica").WithLabel("Helvetica");
                                });
             #endregion
         }

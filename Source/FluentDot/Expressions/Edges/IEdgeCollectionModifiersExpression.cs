@@ -20,6 +20,6 @@ namespace FluentDot.Expressions.Edges
         /// </summary>
         /// <param name="addExpression">The add expression.</param>
         /// <returns>The parent expression instance.</returns>
-        T Add(Action<IEdgeCollectionAddExpression> addExpression);
+        T Add(Action<IEdgeSourceExpression> addExpression);
     }
 }

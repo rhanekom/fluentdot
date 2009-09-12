@@ -36,10 +36,10 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
             return Fluently.CreateDirectedGraph()
                 .Edges.Add(x =>
                                {
-                                   x.From.NodeWithName("a").To.NodeWithName("b");
-                                   x.From.NodeWithName("a").To.NodeWithName("c");
-                                   x.From.NodeWithName("c").To.NodeWithName("d");
-                                   x.From.NodeWithName("b").To.NodeWithName("d");
+                                   x.FromNodeWithName("a").ToNodeWithName("b");
+                                   x.FromNodeWithName("a").ToNodeWithName("c");
+                                   x.FromNodeWithName("c").ToNodeWithName("d");
+                                   x.FromNodeWithName("b").ToNodeWithName("d");
                                }
                 ).WithBackgroundColor(Color.SlateBlue);
             #endregion

@@ -172,9 +172,7 @@
     <Compile Include="Expressions\Graphs\SubGraphCollectionModifiersExpressionTests.cs" />
     <Compile Include="Expressions\Shared\ActionExpressionTests.cs" />
     <Compile Include="Expressions\Configuration\ConfigurationExpressionTests.cs" />
-    <Compile Include="Expressions\Edges\EdgeCollectionAddExpressionTests.cs" />
     <Compile Include="Expressions\Edges\EdgeCollectionModifiersExpressionTests.cs" />
-    <Compile Include="Expressions\Edges\EdgeDestinationExpressionTests.cs" />
     <Compile Include="Expressions\Edges\EdgeDestinationSelectionExpressionTests.cs" />
     <Compile Include="Expressions\Edges\EdgeExpressionTests.cs" />
     <Compile Include="Expressions\Edges\EdgeSourceExpressionTests.cs" />

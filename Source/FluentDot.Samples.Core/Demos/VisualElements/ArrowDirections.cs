@@ -49,19 +49,19 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
             return Fluently.CreateDirectedGraph()
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("a").To.NodeWithName("b")
+                                   edges.FromNodeWithName("a").ToNodeWithName("b")
                                        .WithArrowDirection(ArrowDirection.Back)
                                        .WithLabel("Back");
 
-                                   edges.From.NodeWithName("c").To.NodeWithName("d")
+                                   edges.FromNodeWithName("c").ToNodeWithName("d")
                                        .WithArrowDirection(ArrowDirection.Both)
                                        .WithLabel("Both");
 
-                                   edges.From.NodeWithName("e").To.NodeWithName("f")
+                                   edges.FromNodeWithName("e").ToNodeWithName("f")
                                        .WithArrowDirection(ArrowDirection.Forward)
                                        .WithLabel("Forward");
 
-                                   edges.From.NodeWithName("g").To.NodeWithName("h")
+                                   edges.FromNodeWithName("g").ToNodeWithName("h")
                                        .WithArrowDirection(ArrowDirection.None)
                                        .WithLabel("None");
                                });

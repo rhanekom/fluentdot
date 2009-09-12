@@ -54,55 +54,55 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                         .WithRank(RankType.Maximum)
                                         .Edges.Add(edge =>
                                                        {
-                                                           edge.From.NodeWithName("a").To.NodeWithName("b");
-                                                           edge.From.NodeWithName("b").To.NodeWithName("c");
-                                                           edge.From.NodeWithName("c").To.NodeWithName("d");
+                                                           edge.FromNodeWithName("a").ToNodeWithName("b");
+                                                           edge.FromNodeWithName("b").ToNodeWithName("c");
+                                                           edge.FromNodeWithName("c").ToNodeWithName("d");
                                                        })
                 )
                 .SubGraphs.Add(s => s.WithName("c1")
                                         .WithRank(RankType.Maximum)
                                         .Edges.Add(edge =>
                                                        {
-                                                           edge.From.NodeWithName("d").To.NodeWithName("e");
-                                                           edge.From.NodeWithName("e").To.NodeWithName("f");
-                                                           edge.From.NodeWithName("f").To.NodeWithName("g");
+                                                           edge.FromNodeWithName("d").ToNodeWithName("e");
+                                                           edge.FromNodeWithName("e").ToNodeWithName("f");
+                                                           edge.FromNodeWithName("f").ToNodeWithName("g");
                                                        })
                                                       )
                  .SubGraphs.Add(s => s.WithName("c2")
                                         .WithRank(RankType.Maximum)
                                         .Edges.Add(edge =>
                                                        {
-                                                           edge.From.NodeWithName("g").To.NodeWithName("h");
-                                                           edge.From.NodeWithName("h").To.NodeWithName("i");
-                                                           edge.From.NodeWithName("i").To.NodeWithName("j");
+                                                           edge.FromNodeWithName("g").ToNodeWithName("h");
+                                                           edge.FromNodeWithName("h").ToNodeWithName("i");
+                                                           edge.FromNodeWithName("i").ToNodeWithName("j");
                                                        }))
                 .SubGraphs.Add(s => s.WithName("c3")
                                         .WithRank(RankType.Maximum)
                                         .Edges.Add(edge =>
                                                        {
-                                                           edge.From.NodeWithName("j").To.NodeWithName("k");
-                                                           edge.From.NodeWithName("k").To.NodeWithName("l");
-                                                           edge.From.NodeWithName("l").To.NodeWithName("m");
+                                                           edge.FromNodeWithName("j").ToNodeWithName("k");
+                                                           edge.FromNodeWithName("k").ToNodeWithName("l");
+                                                           edge.FromNodeWithName("l").ToNodeWithName("m");
                                                        }))
                 .SubGraphs.Add(s => s.WithName("c4")
                                         .WithRank(RankType.Minimum)
                                         .Edges.Add(edge =>
                                                        {
-                                                           edge.From.NodeWithName("m").To.NodeWithName("n");
-                                                           edge.From.NodeWithName("n").To.NodeWithName("o");
-                                                           edge.From.NodeWithName("o").To.NodeWithName("p");
+                                                           edge.FromNodeWithName("m").ToNodeWithName("n");
+                                                           edge.FromNodeWithName("n").ToNodeWithName("o");
+                                                           edge.FromNodeWithName("o").ToNodeWithName("p");
                                                        }))
             .Edges.Add(edge => {
-                edge.From.NodeWithName("aa").To.NodeWithName("a");
-                edge.From.NodeWithName("dd").To.NodeWithName("d");
-                edge.From.NodeWithName("gg").To.NodeWithName("g");
-                edge.From.NodeWithName("jj").To.NodeWithName("j");
-                edge.From.NodeWithName("mm").To.NodeWithName("m");
+                edge.FromNodeWithName("aa").ToNodeWithName("a");
+                edge.FromNodeWithName("dd").ToNodeWithName("d");
+                edge.FromNodeWithName("gg").ToNodeWithName("g");
+                edge.FromNodeWithName("jj").ToNodeWithName("j");
+                edge.FromNodeWithName("mm").ToNodeWithName("m");
 
-                edge.From.NodeWithName("aa").To.NodeWithName("dd");
-                edge.From.NodeWithName("dd").To.NodeWithName("gg");
-                edge.From.NodeWithName("gg").To.NodeWithName("jj");
-                edge.From.NodeWithName("jj").To.NodeWithName("mm");
+                edge.FromNodeWithName("aa").ToNodeWithName("dd");
+                edge.FromNodeWithName("dd").ToNodeWithName("gg");
+                edge.FromNodeWithName("gg").ToNodeWithName("jj");
+                edge.FromNodeWithName("jj").ToNodeWithName("mm");
             });
             #endregion
         }

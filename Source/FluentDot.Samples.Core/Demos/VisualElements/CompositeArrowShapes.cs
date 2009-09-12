@@ -78,7 +78,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
 
                 var shape = new CompositeArrowShape(chosenArrowShapes.ToArray());
 
-                graph.Edges.Add(x => x.From.NodeWithName(a.ToString()).To.NodeWithName(b.ToString())
+                graph.Edges.Add(x => x.FromNodeWithName(a.ToString()).ToNodeWithName(b.ToString())
                                         .WithArrowHead(shape)
                                         .WithLabel(shape.ToDot()));
 

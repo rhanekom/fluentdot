@@ -48,12 +48,12 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                 )
                 .Edges.Add(x =>
                                {
-                                   x.From.NodeWithName("Red").To.NodeWithName("Green").WithColor(Color.Coral).WithLabel("Coral");
-                                   x.From.NodeWithName("Red").To.NodeWithName("Blue").WithColor(Color.DarkOrange).WithLabel("DarkOrange");
-                                   x.From.NodeWithName("Blue").To.NodeWithName("Yellow").WithColor(Color.DeepSkyBlue).WithLabel("DeepSkyBlue");
-                                   x.From.NodeWithName("Blue").To.NodeWithName("Cyan").WithColor(Color.Chocolate).WithLabel("Chocolate");
-                                   x.From.NodeWithName("Cyan").To.NodeWithName("FilledBrown").WithColor(Color.Purple).WithLabel("Purple");
-                                   x.From.NodeWithName("Cyan").To.NodeWithName("FilledGoldenRod").WithColor(Color.HotPink).WithLabel("HotPink");
+                                   x.FromNodeWithName("Red").ToNodeWithName("Green").WithColor(Color.Coral).WithLabel("Coral");
+                                   x.FromNodeWithName("Red").ToNodeWithName("Blue").WithColor(Color.DarkOrange).WithLabel("DarkOrange");
+                                   x.FromNodeWithName("Blue").ToNodeWithName("Yellow").WithColor(Color.DeepSkyBlue).WithLabel("DeepSkyBlue");
+                                   x.FromNodeWithName("Blue").ToNodeWithName("Cyan").WithColor(Color.Chocolate).WithLabel("Chocolate");
+                                   x.FromNodeWithName("Cyan").ToNodeWithName("FilledBrown").WithColor(Color.Purple).WithLabel("Purple");
+                                   x.FromNodeWithName("Cyan").ToNodeWithName("FilledGoldenRod").WithColor(Color.HotPink).WithLabel("HotPink");
                                }
                 );
             #endregion

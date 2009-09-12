@@ -69,16 +69,16 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                              .WithLabel("Red pen color, 2.0 Width"))
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("a").To.NodeWithName("b");
-                                   edges.From.NodeWithName("b").To.NodeWithName("c");
-                                   edges.From.NodeWithName("b").To.NodeWithName("d");
-                                   edges.From.NodeWithName("c").To.NodeWithName("d").WithPenWidth(2.0).WithLabel("Pen Width : 2.0");
-                                   edges.From.NodeWithName("b").To.NodeWithName("e");
-                                   edges.From.NodeWithName("e").To.NodeWithName("f");
-                                   edges.From.NodeWithName("e").To.NodeWithName("g");
-                                   edges.From.NodeWithName("g").To.NodeWithName("h");
-                                   edges.From.NodeWithName("f").To.NodeWithName("g").WithPenWidth(3.0).WithLabel("Pen Width : 3.0");
-                                   edges.From.NodeWithName("g").To.NodeWithName("a");
+                                   edges.FromNodeWithName("a").ToNodeWithName("b");
+                                   edges.FromNodeWithName("b").ToNodeWithName("c");
+                                   edges.FromNodeWithName("b").ToNodeWithName("d");
+                                   edges.FromNodeWithName("c").ToNodeWithName("d").WithPenWidth(2.0).WithLabel("Pen Width : 2.0");
+                                   edges.FromNodeWithName("b").ToNodeWithName("e");
+                                   edges.FromNodeWithName("e").ToNodeWithName("f");
+                                   edges.FromNodeWithName("e").ToNodeWithName("g");
+                                   edges.FromNodeWithName("g").ToNodeWithName("h");
+                                   edges.FromNodeWithName("f").ToNodeWithName("g").WithPenWidth(3.0).WithLabel("Pen Width : 3.0");
+                                   edges.FromNodeWithName("g").ToNodeWithName("a");
                                });
             #endregion
         }

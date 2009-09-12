@@ -29,7 +29,7 @@ namespace FluentDot.Tests.Expressions.Edges
             graph.Expect(x => x.NodeLookup).Return(nodeLookup);
             nodeLookup.Expect(x => x.GetNodeByName("b")).Return(fromNode);
             
-            var edgeExpression = new EdgeSourceExpression(graph).NodeWithName("b");
+            var edgeExpression = new EdgeSourceExpression(graph).FromNodeWithName("b");
 
             graph.VerifyAllExpectations();
             nodeLookup.VerifyAllExpectations();
@@ -49,7 +49,7 @@ namespace FluentDot.Tests.Expressions.Edges
                 .Constraints(Is.Matching<IGraphNode>(x => x.Name == "b"));
 
             nodeLookup.Expect(x => x.GetNodeByName("b")).Return(null);
-            new EdgeSourceExpression(graph).NodeWithName("b");
+            new EdgeSourceExpression(graph).FromNodeWithName("b");
 
             graph.VerifyAllExpectations();
         }
@@ -67,7 +67,7 @@ namespace FluentDot.Tests.Expressions.Edges
             graph.Expect(x => x.NodeLookup).Return(nodeLookup);
             nodeLookup.Expect(x => x.GetNodeByTag(7)).Return(fromNode);
             
-            var edgeExpression = new EdgeSourceExpression(graph).NodeWithTag(7);
+            var edgeExpression = new EdgeSourceExpression(graph).FromNodeWithTag(7);
 
             graph.VerifyAllExpectations();
             nodeLookup.VerifyAllExpectations();
@@ -84,7 +84,7 @@ namespace FluentDot.Tests.Expressions.Edges
             graph.Expect(x => x.NodeLookup).Return(nodeLookup);
             nodeLookup.Expect(x => x.GetNodeByTag(7)).Return(null);
 
-            new EdgeSourceExpression(graph).NodeWithTag(7);
+            new EdgeSourceExpression(graph).FromNodeWithTag(7);
         }
 
         [Test]
@@ -100,7 +100,7 @@ namespace FluentDot.Tests.Expressions.Edges
                 );
 
 
-            var edgeExpression = new EdgeSourceExpression(graph).NewNode("a");
+            var edgeExpression = new EdgeSourceExpression(graph).FromNewNode("a");
             graph.VerifyAllExpectations();
             
             Assert.IsNotNull(edgeExpression);
@@ -119,7 +119,7 @@ namespace FluentDot.Tests.Expressions.Edges
                 );
 
 
-            var edgeExpression = new EdgeSourceExpression(graph).NewNode("a", x => x.WithLabel("b"));
+            var edgeExpression = new EdgeSourceExpression(graph).FromNewNode("a", x => x.WithLabel("b"));
             graph.VerifyAllExpectations();
 
             Assert.IsNotNull(edgeExpression);
@@ -139,7 +139,7 @@ namespace FluentDot.Tests.Expressions.Edges
             fromNode.Expect(x => x.ElementTracker).Return(elementTracker);
             elementTracker.Expect(x => x.ContainsElement("c")).Return(true);
 
-            var edgeExpression = new EdgeSourceExpression(graph).RecordWithName("b", "c");
+            var edgeExpression = new EdgeSourceExpression(graph).FromRecordWithName("b", "c");
 
             graph.VerifyAllExpectations();
             nodeLookup.VerifyAllExpectations();
@@ -156,7 +156,7 @@ namespace FluentDot.Tests.Expressions.Edges
 
             graph.Expect(x => x.NodeLookup).Return(nodeLookup);
             nodeLookup.Expect(x => x.GetNodeByName("b")).Return(null);
-            new EdgeSourceExpression(graph).RecordWithName("b", "c");
+            new EdgeSourceExpression(graph).FromRecordWithName("b", "c");
         }
 
         [Test]
@@ -173,7 +173,7 @@ namespace FluentDot.Tests.Expressions.Edges
             fromNode.Expect(x => x.ElementTracker).Return(elementTracker);
             elementTracker.Expect(x => x.ContainsElement("c")).Return(true);
 
-            var edgeExpression = new EdgeSourceExpression(graph).RecordWithTag("tag", "c");
+            var edgeExpression = new EdgeSourceExpression(graph).FromRecordWithTag("tag", "c");
 
             graph.VerifyAllExpectations();
             nodeLookup.VerifyAllExpectations();
@@ -190,7 +190,7 @@ namespace FluentDot.Tests.Expressions.Edges
 
             graph.Expect(x => x.NodeLookup).Return(nodeLookup);
             nodeLookup.Expect(x => x.GetNodeByTag("tag")).Return(null);
-            new EdgeSourceExpression(graph).RecordWithTag("tag", "c");
+            new EdgeSourceExpression(graph).FromRecordWithTag("tag", "c");
         }
     }
 }

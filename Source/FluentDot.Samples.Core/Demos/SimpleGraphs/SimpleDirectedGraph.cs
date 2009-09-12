@@ -35,10 +35,10 @@ namespace FluentDot.Samples.Core.Demos.SimpleGraphs
             return Fluently.CreateDirectedGraph()
                 .Edges.Add(x =>
                                {
-                                   x.From.NodeWithName("A").To.NodeWithName("B");
-                                   x.From.NodeWithName("A").To.NodeWithName("C");
-                                   x.From.NodeWithName("B").To.NodeWithName("C");
-                                   x.From.NodeWithName("B").To.NodeWithName("D");
+                                   x.FromNodeWithName("A").ToNodeWithName("B");
+                                   x.FromNodeWithName("A").ToNodeWithName("C");
+                                   x.FromNodeWithName("B").ToNodeWithName("C");
+                                   x.FromNodeWithName("B").ToNodeWithName("D");
                                }
                 );
             #endregion

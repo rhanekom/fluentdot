@@ -65,7 +65,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                         x.WithName(b.ToString()).WithDistortion(i);
                     })
                     .Edges.Add(
-                        x => x.From.NodeWithName(a.ToString()).To.NodeWithName(b.ToString()).WithLabel(i.ToString())
+                        x => x.FromNodeWithName(a.ToString()).ToNodeWithName(b.ToString()).WithLabel(i.ToString())
                     );
 
                 a += 2;

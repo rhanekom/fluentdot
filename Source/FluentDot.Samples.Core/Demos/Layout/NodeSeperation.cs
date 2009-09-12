@@ -54,10 +54,10 @@ namespace FluentDot.Samples.Core.Demos.Layout
             return Fluently.CreateDirectedGraph()
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("a").To.NodeWithName("b");
-                                   edges.From.NodeWithName("a").To.NodeWithName("c");
-                                   edges.From.NodeWithName("c").To.NodeWithName("d");
-                                   edges.From.NodeWithName("c").To.NodeWithName("e");
+                                   edges.FromNodeWithName("a").ToNodeWithName("b");
+                                   edges.FromNodeWithName("a").ToNodeWithName("c");
+                                   edges.FromNodeWithName("c").ToNodeWithName("d");
+                                   edges.FromNodeWithName("c").ToNodeWithName("e");
                                })
                 .WithLabel("Minimum Node Seperation of 2 inches.")
                 .WithMinimumNodeSeperation(2);

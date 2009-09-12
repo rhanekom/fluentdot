@@ -55,14 +55,14 @@ namespace FluentDot.Samples.Core.Demos.Layout
             return Fluently.CreateDirectedGraph()
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("a").To.NodeWithName("b");
-                                   edges.From.NodeWithName("a").To.NodeWithName("c");
-                                   edges.From.NodeWithName("b").To.NodeWithName("c");
-                                   edges.From.NodeWithName("c").To.NodeWithName("d");
-                                   edges.From.NodeWithName("b").To.NodeWithName("e");
-                                   edges.From.NodeWithName("e").To.NodeWithName("g");
-                                   edges.From.NodeWithName("e").To.NodeWithName("f");
-                                   edges.From.NodeWithName("g").To.NodeWithName("h");
+                                   edges.FromNodeWithName("a").ToNodeWithName("b");
+                                   edges.FromNodeWithName("a").ToNodeWithName("c");
+                                   edges.FromNodeWithName("b").ToNodeWithName("c");
+                                   edges.FromNodeWithName("c").ToNodeWithName("d");
+                                   edges.FromNodeWithName("b").ToNodeWithName("e");
+                                   edges.FromNodeWithName("e").ToNodeWithName("g");
+                                   edges.FromNodeWithName("e").ToNodeWithName("f");
+                                   edges.FromNodeWithName("g").ToNodeWithName("h");
                                })
                 .WithEdgeOrdering(Ordering.Out)
                 .WithLabel("Out Ordering of edges");

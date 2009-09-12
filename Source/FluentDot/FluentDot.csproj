@@ -215,9 +215,7 @@
     <Compile Include="Expressions\Graphs\SubGraphExpression.cs" />
     <Compile Include="Expressions\Shared\ActionExpression.cs" />
     <Compile Include="Expressions\Configuration\ConfigurationExpression.cs" />
-    <Compile Include="Expressions\Edges\EdgeCollectionAddExpression.cs" />
     <Compile Include="Expressions\Edges\EdgeCollectionModifiersExpression.cs" />
-    <Compile Include="Expressions\Edges\EdgeDestinationExpression.cs" />
     <Compile Include="Expressions\Edges\EdgeDestinationSelectionExpression.cs" />
     <Compile Include="Expressions\Edges\EdgeExpression.cs" />
     <Compile Include="Expressions\Edges\EdgeSourceExpression.cs" />
@@ -226,9 +224,7 @@
     <Compile Include="Expressions\Graphs\IClusterCollectionModifiersExpression.cs" />
     <Compile Include="Expressions\Graphs\IClusterExpression.cs" />
     <Compile Include="Expressions\Configuration\IConfigurationExpression.cs" />
-    <Compile Include="Expressions\Edges\IEdgeCollectionAddExpression.cs" />
     <Compile Include="Expressions\Edges\IEdgeCollectionModifiersExpression.cs" />
-    <Compile Include="Expressions\Edges\IEdgeDestinationExpression.cs" />
     <Compile Include="Expressions\Edges\IEdgeDestinationSelectionExpression.cs" />
     <Compile Include="Expressions\Edges\IEdgeExpression.cs" />
     <Compile Include="Expressions\Edges\IEdgeSourceExpression.cs" />

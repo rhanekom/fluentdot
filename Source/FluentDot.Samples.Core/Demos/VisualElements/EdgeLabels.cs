@@ -52,16 +52,16 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
             return Fluently.CreateDirectedGraph()
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("a").To.NodeWithName("b").WithLabelAngle(100).WithTailLabel("Angle : 100");
-                                   edges.From.NodeWithName("a").To.NodeWithName("c").WithLabelAngle(-100).WithHeadLabel("Angle : -100");
-                                   edges.From.NodeWithName("b").To.NodeWithName("c").FloatLabel().WithLabel("Floating Label");
-                                   edges.From.NodeWithName("c").To.NodeWithName("d").WithLabelDistance(5).WithHeadLabel("Distance : 50");
-                                   edges.From.NodeWithName("b").To.NodeWithName("e").WithLabelDistance(0.5).WithTailLabel("Distance : 0.5");
-                                   edges.From.NodeWithName("e").To.NodeWithName("f").WithLabelFontColor(Color.Blue).WithLabelFontSize(28).WithLabelFontName("Times-Roman").WithHeadLabel("Blue Times-Roman 28 Point");
-                                   edges.From.NodeWithName("e").To.NodeWithName("g").FloatLabel().WithLabel("Floating Label");
-                                   edges.From.NodeWithName("g").To.NodeWithName("h").WithLabelFontColor(Color.Red).WithLabelFontSize(7).WithLabelFontName("Helvetica").WithTailLabel("Red Helvetica 14 Point");
-                                   edges.From.NodeWithName("g").To.NodeWithName("i").Decorate().WithLabel("Decorated Label");
-                                   edges.From.NodeWithName("e").To.NodeWithName("j").Decorate().WithLabel("Decorated Label");
+                                   edges.FromNodeWithName("a").ToNodeWithName("b").WithLabelAngle(100).WithTailLabel("Angle : 100");
+                                   edges.FromNodeWithName("a").ToNodeWithName("c").WithLabelAngle(-100).WithHeadLabel("Angle : -100");
+                                   edges.FromNodeWithName("b").ToNodeWithName("c").FloatLabel().WithLabel("Floating Label");
+                                   edges.FromNodeWithName("c").ToNodeWithName("d").WithLabelDistance(5).WithHeadLabel("Distance : 50");
+                                   edges.FromNodeWithName("b").ToNodeWithName("e").WithLabelDistance(0.5).WithTailLabel("Distance : 0.5");
+                                   edges.FromNodeWithName("e").ToNodeWithName("f").WithLabelFontColor(Color.Blue).WithLabelFontSize(28).WithLabelFontName("Times-Roman").WithHeadLabel("Blue Times-Roman 28 Point");
+                                   edges.FromNodeWithName("e").ToNodeWithName("g").FloatLabel().WithLabel("Floating Label");
+                                   edges.FromNodeWithName("g").ToNodeWithName("h").WithLabelFontColor(Color.Red).WithLabelFontSize(7).WithLabelFontName("Helvetica").WithTailLabel("Red Helvetica 14 Point");
+                                   edges.FromNodeWithName("g").ToNodeWithName("i").Decorate().WithLabel("Decorated Label");
+                                   edges.FromNodeWithName("e").ToNodeWithName("j").Decorate().WithLabel("Decorated Label");
                                }
                 )
                 .WithMinimumNodeSeperation(2);

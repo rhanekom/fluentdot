@@ -51,10 +51,10 @@ namespace FluentDot.Samples.Core.Demos.Layout
             return Fluently.CreateDirectedGraph()
                 .Edges.Add(edges =>
                                {
-                                   edges.From.NodeWithName("a").To.NodeWithName("b");
-                                   edges.From.NodeWithName("a").To.NodeWithName("c");
-                                   edges.From.NodeWithName("b").To.NodeWithName("c");
-                                   edges.From.NodeWithName("c").To.NodeWithName("d");
+                                   edges.FromNodeWithName("a").ToNodeWithName("b");
+                                   edges.FromNodeWithName("a").ToNodeWithName("c");
+                                   edges.FromNodeWithName("b").ToNodeWithName("c");
+                                   edges.FromNodeWithName("c").ToNodeWithName("d");
                                }
                 )
                 .WithRatio(5);
