@@ -250,6 +250,71 @@ namespace FluentDot.Tests.Expressions.Edges
         }
 
         [Test]
+        public void WithHeadURL_Should_Set_HeadURL()
+        {
+            AssertAttributeAdded(expression => expression.WithHeadURL("http://www.google.com"),
+                                typeof(HeadURLAttribute), "http://www.google.com");
+        }
+
+        [Test]
+        public void WithTailURL_Should_Set_TailURL() {
+            AssertAttributeAdded(expression => expression.WithTailURL("http://www.google.com"),
+                                typeof(TailURLAttribute), "http://www.google.com");
+        }
+
+        [Test]
+        public void WithHeadTooltip_Should_Set_HeadTooltip() {
+            AssertAttributeAdded(expression => expression.WithHeadTooltip("someTooltip"),
+                                typeof(HeadTooltipAttribute), "someTooltip");
+        }
+
+        [Test]
+        public void WithTailTooltip_Should_Set_TailTooltip() {
+            AssertAttributeAdded(expression => expression.WithTailTooltip("someTooltip"),
+                                typeof(TailTooltipAttribute), "someTooltip");
+        }
+
+        [Test]
+        public void WithTailURL_Should_Set_URL_And_Target() {
+            var node1 = MockRepository.GenerateMock<IGraphNode>();
+            var node2 = MockRepository.GenerateMock<IGraphNode>();
+            var edge = new DirectedEdge(new NodeTarget(node1), new NodeTarget(node2));
+
+            var expression = new EdgeExpression(edge);
+            Assert.IsNotNull(expression.WithTailURL("http://www.google.com", "_new"));
+
+            Assert.AreEqual(edge.Attributes.CurrentAttributes.Count, 2);
+
+            var attribute = edge.Attributes.CurrentAttributes[0];
+            Assert.IsInstanceOfType(typeof(TailURLAttribute), attribute);
+            Assert.AreEqual(attribute.Value, "http://www.google.com");
+
+            attribute = edge.Attributes.CurrentAttributes[1];
+            Assert.IsInstanceOfType(typeof(TailTargetAttribute), attribute);
+            Assert.AreEqual(attribute.Value, "_new");
+        }
+
+        [Test]
+        public void WithHeadURL_Should_Set_URL_And_Target() {
+            var node1 = MockRepository.GenerateMock<IGraphNode>();
+            var node2 = MockRepository.GenerateMock<IGraphNode>();
+            var edge = new DirectedEdge(new NodeTarget(node1), new NodeTarget(node2));
+
+            var expression = new EdgeExpression(edge);
+            Assert.IsNotNull(expression.WithHeadURL("http://www.google.com", "_new"));
+
+            Assert.AreEqual(edge.Attributes.CurrentAttributes.Count, 2);
+
+            var attribute = edge.Attributes.CurrentAttributes[0];
+            Assert.IsInstanceOfType(typeof(HeadURLAttribute), attribute);
+            Assert.AreEqual(attribute.Value, "http://www.google.com");
+
+            attribute = edge.Attributes.CurrentAttributes[1];
+            Assert.IsInstanceOfType(typeof(HeadTargetAttribute), attribute);
+            Assert.AreEqual(attribute.Value, "_new");
+        }
+
+        [Test]
         public void WithEdgeURL_Should_Set_URL_And_Target()
         {
             var node1 = MockRepository.GenerateMock<IGraphNode>();

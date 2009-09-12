@@ -243,7 +243,7 @@ namespace FluentDot.Expressions.Edges
         /// <returns>The current expression instance.</returns>
         public IEdgeExpression WithEdgeURL(string url, string target)
         {
-            edge.Attributes.AddAttribute(new EdgeURLAttribute(url));
+            WithEdgeURL(url);
             edge.Attributes.AddAttribute(new EdgeTargetAttribute(target));
             return this;
         }
@@ -267,6 +267,77 @@ namespace FluentDot.Expressions.Edges
             edge.Attributes.AddAttribute(new TailClipAttribute(false));
             return this;
         }
+
+        /// <summary>
+        /// Specifies the url for the edge head.
+        /// </summary>
+        /// <param name="url">The URL to render.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithHeadURL(string url)
+        {
+            edge.Attributes.AddAttribute(new HeadURLAttribute(url));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies the url for the edge head.
+        /// </summary>
+        /// <param name="url">The URL to render.</param>
+        /// <param name="target">The target.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithHeadURL(string url, string target)
+        {
+            WithHeadURL(url);
+            edge.Attributes.AddAttribute(new HeadTargetAttribute(target));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies the url for the edge tail.
+        /// </summary>
+        /// <param name="url">The URL to render.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithTailURL(string url)
+        {
+            edge.Attributes.AddAttribute(new TailURLAttribute(url));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies the url for the edge tail.
+        /// </summary>
+        /// <param name="url">The URL to render.</param>
+        /// <param name="target">The target.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithTailURL(string url, string target)
+        {
+            WithTailURL(url);
+            edge.Attributes.AddAttribute(new TailTargetAttribute(target));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies a tooltip to be applied to the edge head.  Tooltips are only used if an url is specified for the edge head.
+        /// </summary>
+        /// <param name="tooltip">The tooltip to use.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithHeadTooltip(string tooltip)
+        {
+            edge.Attributes.AddAttribute(new HeadTooltipAttribute(tooltip));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies a tooltip to be applied to the edge tail.  Tooltips are only used if an url is specified for the edge tail.
+        /// </summary>
+        /// <param name="tooltip">The tooltip to use.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithTailTooltip(string tooltip)
+        {
+            edge.Attributes.AddAttribute(new TailTooltipAttribute(tooltip));
+            return this;
+        }
+
 
         /// <summary>
         /// Specifies a custom attribute that should be applied to the edge.

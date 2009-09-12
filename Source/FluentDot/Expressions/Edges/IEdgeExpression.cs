@@ -243,6 +243,51 @@ namespace FluentDot.Expressions.Edges
         /// </summary>
         /// <returns>The current expression instance.</returns>
         IEdgeExpression DoNotClipTail();
+
+        /// <summary>
+        /// Specifies the url for the edge head.
+        /// </summary>
+        /// <param name="url">The URL to render.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithHeadURL(string url);
+
+        /// <summary>
+        /// Specifies the url for the edge head.
+        /// </summary>
+        /// <param name="url">The URL to render.</param>
+        /// <param name="target">The target.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithHeadURL(string url, string target);
+
+        /// <summary>
+        /// Specifies the url for the edge tail.
+        /// </summary>
+        /// <param name="url">The URL to render.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithTailURL(string url);
+
+        /// <summary>
+        /// Specifies the url for the edge tail.
+        /// </summary>
+        /// <param name="url">The URL to render.</param>
+        /// <param name="target">The target.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithTailURL(string url, string target);
+
+        /// <summary>
+        /// Specifies a tooltip to be applied to the edge head.  Tooltips are only used if an url is specified for the edge head.
+        /// </summary>
+        /// <param name="tooltip">The tooltip to use.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithHeadTooltip(string tooltip);
+
+        /// <summary>
+        /// Specifies a tooltip to be applied to the edge tail.  Tooltips are only used if an url is specified for the edge tail.
+        /// </summary>
+        /// <param name="tooltip">The tooltip to use.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithTailTooltip(string tooltip);
+
         
         /// <summary>
         /// Specifies a custom attribute that should be applied to the edge.
