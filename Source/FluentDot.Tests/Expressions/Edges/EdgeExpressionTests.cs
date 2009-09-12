@@ -275,6 +275,18 @@ namespace FluentDot.Tests.Expressions.Edges
         }
 
         [Test]
+        public void WithWithSameHead_Should_Set_WithSameHead() {
+            AssertAttributeAdded(expression => expression.WithSameHead("someGroup"),
+                                typeof(SameHeadAttribute), "someGroup");
+        }
+
+        [Test]
+        public void WithWithSameTail_Should_Set_WithSameTail() {
+            AssertAttributeAdded(expression => expression.WithSameTail("someGroup"),
+                                typeof(SameTailAttribute), "someGroup");
+        }
+
+        [Test]
         public void WithTailURL_Should_Set_URL_And_Target() {
             var node1 = MockRepository.GenerateMock<IGraphNode>();
             var node2 = MockRepository.GenerateMock<IGraphNode>();

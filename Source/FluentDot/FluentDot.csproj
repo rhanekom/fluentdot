@@ -52,6 +52,8 @@
     <Compile Include="Attributes\Edges\ArrowHeadAttribute.cs" />
     <Compile Include="Attributes\Edges\ArrowSizeAttribute.cs" />
     <Compile Include="Attributes\Edges\ArrowTailAttribute.cs" />
+    <Compile Include="Attributes\Edges\SameHeadAttribute.cs" />
+    <Compile Include="Attributes\Edges\SameTailAttribute.cs" />
     <Compile Include="Attributes\Edges\TailTooltipAttribute.cs" />
     <Compile Include="Attributes\Edges\HeadTooltipAttribute.cs" />
     <Compile Include="Attributes\Edges\DecorateAttribute.cs" />

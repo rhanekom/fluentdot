@@ -365,8 +365,7 @@ namespace FluentDot.Expressions.Graphs
             graph.Attributes.AddAttribute(new AspectAttribute(new AspectValue(aspect, maximumPasses)));
             return this;
         }
-
-
+        
         /// <summary>
         /// Sets the defaults entity values on this graph.
         /// </summary>

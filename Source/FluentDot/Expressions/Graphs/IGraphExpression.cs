@@ -225,7 +225,7 @@ namespace FluentDot.Expressions.Graphs
         /// <param name="maximumPasses">The maximum number of passes dot should make over the graph.</param>
         /// <returns>The current expression instance.</returns>
         IGraphExpression WithAspect(double aspect, int maximumPasses);
-
+        
         /// <summary>
         /// Sets the defaults entity values on this graph.
         /// </summary>

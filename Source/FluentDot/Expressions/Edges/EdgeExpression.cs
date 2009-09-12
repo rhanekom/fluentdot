@@ -338,6 +338,28 @@ namespace FluentDot.Expressions.Edges
             return this;
         }
 
+        /// <summary>
+        /// Specifies that this head and other edge heads with the same samehead group value are aimed at the same point on the head.
+        /// </summary>
+        /// <param name="group">The same head group.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithSameHead(string group)
+        {
+            edge.Attributes.AddAttribute(new SameHeadAttribute(group));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies that this tail and other edge tails with the same samehead group value are aimed at the same point on the tail.
+        /// </summary>
+        /// <param name="group">The same tail group.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithSameTail(string group)
+        {
+            edge.Attributes.AddAttribute(new SameTailAttribute(group));
+            return this;
+        }
+
 
         /// <summary>
         /// Specifies a custom attribute that should be applied to the edge.

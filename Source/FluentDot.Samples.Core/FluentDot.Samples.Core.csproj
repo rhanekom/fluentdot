@@ -91,6 +91,7 @@
     <Compile Include="Demos\VisualElements\NodeSizes.cs" />
     <Compile Include="Demos\VisualElements\NodeStyles.cs" />
     <Compile Include="Demos\VisualElements\PenModifiers.cs" />
+    <Compile Include="Demos\VisualElements\SameHeadAndTail.cs" />
     <Compile Include="Images\ImageResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

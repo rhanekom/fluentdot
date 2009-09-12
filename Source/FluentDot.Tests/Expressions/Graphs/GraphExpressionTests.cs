@@ -331,7 +331,7 @@ namespace FluentDot.Tests.Expressions.Graphs
             AssertAttributeAdded(expression => expression.WithAspect(2.2, 5),
                                 typeof(AspectAttribute), new AspectValue(2.2, 5));
         }
-
+        
         #endregion
 
         #region Private Members
