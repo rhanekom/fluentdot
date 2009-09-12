@@ -6,18 +6,19 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using FluentDot.Attributes.Graphs;
+using FluentDot.Attributes.Edges;
 using NUnit.Framework;
 
-namespace FluentDot.Tests.Attributes.Graphs
-{
+namespace FluentDot.Tests.Attributes.Edges {
+    
     [TestFixture]
-    public class OutputOrderAttributeTests
-    {
+    public class TailClipAttributeTests {
+
         [Test]
         public void ToDot_Should_Produce_Correct_Output()
         {
-            Assert.AreEqual(new OutputOrderAttribute(OutputMode.BreadthFirst).ToDot(), "outputorder=\"breadthfirst\"");
+            Assert.AreEqual(new TailClipAttribute(true).ToDot(), "tailclip=\"true\"");
+            Assert.AreEqual(new TailClipAttribute(false).ToDot(), "tailclip=\"false\"");
         }
     }
 }

@@ -9,15 +9,15 @@
 using FluentDot.Attributes.Graphs;
 using NUnit.Framework;
 
-namespace FluentDot.Tests.Attributes.Graphs
-{
+namespace FluentDot.Tests.Attributes.Graphs {
+    
     [TestFixture]
-    public class OutputOrderAttributeTests
-    {
+    public class AspectAttributeTests {
+
         [Test]
-        public void ToDot_Should_Produce_Correct_Output()
+        public void ToDot_Produces_Correct_Output()
         {
-            Assert.AreEqual(new OutputOrderAttribute(OutputMode.BreadthFirst).ToDot(), "outputorder=\"breadthfirst\"");
+            Assert.AreEqual(new AspectAttribute(new AspectValue(2.3)).ToDot(), "aspect=\"2.3\"");
         }
     }
 }

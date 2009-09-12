@@ -6,26 +6,24 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System.Drawing;
-using FluentDot.Attributes.Shared;
 
-namespace FluentDot.Attributes.Graphs
-{
+namespace FluentDot.Attributes.Graphs {
+
     /// <summary>
-    /// An attribute for setting the background color of a graph.
+    /// An attribute that changes the graph aspect ration in which the graph is rendered.
     /// </summary>
-    public class BackgroundColorAttribute : AbstractDotAttribute {
+    public class AspectAttribute : AbstractDotAttribute {
 
         #region Construction
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BackgroundColorAttribute"/> class.
+        /// Initializes a new instance of the <see cref="AspectAttribute"/> class.
         /// </summary>
         /// <param name="value">The value.</param>
-        public BackgroundColorAttribute(Color value)
-            : base("bgcolor", new ColorValue(value), true)
+        public AspectAttribute(AspectValue value)
+            : base("aspect", value, true)
         {
-            // Nothing to do.
+
         }
 
         #endregion

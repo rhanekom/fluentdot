@@ -56,6 +56,10 @@
     <Compile Include="Attributes\Edges\EdgeTargetAttribute.cs" />
     <Compile Include="Attributes\Edges\EdgeTooltipAttribute.cs" />
     <Compile Include="Attributes\Edges\EdgeURLAttribute.cs" />
+    <Compile Include="Attributes\Edges\HeadClipAttribute.cs" />
+    <Compile Include="Attributes\Edges\TailClipAttribute.cs" />
+    <Compile Include="Attributes\Graphs\Aspect.cs" />
+    <Compile Include="Attributes\Graphs\AspectAttribute.cs" />
     <Compile Include="Attributes\Graphs\BackgroundColorAttribute.cs" />
     <Compile Include="Attributes\Graphs\ClusterStyle.cs" />
     <Compile Include="Attributes\Graphs\HorizontalDirection.cs" />

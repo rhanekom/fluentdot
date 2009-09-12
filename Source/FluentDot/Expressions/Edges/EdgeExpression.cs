@@ -249,6 +249,26 @@ namespace FluentDot.Expressions.Edges
         }
 
         /// <summary>
+        /// Specifies that the head of the edge should not be clipped at the boundary of the edge.
+        /// </summary>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression DoNotClipHead()
+        {
+            edge.Attributes.AddAttribute(new HeadClipAttribute(false));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies that the tail of the edge should not be clipped at the boundary of the edge.
+        /// </summary>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression DoNotClipTail()
+        {
+            edge.Attributes.AddAttribute(new TailClipAttribute(false));
+            return this;
+        }
+
+        /// <summary>
         /// Specifies a custom attribute that should be applied to the edge.
         /// </summary>
         /// <param name="attribute">The attribute to apply to the edge.</param>

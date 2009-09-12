@@ -231,6 +231,18 @@ namespace FluentDot.Expressions.Edges
         /// <param name="target">The target for the url to open in.</param>
         /// <returns>The current expression instance.</returns>
         IEdgeExpression WithEdgeURL(string url, string target);
+
+        /// <summary>
+        /// Specifies that the head of the edge should not be clipped at the boundary of the edge.
+        /// </summary>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression DoNotClipHead();
+
+        /// <summary>
+        /// Specifies that the tail of the edge should not be clipped at the boundary of the edge.
+        /// </summary>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression DoNotClipTail();
         
         /// <summary>
         /// Specifies a custom attribute that should be applied to the edge.

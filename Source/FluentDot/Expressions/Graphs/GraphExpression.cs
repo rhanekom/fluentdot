@@ -343,6 +343,29 @@ namespace FluentDot.Expressions.Graphs
             return this;
         }
 
+        /// <summary>
+        /// Specifies the aspect of the graph.
+        /// </summary>
+        /// <param name="aspect">The aspect to apply to the graph.</param>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression WithAspect(double aspect)
+        {
+            graph.Attributes.AddAttribute(new AspectAttribute(new AspectValue(aspect)));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies the aspect of the graph.
+        /// </summary>
+        /// <param name="aspect">The aspect to apply to the graph.</param>
+        /// <param name="maximumPasses">The maximum number of passes dot should make over the graph.</param>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression WithAspect(double aspect, int maximumPasses)
+        {
+            graph.Attributes.AddAttribute(new AspectAttribute(new AspectValue(aspect, maximumPasses)));
+            return this;
+        }
+
 
         /// <summary>
         /// Sets the defaults entity values on this graph.

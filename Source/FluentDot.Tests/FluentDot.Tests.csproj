@@ -64,6 +64,10 @@
     <Compile Include="Attributes\Edges\EdgeTargetAttributeTests.cs" />
     <Compile Include="Attributes\Edges\EdgeTooltipAttributeTests.cs" />
     <Compile Include="Attributes\Edges\EdgeURLAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\HeadClipAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\TailClipAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\AspectAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\AspectValueTests.cs" />
     <Compile Include="Attributes\Graphs\BackgroundColorAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\ClusterStyleTests.cs" />
     <Compile Include="Attributes\Graphs\HorizontalDirectionTests.cs" />

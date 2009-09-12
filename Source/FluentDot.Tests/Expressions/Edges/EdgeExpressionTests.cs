@@ -237,6 +237,19 @@ namespace FluentDot.Tests.Expressions.Edges
         }
 
         [Test]
+        public void DoNotClipHead_Should_Set_FalseClipHead()
+        {
+            AssertAttributeAdded(expression => expression.DoNotClipHead(),
+                                typeof(HeadClipAttribute), new BooleanValue(false));
+        }
+
+        [Test]
+        public void DoNotClipTail_Should_Set_FalseClipTail() {
+            AssertAttributeAdded(expression => expression.DoNotClipTail(),
+                                typeof(TailClipAttribute), new BooleanValue(false));
+        }
+
+        [Test]
         public void WithEdgeURL_Should_Set_URL_And_Target()
         {
             var node1 = MockRepository.GenerateMock<IGraphNode>();

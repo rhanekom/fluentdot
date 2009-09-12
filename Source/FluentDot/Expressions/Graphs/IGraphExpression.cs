@@ -212,6 +212,21 @@ namespace FluentDot.Expressions.Graphs
         IGraphExpression WithComment(string comment);
 
         /// <summary>
+        /// Specifies the aspect of the graph.
+        /// </summary>
+        /// <param name="aspect">The aspect to apply to the graph.</param>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithAspect(double aspect);
+
+        /// <summary>
+        /// Specifies the aspect of the graph.
+        /// </summary>
+        /// <param name="aspect">The aspect to apply to the graph.</param>
+        /// <param name="maximumPasses">The maximum number of passes dot should make over the graph.</param>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithAspect(double aspect, int maximumPasses);
+
+        /// <summary>
         /// Sets the defaults entity values on this graph.
         /// </summary>
         /// <value>A defaults expression for setting default values for entities on the graph.</value>

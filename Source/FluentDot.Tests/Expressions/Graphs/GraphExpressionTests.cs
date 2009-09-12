@@ -319,6 +319,19 @@ namespace FluentDot.Tests.Expressions.Graphs
                                 typeof(CommentAttribute), "testComment");
         }
 
+        [Test]
+        public void WithAspect_Adds_Aspect_Attribute()
+        {
+            AssertAttributeAdded(expression => expression.WithAspect(2.2),
+                                typeof(AspectAttribute), new AspectValue(2.2));
+        }
+
+        [Test]
+        public void WithAspect_And_Passes_Adds_Aspect_Attribute() {
+            AssertAttributeAdded(expression => expression.WithAspect(2.2, 5),
+                                typeof(AspectAttribute), new AspectValue(2.2, 5));
+        }
+
         #endregion
 
         #region Private Members

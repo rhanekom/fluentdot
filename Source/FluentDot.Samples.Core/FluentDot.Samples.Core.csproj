@@ -78,6 +78,7 @@
     <Compile Include="Demos\VisualElements\ArrowShapes.cs" />
     <Compile Include="Demos\VisualElements\ArrowSizes.cs" />
     <Compile Include="Demos\VisualElements\CompositeArrowShapes.cs" />
+    <Compile Include="Demos\VisualElements\EdgeClipping.cs" />
     <Compile Include="Demos\VisualElements\EdgeLabels.cs" />
     <Compile Include="Demos\VisualElements\EdgeStyles.cs" />
     <Compile Include="Demos\VisualElements\Fonts.cs" />

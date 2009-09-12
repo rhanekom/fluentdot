@@ -6,26 +6,25 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System.Drawing;
 using FluentDot.Attributes.Shared;
 
-namespace FluentDot.Attributes.Graphs
-{
+namespace FluentDot.Attributes.Edges {
+
     /// <summary>
-    /// An attribute for setting the background color of a graph.
+    /// An attribute that specifies that whether the edge head should be clip at the node boundary.
     /// </summary>
-    public class BackgroundColorAttribute : AbstractDotAttribute {
+    public class HeadClipAttribute : AbstractDotAttribute {
 
         #region Construction
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BackgroundColorAttribute"/> class.
+        /// Initializes a new instance of the <see cref="HeadClipAttribute"/> class.
         /// </summary>
-        /// <param name="value">The value.</param>
-        public BackgroundColorAttribute(Color value)
-            : base("bgcolor", new ColorValue(value), true)
+        /// <param name="value">if set to <c>true</c> then clip the head of the edge.</param>
+        public HeadClipAttribute(bool value)
+            : base("headclip", new BooleanValue(value), true)
         {
-            // Nothing to do.
+
         }
 
         #endregion
