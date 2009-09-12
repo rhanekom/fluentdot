@@ -152,7 +152,7 @@ namespace FluentDot.Samples.Exporter
 
                 WriteTemplate(templateFile, exportImageFile, demo, dot, GetCode(codeFile));
 
-                if ((ReplaceFile(imageFile, exportImageFile) | (ReplaceFile(templateFile, exportTemplateFile))))
+                if ((ReplaceImage(imageFile, exportImageFile) | (ReplaceFile(templateFile, exportTemplateFile))))
                 {
                     updated = true;
                 }
@@ -195,6 +195,20 @@ namespace FluentDot.Samples.Exporter
             }
 
             return sb.ToString();
+        }
+
+        private bool ReplaceImage(string fromFile, string toFile) {
+
+            if (File.Exists(toFile)) {
+                // If the file sizes are identical, the files are *probably* the same.
+                if (new FileInfo(fromFile).Length != new FileInfo(toFile).Length) {
+                    return ReplaceFile(fromFile, toFile);
+                }
+
+                return false;
+            }
+
+            return ReplaceFile(fromFile, toFile);
         }
 
         private bool ReplaceFile(string fromFile, string toFile)
