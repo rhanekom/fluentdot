@@ -54,13 +54,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
 
             foreach (var item in typeof(EdgeStyle).GetFields(BindingFlags.Public | BindingFlags.Static).Where(x => typeof(EdgeStyle).IsAssignableFrom(x.FieldType))) {
                 var style = (EdgeStyle)item.GetValue(null);
-                graph.Nodes.Add(
-                    x =>
-                        {
-                            x.WithName(a.ToString());
-                            x.WithName(b.ToString());
-                        })
-                    .Edges.Add(
+                graph.Edges.Add(
                     x => x.From.NodeWithName(a.ToString()).To.NodeWithName(b.ToString())
                              .WithLabel(item.Name)
                              .WithStyle(style)

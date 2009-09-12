@@ -51,13 +51,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
             foreach (var item in typeof(ArrowShape).GetFields(BindingFlags.Public | BindingFlags.Static).Where(x => typeof(ArrowShape).IsAssignableFrom(x.FieldType)))
             {
                 var shape = (ArrowShape) item.GetValue(null);
-                graph.Nodes.Add(
-                    x =>
-                        {
-                            x.WithName(a.ToString());
-                            x.WithName(b.ToString());
-                        })
-                    .Edges.Add(
+                graph.Edges.Add(
                     x => x.From.NodeWithName(a.ToString()).To.NodeWithName(b.ToString())
                              .WithArrowTail(shape)
                              .WithLabel(item.Name));

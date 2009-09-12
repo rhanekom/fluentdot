@@ -47,17 +47,6 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
         {
             #region ExportCode
             return Fluently.CreateDirectedGraph()
-                .Nodes.Add(nodes =>
-                               {
-                                   nodes.WithName("a");
-                                   nodes.WithName("b");
-                                   nodes.WithName("c");
-                                   nodes.WithName("d");
-                                   nodes.WithName("e");
-                                   nodes.WithName("f");
-                                   nodes.WithName("g");
-                                   nodes.WithName("h");
-                               })
                 .Edges.Add(edges =>
                                {
                                    edges.From.NodeWithName("a").To.NodeWithName("b")

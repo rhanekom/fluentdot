@@ -16,7 +16,6 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
     /// </summary>
     public class GraphBackgroundColor : AbstractGraphDemo {
 
-
         #region AbstractGraphDemo Members
 
         /// <summary>
@@ -35,15 +34,6 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
         {
             #region ExportCode
             return Fluently.CreateDirectedGraph()
-                .Nodes.Add(x =>
-                               {
-                                   x.WithName("a");
-                                   x.WithName("b");
-                                   x.WithName("c");
-                                   x.WithName("d");
-                                   x.WithName("e");
-                               }
-                )
                 .Edges.Add(x =>
                                {
                                    x.From.NodeWithName("a").To.NodeWithName("b");

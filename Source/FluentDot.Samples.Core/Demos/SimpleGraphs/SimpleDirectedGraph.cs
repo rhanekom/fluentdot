@@ -33,14 +33,6 @@ namespace FluentDot.Samples.Core.Demos.SimpleGraphs
         {
             #region ExportCode
             return Fluently.CreateDirectedGraph()
-                .Nodes.Add(x =>
-                               {
-                                   x.WithName("A");
-                                   x.WithName("B");
-                                   x.WithName("C");
-                                   x.WithName("D");
-                               }
-                )
                 .Edges.Add(x =>
                                {
                                    x.From.NodeWithName("A").To.NodeWithName("B");

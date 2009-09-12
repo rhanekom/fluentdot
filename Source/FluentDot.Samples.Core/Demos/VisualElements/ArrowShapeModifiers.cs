@@ -76,12 +76,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
 
                     shape = shape.Modify(modifier);
 
-                    graph.Nodes.Add(x =>
-                                        {
-                                            x.WithName(a.ToString());
-                                            x.WithName(b.ToString());
-                                        })
-                        .Edges.Add(
+                    graph.Edges.Add(
                         x => x.From.NodeWithName(a.ToString())
                                  .To.NodeWithName(b.ToString())
                                  .WithArrowHead(shape)

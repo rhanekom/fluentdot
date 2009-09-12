@@ -52,9 +52,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
             return Fluently.CreateDirectedGraph()
                 .Nodes.Add(nodes =>
                                {
-                                   nodes.WithName("a");
                                    nodes.WithName("b").WithPenWidth(2.0).WithLabel("Pen Width : 2.0");
-                                   nodes.WithName("c");
                                    nodes.WithName("d").WithPenWidth(3.0).WithLabel("Pen Width : 3.0");
                                })
                 .Clusters.Add(cluster => cluster

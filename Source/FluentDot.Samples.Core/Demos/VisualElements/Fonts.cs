@@ -56,7 +56,6 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
                                    nodes.WithName("BlueFont").WithFontColor(Color.Blue);
                                    nodes.WithName("SizeUp").WithFontSize(28.0);
                                    nodes.WithName("SizeDown").WithFontSize(7.0);
-                                   nodes.WithName("NormalSize");
                                    nodes.WithName("TimesRoman").WithFontName("Times-Roman");
                                    nodes.WithName("Helvetica").WithFontName("Helvetica");
                                    nodes.WithName("Courier").WithFontName("Courier");

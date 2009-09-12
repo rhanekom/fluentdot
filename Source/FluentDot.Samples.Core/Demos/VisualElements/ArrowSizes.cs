@@ -47,13 +47,7 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
 
             for (double i = 0; i <= 2; i += 0.2)
             {
-                graph.Nodes.Add(
-                    x =>
-                        {
-                            x.WithName(a.ToString());
-                            x.WithName(b.ToString());
-                        })
-                    .Edges.Add(
+                graph.Edges.Add(
                     x => x.From.NodeWithName(a.ToString()).To.NodeWithName(b.ToString())
                              .WithArrowSize(i))
                     .WithLabel(i.ToString());

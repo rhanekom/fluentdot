@@ -16,7 +16,6 @@ namespace FluentDot.Samples.Core.Demos.Layout
     /// </summary>
     public class NodeOrientation : AbstractGraphDemo
     {
-
         #region AbstractGraphDemo Members
 
         /// <summary>

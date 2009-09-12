@@ -52,13 +52,6 @@ namespace FluentDot.Samples.Core.Demos.Layout
             return Fluently.CreateDirectedGraph()
                 .Clusters.Add(c0 => c0
                                         .WithName("c0")
-                                        .Nodes.Add(nodes =>
-                                                       {
-                                                           nodes.WithName("a0");
-                                                           nodes.WithName("a1");
-                                                           nodes.WithName("a2");
-                                                           nodes.WithName("a3");
-                                                       })
                                         .Edges.Add(edges =>
                                                        {
                                                            edges.From.NodeWithName("a0").To.NodeWithName("a1");
@@ -69,13 +62,6 @@ namespace FluentDot.Samples.Core.Demos.Layout
                 .Clusters.Add(c1 => c1
                                         .WithName("c1")
                                         .WithBackgroundColor(Color.Gainsboro)
-                                        .Nodes.Add(nodes =>
-                                                       {
-                                                           nodes.WithName("b0");
-                                                           nodes.WithName("b1");
-                                                           nodes.WithName("b2");
-                                                           nodes.WithName("b3");
-                                                       })
                                         .Edges.Add(edges =>
                                                        {
                                                            edges.From.NodeWithName("b0").To.NodeWithName("b1");
@@ -83,10 +69,6 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                                            edges.From.NodeWithName("b2").To.NodeWithName("b3");
                                                        }) 
                 )
-                .Nodes.Add(nodes => {
-                                        nodes.WithName("x");
-                                        nodes.WithName("z");
-                })
                 .Edges.Add(edges =>
                                {
                                    edges.From.NodeWithName("x").To.NodeWithName("a0");

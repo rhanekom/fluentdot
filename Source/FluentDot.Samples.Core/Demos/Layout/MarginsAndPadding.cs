@@ -52,14 +52,9 @@ namespace FluentDot.Samples.Core.Demos.Layout
             return Fluently.CreateDirectedGraph()
                 .Nodes.Add(nodes =>
                                {
-                                   nodes.WithName("a");
                                    nodes.WithName("b").WithLabelMargin(0.5f, 0.5f).WithLabel("0.5 Point Margin");
-                                   nodes.WithName("c");
-                                   nodes.WithName("d");
                                    nodes.WithName("e").WithLabelMargin(1, 1).WithLabel("1 Point Margin");
-                                   nodes.WithName("f");
                                    nodes.WithName("g").WithLabelMargin(2, 2).WithLabel("2 Point Margin");
-                                   nodes.WithName("h");
                                })
                 .Edges.Add(edges =>
                                {

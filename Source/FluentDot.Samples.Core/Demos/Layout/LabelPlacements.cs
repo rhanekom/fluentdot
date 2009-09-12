@@ -55,12 +55,10 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                {
                                    nodes.WithName("a").WithLabelLocation(Location.Bottom).WithLabel("Location - Bottom").WithHeight(1).WithWidth(2);
                                    nodes.WithName("b").DoNotJustify().WithLabel(@"Label\nNot\nJustified");
-                                   nodes.WithName("c");
                                    nodes.WithName("d").WithLabelLocation(Location.Top).WithLabel("Location - Top").WithHeight(1).WithWidth(2);
                                    nodes.WithName("e").DoNotJustify().WithLabel(@"Label\nNot\nJustified");
                                    nodes.WithName("f").WithLabelLocation(Location.Bottom).WithLabel("Location - Bottom").WithHeight(1).WithWidth(2);
                                    nodes.WithName("g").WithLabelLocation(Location.Top).WithLabel("Location - Top").WithHeight(1).WithWidth(2); ;
-                                   nodes.WithName("h");
                                })
                 .Edges.Add(edges =>
                                {

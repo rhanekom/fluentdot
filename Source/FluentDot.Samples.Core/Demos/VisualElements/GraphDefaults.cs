@@ -37,15 +37,11 @@ namespace FluentDot.Samples.Core.Demos.VisualElements
             return Fluently.CreateDirectedGraph()
                 .TheDefaults.ForEdges.Are(x => x.WithLabel("Default Color Blue").WithColor(Color.Blue))
                 .TheDefaults.ForNodes.Are(x => x.WithShape(NodeShape.Diamond).WithColor(Color.Green).WithLabel("Green Diamond"))
-                .Nodes.Add(x =>
-                               {
-                                   x.WithName("a");
-                                   x.WithName("b");
-                                   x.WithName("c").WithShape(NodeShape.DoubleCircle).WithColor(Color.DarkMagenta).WithLabel("Override of Shape and Color");
-                                   x.WithName("d");
-                                   x.WithName("e");
-                               }
-                )
+                .Nodes.Add(x => 
+                    x.WithName("c")
+                     .WithShape(NodeShape.DoubleCircle)
+                     .WithColor(Color.DarkMagenta)
+                     .WithLabel("Override of Shape and Color"))
                 .Edges.Add(x =>
                                {
                                    x.From.NodeWithName("a").To.NodeWithName("b");
