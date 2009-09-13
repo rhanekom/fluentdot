@@ -6,7 +6,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using FluentDot.Attributes.Graphs;
+using FluentDot.Attributes.Shared;
 using NUnit.Framework;
 
 namespace FluentDot.Tests.Attributes.Graphs

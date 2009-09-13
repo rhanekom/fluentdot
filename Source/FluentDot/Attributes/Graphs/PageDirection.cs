@@ -7,6 +7,7 @@
 */
 
 using System;
+using FluentDot.Attributes.Shared;
 using FluentDot.Common;
 
 namespace FluentDot.Attributes.Graphs

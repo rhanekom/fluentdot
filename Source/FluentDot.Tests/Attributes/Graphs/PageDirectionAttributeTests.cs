@@ -7,6 +7,7 @@
 */
 
 using FluentDot.Attributes.Graphs;
+using FluentDot.Attributes.Shared;
 using NUnit.Framework;
 
 namespace FluentDot.Tests.Attributes.Graphs {

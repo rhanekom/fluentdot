@@ -70,7 +70,7 @@
     <Compile Include="Attributes\Graphs\AspectAttribute.cs" />
     <Compile Include="Attributes\Graphs\BackgroundColorAttribute.cs" />
     <Compile Include="Attributes\Graphs\ClusterStyle.cs" />
-    <Compile Include="Attributes\Graphs\HorizontalDirection.cs" />
+    <Compile Include="Attributes\Shared\HorizontalDirection.cs" />
     <Compile Include="Attributes\Graphs\OutputMode.cs" />
     <Compile Include="Attributes\Graphs\OutputOrderAttribute.cs" />
     <Compile Include="Attributes\Graphs\PadAttribute.cs" />
@@ -82,7 +82,7 @@
     <Compile Include="Attributes\Graphs\RankType.cs" />
     <Compile Include="Attributes\Graphs\Ratio.cs" />
     <Compile Include="Attributes\Graphs\RatioAttribute.cs" />
-    <Compile Include="Attributes\Graphs\VerticalDirection.cs" />
+    <Compile Include="Attributes\Shared\VerticalDirection.cs" />
     <Compile Include="Attributes\Nodes\DistortionAttribute.cs" />
     <Compile Include="Attributes\Nodes\SkewAttribute.cs" />
     <Compile Include="Attributes\Shared\BooleanValue.cs" />

@@ -8,27 +8,27 @@
 
 using FluentDot.Common;
 
-namespace FluentDot.Attributes.Graphs
+namespace FluentDot.Attributes.Shared
 {
     /// <summary>
-    /// Specifies the vertical direction in which rectangle can be traversed.
+    /// Specifies the horizontal direction in which rectangle can be traversed.
     /// </summary>
-    public class VerticalDirection : StringEnum, IDotElement
+    public class HorizontalDirection : StringEnum, IDotElement
     {
         #region Constants
 
-        public static readonly VerticalDirection TopToBottom = new VerticalDirection("T");
-        public static readonly VerticalDirection BottomToTop = new VerticalDirection("B");
+        public static readonly HorizontalDirection LeftToRight = new HorizontalDirection("L");
+        public static readonly HorizontalDirection RightToLeft = new HorizontalDirection("R");
 
         #endregion
 
         #region Construction
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VerticalDirection"/> class.
+        /// Initializes a new instance of the <see cref="HorizontalDirection"/> class.
         /// </summary>
-        /// <param name="value">The value that this instance represents.</param>
-        public VerticalDirection(string value)
+        /// <param name="value">The value that this instance represents..</param>
+        public HorizontalDirection(string value)
             : base(value)
         {
 
