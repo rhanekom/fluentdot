@@ -10,6 +10,9 @@ using FluentDot.Attributes;
 
 namespace FluentDot.Entities
 {
+    /// <summary>
+    /// An entity that is attribute based.
+    /// </summary>
     public interface IAttributeBasedEntity
     {
         /// <summary>

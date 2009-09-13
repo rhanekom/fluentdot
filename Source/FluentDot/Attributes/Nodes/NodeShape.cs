@@ -17,7 +17,14 @@ namespace FluentDot.Attributes.Nodes
 
         #region Constants
 
+        /// <summary>
+        /// A box shape.
+        /// </summary>
         public static NodeShape Box = new NodeShape("box");
+
+        /// <summary>
+        /// A Polygon shape.
+        /// </summary>
         public static NodeShape Polygon = new NodeShape("polygon");
         public static NodeShape Ellipse = new NodeShape("ellipse");
         public static NodeShape Circle = new NodeShape("circle");
