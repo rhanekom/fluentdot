@@ -92,6 +92,7 @@
     <Compile Include="Attributes\Graphs\RatioTests.cs" />
     <Compile Include="Attributes\Graphs\VerticalDirectionTests.cs" />
     <Compile Include="Attributes\Nodes\DistortionAttributeTests.cs" />
+    <Compile Include="Attributes\Nodes\SkewAttributeTests.cs" />
     <Compile Include="Attributes\Shared\BooleanValueTests.cs" />
     <Compile Include="Attributes\Graphs\CenterAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\ConcentrateAttributeTests.cs" />

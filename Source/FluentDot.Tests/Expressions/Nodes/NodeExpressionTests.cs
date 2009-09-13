@@ -25,6 +25,13 @@ namespace FluentDot.Tests.Expressions.Nodes
         #region Tests
 
         [Test]
+        public void WithSkew_Should_Add_Skew_Attribute()
+        {
+            AssertAttributeAdded(expression => expression.WithSkew(11.2),
+                                 typeof(SkewAttribute), 11.2);
+        }
+
+        [Test]
         public void WithLabel_Should_Add_Label_Attribute_To_Attributes()
         {
             AssertAttributeAdded(expression => expression.WithLabel("bb"),

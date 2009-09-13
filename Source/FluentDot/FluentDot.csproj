@@ -84,6 +84,7 @@
     <Compile Include="Attributes\Graphs\RatioAttribute.cs" />
     <Compile Include="Attributes\Graphs\VerticalDirection.cs" />
     <Compile Include="Attributes\Nodes\DistortionAttribute.cs" />
+    <Compile Include="Attributes\Nodes\SkewAttribute.cs" />
     <Compile Include="Attributes\Shared\BooleanValue.cs" />
     <Compile Include="Attributes\Graphs\CenterAttribute.cs" />
     <Compile Include="Attributes\Graphs\ConcentrateAttribute.cs" />

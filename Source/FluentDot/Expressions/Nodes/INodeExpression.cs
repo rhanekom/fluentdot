@@ -192,5 +192,12 @@ namespace FluentDot.Expressions.Nodes
         /// <param name="comment">The comment to include in the output.</param>
         /// <returns>The current expression instance.</returns>
         INodeExpression WithComment(string comment);
+
+        /// <summary>
+        /// Applies a skew to the node if the shape is 'polygon'.
+        /// </summary>
+        /// <param name="skewValue">The skew value.  Positive values skew the top of the polygon to the right, negative values to the left.</param>
+        /// <returns>The current expression instance.</returns>
+        INodeExpression WithSkew(double skewValue);
     }
 }

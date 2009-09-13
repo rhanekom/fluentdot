@@ -310,6 +310,17 @@ namespace FluentDot.Expressions.Nodes
             return this;
         }
 
+        /// <summary>
+        /// Applies a skew to the node if the shape is 'polygon'.
+        /// </summary>
+        /// <param name="skewValue">The skew value.  Positive values skew the top of the polygon to the right, negative values to the left.</param>
+        /// <returns>The current expression instance.</returns>
+        public INodeExpression WithSkew(double skewValue)
+        {
+            node.Attributes.AddAttribute(new SkewAttribute(skewValue));
+            return this;
+        }
+
         #endregion
     }
 }
