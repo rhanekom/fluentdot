@@ -1,4 +1,5 @@
 #summary Available Samples
+#labels Featured
 
 = Description =
 
