@@ -25,6 +25,11 @@ namespace FluentDot.Tests.Expressions.Graphs
             AssertAttributeAdded(x => x.WithRank(RankType.Minimum),
                 typeof(RankAttribute), RankType.Minimum);
         }
+        
+        [Test]
+        public void SubGraphs_Does_Not_Return_Null() {
+            Assert.IsNotNull(new SubGraphExpression(new DirectedGraph()).SubGraphs);
+        }
 
         #endregion
 

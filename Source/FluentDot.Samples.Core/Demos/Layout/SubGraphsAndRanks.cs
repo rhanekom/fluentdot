@@ -8,9 +8,9 @@
 
 using FluentDot.Expressions.Graphs;
 using FluentDot.Attributes.Graphs;
+using System.Drawing;
 
-namespace FluentDot.Samples.Core.Demos.Layout
-{
+namespace FluentDot.Samples.Core.Demos.Layout {
     /// <summary>
     /// A simple demo of sub graphs and ranks.
     /// </summary>

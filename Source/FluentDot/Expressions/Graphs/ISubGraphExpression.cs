@@ -25,6 +25,12 @@ namespace FluentDot.Expressions.Graphs
         ISubGraphExpression WithRank(RankType rank);
 
         /// <summary>
+        /// Edits the sub graph collection for this subgraph.
+        /// </summary>
+        /// <value>The expression for acting upon the subgraph collection.</value>
+        ISubGraphCollectionModifiersExpression<ISubGraphExpression> SubGraphs { get; }
+        
+        /// <summary>
         /// Edits the node collection for this cluster.
         /// </summary>
         /// <value>The expression for acting upon the node collection.</value>

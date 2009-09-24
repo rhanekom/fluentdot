@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -70,6 +71,8 @@
     <Compile Include="Attributes\Graphs\Aspect.cs" />
     <Compile Include="Attributes\Graphs\AspectAttribute.cs" />
     <Compile Include="Attributes\Graphs\BackgroundColorAttribute.cs" />
+    <Compile Include="Attributes\Graphs\ClusterMode.cs" />
+    <Compile Include="Attributes\Graphs\ClusterRankAttribute.cs" />
     <Compile Include="Attributes\Graphs\ClusterStyle.cs" />
     <Compile Include="Attributes\Shared\HorizontalDirection.cs" />
     <Compile Include="Attributes\Graphs\OutputMode.cs" />

@@ -58,7 +58,15 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                                            edges.FromNodeWithName("a1").ToNodeWithName("a2");
                                                            edges.FromNodeWithName("a2").ToNodeWithName("a3");
                                                        })
-                )
+                                        .Clusters.Add(c00 => c00
+                                            .WithName("c00")
+                                            .Edges.Add(edges =>
+                                                           {
+                                                               edges.FromNodeWithName("a3").ToNodeWithName("a4");
+                                                               edges.FromNodeWithName("a4").ToNodeWithName("a5");
+                                                           })
+                                             .WithColor(Color.Red)
+                                            ))
                 .Clusters.Add(c1 => c1
                                         .WithName("c1")
                                         .WithBackgroundColor(Color.Gainsboro)
@@ -74,7 +82,7 @@ namespace FluentDot.Samples.Core.Demos.Layout
                                    edges.FromNodeWithName("x").ToNodeWithName("a0");
                                    edges.FromNodeWithName("x").ToNodeWithName("b0");
                                    edges.FromNodeWithName("a1").ToNodeWithName("b1");
-                                   edges.FromNodeWithName("a3").ToNodeWithName("a0");
+                                   edges.FromNodeWithName("a5").ToNodeWithName("a0");
                                    edges.FromNodeWithName("a3").ToNodeWithName("z");
                                    edges.FromNodeWithName("b3").ToNodeWithName("z");
                                });

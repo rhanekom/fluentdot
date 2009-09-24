@@ -11,25 +11,25 @@ using FluentDot.Entities.Graphs;
 namespace FluentDot.Expressions.Graphs {
     
     /// <summary>
-    /// A concrete implementation of a <see cref="ISubGraphCollectionModifiersExpression"/>
+    /// A concrete implementation of a <see cref="ISubGraphCollectionModifiersExpression{T}"/>
     /// </summary>
-    public class SubGraphCollectionModifiersExpression : ISubGraphCollectionModifiersExpression {
+    public class SubGraphCollectionModifiersExpression<T> : ISubGraphCollectionModifiersExpression<T> {
 
         #region Globals
 
         private readonly IGraph graph;
-        private readonly IGraphExpression parent;
+        private readonly T parent;
 
         #endregion
 
         #region Construction
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SubGraphCollectionModifiersExpression"/> class.
+        /// Initializes a new instance of the <see cref="SubGraphCollectionModifiersExpression{T}"/> class.
         /// </summary>
         /// <param name="graph">The parent graph.</param>
         /// <param name="parent">The parent expression instance.</param>
-        public SubGraphCollectionModifiersExpression(IGraph graph, IGraphExpression parent) {
+        public SubGraphCollectionModifiersExpression(IGraph graph, T parent) {
             this.graph = graph;
             this.parent = parent;
         }
@@ -43,7 +43,7 @@ namespace FluentDot.Expressions.Graphs {
         /// </summary>
         /// <param name="addExpression">The add expression to modify.</param>
         /// <returns>The parent expression instance.</returns>
-        public IGraphExpression Add(System.Action<ISubGraphCollectionAddExpression> addExpression) {
+        public T Add(System.Action<ISubGraphCollectionAddExpression> addExpression) {
             if (addExpression != null) {
                 var expression = new SubGraphCollectionAddExpression(graph);
                 addExpression(expression);

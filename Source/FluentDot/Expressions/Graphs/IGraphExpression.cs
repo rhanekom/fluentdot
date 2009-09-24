@@ -225,6 +225,13 @@ namespace FluentDot.Expressions.Graphs
         /// <param name="maximumPasses">The maximum number of passes dot should make over the graph.</param>
         /// <returns>The current expression instance.</returns>
         IGraphExpression WithAspect(double aspect, int maximumPasses);
+
+        /// <summary>
+        /// Sets the cluster rank mode on this graph.
+        /// </summary>
+        /// <param name="clusterMode">The cluster rank mode.</param>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithClusterRankMode(ClusterMode clusterMode);
         
         /// <summary>
         /// Sets the defaults entity values on this graph.
@@ -254,12 +261,12 @@ namespace FluentDot.Expressions.Graphs
         /// Edits the sub graph collection for this graph.
         /// </summary>
         /// <value>The expression for acting upon the subgraph collection.</value>
-        ISubGraphCollectionModifiersExpression SubGraphs { get; }
+        ISubGraphCollectionModifiersExpression<IGraphExpression> SubGraphs { get; }
 
         /// <summary>
         /// Edits the cluster collection for this graph.
         /// </summary>
         /// <value>The expression for acting upon the cluster collection.</value>
-        IClusterCollectionModifiersExpression Clusters { get; }
+        IClusterCollectionModifiersExpression<IGraphExpression> Clusters { get; }
     }
 }

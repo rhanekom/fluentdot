@@ -233,7 +233,6 @@ namespace FluentDot.Entities.Graphs
             WriteClusters(sb);
             WriteNodes(sb);
             WriteEdges(sb);
-
             sb.Append("}");
 
             return sb.ToString();
@@ -263,16 +262,12 @@ namespace FluentDot.Entities.Graphs
             {
                 sb.Append(edgeDefaults.ToDot()).AppendLine(";");
             }
-
-            sb.AppendLine();
         }
 
         private void WriteClusters(StringBuilder sb) {
             foreach (var cluster in subGraphTracker.Clusters) {
                 sb.AppendLine(cluster.ToDot());
             }
-
-            sb.AppendLine();
         }
 
         private void WriteNodes(StringBuilder sb) {
@@ -280,8 +275,6 @@ namespace FluentDot.Entities.Graphs
                 conventionTracker.ApplyConventions(node);
                 sb.Append(node.ToDot()).AppendLine(";");
             }
-
-            sb.AppendLine();
         }
 
         private void WriteEdges(StringBuilder sb) {
@@ -289,8 +282,6 @@ namespace FluentDot.Entities.Graphs
                 conventionTracker.ApplyConventions(edge);
                 sb.Append(edge.ToDot()).AppendLine(";");
             }
-
-            sb.AppendLine();
         }
 
         #endregion

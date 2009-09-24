@@ -122,6 +122,12 @@ namespace FluentDot.Expressions.Graphs
         /// <param name="value">The value.</param>
         /// <returns>The current expression instance.</returns>
         IClusterExpression WithPeripheries(int value);
+        
+        /// <summary>
+        /// Edits the cluster collection for this cluster.
+        /// </summary>
+        /// <value>The expression for acting upon the cluster collection.</value>
+        IClusterCollectionModifiersExpression<IClusterExpression> Clusters { get; }
 
         /// <summary>
         /// Edits the node collection for this cluster.

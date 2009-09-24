@@ -36,7 +36,7 @@ namespace FluentDot.Tests.Expressions.Graphs {
                 Is.Matching<ISubGraph>(x => x.Name.Contains("bla"))
                 );
 
-            var expression = new SubGraphCollectionModifiersExpression(graph, graphExpression);
+            var expression = new SubGraphCollectionModifiersExpression<IGraphExpression>(graph, graphExpression);
             expression.Add(x => x.WithName("bla"));
 
             graph.VerifyAllExpectations();

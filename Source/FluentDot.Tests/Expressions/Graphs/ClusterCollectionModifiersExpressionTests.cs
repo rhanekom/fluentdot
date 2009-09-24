@@ -38,7 +38,7 @@ namespace FluentDot.Tests.Expressions.Graphs
                 Is.Matching<ICluster>(x => x.Name.Contains("bla"))
                 );
 
-            var expression = new ClusterCollectionModifiersExpression(graph, graphExpression);
+            var expression = new ClusterCollectionModifiersExpression<IGraphExpression>(graph, graphExpression);
             expression.Add(x => x.WithName("bla"));
 
             graph.VerifyAllExpectations();

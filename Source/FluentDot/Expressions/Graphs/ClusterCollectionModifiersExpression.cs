@@ -11,25 +11,26 @@ using FluentDot.Entities.Graphs;
 namespace FluentDot.Expressions.Graphs
 {
     /// <summary>
-    /// A concrete implementation of a <see cref="IClusterCollectionModifiersExpression"/>
+    /// A concrete implementation of a <see cref="IClusterCollectionModifiersExpression{T}"/>
     /// </summary>
-    public class ClusterCollectionModifiersExpression : IClusterCollectionModifiersExpression {
+    /// <typeparam name="T">The type of parent expression.</typeparam>
+    public class ClusterCollectionModifiersExpression<T> : IClusterCollectionModifiersExpression<T> {
 
         #region Globals
 
         private readonly IGraph graph;
-        private readonly IGraphExpression parent;
+        private readonly T parent;
 
         #endregion
 
         #region Construction
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ClusterCollectionModifiersExpression"/> class.
+        /// Initializes a new instance of the <see cref="ClusterCollectionModifiersExpression{T}"/> class.
         /// </summary>
         /// <param name="graph">The parent graph.</param>
         /// <param name="parent">The parent expression instance.</param>
-        public ClusterCollectionModifiersExpression(IGraph graph, IGraphExpression parent)
+        public ClusterCollectionModifiersExpression(IGraph graph, T parent)
         {
             this.graph = graph;
             this.parent = parent;
@@ -44,7 +45,7 @@ namespace FluentDot.Expressions.Graphs
         /// </summary>
         /// <param name="addExpression">The add expression to modify.</param>
         /// <returns>The parent expression instance.</returns>
-        public IGraphExpression Add(System.Action<IClusterCollectionAddExpression> addExpression)
+        public T Add(System.Action<IClusterCollectionAddExpression> addExpression)
         {
             if (addExpression != null)
             {

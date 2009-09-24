@@ -6,6 +6,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
+using System;
 using FluentDot.Attributes.Graphs;
 using FluentDot.Entities.Graphs;
 using FluentDot.Expressions.Edges;
@@ -58,6 +59,14 @@ namespace FluentDot.Expressions.Graphs {
         {
             subGraph.Attributes.AddAttribute(new RankAttribute(rank));
             return this;
+        }
+
+        /// <summary>
+        /// Edits the sub graph collection for this subgraph.
+        /// </summary>
+        /// <value>The expression for acting upon the subgraph collection.</value>
+        public ISubGraphCollectionModifiersExpression<ISubGraphExpression> SubGraphs {
+            get { return new SubGraphCollectionModifiersExpression<ISubGraphExpression>(subGraph, this); }
         }
 
         /// <summary>

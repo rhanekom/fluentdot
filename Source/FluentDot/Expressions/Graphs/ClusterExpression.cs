@@ -214,6 +214,14 @@ namespace FluentDot.Expressions.Graphs
             cluster.Attributes.AddAttribute(new PeripheriesAttribute(value));
             return this;
         }
+        
+        /// <summary>
+        /// Edits the cluster collection for this cluster.
+        /// </summary>
+        /// <value>The expression for acting upon the cluster collection.</value>
+        public IClusterCollectionModifiersExpression<IClusterExpression> Clusters {
+            get { return new ClusterCollectionModifiersExpression<IClusterExpression>(cluster, this); }
+        }
 
         /// <summary>
         /// Edits the node collection for this cluster.

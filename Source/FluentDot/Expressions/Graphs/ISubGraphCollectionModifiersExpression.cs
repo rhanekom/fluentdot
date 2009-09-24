@@ -13,7 +13,7 @@ namespace FluentDot.Expressions.Graphs
     /// <summary>
     /// An expression for modifying a node collection.
     /// </summary>
-    public interface ISubGraphCollectionModifiersExpression
+    public interface ISubGraphCollectionModifiersExpression<T>
     {
 
         /// <summary>
@@ -21,6 +21,6 @@ namespace FluentDot.Expressions.Graphs
         /// </summary>
         /// <param name="addExpression">The add expression to modify.</param>
         /// <returns>The parent expression instance.</returns>
-        IGraphExpression Add(Action<ISubGraphCollectionAddExpression> addExpression);
+        T Add(Action<ISubGraphCollectionAddExpression> addExpression);
     }
 }

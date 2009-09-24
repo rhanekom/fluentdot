@@ -18,6 +18,7 @@ namespace FluentDot.Entities.Graphs
         #region Globals
 
         private readonly GraphType subGraphType = GraphType.Undirected;
+        private readonly IGraph parentGraph;
 
         #endregion
 
@@ -32,6 +33,7 @@ namespace FluentDot.Entities.Graphs
         {
             subGraphType = parentGraph.Type;
             Name = Guid.NewGuid().ToString("N");
+            this.parentGraph = parentGraph;
         }
         
         #endregion
@@ -54,6 +56,18 @@ namespace FluentDot.Entities.Graphs
         protected override string GraphIndicator
         {
             get { return "subgraph"; }
+        }
+
+        #endregion
+
+        #region Public members
+
+        /// <summary>
+        /// Gets the parent graph.
+        /// </summary>
+        /// <value>The parent graph.</value>
+        public IGraph Parent {
+            get { return parentGraph; }
         }
 
         #endregion

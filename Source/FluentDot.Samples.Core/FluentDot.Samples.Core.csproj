@@ -59,6 +59,7 @@
     <Compile Include="Demos\DemoRegister.cs" />
     <Compile Include="Demos\DemoType.cs" />
     <Compile Include="Demos\IGraphDemo.cs" />
+    <Compile Include="Demos\Layout\ClusterRank.cs" />
     <Compile Include="Demos\Layout\Clusters.cs" />
     <Compile Include="Demos\Layout\Constraints.cs" />
     <Compile Include="Demos\Layout\SubGraphsAndRanks.cs" />
@@ -101,12 +102,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FluentDot\FluentDot.csproj">
-      <Project>{B6D86A70-C795-451D-B81F-0331ED3C79A6}</Project>
-      <Name>FluentDot</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Images\FullMoon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -123,6 +118,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ImageResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FluentDot\FluentDot.csproj">
+      <Project>{B6D86A70-C795-451D-B81F-0331ED3C79A6}</Project>
+      <Name>FluentDot</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

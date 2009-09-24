@@ -35,6 +35,11 @@ namespace FluentDot.Tests.Expressions.Graphs
         }
 
         [Test]
+        public void Clusters_Does_Not_Return_Null() {
+            Assert.IsNotNull(new ClusterExpression(new DirectedGraph()).Clusters);
+        }
+        
+        [Test]
         public void WithUrl_Should_Set_Url_Attribute()
         {
             AssertAttributeAdded(expression => expression.WithUrl("http://www.google.com"),

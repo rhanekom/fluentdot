@@ -365,7 +365,18 @@ namespace FluentDot.Expressions.Graphs
             graph.Attributes.AddAttribute(new AspectAttribute(new AspectValue(aspect, maximumPasses)));
             return this;
         }
-        
+
+        /// <summary>
+        /// Sets the cluster rank mode on this graph.
+        /// </summary>
+        /// <param name="clusterMode">The cluster rank mode.</param>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression WithClusterRankMode(ClusterMode clusterMode)
+        {
+            graph.Attributes.AddAttribute(new ClusterRankAttribute(clusterMode));
+            return this;
+        }
+
         /// <summary>
         /// Sets the defaults entity values on this graph.
         /// </summary>
@@ -419,18 +430,18 @@ namespace FluentDot.Expressions.Graphs
         /// Edits the sub graph collection for this graph.
         /// </summary>
         /// <value>The expression for acting upon the subgraph collection.</value>
-        public ISubGraphCollectionModifiersExpression SubGraphs
+        public ISubGraphCollectionModifiersExpression<IGraphExpression> SubGraphs
         {
-            get { return new SubGraphCollectionModifiersExpression(graph, this); }
+            get { return new SubGraphCollectionModifiersExpression<IGraphExpression>(graph, this); }
         }
 
         /// <summary>
         /// Edits the cluster collection for this graph.
         /// </summary>
         /// <value>The expression for acting upon the cluster collection.</value>
-        public IClusterCollectionModifiersExpression Clusters
+        public IClusterCollectionModifiersExpression<IGraphExpression> Clusters
         {
-            get { return new ClusterCollectionModifiersExpression(graph, this); }
+            get { return new ClusterCollectionModifiersExpression<IGraphExpression>(graph, this); }
         }
 
         /// <summary>

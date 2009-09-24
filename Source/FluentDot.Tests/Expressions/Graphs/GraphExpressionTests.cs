@@ -185,9 +185,15 @@ namespace FluentDot.Tests.Expressions.Graphs
         }
 
         [Test]
-        public void Concentrate_Should_add_Concentrate_Attribute()
+        public void Concentrate_Should_Add_Concentrate_Attribute()
         {
             AssertAttributeAdded(x => x.Concentrate(), typeof(ConcentrateAttribute), new BooleanValue(true));
+        }
+
+        [Test]
+        public void WithClusterRankMode_Should_Add_ClusterRank_Attribute()
+        {
+            AssertAttributeAdded(x => x.WithClusterRankMode(ClusterMode.Local), typeof(ClusterRankAttribute), ClusterMode.Local);
         }
 
         [Test]
