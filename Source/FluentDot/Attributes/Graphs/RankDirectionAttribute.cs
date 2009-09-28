@@ -6,21 +6,23 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-namespace FluentDot.Attributes.Graphs {
+namespace FluentDot.Attributes.Graphs
+{
 
     /// <summary>
-    /// An attribute that specifies the rank of a subgraph.
+    /// An attribute that specifies the rank direction of a graph.
     /// </summary>
-    public class RankAttribute : AbstractDotAttribute {
+    public class RankDirectionAttribute : AbstractDotAttribute
+    {
 
         #region Construction
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RankAttribute"/> class.
+        /// Initializes a new instance of the <see cref="RankDirectionAttribute"/> class.
         /// </summary>
-        /// <param name="type">The type of rank to apply to the graph.</param>
-        public RankAttribute(RankType type)
-            : base("rank", type, true)
+        /// <param name="rankDirection">The rank direction.</param>
+        public RankDirectionAttribute(RankDirection rankDirection)
+            : base("rankdir", rankDirection, true)
         {
 
         }

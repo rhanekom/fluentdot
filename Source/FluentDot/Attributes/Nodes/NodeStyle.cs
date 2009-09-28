@@ -17,13 +17,44 @@ namespace FluentDot.Attributes.Nodes
 
         #region Constants
 
+        /// <summary>
+        /// A dashed node style.
+        /// </summary>
         public static readonly NodeStyle Dashed = new NodeStyle("dashed");
+
+        /// <summary>
+        /// A dotted node style.
+        /// </summary>
         public static readonly NodeStyle Dotted = new NodeStyle("dotted");
+
+        /// <summary>
+        /// A solid node style.
+        /// </summary>
         public static readonly NodeStyle Solid = new NodeStyle("solid");
+
+        /// <summary>
+        /// Removes the node border.
+        /// </summary>
         public static readonly NodeStyle Invisible = new NodeStyle("invis");
+
+        /// <summary>
+        /// A bold node style.
+        /// </summary>
         public static readonly NodeStyle Bold = new NodeStyle("bold");
+
+        /// <summary>
+        /// A filled node style.
+        /// </summary>
         public static readonly NodeStyle Filled = new NodeStyle("filled");
+
+        /// <summary>
+        /// Diagonals node style.
+        /// </summary>
         public static readonly NodeStyle Diagonals = new NodeStyle("diagonals");
+
+        /// <summary>
+        /// Rounded node style.
+        /// </summary>
         public static readonly NodeStyle Rounded = new NodeStyle("rounded");
         
         #endregion

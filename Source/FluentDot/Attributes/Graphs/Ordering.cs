@@ -17,7 +17,14 @@ namespace FluentDot.Attributes.Graphs
     {
         #region Constants
 
+        /// <summary>
+        /// Modifies the ordering of the graph so that edges *->n appear left-to-right in the same order in which they are defined.
+        /// </summary>
         public static readonly Ordering In = new Ordering("in");
+
+        /// <summary>
+        /// Modifies the ordering of the graph so that edges n->* appear left-to-right in the same order in which they are defined.
+        /// </summary>
         public static readonly Ordering Out = new Ordering("out");
 
         #endregion

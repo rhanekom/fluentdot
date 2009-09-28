@@ -74,6 +74,9 @@
     <Compile Include="Attributes\Graphs\ClusterMode.cs" />
     <Compile Include="Attributes\Graphs\ClusterRankAttribute.cs" />
     <Compile Include="Attributes\Graphs\ClusterStyle.cs" />
+    <Compile Include="Attributes\Graphs\RankDirection.cs" />
+    <Compile Include="Attributes\Graphs\RankDirectionAttribute.cs" />
+    <Compile Include="Attributes\Nodes\SidesAttribute.cs" />
     <Compile Include="Attributes\Shared\HorizontalDirection.cs" />
     <Compile Include="Attributes\Graphs\OutputMode.cs" />
     <Compile Include="Attributes\Graphs\OutputOrderAttribute.cs" />

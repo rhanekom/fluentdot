@@ -17,7 +17,14 @@ namespace FluentDot.Attributes.Shared
     {
         #region Constants
 
+        /// <summary>
+        /// Top to bottom vertical order.
+        /// </summary>
         public static readonly VerticalDirection TopToBottom = new VerticalDirection("T");
+
+        /// <summary>
+        /// Bottom to top vertical order.
+        /// </summary>
         public static readonly VerticalDirection BottomToTop = new VerticalDirection("B");
 
         #endregion

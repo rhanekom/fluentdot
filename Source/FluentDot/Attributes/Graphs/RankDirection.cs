@@ -11,41 +11,47 @@ using FluentDot.Common;
 namespace FluentDot.Attributes.Graphs
 {
     /// <summary>
-    /// Sets the justification of elements to be left, centered, or right aligned.
+    /// Specifies order direction for the graph rank layout.
     /// </summary>
-    public class Justification : StringEnum, IDotElement {
-
+    public class RankDirection : StringEnum, IDotElement
+    {
         #region Constants
 
         /// <summary>
-        /// Justify the element to the left.
+        /// Bottom to top layout.
         /// </summary>
-        public static readonly Justification Left = new Justification("l");
+        public static readonly RankDirection BottomToTop = new RankDirection("BT");
 
         /// <summary>
-        /// Justify the element in the center.
+        /// Top to bottom layout.
         /// </summary>
-        public static readonly Justification Center = new Justification("c");
+        public static readonly RankDirection TopToBottom = new RankDirection("TB");
 
         /// <summary>
-        /// Justify the element to the right.
+        /// Left to right layout.
         /// </summary>
-        public static readonly Justification Right = new Justification("r");
+        public static readonly RankDirection LeftToRight = new RankDirection("LR");
+
+        /// <summary>
+        /// Right to left layout.
+        /// </summary>
+        public static readonly RankDirection RightToLeft = new RankDirection("RL");
+
+       
 
         #endregion
 
         #region Construction
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Justification"/> class.
+        /// Initializes a new instance of the <see cref="RankDirection"/> class.
         /// </summary>
-        /// <param name="value">The value that this instance represents..</param>
-        public Justification(string value)
-            : base(value)
+        /// <param name="value">The value.</param>
+        public RankDirection(string value) : base(value)
         {
-
+            
         }
-
+        
         #endregion
 
         #region IDotElement Members
@@ -56,7 +62,8 @@ namespace FluentDot.Attributes.Graphs
         /// <returns>
         /// A textual Dot representation of this element.
         /// </returns>
-        public string ToDot() {
+        public string ToDot()
+        {
             return Value;
         }
 

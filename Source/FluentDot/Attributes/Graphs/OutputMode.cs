@@ -17,8 +17,19 @@ namespace FluentDot.Attributes.Graphs
     {
         #region Constants
 
+        /// <summary>
+        /// Performs a breadth first traversal - does not avoid edge-node overlap.
+        /// </summary>
         public static readonly OutputMode BreadthFirst = new OutputMode("breadthfirst");
+
+        /// <summary>
+        /// Nodes are drawn first, followed by edges.  Guarantees an edge-node overlap will not be mistaken for an edge ending at a node. 
+        /// </summary>
         public static readonly OutputMode NodesFirst = new OutputMode("nodesfirst");
+
+        /// <summary>
+        /// Draws all edges appear beneath nodes, even if the resulting drawing is ambiguous.
+        /// </summary>
         public static readonly OutputMode EdgesFirst = new OutputMode("edgesfirst");
 
         #endregion

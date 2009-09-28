@@ -10,6 +10,9 @@ using FluentDot.Expressions.Edges;
 
 namespace FluentDot.Conventions
 {
+    /// <summary>
+    /// A convention that can be applied on edges.
+    /// </summary>
     public interface IEdgeConvention : IConvention
     {
         /// <summary>

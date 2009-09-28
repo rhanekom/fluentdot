@@ -17,7 +17,14 @@ namespace FluentDot.Attributes.Shared
 
         #region Constants
 
+        /// <summary>
+        /// Place the elements at the top of the graph.
+        /// </summary>
         public static readonly Location Top = new Location("t");
+
+        /// <summary>
+        /// Place the elements at the bottom of the graph.
+        /// </summary>
         public static readonly Location Bottom = new Location("b");
 
         #endregion

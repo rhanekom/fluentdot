@@ -16,8 +16,15 @@ namespace FluentDot.Attributes.Graphs {
     public class ClusterStyle : StringEnum, IDotElement {
 
         #region Constants
-        
+
+        /// <summary>
+        /// Sets the style of the cluster to be filled.
+        /// </summary>
         public static readonly ClusterStyle Filled = new ClusterStyle("filled");
+
+        /// <summary>
+        /// Sets the style of the cluster to be rounded.
+        /// </summary>
         public static readonly ClusterStyle Rounded = new ClusterStyle("rounded");
 
         #endregion

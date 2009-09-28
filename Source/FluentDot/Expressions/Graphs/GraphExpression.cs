@@ -367,6 +367,17 @@ namespace FluentDot.Expressions.Graphs
         }
 
         /// <summary>
+        /// Specifies the rank direction the graph should use in layout.
+        /// </summary>
+        /// <param name="rankDirection">The rank direction.</param>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression WithRankDirection(RankDirection rankDirection)
+        {
+            graph.Attributes.AddAttribute(new RankDirectionAttribute(rankDirection));
+            return this;
+        }
+
+        /// <summary>
         /// Sets the cluster rank mode on this graph.
         /// </summary>
         /// <param name="clusterMode">The cluster rank mode.</param>

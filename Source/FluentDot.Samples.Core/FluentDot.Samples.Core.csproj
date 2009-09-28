@@ -62,6 +62,7 @@
     <Compile Include="Demos\Layout\ClusterRank.cs" />
     <Compile Include="Demos\Layout\Clusters.cs" />
     <Compile Include="Demos\Layout\Constraints.cs" />
+    <Compile Include="Demos\Layout\GraphRankDirection.cs" />
     <Compile Include="Demos\Layout\SubGraphsAndRanks.cs" />
     <Compile Include="Demos\Layout\EdgeOrdeningIn.cs" />
     <Compile Include="Demos\Layout\EdgeOrdeningOut.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Demos\VisualElements\ArrowShapes.cs" />
     <Compile Include="Demos\VisualElements\ArrowSizes.cs" />
     <Compile Include="Demos\VisualElements\CompositeArrowShapes.cs" />
+    <Compile Include="Demos\VisualElements\NodeSides.cs" />
     <Compile Include="Demos\VisualElements\NodeSkew.cs" />
     <Compile Include="Demos\VisualElements\EdgeClipping.cs" />
     <Compile Include="Demos\VisualElements\EdgeLabels.cs" />

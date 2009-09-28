@@ -63,6 +63,12 @@ namespace FluentDot.Entities.Nodes
 
         #region IDotElement Members
 
+        /// <summary>
+        /// Creates a textual Dot representation of this element.
+        /// </summary>
+        /// <returns>
+        /// A textual Dot representation of this element.
+        /// </returns>
         public string ToDot() {
             
             string label = String.IsNullOrEmpty(Label) ? Name : Label;

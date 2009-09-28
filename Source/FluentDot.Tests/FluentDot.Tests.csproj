@@ -89,11 +89,14 @@
     <Compile Include="Attributes\Graphs\PageDirectionTests.cs" />
     <Compile Include="Attributes\Graphs\PenColorAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\RankAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\RankDirectionAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\RankDirectionTests.cs" />
     <Compile Include="Attributes\Graphs\RankTypeTests.cs" />
     <Compile Include="Attributes\Graphs\RatioAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\RatioTests.cs" />
     <Compile Include="Attributes\Graphs\VerticalDirectionTests.cs" />
     <Compile Include="Attributes\Nodes\DistortionAttributeTests.cs" />
+    <Compile Include="Attributes\Nodes\SidesAttributeTests.cs" />
     <Compile Include="Attributes\Nodes\SkewAttributeTests.cs" />
     <Compile Include="Attributes\Shared\BooleanValueTests.cs" />
     <Compile Include="Attributes\Graphs\CenterAttributeTests.cs" />

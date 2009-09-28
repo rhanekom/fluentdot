@@ -162,6 +162,12 @@ namespace FluentDot.Tests.Expressions.Graphs
         }
 
         [Test]
+        public void WithRankDirection_Sets_RankDirection_Attribute()
+        {
+            AssertAttributeAdded(x => x.WithRankDirection(RankDirection.TopToBottom), typeof(RankDirectionAttribute), RankDirection.TopToBottom);
+        }
+
+        [Test]
         public void Edges_Should_Return_Not_Null() {
             Assert.IsNotNull(new TestGraphExpression().Edges);
         }

@@ -227,6 +227,13 @@ namespace FluentDot.Expressions.Graphs
         IGraphExpression WithAspect(double aspect, int maximumPasses);
 
         /// <summary>
+        /// Specifies the rank direction the graph should use in layout.
+        /// </summary>
+        /// <param name="rankDirection">The rank direction.</param>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithRankDirection(RankDirection rankDirection);
+
+        /// <summary>
         /// Sets the cluster rank mode on this graph.
         /// </summary>
         /// <param name="clusterMode">The cluster rank mode.</param>

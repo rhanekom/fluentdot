@@ -321,6 +321,17 @@ namespace FluentDot.Expressions.Nodes
             return this;
         }
 
+        /// <summary>
+        /// Specifies the sides to have on a node with a polygon shape.
+        /// </summary>
+        /// <param name="sides">The sides of the polygon.</param>
+        /// <returns>The current expression instance.</returns>
+        public INodeExpression WithSides(int sides)
+        {
+            node.Attributes.AddAttribute(new SidesAttribute(sides));
+            return this;
+        }
+
         #endregion
     }
 }

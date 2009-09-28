@@ -199,5 +199,13 @@ namespace FluentDot.Expressions.Nodes
         /// <param name="skewValue">The skew value.  Positive values skew the top of the polygon to the right, negative values to the left.</param>
         /// <returns>The current expression instance.</returns>
         INodeExpression WithSkew(double skewValue);
+
+
+        /// <summary>
+        /// Specifies the sides to have on a node with a polygon shape.
+        /// </summary>
+        /// <param name="sides">The sides of the polygon.</param>
+        /// <returns>The current expression instance.</returns>
+        INodeExpression WithSides(int sides);
     }
 }

@@ -19,14 +19,49 @@ namespace FluentDot.Attributes.Edges
     {
         #region Constants
 
+        /// <summary>
+        /// A box arrow shape.
+        /// </summary>
         public static ArrowShape Box = new ArrowShape("box", true, true);
+
+        /// <summary>
+        /// A crow arrow shape.
+        /// </summary>
         public static ArrowShape Crow = new ArrowShape("crow", true, false);
+
+        /// <summary>
+        /// A diamond arrow shape.
+        /// </summary>
         public static ArrowShape Diamond = new ArrowShape("diamond", true, true);
+
+        /// <summary>
+        /// A dot arrow shape.
+        /// </summary>
         public static ArrowShape Dot = new ArrowShape("dot", false, true);
+
+        /// <summary>
+        /// An inverted arrow shape.
+        /// </summary>
         public static ArrowShape Inverted = new ArrowShape("inv", true, true);
+
+        /// <summary>
+        /// Removes the arrow shape.
+        /// </summary>
         public static ArrowShape None = new ArrowShape("none", false, false);
+
+        /// <summary>
+        /// The default shape for edge arrows.
+        /// </summary>
         public static ArrowShape Normal = new ArrowShape("normal", true, true);
+
+        /// <summary>
+        /// A tee arrow shape.
+        /// </summary>
         public static ArrowShape Tee = new ArrowShape("tee", true, false);
+
+        /// <summary>
+        /// A vee arrow shape.
+        /// </summary>
         public static ArrowShape Vee = new ArrowShape("vee", true, false);
 
         #endregion

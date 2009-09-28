@@ -205,6 +205,13 @@ namespace FluentDot.Tests.Expressions.Nodes
                                 typeof(DistortionAttribute), 1.2);
         }
 
+        [Test]
+        public void WithSides_Sets_Sides_Attribute()
+        {
+            AssertAttributeAdded(expression => expression.WithSides(5),
+                                typeof(SidesAttribute), 5);
+        }
+
         #endregion
 
         #region Private Members

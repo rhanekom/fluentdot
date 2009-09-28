@@ -8,7 +8,6 @@
 
 using FluentDot.Expressions.Graphs;
 using FluentDot.Attributes.Graphs;
-using System.Drawing;
 
 namespace FluentDot.Samples.Core.Demos.Layout {
     /// <summary>

@@ -17,10 +17,29 @@ namespace FluentDot.Attributes.Edges
 
         #region Constants
 
+        /// <summary>
+        /// Dashed edge style.
+        /// </summary>
         public static readonly EdgeStyle Dashed = new EdgeStyle("dashed");
+
+        /// <summary>
+        /// Dotted edge style.
+        /// </summary>
         public static readonly EdgeStyle Dotted = new EdgeStyle("dotted");
+
+        /// <summary>
+        /// Solid edge style.
+        /// </summary>
         public static readonly EdgeStyle Solid = new EdgeStyle("solid");
+
+        /// <summary>
+        /// Causes the edge to become invisible.  Invisible edges still affect layout.
+        /// </summary>
         public static readonly EdgeStyle Invisible = new EdgeStyle("invis");
+
+        /// <summary>
+        /// Bold edge style.
+        /// </summary>
         public static readonly EdgeStyle Bold = new EdgeStyle("bold");
         
         #endregion

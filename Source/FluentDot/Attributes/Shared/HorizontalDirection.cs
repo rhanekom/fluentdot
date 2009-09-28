@@ -17,7 +17,14 @@ namespace FluentDot.Attributes.Shared
     {
         #region Constants
 
+        /// <summary>
+        /// Represents a left to right horizontal order.
+        /// </summary>
         public static readonly HorizontalDirection LeftToRight = new HorizontalDirection("L");
+
+        /// <summary>
+        /// Represents a right to left horizontal order.
+        /// </summary>
         public static readonly HorizontalDirection RightToLeft = new HorizontalDirection("R");
 
         #endregion

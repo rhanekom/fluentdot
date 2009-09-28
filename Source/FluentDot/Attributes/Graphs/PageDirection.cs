@@ -19,13 +19,44 @@ namespace FluentDot.Attributes.Graphs
         
         #region Constants
 
+        /// <summary>
+        /// Bottom to top major order, left to right minor order.
+        /// </summary>
         public static readonly PageDirection BottomToTopLeftToRight = new PageDirection(VerticalDirection.BottomToTop, HorizontalDirection.LeftToRight);
+
+        /// <summary>
+        /// Bottom to top major order, right to left minor order.
+        /// </summary>
         public static readonly PageDirection BottomToTopRightToLeft = new PageDirection(VerticalDirection.BottomToTop, HorizontalDirection.RightToLeft);
+
+        /// <summary>
+        /// Top to bottom major order, left to right minor order.
+        /// </summary>
         public static readonly PageDirection TopToBottomLeftToRight = new PageDirection(VerticalDirection.TopToBottom, HorizontalDirection.LeftToRight);
+
+        /// <summary>
+        /// Top to bottom major order, right to left minor order.
+        /// </summary>
         public static readonly PageDirection TopToBottomRightToLeft = new PageDirection(VerticalDirection.TopToBottom, HorizontalDirection.RightToLeft);
+
+        /// <summary>
+        /// Right to left major order, top to bottom minor order.
+        /// </summary>
         public static readonly PageDirection RightToLeftTopToBottom = new PageDirection(HorizontalDirection.RightToLeft, VerticalDirection.TopToBottom);
+
+        /// <summary>
+        /// Right to left major order, bottom to top minor order.
+        /// </summary>
         public static readonly PageDirection RightToLeftBottomToTop = new PageDirection(HorizontalDirection.RightToLeft, VerticalDirection.BottomToTop);
+
+        /// <summary>
+        /// Left to right major order, bottom to top minor order.
+        /// </summary>
         public static readonly PageDirection LeftToRightBottomToTop = new PageDirection(HorizontalDirection.LeftToRight, VerticalDirection.BottomToTop);
+
+        /// <summary>
+        /// Left to right major order, top to bottom minor order.
+        /// </summary>
         public static readonly PageDirection LeftToRightTopToBottom = new PageDirection(HorizontalDirection.LeftToRight, VerticalDirection.TopToBottom);
 
         #endregion
