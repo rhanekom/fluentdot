@@ -344,6 +344,12 @@ namespace FluentDot.Tests.Expressions.Graphs
                                 typeof(AspectAttribute), new AspectValue(2.2, 5));
         }
         
+        [Test]
+        public void Compound_Adds_Compound_Attribute_With_True_Value() {
+            AssertAttributeAdded(expression => expression.Compound(),
+                                typeof(CompoundAttribute), new BooleanValue(true));
+        }
+        
         #endregion
 
         #region Private Members

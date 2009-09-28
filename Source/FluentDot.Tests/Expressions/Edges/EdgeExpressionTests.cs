@@ -287,6 +287,31 @@ namespace FluentDot.Tests.Expressions.Edges
         }
 
         [Test]
+        public void WithLogicalHead_Should_Set_LogicalHead_Attribute()
+        {
+            AssertAttributeAdded(expression => expression.WithLogicalHead("clusterlogicalHead"),
+                                typeof(LogicalHeadAttribute), "clusterlogicalHead");
+        }
+
+        [Test]
+        public void WithLogicalTail_Should_Set_LogicalTail_Attribute() {
+            AssertAttributeAdded(expression => expression.WithLogicalTail("clusterlogicalTail"),
+                                typeof(LogicalTailAttribute), "clusterlogicalTail");
+        }
+
+        [Test]
+        public void WithLogicalHead_Should_Set_LogicalHead_Attribute_With_Cluster_Appended() {
+            AssertAttributeAdded(expression => expression.WithLogicalHead("logicalHead"),
+                                typeof(LogicalHeadAttribute), "clusterlogicalHead");
+        }
+
+        [Test]
+        public void WithLogicalTail_Should_Set_LogicalTail_Attribute_With_Cluster_Appended() {
+            AssertAttributeAdded(expression => expression.WithLogicalTail("logicalTail"),
+                                typeof(LogicalTailAttribute), "clusterlogicalTail");
+        }
+
+        [Test]
         public void WithTailURL_Should_Set_URL_And_Target() {
             var node1 = MockRepository.GenerateMock<IGraphNode>();
             var node2 = MockRepository.GenerateMock<IGraphNode>();

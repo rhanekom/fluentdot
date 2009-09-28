@@ -301,6 +301,20 @@ namespace FluentDot.Expressions.Edges
         /// <param name="group">The same tail group.</param>
         /// <returns>The current expression instance.</returns>
         IEdgeExpression WithSameTail(string group);
+
+        /// <summary>
+        /// Sets the logical head for the edge.
+        /// </summary>
+        /// <param name="name">The name of the logical head.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithLogicalHead(string name);
+
+        /// <summary>
+        /// Sets the logical tail for the edge.
+        /// </summary>
+        /// <param name="name">The name of the logical tail.</param>
+        /// <returns>The current expression instance.</returns>
+        IEdgeExpression WithLogicalTail(string name);
         
         /// <summary>
         /// Specifies a custom attribute that should be applied to the edge.

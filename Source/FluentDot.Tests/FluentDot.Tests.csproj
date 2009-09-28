@@ -60,6 +60,8 @@
     <Compile Include="Attributes\Edges\ArrowHeadAttributeTests.cs" />
     <Compile Include="Attributes\Edges\ArrowSizeAttributeTests.cs" />
     <Compile Include="Attributes\Edges\ArrowTailAttributeTest.cs" />
+    <Compile Include="Attributes\Edges\LogicalTailAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\LogicalHeadAttributeTests.cs" />
     <Compile Include="Attributes\Edges\SameHeadAttributeTests.cs" />
     <Compile Include="Attributes\Edges\SameTailAttributeTests.cs" />
     <Compile Include="Attributes\Edges\TailTooltipAttributeTests.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Attributes\Graphs\ClusterModeTests.cs" />
     <Compile Include="Attributes\Graphs\ClusterRankAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\ClusterStyleTests.cs" />
+    <Compile Include="Attributes\Graphs\CompoundAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\HorizontalDirectionTests.cs" />
     <Compile Include="Attributes\Graphs\OutputModeTests.cs" />
     <Compile Include="Attributes\Graphs\OutputOrderAttributeTests.cs" />

@@ -389,6 +389,16 @@ namespace FluentDot.Expressions.Graphs
         }
 
         /// <summary>
+        /// Compounds this instance.
+        /// </summary>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression Compound()
+        {
+            graph.Attributes.AddAttribute(new CompoundAttribute(true));
+            return this;
+        }
+
+        /// <summary>
         /// Sets the defaults entity values on this graph.
         /// </summary>
         /// <value>

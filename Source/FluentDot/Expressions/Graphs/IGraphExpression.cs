@@ -239,6 +239,12 @@ namespace FluentDot.Expressions.Graphs
         /// <param name="clusterMode">The cluster rank mode.</param>
         /// <returns>The current expression instance.</returns>
         IGraphExpression WithClusterRankMode(ClusterMode clusterMode);
+
+        /// <summary>
+        /// Compounds this instance.
+        /// </summary>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression Compound();
         
         /// <summary>
         /// Sets the defaults entity values on this graph.

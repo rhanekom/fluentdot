@@ -360,7 +360,37 @@ namespace FluentDot.Expressions.Edges
             return this;
         }
 
+        /// <summary>
+        /// Sets the logical head for the edge.
+        /// </summary>
+        /// <param name="name">The name of the logical head.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithLogicalHead(string name)
+        {
+            if (!name.StartsWith("cluster"))
+            {
+                name = "cluster" + name;
+            }
 
+            edge.Attributes.AddAttribute(new LogicalHeadAttribute(name));
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the logical tail for the edge.
+        /// </summary>
+        /// <param name="name">The name of the logical tail.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithLogicalTail(string name)
+        {
+            if (!name.StartsWith("cluster")) {
+                name = "cluster" + name;
+            }
+
+            edge.Attributes.AddAttribute(new LogicalTailAttribute(name));
+            return this;
+        }
+        
         /// <summary>
         /// Specifies a custom attribute that should be applied to the edge.
         /// </summary>
