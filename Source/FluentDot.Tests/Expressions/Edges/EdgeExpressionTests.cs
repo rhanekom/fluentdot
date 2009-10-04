@@ -312,6 +312,19 @@ namespace FluentDot.Tests.Expressions.Edges
         }
 
         [Test]
+        public void WithHeadPort_Should_Set_HeadPort_Attribute()
+        {
+            AssertAttributeAdded(expression => expression.WithHeadPort(CompassPoint.East),
+                                typeof(HeadPortAttribute), CompassPoint.East);
+        }
+
+        [Test]
+        public void WithTailPort_Should_Set_TailPort_Attribute() {
+            AssertAttributeAdded(expression => expression.WithTailPort(CompassPoint.East),
+                                typeof(TailPortAttribute), CompassPoint.East);
+        }
+
+        [Test]
         public void WithTailURL_Should_Set_URL_And_Target() {
             var node1 = MockRepository.GenerateMock<IGraphNode>();
             var node2 = MockRepository.GenerateMock<IGraphNode>();

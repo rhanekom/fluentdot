@@ -245,6 +245,20 @@ namespace FluentDot.Expressions.Graphs
         /// </summary>
         /// <returns>The current expression instance.</returns>
         IGraphExpression Compound();
+
+        /// <summary>
+        /// Specifies that rank seperation must occur equally for ranks.
+        /// </summary>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithEqualRankSeperation();
+
+        /// <summary>
+        /// Specifies the rank seperation for ranks.
+        /// </summary>
+        /// <param name="inches">The rank seperation, in inches.</param>
+        /// <param name="equally">if set to <c>true</c> ranks are spaced equally from their centers.</param>
+        /// <returns>The current expression instance.</returns>
+        IGraphExpression WithRankSeperation(double inches, bool equally);
         
         /// <summary>
         /// Sets the defaults entity values on this graph.

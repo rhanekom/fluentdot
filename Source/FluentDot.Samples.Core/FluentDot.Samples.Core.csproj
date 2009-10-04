@@ -62,7 +62,10 @@
     <Compile Include="Demos\Layout\ClusterRank.cs" />
     <Compile Include="Demos\Layout\Clusters.cs" />
     <Compile Include="Demos\Layout\Constraints.cs" />
+    <Compile Include="Demos\Layout\TailPorts.cs" />
     <Compile Include="Demos\Layout\GraphRankDirection.cs" />
+    <Compile Include="Demos\Layout\GraphRankSeperation.cs" />
+    <Compile Include="Demos\Layout\HeadPorts.cs" />
     <Compile Include="Demos\Layout\LogicalHeadsAndTails.cs" />
     <Compile Include="Demos\Layout\SubGraphsAndRanks.cs" />
     <Compile Include="Demos\Layout\EdgeOrdeningIn.cs" />

@@ -23,7 +23,9 @@ namespace FluentDot.Tests.Expectations {
             List<string> files = GetNonCompliantFiles(
                 @"..\..\..\FluentDot",
                 @"..\..\..\FluentDot.Tests",
-                @"..\..\..\FluentDot.Samples"
+                @"..\..\..\FluentDot.Samples",
+                @"..\..\..\FluentDot.Samples.Core",
+                @"..\..\..\FluentDot.Samples.Exporter"
                 );
 
             Assert.AreEqual(files.Count, 0,

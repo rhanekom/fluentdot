@@ -390,7 +390,29 @@ namespace FluentDot.Expressions.Edges
             edge.Attributes.AddAttribute(new LogicalTailAttribute(name));
             return this;
         }
-        
+
+        /// <summary>
+        /// Specifies the head port to which the edge is connected to the node.
+        /// </summary>
+        /// <param name="compassPoint">The compass point.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithHeadPort(CompassPoint compassPoint)
+        {
+            edge.Attributes.AddAttribute(new HeadPortAttribute(compassPoint));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies the tail port to which the edge is connected to the node.
+        /// </summary>
+        /// <param name="compassPoint">The compass point.</param>
+        /// <returns>The current expression instance.</returns>
+        public IEdgeExpression WithTailPort(CompassPoint compassPoint)
+        {
+            edge.Attributes.AddAttribute(new TailPortAttribute(compassPoint));
+            return this;
+        }
+
         /// <summary>
         /// Specifies a custom attribute that should be applied to the edge.
         /// </summary>

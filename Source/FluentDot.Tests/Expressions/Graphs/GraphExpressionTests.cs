@@ -349,6 +349,20 @@ namespace FluentDot.Tests.Expressions.Graphs
             AssertAttributeAdded(expression => expression.Compound(),
                                 typeof(CompoundAttribute), new BooleanValue(true));
         }
+
+        [Test]
+        public void WithEqualRankSeperation_Adds_RankSeperation_With_Equal_Seperation()
+        {
+            AssertAttributeAdded(expression => expression.WithEqualRankSeperation(),
+                                typeof(RankSeperationAttribute), new RankSeperation(null, true));
+        }
+
+        [Test]
+        public void WithRankSeperation_Adds_RankSeperation_With_Inches_And_EqualSeperationIndicator()
+        {
+            AssertAttributeAdded(expression => expression.WithRankSeperation(1.33, true),
+                                typeof(RankSeperationAttribute), new RankSeperation(1.33, true));
+        }
         
         #endregion
 

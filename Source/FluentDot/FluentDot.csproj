@@ -54,6 +54,9 @@
     <Compile Include="Attributes\Edges\ArrowHeadAttribute.cs" />
     <Compile Include="Attributes\Edges\ArrowSizeAttribute.cs" />
     <Compile Include="Attributes\Edges\ArrowTailAttribute.cs" />
+    <Compile Include="Attributes\Edges\CompassPoint.cs" />
+    <Compile Include="Attributes\Edges\TailPortAttribute.cs" />
+    <Compile Include="Attributes\Edges\HeadPortAttribute.cs" />
     <Compile Include="Attributes\Edges\LogicaTailAttribute.cs" />
     <Compile Include="Attributes\Edges\LogicalHeadAttribute.cs" />
     <Compile Include="Attributes\Edges\SameHeadAttribute.cs" />
@@ -70,34 +73,100 @@
     <Compile Include="Attributes\Edges\TailClipAttribute.cs" />
     <Compile Include="Attributes\Edges\TailTarget.cs" />
     <Compile Include="Attributes\Edges\TailURLAttribute.cs" />
-    <Compile Include="Attributes\Graphs\Aspect.cs" />
-    <Compile Include="Attributes\Graphs\AspectAttribute.cs" />
-    <Compile Include="Attributes\Graphs\BackgroundColorAttribute.cs" />
-    <Compile Include="Attributes\Graphs\ClusterMode.cs" />
-    <Compile Include="Attributes\Graphs\ClusterRankAttribute.cs" />
-    <Compile Include="Attributes\Graphs\ClusterStyle.cs" />
-    <Compile Include="Attributes\Graphs\CompoundAttribute.cs" />
-    <Compile Include="Attributes\Graphs\RankDirection.cs" />
-    <Compile Include="Attributes\Graphs\RankDirectionAttribute.cs" />
+    <Compile Include="Attributes\Graphs\Aspect.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\AspectAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\BackgroundColorAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\CenterAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\ClusterMode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\ClusterRankAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\ClusterStyle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\CompoundAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\ConcentrateAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\Justification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\LabelJustificationAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\NodeSeperationAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\Ordering.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\OrderingAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\OutputMode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\OutputOrderAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\PadAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\PageAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\PageDirection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\PageDirectionAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\PenColorAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\RankAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\RankDirection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\RankDirectionAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\RankSeperation.cs" />
+    <Compile Include="Attributes\Graphs\RankSeperationAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\RankType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\Ratio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\RatioAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\Graphs\RotateAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Attributes\Nodes\SidesAttribute.cs" />
     <Compile Include="Attributes\Shared\HorizontalDirection.cs" />
-    <Compile Include="Attributes\Graphs\OutputMode.cs" />
-    <Compile Include="Attributes\Graphs\OutputOrderAttribute.cs" />
-    <Compile Include="Attributes\Graphs\PadAttribute.cs" />
-    <Compile Include="Attributes\Graphs\PageAttribute.cs" />
-    <Compile Include="Attributes\Graphs\PageDirection.cs" />
-    <Compile Include="Attributes\Graphs\PageDirectionAttribute.cs" />
-    <Compile Include="Attributes\Graphs\PenColorAttribute.cs" />
-    <Compile Include="Attributes\Graphs\RankAttribute.cs" />
-    <Compile Include="Attributes\Graphs\RankType.cs" />
-    <Compile Include="Attributes\Graphs\Ratio.cs" />
-    <Compile Include="Attributes\Graphs\RatioAttribute.cs" />
     <Compile Include="Attributes\Shared\VerticalDirection.cs" />
     <Compile Include="Attributes\Nodes\DistortionAttribute.cs" />
     <Compile Include="Attributes\Nodes\SkewAttribute.cs" />
     <Compile Include="Attributes\Shared\BooleanValue.cs" />
-    <Compile Include="Attributes\Graphs\CenterAttribute.cs" />
-    <Compile Include="Attributes\Graphs\ConcentrateAttribute.cs" />
     <Compile Include="Attributes\Edges\ConstraintAttribute.cs" />
     <Compile Include="Attributes\Shared\CommentAttribute.cs" />
     <Compile Include="Attributes\Shared\FillColorAttribute.cs" />
@@ -116,19 +185,15 @@
     <Compile Include="Attributes\Edges\LabelFontColorAttribute.cs" />
     <Compile Include="Attributes\Edges\LabelFontNameAttribute.cs" />
     <Compile Include="Attributes\Edges\LabelFontSizeAttribute.cs" />
-    <Compile Include="Attributes\Graphs\LabelJustificationAttribute.cs" />
     <Compile Include="Attributes\Shared\LabelLocationAttribute.cs" />
     <Compile Include="Attributes\Shared\MarginAttribute.cs" />
     <Compile Include="Attributes\Edges\MinimumLengthAttribute.cs" />
-    <Compile Include="Attributes\Graphs\NodeSeperationAttribute.cs" />
     <Compile Include="Attributes\Nodes\NodeShapeAttribute.cs" />
     <Compile Include="Attributes\Shared\NoJustifyAttribute.cs" />
-    <Compile Include="Attributes\Graphs\OrderingAttribute.cs" />
     <Compile Include="Attributes\Nodes\OrientationAttribute.cs" />
     <Compile Include="Attributes\Shared\PenWidthAttribute.cs" />
     <Compile Include="Attributes\Shared\PeripheriesAttribute.cs" />
     <Compile Include="Attributes\Shared\PointValue.cs" />
-    <Compile Include="Attributes\Graphs\RotateAttribute.cs" />
     <Compile Include="Attributes\Shared\StyleAttribute.cs" />
     <Compile Include="Attributes\Edges\TailLabelAttribute.cs" />
     <Compile Include="Attributes\Shared\UriValue.cs" />
@@ -197,13 +262,11 @@
     <Compile Include="Entities\Nodes\IRecordNode.cs" />
     <Compile Include="Entities\Nodes\IRecordItem.cs" />
     <Compile Include="Entities\Graphs\IUndirectedGraph.cs" />
-    <Compile Include="Attributes\Graphs\Justification.cs" />
     <Compile Include="Attributes\Shared\Location.cs" />
     <Compile Include="Entities\Nodes\NodeDefaults.cs" />
     <Compile Include="Attributes\Nodes\NodeStyle.cs" />
     <Compile Include="Entities\Nodes\NodeTracker.cs" />
     <Compile Include="Attributes\Nodes\NodeShape.cs" />
-    <Compile Include="Attributes\Graphs\Ordering.cs" />
     <Compile Include="Entities\Nodes\RecordElement.cs" />
     <Compile Include="Entities\Nodes\RecordGroup.cs" />
     <Compile Include="Entities\Nodes\RecordNode.cs" />

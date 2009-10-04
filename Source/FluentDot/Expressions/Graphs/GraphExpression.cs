@@ -399,6 +399,28 @@ namespace FluentDot.Expressions.Graphs
         }
 
         /// <summary>
+        /// Specifies that rank seperation must occur equally for ranks.
+        /// </summary>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression WithEqualRankSeperation()
+        {
+            graph.Attributes.AddAttribute(new RankSeperationAttribute(new RankSeperation(null, true)));
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies the rank seperation for ranks.
+        /// </summary>
+        /// <param name="inches">The rank seperation, in inches.</param>
+        /// <param name="equally">if set to <c>true</c> ranks are spaced equally from their centers.</param>
+        /// <returns>The current expression instance.</returns>
+        public IGraphExpression WithRankSeperation(double inches, bool equally)
+        {
+            graph.Attributes.AddAttribute(new RankSeperationAttribute(new RankSeperation(inches, equally)));
+            return this;
+        }
+
+        /// <summary>
         /// Sets the defaults entity values on this graph.
         /// </summary>
         /// <value>
