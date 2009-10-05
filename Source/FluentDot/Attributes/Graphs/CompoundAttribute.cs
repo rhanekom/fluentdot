@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Graphs {
     /// <summary>
     /// An attribute that, if set, allows edges between clusters.
     /// </summary>
-    public class CompoundAttribute : AbstractDotAttribute {
+    public class CompoundAttribute : AbstractDotAttribute<BooleanValue> {
 
         #region Construction
 

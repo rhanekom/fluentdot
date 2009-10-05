@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// Specifies the output order of the graph.
     /// </summary>
-    public class OutputOrderAttribute : AbstractDotAttribute
+    public class OutputOrderAttribute : AbstractDotAttribute<OutputMode>
     {
         #region Construction
 

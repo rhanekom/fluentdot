@@ -6,24 +6,23 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-namespace FluentDot.Attributes.Edges
+namespace FluentDot.Attributes.Graphs
 {
     /// <summary>
-    /// An attribute to specify the text to be placed near the tail of the edge.
+    /// An attribute that sets the style on a node or edge.
     /// </summary>
-    public class TailLabelAttribute : AbstractDotAttribute<string>
+    public class ClusterStyleAttribute : AbstractDotAttribute<ClusterStyle>
     {
         #region Construction
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TailLabelAttribute"/> class.
+        /// Initializes a new instance of the <see cref="ClusterStyleAttribute"/> class.
         /// </summary>
-        /// <param name="text">The text.</param>
-        public TailLabelAttribute(string text)
-            : base("taillabel", text, true)
-        {
+        /// <param name="style">The style.</param>
+        public ClusterStyleAttribute(ClusterStyle style)
+            : base("style", style, true) {
 
-        }
+            }
 
         #endregion
     }

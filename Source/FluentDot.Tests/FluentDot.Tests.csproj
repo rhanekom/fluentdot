@@ -58,12 +58,14 @@
   <ItemGroup>
     <Compile Include="Attributes\Edges\ArrowDirectionAttributeTests.cs" />
     <Compile Include="Attributes\Edges\ArrowHeadAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\ArrowShapeTypeTests.cs" />
     <Compile Include="Attributes\Edges\ArrowSizeAttributeTests.cs" />
     <Compile Include="Attributes\Edges\ArrowTailAttributeTest.cs" />
     <Compile Include="Attributes\Edges\CompassPointTests.cs" />
     <Compile Include="Attributes\Edges\HeadPortAttributeTests.cs" />
     <Compile Include="Attributes\Edges\LogicalTailAttributeTests.cs" />
     <Compile Include="Attributes\Edges\LogicalHeadAttributeTests.cs" />
+    <Compile Include="Attributes\Edges\EdgeStyleAttributeTests.cs" />
     <Compile Include="Attributes\Edges\SameHeadAttributeTests.cs" />
     <Compile Include="Attributes\Edges\SameTailAttributeTests.cs" />
     <Compile Include="Attributes\Edges\TailPortAttributeTests.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="Attributes\Graphs\ClusterRankAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\ClusterStyleTests.cs" />
     <Compile Include="Attributes\Graphs\CompoundAttributeTests.cs" />
+    <Compile Include="Attributes\Graphs\ClusterStyleAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\HorizontalDirectionTests.cs" />
     <Compile Include="Attributes\Graphs\OutputModeTests.cs" />
     <Compile Include="Attributes\Graphs\OutputOrderAttributeTests.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="Attributes\Graphs\RankTypeTests.cs" />
     <Compile Include="Attributes\Graphs\RatioAttributeTests.cs" />
     <Compile Include="Attributes\Graphs\RatioTests.cs" />
+    <Compile Include="Attributes\Graphs\RatioTypeTests.cs" />
     <Compile Include="Attributes\Graphs\VerticalDirectionTests.cs" />
     <Compile Include="Attributes\Nodes\DistortionAttributeTests.cs" />
     <Compile Include="Attributes\Nodes\SidesAttributeTests.cs" />
@@ -140,7 +144,7 @@
     <Compile Include="Attributes\Shared\PeripheriesTests.cs" />
     <Compile Include="Attributes\Shared\PointValueTests.cs" />
     <Compile Include="Attributes\Graphs\RotateAttributeTests.cs" />
-    <Compile Include="Attributes\Shared\StyleAttributeTests.cs" />
+    <Compile Include="Attributes\Nodes\NodeStyleAttributeTests.cs" />
     <Compile Include="Attributes\Edges\TailLabelAttributeTests.cs" />
     <Compile Include="Attributes\Shared\UriValueTests.cs" />
     <Compile Include="Attributes\Shared\URLAttributeTests.cs" />

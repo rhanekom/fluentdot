@@ -315,13 +315,13 @@ namespace FluentDot.Tests.Expressions.Graphs
         public void WithRatio_Ratio_Sets_Attribute()
         {
             AssertAttributeAdded(expression => expression.WithRatio(Ratio.Compress),
-                                 typeof(RatioAttribute), Ratio.Compress);
+                                 typeof(RatioAttribute), new RatioType(Ratio.Compress));
         }
 
         [Test]
         public void WithRatio_Value_Sets_Attribute() {
-            AssertAttributeAdded(expression => expression.WithRatio(2.4),
-                                 typeof(RatioAttribute), 2.4);
+            AssertAttributeAdded(expression => expression.WithRatio(2.4d),
+                                 typeof(RatioAttribute), new RatioType(2.4d));
         }
 
         [Test]

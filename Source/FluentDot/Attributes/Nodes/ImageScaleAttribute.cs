@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Nodes
     /// <summary>
     /// An attribute that sets whether an image should be scaled to fit the node size.
     /// </summary>
-    public class ImageScaleAttribute : AbstractDotAttribute {
+    public class ImageScaleAttribute : AbstractDotAttribute<BooleanValue> {
 
         #region Construction
 

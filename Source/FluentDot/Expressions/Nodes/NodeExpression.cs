@@ -6,7 +6,6 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System;
 using System.Drawing;
 using FluentDot.Attributes;
 using FluentDot.Attributes.Nodes;
@@ -163,7 +162,7 @@ namespace FluentDot.Expressions.Nodes
         /// <returns>The current expression instance.</returns>
         public INodeExpression WithStyle(NodeStyle style)
         {
-            node.Attributes.AddAttribute(new StyleAttribute(style));
+            node.Attributes.AddAttribute(new NodeStyleAttribute(style));
             return this;
         }
 

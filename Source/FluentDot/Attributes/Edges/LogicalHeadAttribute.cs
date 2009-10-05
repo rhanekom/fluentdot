@@ -12,7 +12,7 @@ namespace FluentDot.Attributes.Edges {
     /// An attribute that sets the logical head of an edge.  When compound is true, if the logical head is defined and is 
     /// the name of a cluster containing the real head, the edge is clipped to the boundary of the cluster.
     /// </summary>
-    public class LogicalHeadAttribute : AbstractDotAttribute {
+    public class LogicalHeadAttribute : AbstractDotAttribute<string> {
 
         #region Construction
 

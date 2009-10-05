@@ -14,7 +14,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute for setting the font color of the head and tail label on edges.
     /// </summary>
-    public class LabelFontColorAttribute : AbstractDotAttribute {
+    public class LabelFontColorAttribute : AbstractDotAttribute<ColorValue> {
         
         #region Construction
 

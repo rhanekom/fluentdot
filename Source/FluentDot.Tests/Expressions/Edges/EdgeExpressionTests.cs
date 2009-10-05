@@ -68,31 +68,31 @@ namespace FluentDot.Tests.Expressions.Edges
         public void WithStyle_Should_Add_Style_Attribute()
         {
             AssertAttributeAdded(expression => expression.WithStyle(EdgeStyle.Solid),
-                                 typeof(StyleAttribute), EdgeStyle.Solid);
+                                 typeof(EdgeStyleAttribute), EdgeStyle.Solid);
         }
 
         [Test]
         public void WithArrowHead_Should_Set_Arrow_Shape() {
             AssertAttributeAdded(expression => expression.WithArrowHead(ArrowShape.Crow),
-                                 typeof(ArrowHeadAttribute), ArrowShape.Crow);
+                                 typeof(ArrowHeadAttribute), new ArrowShapeType(ArrowShape.Crow));
         }
 
         [Test]
         public void WithArrowHead_Should_Set_Composite_Arrow_Shape() {
             AssertAttributeAdded(expression => expression.WithArrowHead(new CompositeArrowShape(ArrowShape.Inverted, ArrowShape.Vee)),
-                                 typeof(ArrowHeadAttribute), new CompositeArrowShape(ArrowShape.Inverted, ArrowShape.Vee));
+                                 typeof(ArrowHeadAttribute), new ArrowShapeType(new CompositeArrowShape(ArrowShape.Inverted, ArrowShape.Vee)));
         }
 
         [Test]
         public void WithArrowTail_Should_Set_Arrow_Shape() {
             AssertAttributeAdded(expression => expression.WithArrowTail(ArrowShape.Tee),
-                                 typeof(ArrowTailAttribute), ArrowShape.Tee);
+                                 typeof(ArrowTailAttribute), new ArrowShapeType(ArrowShape.Tee));
         }
 
         [Test]
         public void WithArrowTail_Should_Set_Composite_Arrow_Shape() {
             AssertAttributeAdded(expression => expression.WithArrowTail(new CompositeArrowShape(ArrowShape.Tee, ArrowShape.Dot)),
-                                 typeof(ArrowTailAttribute), new CompositeArrowShape(ArrowShape.Tee, ArrowShape.Dot));
+                                 typeof(ArrowTailAttribute), new ArrowShapeType(new CompositeArrowShape(ArrowShape.Tee, ArrowShape.Dot)));
         }
 
         [Test]

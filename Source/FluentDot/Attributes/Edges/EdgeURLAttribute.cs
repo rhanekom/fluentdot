@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute that sets the url on an edge.
     /// </summary>
-    public class EdgeURLAttribute : AbstractDotAttribute
+    public class EdgeURLAttribute : AbstractDotAttribute<string>
     {
         #region Construction
 

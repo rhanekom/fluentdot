@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Nodes
     /// <summary>
     /// An attribute for defining the orientation of a node.
     /// </summary>
-    public class OrientationAttribute : AbstractDotAttribute
+    public class OrientationAttribute : AbstractDotAttribute<int>
     {
         #region Construction
 

@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Graphs {
     /// <summary>
     /// An attribute for setting the cluster rank mode.
     /// </summary>
-    public class ClusterRankAttribute : AbstractDotAttribute {
+    public class ClusterRankAttribute : AbstractDotAttribute<ClusterMode> {
         
         #region Construction
 

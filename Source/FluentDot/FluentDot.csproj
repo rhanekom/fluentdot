@@ -52,9 +52,11 @@
   <ItemGroup>
     <Compile Include="Attributes\Edges\ArrowDirectionAttribute.cs" />
     <Compile Include="Attributes\Edges\ArrowHeadAttribute.cs" />
+    <Compile Include="Attributes\Edges\ArrowShapeType.cs" />
     <Compile Include="Attributes\Edges\ArrowSizeAttribute.cs" />
     <Compile Include="Attributes\Edges\ArrowTailAttribute.cs" />
     <Compile Include="Attributes\Edges\CompassPoint.cs" />
+    <Compile Include="Attributes\Edges\EdgeStyleAttribute.cs" />
     <Compile Include="Attributes\Edges\TailPortAttribute.cs" />
     <Compile Include="Attributes\Edges\HeadPortAttribute.cs" />
     <Compile Include="Attributes\Edges\LogicaTailAttribute.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="Attributes\Graphs\NodeSeperationAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Attributes\Graphs\ClusterStyleAttribute.cs" />
     <Compile Include="Attributes\Graphs\Ordering.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -158,6 +161,7 @@
     <Compile Include="Attributes\Graphs\RatioAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Attributes\Graphs\RatioType.cs" />
     <Compile Include="Attributes\Graphs\RotateAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -194,7 +198,7 @@
     <Compile Include="Attributes\Shared\PenWidthAttribute.cs" />
     <Compile Include="Attributes\Shared\PeripheriesAttribute.cs" />
     <Compile Include="Attributes\Shared\PointValue.cs" />
-    <Compile Include="Attributes\Shared\StyleAttribute.cs" />
+    <Compile Include="Attributes\Nodes\NodeStyleAttribute.cs" />
     <Compile Include="Attributes\Edges\TailLabelAttribute.cs" />
     <Compile Include="Attributes\Shared\UriValue.cs" />
     <Compile Include="Attributes\Shared\URLAttribute.cs" />

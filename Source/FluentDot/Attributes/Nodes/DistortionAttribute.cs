@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Nodes
     /// <summary>
     /// An attribute that changes the distortion vaue of a node shape (polygons only).
     /// </summary>
-    public class DistortionAttribute : AbstractDotAttribute
+    public class DistortionAttribute : AbstractDotAttribute<double>
     {
         #region Construction
 

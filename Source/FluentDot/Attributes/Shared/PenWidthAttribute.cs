@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Shared {
     /// <summary>
     /// An attribute that can set the pen width on clusters, nodes, and edges.
     /// </summary>
-    public class PenWidthAttribute : AbstractDotAttribute {
+    public class PenWidthAttribute : AbstractDotAttribute<double> {
 
         #region Construction
 

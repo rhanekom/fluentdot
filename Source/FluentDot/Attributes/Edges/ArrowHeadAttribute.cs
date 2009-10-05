@@ -11,29 +11,20 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// A DOT attribute that specifies the arrow shape of an edge.
     /// </summary>
-    public class ArrowHeadAttribute : AbstractDotAttribute {
-
+    public class ArrowHeadAttribute : AbstractDotAttribute<ArrowShapeType>
+    {
         #region Construction
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ArrowHeadAttribute"/> class.
         /// </summary>
         /// <param name="shape">The shape.</param>
-        public ArrowHeadAttribute(ArrowShape shape)
+        public ArrowHeadAttribute(ArrowShapeType shape)
             : base("arrowhead", shape, true)
         {
 
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ArrowHeadAttribute"/> class.
-        /// </summary>
-        /// <param name="shape">The shape.</param>
-        public ArrowHeadAttribute(CompositeArrowShape shape)
-            : base("arrowhead", shape, true) {
-
-            }
-
+        
         #endregion
     }
 }

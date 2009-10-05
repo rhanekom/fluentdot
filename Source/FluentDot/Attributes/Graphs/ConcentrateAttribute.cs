@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// An attribute to set the graph as concentrated - that is, to use edge concentrators.
     /// </summary>
-    public class ConcentrateAttribute : AbstractDotAttribute {
+    public class ConcentrateAttribute : AbstractDotAttribute<BooleanValue> {
 
         #region Construction
 

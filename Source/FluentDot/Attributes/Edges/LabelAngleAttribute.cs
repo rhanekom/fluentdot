@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute to sepcify the label angle on edges.
     /// </summary>
-    public class LabelAngleAttribute : AbstractDotAttribute
+    public class LabelAngleAttribute : AbstractDotAttribute<double>
     {
         #region Construction
 

@@ -14,7 +14,7 @@ namespace FluentDot.Attributes.Nodes
     /// <summary>
     /// An attribute that sets an image that should be used as node content.
     /// </summary>
-    public class ImageAttribute : AbstractDotAttribute {
+    public class ImageAttribute : AbstractDotAttribute<string> {
 
         #region Construction
 

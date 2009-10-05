@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Edges {
     /// <summary>
     /// Edges with the same head and the same samehead value are aimed at the same point on the head.
     /// </summary>
-    public class SameHeadAttribute : AbstractDotAttribute {
+    public class SameHeadAttribute : AbstractDotAttribute<string> {
 
         #region Construction
 

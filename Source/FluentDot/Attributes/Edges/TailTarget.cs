@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Edges {
     /// <summary>
     /// An attribute that sets the target on an edge tail.
     /// </summary>
-    public class TailTargetAttribute : AbstractDotAttribute {
+    public class TailTargetAttribute : AbstractDotAttribute<string> {
 
         #region Construction
 

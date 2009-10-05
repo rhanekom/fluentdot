@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Nodes
     /// <summary>
     /// A shape attribute that determines the shape of a node.
     /// </summary>
-    public class NodeShapeAttribute : AbstractDotAttribute {
+    public class NodeShapeAttribute : AbstractDotAttribute<NodeShape> {
 
         #region Construction
 

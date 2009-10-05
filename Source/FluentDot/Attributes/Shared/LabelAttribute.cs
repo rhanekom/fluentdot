@@ -11,7 +11,9 @@ namespace FluentDot.Attributes.Shared
     /// <summary>
     /// An implementation of the label attribute.
     /// </summary>
-    public class LabelAttribute : AbstractDotAttribute {
+    public class LabelAttribute : AbstractDotAttribute<string> {
+
+        #region Construction
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LabelAttribute"/> class.
@@ -21,5 +23,7 @@ namespace FluentDot.Attributes.Shared
         {
             // Nothing to do.
         }
+
+        #endregion
     }
 }

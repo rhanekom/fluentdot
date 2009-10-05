@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute to specify the text to be placed near the head of the edge.
     /// </summary>
-    public class HeadLabelAttribute : AbstractDotAttribute
+    public class HeadLabelAttribute : AbstractDotAttribute<string>
     {
         #region Construction
 

@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Edges {
     /// <summary>
     /// An attribute that specifies that whether the edge tail should be clip at the node boundary.
     /// </summary>
-    public class TailClipAttribute : AbstractDotAttribute {
+    public class TailClipAttribute : AbstractDotAttribute<BooleanValue> {
 
         #region Construction
 

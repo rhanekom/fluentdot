@@ -13,6 +13,19 @@ namespace FluentDot.Attributes
     /// <summary>
     /// Represents an attribute in the dot language.
     /// </summary>
+    /// <typeparam name="T">The type of value this attribute takes.</typeparam>
+    public interface IDotAttribute<T> : IDotAttribute {
+        
+        /// <summary>
+        /// Gets the attribute value.
+        /// </summary>
+        /// <value>The attribute value.</value>
+        new T Value { get; }
+    }
+
+    /// <summary>
+    /// A dot attribute.
+    /// </summary>
     public interface IDotAttribute : IDotElement {
 
         /// <summary>
@@ -22,9 +35,9 @@ namespace FluentDot.Attributes
         string Name { get; }
 
         /// <summary>
-        /// Gets the attribute value.
+        /// Gets the value.
         /// </summary>
-        /// <value>The attribute value.</value>
+        /// <value>The value.</value>
         object Value { get; }
     }
 }

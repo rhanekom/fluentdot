@@ -12,7 +12,7 @@ namespace FluentDot.Attributes.Graphs {
     /// <summary>
     /// An attribute that changes the graph aspect ration in which the graph is rendered.
     /// </summary>
-    public class AspectAttribute : AbstractDotAttribute {
+    public class AspectAttribute : AbstractDotAttribute<AspectValue> {
 
         #region Construction
 

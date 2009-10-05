@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// An attribute that specifies the desired minimuim rank separation in inches. 
     /// </summary>
-    public class RankSeperationAttribute : AbstractDotAttribute
+    public class RankSeperationAttribute : AbstractDotAttribute<RankSeperation>
     {
         #region Construction
 

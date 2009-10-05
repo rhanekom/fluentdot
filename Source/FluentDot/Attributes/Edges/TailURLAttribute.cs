@@ -11,7 +11,8 @@ namespace FluentDot.Attributes.Edges {
     /// <summary>
     /// An attribute that sets the url on an edge tail.
     /// </summary>
-    public class TailURLAttribute : AbstractDotAttribute {
+    public class TailURLAttribute : AbstractDotAttribute<string> {
+
         #region Construction
 
         /// <summary>

@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute that sets the tooltip on an edge.
     /// </summary>
-    public class EdgeTooltipAttribute : AbstractDotAttribute
+    public class EdgeTooltipAttribute : AbstractDotAttribute<string>
     {
         #region Construction
 

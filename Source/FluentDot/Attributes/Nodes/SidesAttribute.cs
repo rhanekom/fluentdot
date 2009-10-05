@@ -13,9 +13,8 @@ namespace FluentDot.Attributes.Nodes {
     /// <summary>
     /// An attribute that specifies the number of sides of a node with shape polygon.
     /// </summary>
-    public class SidesAttribute : AbstractDotAttribute
+    public class SidesAttribute : AbstractDotAttribute<int>
     {
-
         #region Construction
 
         /// <summary>

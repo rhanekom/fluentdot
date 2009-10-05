@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Nodes {
     /// <summary>
     /// An attribute that applies a skew factor to a node with shape polygon.
     /// </summary>
-    public class SkewAttribute : AbstractDotAttribute {
+    public class SkewAttribute : AbstractDotAttribute<double> {
 
         #region Construction
 

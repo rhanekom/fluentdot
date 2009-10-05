@@ -14,7 +14,7 @@ namespace FluentDot.Attributes.Graphs {
     /// <summary>
     /// An attribute that sets the pen color of a cluster.
     /// </summary>
-    public class PenColorAttribute : AbstractDotAttribute {
+    public class PenColorAttribute : AbstractDotAttribute<ColorValue> {
 
         #region Construction
 

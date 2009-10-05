@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute to set whether the edge should be considered in constraints or not.
     /// </summary>
-    public class ConstraintAttribute : AbstractDotAttribute {
+    public class ConstraintAttribute : AbstractDotAttribute<BooleanValue> {
 
         #region Construction
 

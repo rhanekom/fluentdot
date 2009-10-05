@@ -14,7 +14,7 @@ namespace FluentDot.Attributes.Graphs {
     /// An attribute that, when set, specifies the width and height of the pages the graph should be split in.
     /// This attribute is currently only supported by PostScript. 
     /// </summary>
-    public class PageAttribute : AbstractDotAttribute {
+    public class PageAttribute : AbstractDotAttribute<PointValue> {
 
         #region Construction
 

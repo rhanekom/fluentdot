@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Edges {
     /// <summary>
     /// An attribute that specifies where the edge should be connected to the node graphically.
     /// </summary>
-    public class HeadPortAttribute : AbstractDotAttribute {
+    public class HeadPortAttribute : AbstractDotAttribute<CompassPoint> {
 
         #region Construction
 

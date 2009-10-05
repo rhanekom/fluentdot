@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute that specifies the font size of the head and tail label on edges.
     /// </summary>
-    public class LabelFontSizeAttribute : AbstractDotAttribute {
+    public class LabelFontSizeAttribute : AbstractDotAttribute<double> {
 
         #region Construction
 

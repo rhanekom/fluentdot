@@ -8,24 +8,16 @@
 
 
 using FluentDot.Attributes.Edges;
-using FluentDot.Attributes.Nodes;
-using FluentDot.Attributes.Shared;
 using NUnit.Framework;
 
-namespace FluentDot.Tests.Attributes.Shared
+namespace FluentDot.Tests.Attributes.Edges
 {
     [TestFixture]
-    public class StyleAttributeTests {
-
-        [Test]
-        public void To_Dot_Should_Produce_Correct_Output_For_Nodes()
-        {
-            Assert.AreEqual(new StyleAttribute(NodeStyle.Bold).ToDot(), "style=\"bold\"");
-        }
-
+    public class EdgeStyleAttributeTests {
+        
         [Test]
         public void To_Dot_Should_Produce_Correct_Output_For_Edges() {
-            Assert.AreEqual(new StyleAttribute(EdgeStyle.Bold).ToDot(), "style=\"bold\"");
+            Assert.AreEqual(new EdgeStyleAttribute(EdgeStyle.Bold).ToDot(), "style=\"bold\"");
         }
     }
 }

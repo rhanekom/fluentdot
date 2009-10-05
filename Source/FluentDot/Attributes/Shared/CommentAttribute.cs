@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Shared
     /// <summary>
     /// An attribute that outputs a comment on edges, nodes, and graphs/
     /// </summary>
-    public class CommentAttribute : AbstractDotAttribute
+    public class CommentAttribute : AbstractDotAttribute<string>
     {
         #region Construction
 

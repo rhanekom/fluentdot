@@ -6,7 +6,6 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System;
 using FluentDot.Common;
 
 namespace FluentDot.Attributes.Graphs {
@@ -57,7 +56,7 @@ namespace FluentDot.Attributes.Graphs {
         public Ratio(string value) : base(value) {
             
         }
-      
+
         #endregion
 
         #region IDotElement Members

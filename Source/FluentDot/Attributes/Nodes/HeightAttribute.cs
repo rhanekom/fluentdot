@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Nodes
     /// <summary>
     /// An attribute that sets the height on a node.
     /// </summary>
-    public class HeightAttribute : AbstractDotAttribute
+    public class HeightAttribute : AbstractDotAttribute<double>
     {
         #region Construction
 

@@ -12,7 +12,7 @@ namespace FluentDot.Attributes.Edges {
     /// An attribute that sets the logical tail of an edge.  When compound is true, if the logical tail is defined and 
     /// is the name of a cluster containing the real tail, the edge is clipped to the boundary of the cluster.
     /// </summary>
-    public class LogicalTailAttribute : AbstractDotAttribute {
+    public class LogicalTailAttribute : AbstractDotAttribute<string> {
 
         #region Construction
 

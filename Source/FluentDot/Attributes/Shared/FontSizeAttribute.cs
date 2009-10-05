@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Shared
     /// <summary>
     /// An attribute that specifies the font size used in nodes, graphs, and edges.
     /// </summary>
-    public class FontSizeAttribute : AbstractDotAttribute {
+    public class FontSizeAttribute : AbstractDotAttribute<double> {
 
         #region Construction
 

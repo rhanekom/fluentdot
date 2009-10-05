@@ -12,7 +12,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// An attribute that specifies the rank direction of a graph.
     /// </summary>
-    public class RankDirectionAttribute : AbstractDotAttribute
+    public class RankDirectionAttribute : AbstractDotAttribute<RankDirection>
     {
 
         #region Construction

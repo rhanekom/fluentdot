@@ -14,7 +14,8 @@ namespace FluentDot.Attributes
     /// <summary>
     /// An abstract base class for dot attributes.
     /// </summary>
-    public abstract class AbstractDotAttribute : IDotAttribute {
+    /// <typeparam name="T">The type of value this attribute takes.</typeparam>
+    public abstract class AbstractDotAttribute<T> : IDotAttribute<T> {
 
         #region Globals
         
@@ -25,19 +26,19 @@ namespace FluentDot.Attributes
         #region Construction
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AbstractDotAttribute"/> class.
+        /// Initializes a new instance of the <see cref="AbstractDotAttribute{T}"/> class.
         /// </summary>
         /// <param name="attributeName">Name of the attribute.</param>
         /// <param name="attributeValue">The attribute value.</param>
         /// <param name="surroundWithQuotes">if set to <c>true</c> [surround with quotes].</param>
-        protected AbstractDotAttribute(string attributeName, object attributeValue, bool surroundWithQuotes)
+        protected AbstractDotAttribute(string attributeName, T attributeValue, bool surroundWithQuotes)
         {
             if (string.IsNullOrEmpty(attributeName))
             {
                 throw new ArgumentException("Invalid attribute name specified.", "attributeName");
             }
 
-            if (attributeValue == null)
+            if (ReferenceEquals(attributeValue, null))
             {
                 throw new ArgumentException("Invalid value for attribute specified.", "attributeValue");
             }
@@ -71,7 +72,7 @@ namespace FluentDot.Attributes
 
         #endregion
 
-        #region IDotAttribute Members
+        #region IDotAttribute<T> Members
 
         /// <summary>
         /// Gets the attribute name.
@@ -86,9 +87,17 @@ namespace FluentDot.Attributes
         /// Gets the attribute value.
         /// </summary>
         /// <value>The attribute value.</value>
-        public object Value {
+        public T Value {
             get;
             private set;
+        }
+
+        #endregion
+
+        #region IDotAttribute Members
+
+        object IDotAttribute.Value {
+            get { return this.Value; }
         }
 
         #endregion

@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Graphs {
     /// <summary>
     /// An attribute that specifies the rank of a subgraph.
     /// </summary>
-    public class RankAttribute : AbstractDotAttribute {
+    public class RankAttribute : AbstractDotAttribute<RankType> {
 
         #region Construction
 

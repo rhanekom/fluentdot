@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Nodes
     /// <summary>
     /// An attribute that sets the width on a node.
     /// </summary>
-    public class WidthAttribute : AbstractDotAttribute
+    public class WidthAttribute : AbstractDotAttribute<double>
     {
         #region Construction
 

@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Shared
     /// <summary>
     /// An attribute that defines the color of the node or edge.
     /// </summary>
-    public class ColorAttribute : AbstractDotAttribute {
+    public class ColorAttribute : AbstractDotAttribute<ColorValue> {
 
         #region Construction
 

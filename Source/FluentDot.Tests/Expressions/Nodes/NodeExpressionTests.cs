@@ -79,7 +79,7 @@ namespace FluentDot.Tests.Expressions.Nodes
         public void WithStyle_Should_Add_StyleAttribute()
         {
             AssertAttributeAdded(expression => expression.WithStyle(NodeStyle.Dotted),
-                                 typeof(StyleAttribute), NodeStyle.Dotted);
+                                 typeof(NodeStyleAttribute), NodeStyle.Dotted);
         }
         
         [Test]

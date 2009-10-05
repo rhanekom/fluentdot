@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// An attribute for centering the graph on the canvas.
     /// </summary>
-    public class CenterAttribute : AbstractDotAttribute {
+    public class CenterAttribute : AbstractDotAttribute<BooleanValue> {
 
         #region Construction
 

@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Edges {
     /// <summary>
     /// An attribute that specifies that whether the edge head should be clip at the node boundary.
     /// </summary>
-    public class HeadClipAttribute : AbstractDotAttribute {
+    public class HeadClipAttribute : AbstractDotAttribute<BooleanValue> {
 
         #region Construction
 

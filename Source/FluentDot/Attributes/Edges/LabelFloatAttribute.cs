@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute that sets whether the edge label may appear on top of other edges.
     /// </summary>
-    public class LabelFloatAttribute : AbstractDotAttribute
+    public class LabelFloatAttribute : AbstractDotAttribute<BooleanValue>
     {
         #region Construction
 

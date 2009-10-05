@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// An attribute that sets the minimum space between to adjacent nodes in the same rank, in inches.
     /// </summary>
-    public class NodeSeperationAttribute : AbstractDotAttribute
+    public class NodeSeperationAttribute : AbstractDotAttribute<double>
     {
         #region Construction
 

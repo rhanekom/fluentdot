@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute for setting the arrow size on an edge arrow.
     /// </summary>
-    public class ArrowSizeAttribute : AbstractDotAttribute {
+    public class ArrowSizeAttribute : AbstractDotAttribute<double> {
 
         #region Construction
 

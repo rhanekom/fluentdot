@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute that decorates the label of an edge.
     /// </summary>
-    public class DecorateAttribute : AbstractDotAttribute
+    public class DecorateAttribute : AbstractDotAttribute<BooleanValue>
     {
         #region Construction
 

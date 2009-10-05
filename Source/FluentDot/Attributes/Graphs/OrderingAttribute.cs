@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// An attribute that defines an ordering for node edges.
     /// </summary>
-    public class OrderingAttribute : AbstractDotAttribute
+    public class OrderingAttribute : AbstractDotAttribute<Ordering>
     {
         #region Construction
 

@@ -18,7 +18,7 @@ namespace FluentDot.Tests.Attributes.Edges
         [Test]
         public void ToDot_Produces_Correct_Dot() {
             Assert.AreEqual(
-                new ArrowHeadAttribute(ArrowShape.Inverted).ToDot(),
+                new ArrowHeadAttribute(new ArrowShapeType(ArrowShape.Inverted)).ToDot(),
                 "arrowhead=\"inv\""
                 );
         }
@@ -26,7 +26,7 @@ namespace FluentDot.Tests.Attributes.Edges
         [Test]
         public void ToDot_Produces_Correct_Dot_With_Composite_Shape() {
             Assert.AreEqual(
-                new ArrowHeadAttribute(new CompositeArrowShape(ArrowShape.Box, ArrowShape.Crow)).ToDot(),
+                new ArrowHeadAttribute(new ArrowShapeType(new CompositeArrowShape(ArrowShape.Box, ArrowShape.Crow))).ToDot(),
                 String.Format("arrowhead=\"{0}{1}\"", ArrowShape.Box, ArrowShape.Crow)
                 );
         }

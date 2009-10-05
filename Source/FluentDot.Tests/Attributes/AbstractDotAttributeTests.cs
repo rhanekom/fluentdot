@@ -59,7 +59,7 @@ namespace FluentDot.Tests.Attributes
 
         #region Private Members
 
-        private class TestDotAttribute : AbstractDotAttribute
+        private class TestDotAttribute : AbstractDotAttribute<object>
         {
             public TestDotAttribute(string name, object value, bool encloseInQuotes) : base(name, value, encloseInQuotes)
             {

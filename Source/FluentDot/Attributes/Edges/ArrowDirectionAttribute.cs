@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute that sets the direction of the arrow on an edge.
     /// </summary>
-    public class ArrowDirectionAttribute : AbstractDotAttribute {
+    public class ArrowDirectionAttribute : AbstractDotAttribute<ArrowDirection> {
 
         #region Construction
 

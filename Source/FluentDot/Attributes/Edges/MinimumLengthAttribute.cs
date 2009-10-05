@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute that sets the minimum length of an edge (dot only).
     /// </summary>
-    public class MinimumLengthAttribute : AbstractDotAttribute
+    public class MinimumLengthAttribute : AbstractDotAttribute<int>
     {
         #region Construction
 

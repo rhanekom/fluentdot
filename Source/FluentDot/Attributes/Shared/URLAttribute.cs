@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Shared
     /// <summary>
     /// A attribute for specifying the url of an element.
     /// </summary>
-    public class URLAttribute : AbstractDotAttribute {
+    public class URLAttribute : AbstractDotAttribute<string> {
         
         #region Construction
 

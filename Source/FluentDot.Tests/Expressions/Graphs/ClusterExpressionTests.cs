@@ -9,6 +9,7 @@
 using System;
 using System.Drawing;
 using FluentDot.Attributes.Graphs;
+using FluentDot.Attributes.Nodes;
 using FluentDot.Attributes.Shared;
 using FluentDot.Entities.Graphs;
 using FluentDot.Expressions.Graphs;
@@ -98,7 +99,7 @@ namespace FluentDot.Tests.Expressions.Graphs
         [Test]
         public void WithStyle_Should_Add_Style_Attribute() {
             AssertAttributeAdded(expression => expression.WithStyle(ClusterStyle.Filled),
-                                 typeof(StyleAttribute), ClusterStyle.Filled);
+                                 typeof(ClusterStyleAttribute), ClusterStyle.Filled);
         }
 
         [Test]

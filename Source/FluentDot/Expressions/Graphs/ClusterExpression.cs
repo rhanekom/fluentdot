@@ -174,7 +174,7 @@ namespace FluentDot.Expressions.Graphs
         /// <returns>The current expression instance.</returns>
         public IClusterExpression WithStyle(ClusterStyle style)
         {
-            cluster.Attributes.AddAttribute(new StyleAttribute(style));
+            cluster.Attributes.AddAttribute(new ClusterStyleAttribute(style));
             return this;
         }
 

@@ -11,7 +11,8 @@ namespace FluentDot.Attributes.Edges {
     /// <summary>
     /// An attribute that sets the url on an edge head.
     /// </summary>
-    public class HeadURLAttribute : AbstractDotAttribute {
+    public class HeadURLAttribute : AbstractDotAttribute<string> {
+
         #region Construction
 
         /// <summary>

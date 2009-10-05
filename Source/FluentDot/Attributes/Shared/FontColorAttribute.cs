@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Shared
     /// <summary>
     /// An attribute for setting the font color of nodes, graphs, and edges.
     /// </summary>
-    public class FontColorAttribute : AbstractDotAttribute {
+    public class FontColorAttribute : AbstractDotAttribute<ColorValue> {
 
         #region Construction
 

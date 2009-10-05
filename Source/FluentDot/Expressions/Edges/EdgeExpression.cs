@@ -6,7 +6,6 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System;
 using System.Drawing;
 using FluentDot.Attributes;
 using FluentDot.Attributes.Edges;
@@ -92,7 +91,7 @@ namespace FluentDot.Expressions.Edges
         /// <returns>The current expression instance.</returns>
         public IEdgeExpression WithStyle(EdgeStyle style)
         {
-            edge.Attributes.AddAttribute(new StyleAttribute(style));
+            edge.Attributes.AddAttribute(new EdgeStyleAttribute(style));
             return this;
         }
 
@@ -430,7 +429,7 @@ namespace FluentDot.Expressions.Edges
         /// <param name="arrowShape">The arrow type to use.</param>
         /// <returns>The current expression instance.</returns>
         public IEdgeExpression WithArrowHead(CompositeArrowShape arrowShape) {
-            edge.Attributes.AddAttribute(new ArrowHeadAttribute(arrowShape));
+            edge.Attributes.AddAttribute(new ArrowHeadAttribute(new ArrowShapeType(arrowShape)));
             return this;
         }
 
@@ -440,7 +439,7 @@ namespace FluentDot.Expressions.Edges
         /// <param name="arrowShape">The arrow type to use.</param>
         /// <returns>The current expression instance.</returns>
         public IEdgeExpression WithArrowTail(ArrowShape arrowShape) {
-            edge.Attributes.AddAttribute(new ArrowTailAttribute(arrowShape));
+            edge.Attributes.AddAttribute(new ArrowTailAttribute(new ArrowShapeType(arrowShape)));
             return this;
         }
 
@@ -450,7 +449,7 @@ namespace FluentDot.Expressions.Edges
         /// <param name="arrowShape">The arrow type to use.</param>
         /// <returns>The current expression instance.</returns>
         public IEdgeExpression WithArrowTail(CompositeArrowShape arrowShape) {
-            edge.Attributes.AddAttribute(new ArrowTailAttribute(arrowShape));
+            edge.Attributes.AddAttribute(new ArrowTailAttribute(new ArrowShapeType(arrowShape)));
             return this;
         }
 
@@ -543,7 +542,7 @@ namespace FluentDot.Expressions.Edges
         /// <param name="arrowShape">The arrow type to use.</param>
         /// <returns>The current expression instance.</returns>
         public IEdgeExpression WithArrowHead(ArrowShape arrowShape) {
-            edge.Attributes.AddAttribute(new ArrowHeadAttribute(arrowShape));
+            edge.Attributes.AddAttribute(new ArrowHeadAttribute(new ArrowShapeType(arrowShape)));
             return this;
         }
 

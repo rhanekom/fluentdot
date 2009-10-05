@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Shared
     /// <summary>
     /// An attribute that specifies the fill color of a node or cluster graph.
     /// </summary>
-    public class FillColorAttribute : AbstractDotAttribute {
+    public class FillColorAttribute : AbstractDotAttribute<ColorValue> {
 
         #region Construction
 

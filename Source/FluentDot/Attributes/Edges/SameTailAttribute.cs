@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Edges {
     /// <summary>
     /// Edges with the same tail and the same sametail value are aimed at the same point on the tail.
     /// </summary>
-    public class SameTailAttribute : AbstractDotAttribute {
+    public class SameTailAttribute : AbstractDotAttribute<string> {
 
         #region Construction
 

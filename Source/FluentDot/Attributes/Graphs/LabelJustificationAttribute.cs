@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// An attribute that specifies where a label should be located horizontally.
     /// </summary>
-    public class LabelJustificationAttribute : AbstractDotAttribute {
+    public class LabelJustificationAttribute : AbstractDotAttribute<Justification> {
 
         #region Construction
 

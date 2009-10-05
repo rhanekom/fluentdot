@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Shared
     /// <summary>
     /// An attribute that sets justification on or off in the global context of a node, graph, or edge multiline label.
     /// </summary>
-    public class NoJustifyAttribute : AbstractDotAttribute
+    public class NoJustifyAttribute : AbstractDotAttribute<BooleanValue>
     {
         #region Construction
 

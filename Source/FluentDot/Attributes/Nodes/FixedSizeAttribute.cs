@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Nodes
     /// <summary>
     /// An attribute for setting the node sizing mode as fixed size.  If this is set, the node will not expand to contain the label.
     /// </summary>
-    public class FixedSizeAttribute : AbstractDotAttribute
+    public class FixedSizeAttribute : AbstractDotAttribute<BooleanValue>
     {
         #region Construction
 

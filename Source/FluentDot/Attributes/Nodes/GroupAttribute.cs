@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Nodes
     /// <summary>
     /// An attribute that sets the group on a node.
     /// </summary>
-    public class GroupAttribute : AbstractDotAttribute {
+    public class GroupAttribute : AbstractDotAttribute<string> {
 
         #region Construction
 

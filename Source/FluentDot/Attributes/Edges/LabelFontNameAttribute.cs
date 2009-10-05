@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute for setting the font name of the head and tail label on edges.
     /// </summary>
-    public class LabelFontNameAttribute : AbstractDotAttribute {
+    public class LabelFontNameAttribute : AbstractDotAttribute<string> {
 
         #region Construction
 

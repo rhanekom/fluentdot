@@ -317,7 +317,7 @@ namespace FluentDot.Expressions.Graphs
         /// <returns>The current expression instance.</returns>
         public IGraphExpression WithRatio(Ratio ratio)
         {
-            graph.Attributes.AddAttribute(new RatioAttribute(ratio));
+            graph.Attributes.AddAttribute(new RatioAttribute(new RatioType(ratio)));
             return this;
         }
 
@@ -328,7 +328,7 @@ namespace FluentDot.Expressions.Graphs
         /// <returns>The current expression instance.</returns>
         public IGraphExpression WithRatio(double value)
         {
-            graph.Attributes.AddAttribute(new RatioAttribute(value));
+            graph.Attributes.AddAttribute(new RatioAttribute(new RatioType(value)));
             return this;
         }
 

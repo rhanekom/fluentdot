@@ -14,7 +14,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// An attribute for setting the background color of a graph.
     /// </summary>
-    public class BackgroundColorAttribute : AbstractDotAttribute {
+    public class BackgroundColorAttribute : AbstractDotAttribute<ColorValue> {
 
         #region Construction
 

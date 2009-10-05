@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// An attribute that specifies how much, in inches, to extend the drawing area around the minimal area needed to draw the graph.
     /// </summary>
-    public class PadAttribute : AbstractDotAttribute
+    public class PadAttribute : AbstractDotAttribute<PointValue>
     {
         #region Construction
 

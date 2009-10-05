@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// An attribute that specifies the direction the rectangular array should be traversed.
     /// </summary>
-    public class PageDirectionAttribute : AbstractDotAttribute
+    public class PageDirectionAttribute : AbstractDotAttribute<PageDirection>
     {
         #region Construction
 

@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute that sets the label distance on an edge.
     /// </summary>
-    public class LabelDistanceAttribute : AbstractDotAttribute
+    public class LabelDistanceAttribute : AbstractDotAttribute<double>
     {
         #region Globals
 

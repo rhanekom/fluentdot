@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Shared
     /// <summary>
     /// An attribute for setting the font name of nodes, graphs, and edges.
     /// </summary>
-    public class FontNameAttribute : AbstractDotAttribute {
+    public class FontNameAttribute : AbstractDotAttribute<string> {
         
         #region Construction
 

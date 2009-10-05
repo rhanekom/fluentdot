@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Edges
     /// <summary>
     /// An attribute that sets the target on an edge.
     /// </summary>
-    public class EdgeTargetAttribute : AbstractDotAttribute
+    public class EdgeTargetAttribute : AbstractDotAttribute<string>
     {
         #region Construction
 

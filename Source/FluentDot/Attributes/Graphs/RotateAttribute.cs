@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Graphs
     /// <summary>
     /// An attribute that rotates the rendering of a graph.
     /// </summary>
-    public class RotateAttribute : AbstractDotAttribute {
+    public class RotateAttribute : AbstractDotAttribute<double> {
 
         #region Construction
 

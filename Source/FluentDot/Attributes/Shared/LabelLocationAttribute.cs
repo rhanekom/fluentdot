@@ -11,7 +11,7 @@ namespace FluentDot.Attributes.Shared
     /// <summary>
     /// An attribute that specifies where a label should be located vertically.
     /// </summary>
-    public class LabelLocationAttribute : AbstractDotAttribute {
+    public class LabelLocationAttribute : AbstractDotAttribute<Location> {
 
         #region Construction
 

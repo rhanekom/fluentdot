@@ -6,14 +6,13 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System;
-
 namespace FluentDot.Attributes.Graphs {
 
     /// <summary>
     /// An attribute that sets the ratio or ratio behaviour of the graph.
     /// </summary>
-    public class RatioAttribute : AbstractDotAttribute {
+    public class RatioAttribute : AbstractDotAttribute<RatioType>
+    {
 
         #region Construction
 
@@ -21,23 +20,10 @@ namespace FluentDot.Attributes.Graphs {
         /// Initializes a new instance of the <see cref="RatioAttribute"/> class.
         /// </summary>
         /// <param name="ratio">The ratio.</param>
-        public RatioAttribute(Ratio ratio)
+        public RatioAttribute(RatioType ratio)
             : base("ratio", ratio, true)
         {
 
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RatioAttribute"/> class.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        public RatioAttribute(double value)
-            : base("ratio", value, false)
-        {
-            if (value <= 0)
-            {
-                throw new ArgumentOutOfRangeException("value", "Ration must be more than 0,");
-            }
         }
 
         #endregion

@@ -13,7 +13,7 @@ namespace FluentDot.Attributes.Shared {
     /// <summary>
     /// Sets the number of peripheries used in polygonal shapes and cluster boundaries.
     /// </summary>
-    public class PeripheriesAttribute : AbstractDotAttribute {
+    public class PeripheriesAttribute : AbstractDotAttribute<int> {
 
         #region Construction
 
