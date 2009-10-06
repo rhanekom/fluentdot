@@ -8,6 +8,7 @@
 
 using System.Linq;
 using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Edges;
 using FluentDot.Expressions.Graphs;
 using NUnit.Framework;

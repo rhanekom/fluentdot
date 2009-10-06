@@ -8,7 +8,6 @@
 
 using System.Linq;
 using FluentDot.Entities.Edges;
-using FluentDot.Entities.Graphs;
 using FluentDot.Entities.Nodes;
 using NUnit.Framework;
 using Rhino.Mocks;

@@ -6,14 +6,13 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using FluentDot.Entities.Graphs;
-
 namespace FluentDot.Entities.Nodes
 {
     /// <summary>
     /// A concrete implementation of a <see cref="INodeTarget"/>.
     /// </summary>
     public class NodeTarget : INodeTarget {
+
         #region Construction
 
         /// <summary>

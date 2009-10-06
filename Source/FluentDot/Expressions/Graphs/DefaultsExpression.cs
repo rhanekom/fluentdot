@@ -8,6 +8,7 @@
 
 using FluentDot.Entities.Edges;
 using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Edges;
 using FluentDot.Expressions.Nodes;
 using FluentDot.Expressions.Shared;

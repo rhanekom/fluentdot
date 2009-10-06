@@ -7,7 +7,7 @@
 */
 
 using FluentDot.Attributes;
-using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using NUnit.Framework;
 using System;
 using Rhino.Mocks;

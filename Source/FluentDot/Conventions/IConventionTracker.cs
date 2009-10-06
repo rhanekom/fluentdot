@@ -7,7 +7,7 @@
 */
 
 using FluentDot.Entities.Edges;
-using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 
 namespace FluentDot.Conventions
 {

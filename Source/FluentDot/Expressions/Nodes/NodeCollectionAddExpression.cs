@@ -7,6 +7,7 @@
 */
 
 using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 
 namespace FluentDot.Expressions.Nodes
 {

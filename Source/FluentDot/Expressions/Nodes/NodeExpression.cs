@@ -10,7 +10,7 @@ using System.Drawing;
 using FluentDot.Attributes;
 using FluentDot.Attributes.Nodes;
 using FluentDot.Attributes.Shared;
-using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 
 namespace FluentDot.Expressions.Nodes
 {

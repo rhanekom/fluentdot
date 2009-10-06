@@ -9,7 +9,7 @@
 using System;
 using FluentDot.Attributes.Shared;
 using FluentDot.Entities;
-using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using NUnit.Framework;
 using Rhino.Mocks;
 

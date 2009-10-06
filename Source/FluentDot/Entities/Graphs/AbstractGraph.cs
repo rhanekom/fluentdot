@@ -39,7 +39,7 @@ namespace FluentDot.Entities.Graphs
         /// <summary>
         /// Initializes a new instance of the <see cref="AbstractGraph"/> class.
         /// </summary>
-        protected AbstractGraph() : this(new NodeTracker(), new EdgeTracker())
+        protected AbstractGraph() : this(new NodeTracker(), new EdgeTracker(), new SubGraphTracker())
         {
             
         }
@@ -49,7 +49,8 @@ namespace FluentDot.Entities.Graphs
         /// </summary>
         /// <param name="nodeTracker">The node tracker.</param>
         /// <param name="edgeTracker">The edge tracker.</param>
-        protected AbstractGraph(INodeTracker nodeTracker, IEdgeTracker edgeTracker)
+        /// <param name="subGraphTracker">The sub graph tracker.</param>
+        protected AbstractGraph(INodeTracker nodeTracker, IEdgeTracker edgeTracker, ISubGraphTracker subGraphTracker)
         {
             if (edgeTracker == null) {
                 throw new ArgumentException("Invalid edge tracker specified.", "edgeTracker");
@@ -61,7 +62,7 @@ namespace FluentDot.Entities.Graphs
 
             this.nodeTracker = nodeTracker;
             this.edgeTracker = edgeTracker;
-            subGraphTracker = new SubGraphTracker();
+            this.subGraphTracker = subGraphTracker;
         }
 
         #endregion

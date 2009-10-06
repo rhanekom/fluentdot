@@ -9,7 +9,6 @@
 using System;
 using FluentDot.Conventions;
 using FluentDot.Entities.Edges;
-using FluentDot.Entities.Graphs;
 using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Edges;
 using FluentDot.Expressions.Nodes;

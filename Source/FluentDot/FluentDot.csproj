@@ -249,7 +249,7 @@
     <Compile Include="Attributes\Shared\LabelAttribute.cs" />
     <Compile Include="Entities\Graphs\DirectedGraph.cs" />
     <Compile Include="Attributes\AbstractDotAttribute.cs" />
-    <Compile Include="Entities\Graphs\GraphNode.cs" />
+    <Compile Include="Entities\Nodes\GraphNode.cs" />
     <Compile Include="Entities\Graphs\GraphType.cs" />
     <Compile Include="Entities\Graphs\IDirectedGraph.cs" />
     <Compile Include="Common\IDotElement.cs" />
@@ -257,7 +257,7 @@
     <Compile Include="Entities\Nodes\IElementTracker.cs" />
     <Compile Include="Entities\IEntityDefaults.cs" />
     <Compile Include="Entities\Graphs\IGraph.cs" />
-    <Compile Include="Entities\Graphs\IGraphNode.cs" />
+    <Compile Include="Entities\Nodes\IGraphNode.cs" />
     <Compile Include="Entities\Edges\ILookupEdges.cs" />
     <Compile Include="Entities\Nodes\ILookupNodes.cs" />
     <Compile Include="Entities\Nodes\INodeTracker.cs" />

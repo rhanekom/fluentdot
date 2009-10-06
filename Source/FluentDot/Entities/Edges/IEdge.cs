@@ -7,7 +7,6 @@
 */
 
 using FluentDot.Common;
-using FluentDot.Entities.Graphs;
 using FluentDot.Entities.Nodes;
 
 namespace FluentDot.Entities.Edges

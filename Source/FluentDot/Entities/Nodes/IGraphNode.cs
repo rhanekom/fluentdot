@@ -8,7 +8,7 @@
 
 using FluentDot.Common;
 
-namespace FluentDot.Entities.Graphs
+namespace FluentDot.Entities.Nodes
 {
     /// <summary>
     /// A single instance of a node in a graph.

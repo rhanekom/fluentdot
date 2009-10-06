@@ -8,8 +8,8 @@
 
 using System.Collections.Generic;
 using System;
-using FluentDot.Entities.Graphs;
 using FluentDot.Entities.Edges;
+using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Nodes;
 using FluentDot.Expressions.Edges;
 

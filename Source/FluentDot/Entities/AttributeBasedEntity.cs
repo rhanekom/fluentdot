@@ -15,7 +15,6 @@ namespace FluentDot.Entities {
     /// </summary>
     public class AttributeBasedEntity : IAttributeBasedEntity
     {
-
         #region Globals
 
         private readonly IAttributeCollection attributes = new AttributeCollection();

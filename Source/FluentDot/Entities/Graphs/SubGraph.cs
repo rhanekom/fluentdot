@@ -29,7 +29,7 @@ namespace FluentDot.Entities.Graphs
         /// </summary>
         /// <param name="parentGraph">The parent graph.</param>
         public SubGraph(IGraph parentGraph)
-            : base(parentGraph.NodeLookup, parentGraph.EdgeLookup)
+            : base(parentGraph.NodeLookup, parentGraph.EdgeLookup, new SubGraphTracker())
         {
             subGraphType = parentGraph.Type;
             Name = Guid.NewGuid().ToString("N");

@@ -12,7 +12,7 @@ using System.IO;
 using FluentDot.Attributes;
 using FluentDot.Attributes.Nodes;
 using FluentDot.Attributes.Shared;
-using FluentDot.Entities.Graphs;
+using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Nodes;
 using NUnit.Framework;
 using Rhino.Mocks;

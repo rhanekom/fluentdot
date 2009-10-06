@@ -9,7 +9,6 @@
 using System;
 using FluentDot.Attributes.Nodes;
 using FluentDot.Attributes.Shared;
-using FluentDot.Entities.Graphs;
 
 namespace FluentDot.Entities.Nodes
 {
