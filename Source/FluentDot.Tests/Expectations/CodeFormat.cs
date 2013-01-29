@@ -1,5 +1,5 @@
 ﻿/*
- Copyright 2009 Riaan Hanekom
+ Copyright 2012 Riaan Hanekom
 
  This program is licensed under the GNU Lesser General Public License (LGPL).  You should 
  have received a copy of the license along with the source code.  If not, an online copy
@@ -84,7 +84,7 @@ namespace FluentDot.Tests.Expectations {
                 if (ret) {
                     // Ensure that copyright notices are updated consistently.
                     // Change this whenever the copyright notices need to change in the files.
-                    ret = reader.ReadLine().Contains("Copyright 2009 Riaan Hanekom");
+                    ret = reader.ReadLine().Contains("Copyright 2012 Riaan Hanekom");
                 }
 
                 reader.Close();
