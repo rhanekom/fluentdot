@@ -6,10 +6,12 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using FluentDot.Expressions.Graphs;
-using FluentDot.Attributes.Graphs;
-
 namespace FluentDot.Samples.Core.Demos.Layout {
+    
+    using Attributes.Graphs;
+    using Expressions.Graphs;
+    /* TODO: Graphviz crashes on this? 
+     * 
     /// <summary>
     /// A simple demo of sub graphs and ranks.
     /// </summary>
@@ -108,4 +110,5 @@ namespace FluentDot.Samples.Core.Demos.Layout {
 
         #endregion
     }
+     */
 }

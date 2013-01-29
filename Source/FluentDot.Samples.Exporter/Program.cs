@@ -6,15 +6,16 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System;
 
 namespace FluentDot.Samples.Exporter
 {
-    class Program
+    using System;
+    
+    public class Program
     {
         #region Main
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             if (args.Length < 1)
             {

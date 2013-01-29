@@ -6,16 +6,16 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
-using FluentDot.Execution;
-using FluentDot.Samples.Core.Demos;
-
 namespace FluentDot.Samples.Exporter
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using Core.Demos;
+    using Execution;
+
     public class SampleExporter
     {
         #region Globals
@@ -28,7 +28,8 @@ namespace FluentDot.Samples.Exporter
 
         public SampleExporter()
         {
-            Fluently.Configure(x => x.DotFilePath.Is(@"C:\Program Files\Graphviz 2.21\bin\dot.exe"));
+            Fluently.Configure(x => x.DotFilePath.Is(@"C:\Program Files (x86)\Graphviz 2.28\bin\dot.exe"));
+
         }
 
         #endregion
@@ -42,16 +43,16 @@ namespace FluentDot.Samples.Exporter
             IList<IGraphDemo> demos = DemoRegister.GetDemos();
 
             var toc = new Dictionary<DemoType, List<WikiLink>>
-                          {
-                              {DemoType.API, new List<WikiLink>()},
-                              {DemoType.Layout, new List<WikiLink>()},
-                              {DemoType.SimpleGraphs, new List<WikiLink>()},
-                              {DemoType.VisualElements, new List<WikiLink>()}
-                          };
+                {
+                    { DemoType.API, new List<WikiLink>() },
+                    { DemoType.Layout, new List<WikiLink>() },
+                    { DemoType.SimpleGraphs, new List<WikiLink>() },
+                    { DemoType.VisualElements, new List<WikiLink>() }
+                };
 
             foreach (var d in demos)
             {
-                toc[d.Type].Add(new WikiLink {DisplayText = d.FriendlyName, WikiPage = "Demo" + d.GetType().Name});
+                toc[d.Type].Add(new WikiLink { DisplayText = d.FriendlyName, WikiPage = "Demo" + d.GetType().Name });
 
                 if (ExportDemo(d, exportDirectory))
                 {
@@ -63,25 +64,25 @@ namespace FluentDot.Samples.Exporter
 
             Console.WriteLine("Files updated : {0}.", updateCount);
         }
-        
+
         #endregion
 
         #region Private Members
 
         private void ExportTOC(string exportDirectory, Dictionary<DemoType, List<WikiLink>> toc)
         {
-            string tocContent = File.ReadAllText("TOCTemplate.wiki");
-            
+            string tocContent = File.ReadAllText("TOCTemplate.md");
+
             foreach (DemoType type in Enum.GetValues(typeof(DemoType)))
             {
                 List<WikiLink> links;
-                
+
                 if (toc.TryGetValue(type, out links))
                 {
-                    links.Sort((x, y) => x.DisplayText.CompareTo(y.DisplayText));
+                    links.Sort((x, y) => string.Compare(x.DisplayText, y.DisplayText, StringComparison.Ordinal));
 
                     var linkContent = new StringBuilder();
-                    
+
                     foreach (var l in links)
                     {
                         linkContent.AppendLine("  * [" + l.WikiPage + " " + l.DisplayText + "]");
@@ -91,13 +92,12 @@ namespace FluentDot.Samples.Exporter
                 }
                 else
                 {
-                    tocContent = tocContent.Replace("${" + type + "}", String.Empty);
+                    tocContent = tocContent.Replace("${" + type + "}", string.Empty);
                 }
             }
 
-
             var tocFile = Path.GetTempFileName();
-            string tocExportFilePath = Path.Combine(exportDirectory, "Demos.wiki");
+            string tocExportFilePath = Path.Combine(exportDirectory, "Home.md");
 
             try
             {
@@ -112,7 +112,6 @@ namespace FluentDot.Samples.Exporter
             {
                 SafeDelete(tocFile);
             }
-
         }
 
         private bool ExportDemo(IGraphDemo demo, string exportDirectory)
@@ -126,6 +125,7 @@ namespace FluentDot.Samples.Exporter
             {
                 Directory.CreateDirectory(exportDirectory);
             }
+
             string imageDirectory = Path.Combine(exportDirectory, "Images");
 
             if (!Directory.Exists(imageDirectory))
@@ -133,8 +133,8 @@ namespace FluentDot.Samples.Exporter
                 Directory.CreateDirectory(imageDirectory);
             }
 
-            string exportImageFile = Path.Combine(imageDirectory, "Demo" +  demo.GetType().Name + ".png");
-            string exportTemplateFile = Path.Combine(exportDirectory, "Demo" + demo.GetType().Name + ".wiki");
+            string exportImageFile = Path.Combine(imageDirectory, "Demo" + demo.GetType().Name + ".png");
+            string exportTemplateFile = Path.Combine(exportDirectory, "Demo" + demo.GetType().Name + ".md");
 
             var dotFile = Path.GetTempFileName();
             var imageFile = Path.GetTempFileName();
@@ -144,15 +144,13 @@ namespace FluentDot.Samples.Exporter
             {
                 string dot = graphExpression.GenerateDot();
 
-                string codeFile =
-                    Path.GetFullPath(string.Format(@"..\..\..\FluentDot.Samples.Core\Demos\{0}\{1}.cs", demo.Type,
-                                                   demo.GetType().Name));
+                string codeFile = Path.GetFullPath(string.Format(@"..\..\..\FluentDot.Samples.Core\Demos\{0}\{1}.cs", demo.Type, demo.GetType().Name));
 
                 graphExpression.Save(x => x.ToFile(imageFile).UsingFormat(OutputFormat.PNG));
 
                 WriteTemplate(templateFile, exportImageFile, demo, dot, GetCode(codeFile));
 
-                if ((ReplaceImage(imageFile, exportImageFile) | (ReplaceFile(templateFile, exportTemplateFile))))
+                if (ReplaceImage(imageFile, exportImageFile) | ReplaceFile(templateFile, exportTemplateFile))
                 {
                     updated = true;
                 }
@@ -171,37 +169,39 @@ namespace FluentDot.Samples.Exporter
         {
             string content = File.ReadAllText(codeFile);
 
-            int index = content.IndexOf("#region ExportCode");
+            int index = content.IndexOf("#region ExportCode", StringComparison.Ordinal);
 
             if (index < 0)
             {
                 Console.WriteLine("Could not find code block for {0}.", codeFile);
-                return String.Empty;
+                return string.Empty;
             }
-            
-            var lines = content.Substring(index).Split(new [] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+            var lines = content.Substring(index).Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
             var sb = new StringBuilder();
 
             // yuck.
-            for (int i = 1; i< lines.Length; i++)
+            for (int i = 1; i < lines.Length; i++)
             {
                 if (Regex.Match(lines[i], @"^(\ )*\#endregion(\ )*$", RegexOptions.Singleline).Success)
                 {
                     break;
                 }
-                
+
                 sb.AppendLine(lines[i]);
             }
 
             return sb.ToString();
         }
 
-        private bool ReplaceImage(string fromFile, string toFile) {
-
-            if (File.Exists(toFile)) {
+        private bool ReplaceImage(string fromFile, string toFile)
+        {
+            if (File.Exists(toFile))
+            {
                 // If the file sizes are identical, the files are *probably* the same.
-                if (new FileInfo(fromFile).Length != new FileInfo(toFile).Length) {
+                if (new FileInfo(fromFile).Length != new FileInfo(toFile).Length)
+                {
                     return ReplaceFile(fromFile, toFile);
                 }
 
@@ -238,7 +238,7 @@ namespace FluentDot.Samples.Exporter
         private void WriteTemplate(string templateFile, string imagePath, IGraphDemo demo, string dot, string code)
         {
             // Start with our template
-            string template = File.ReadAllText("Template.wiki");
+            string template = File.ReadAllText("Template.md");
 
             template = template.Replace("${DemoName}", demo.FriendlyName);
             template = template.Replace("${DemoDescription}", demo.Description);
@@ -258,7 +258,7 @@ namespace FluentDot.Samples.Exporter
                     File.Delete(fileName);
                 }
             }
-            catch  (Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Could not delete file {0} - {1}.", fileName, ex.Message);
             }
@@ -267,4 +267,3 @@ namespace FluentDot.Samples.Exporter
         #endregion
     }
 }
-    
