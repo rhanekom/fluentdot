@@ -84,7 +84,7 @@ namespace FluentDot.Samples.Exporter
 
                     foreach (var l in links)
                     {
-                        linkContent.AppendLine("  * [[" + l.DisplayText + " " + l.WikiPage + "]]");
+                        linkContent.AppendLine("  * [[" + l.DisplayText + "|" + l.WikiPage + "]]");
                     }
 
                     tocContent = tocContent.Replace("${" + type + "}", linkContent.ToString());
