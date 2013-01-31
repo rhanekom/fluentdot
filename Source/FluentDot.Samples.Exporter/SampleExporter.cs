@@ -29,7 +29,6 @@ namespace FluentDot.Samples.Exporter
         public SampleExporter()
         {
             Fluently.Configure(x => x.DotFilePath.Is(@"C:\Program Files (x86)\Graphviz 2.28\bin\dot.exe"));
-
         }
 
         #endregion
@@ -85,7 +84,7 @@ namespace FluentDot.Samples.Exporter
 
                     foreach (var l in links)
                     {
-                        linkContent.AppendLine("  * [" + l.WikiPage + " " + l.DisplayText + "]");
+                        linkContent.AppendLine("  * [[" + l.DisplayText + " " + l.WikiPage + "]]");
                     }
 
                     tocContent = tocContent.Replace("${" + type + "}", linkContent.ToString());

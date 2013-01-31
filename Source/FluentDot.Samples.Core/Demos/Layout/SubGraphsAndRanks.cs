@@ -10,7 +10,7 @@ namespace FluentDot.Samples.Core.Demos.Layout {
     
     using Attributes.Graphs;
     using Expressions.Graphs;
-    /* TODO: Graphviz crashes on this? 
+    /* TODO: Newer versions of Graphviz crash on this? 
      * 
     /// <summary>
     /// A simple demo of sub graphs and ranks.
