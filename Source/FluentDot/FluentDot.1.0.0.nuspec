@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>FluentDot</id>
+        <version>1.0.0</version>
+        <authors>rhanekom</authors>
+        <licenseUrl>http://www.gnu.org/copyleft/lesser.html</licenseUrl>
+        <projectUrl>https://github.com/rhanekom/fluentdot</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>FluentDot provides a fluent interface for generating graph layouts in DOT format, which in turn is consumed by GraphViz (specifically dot.exe) in order to produce graphs in various formats.</description>
+        <summary>A fluent interface for .NET for generating graphs with GraphViz.</summary>
+        <tags>GraphViz</tags>
+    </metadata>
+    <files>
+        <file src="bin\Release\FluentDot.XML" target="lib\FluentDot.XML" />
+        <file src="bin\Release\FluentDot.dll" target="lib\FluentDot.dll" />
+    </files>
+</package>
