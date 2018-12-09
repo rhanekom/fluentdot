@@ -10,7 +10,7 @@ using FluentDot.Attributes;
 using FluentDot.Entities.Nodes;
 using NUnit.Framework;
 using System;
-using Rhino.Mocks;
+using Moq;
 
 namespace FluentDot.Tests.Entities.Graphs
 {
@@ -24,16 +24,14 @@ namespace FluentDot.Tests.Entities.Graphs
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Constructor_Name_Should_Throw_If_Set_To_Empty()
         {
-            new GraphNode(String.Empty);
+            Assert.Throws<ArgumentException>(() => new GraphNode(String.Empty));
         }
         
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Constructor_Name_Should_Throw_If_Set_To_Null() {
-            new GraphNode(null);
+            Assert.Throws<ArgumentException>(() => new GraphNode(null));
         }
 
         [Test]
@@ -46,13 +44,11 @@ namespace FluentDot.Tests.Entities.Graphs
         public void ToDot_Should_Output_Name_With_Attributes() {
             var node = new GraphNode("ff");
 
-            var attribute = MockRepository.GenerateMock<IDotAttribute>();
-            attribute.Expect(x => x.ToDot()).Return("att=custom");
-            node.Attributes.AddAttribute(attribute);
+            var attribute = new Mock<IDotAttribute>();
+            attribute.Setup(x => x.ToDot()).Returns("att=custom");
+            node.Attributes.AddAttribute(attribute.Object);
 
             Assert.AreEqual(node.ToDot(), "\"ff\" [att=custom]");
-
-            attribute.VerifyAllExpectations();
         }
     }
 }

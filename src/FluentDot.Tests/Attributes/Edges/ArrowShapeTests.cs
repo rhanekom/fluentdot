@@ -49,34 +49,29 @@ namespace FluentDot.Tests.Attributes.Edges
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Modifiers_L_And_R_Can_Not_Be_Used_Together()
         {
-            new ArrowShape("bla", true, true).Modify(ArrowShapeModifier.LeftClip | ArrowShapeModifier.RightClip);
+            Assert.Throws<ArgumentException>(() => new ArrowShape("bla", true, true).Modify(ArrowShapeModifier.LeftClip | ArrowShapeModifier.RightClip));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Modifiers_Should_Throw_If_L_Not_Allowed() {
-            new ArrowShape("bla", false, true).Modify(ArrowShapeModifier.LeftClip);
+            Assert.Throws<ArgumentException>(() => new ArrowShape("bla", false, true).Modify(ArrowShapeModifier.LeftClip));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Modifiers_Should_Throw_If_R_Not_Allowed() {
-            new ArrowShape("bla", false, true).Modify(ArrowShapeModifier.RightClip);
+            Assert.Throws<ArgumentException>(() => new ArrowShape("bla", false, true).Modify(ArrowShapeModifier.RightClip));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Modifiers_Should_Throw_If_L_And_R_Not_Allowed() {
-            new ArrowShape("bla", false, true).Modify(ArrowShapeModifier.LeftClip | ArrowShapeModifier.RightClip);
+            Assert.Throws<ArgumentException>(() => new ArrowShape("bla", false, true).Modify(ArrowShapeModifier.LeftClip | ArrowShapeModifier.RightClip));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Modifiers_Should_Throw_If_O_Not_Allowed() {
-            new ArrowShape("bla", true, false).Modify(ArrowShapeModifier.Open);
+            Assert.Throws<ArgumentException>(() => new ArrowShape("bla", true, false).Modify(ArrowShapeModifier.Open));
         }
     }
 }

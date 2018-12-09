@@ -22,10 +22,9 @@ namespace FluentDot.Tests.Attributes.Edges
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_If_Length_Smaller_Than_0()
         {
-            new MinimumLengthAttribute(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new MinimumLengthAttribute(-1));
         }
     }
 }

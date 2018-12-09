@@ -9,8 +9,8 @@
 using FluentDot.Configuration;
 using FluentDot.Execution;
 using FluentDot.Expressions.Configuration;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Expressions.Configuration
 {
@@ -22,7 +22,7 @@ namespace FluentDot.Tests.Expressions.Configuration
         {
             const string expected = "c:\\tmp\\a.tt";
             
-            var configurationProvider = MockRepository.GenerateMock<IConfigurationProvider>();
+            var configurationProvider = new Mock<IConfigurationProvider>();
             configurationProvider.Expect(x => x.DotExecutableLocation = expected);
 
             var expression = new ConfigurationExpression(configurationProvider);
@@ -35,7 +35,7 @@ namespace FluentDot.Tests.Expressions.Configuration
         public void DotProcessTimeout_Sets_DotProcessTimeout_On_Configuration() {
             const int expected = 2312;
 
-            var configurationProvider = MockRepository.GenerateMock<IConfigurationProvider>();
+            var configurationProvider = new Mock<IConfigurationProvider>();
             configurationProvider.Expect(x => x.DotProcessTimeout = expected);
 
             var expression = new ConfigurationExpression(configurationProvider);
@@ -47,7 +47,7 @@ namespace FluentDot.Tests.Expressions.Configuration
         [Test]
         public void DefaultFileFormat_Sets_DefaultFileFormat_On_Configuration()
         {
-            var configurationProvider = MockRepository.GenerateMock<IConfigurationProvider>();
+            var configurationProvider = new Mock<IConfigurationProvider>();
             configurationProvider.Expect(x => x.DefaultFileFormat = OutputFormat.GD);
 
             var expression = new ConfigurationExpression(configurationProvider);

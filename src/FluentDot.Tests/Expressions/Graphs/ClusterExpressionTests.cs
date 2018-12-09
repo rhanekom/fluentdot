@@ -6,14 +6,13 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
-using System;
-using System.Drawing;
 using FluentDot.Attributes.Graphs;
-using FluentDot.Attributes.Nodes;
 using FluentDot.Attributes.Shared;
 using FluentDot.Entities.Graphs;
 using FluentDot.Expressions.Graphs;
 using NUnit.Framework;
+using System;
+using System.Drawing;
 
 namespace FluentDot.Tests.Expressions.Graphs
 {
@@ -124,10 +123,12 @@ namespace FluentDot.Tests.Expressions.Graphs
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void WithPeripheries_Should_Throw_If_Value_Larger_Than_1() {
-            AssertAttributeAdded(expression => expression.WithPeripheries(2),
-                                 typeof(PeripheriesAttribute), 2);
+        public void WithPeripheries_Should_Throw_If_Value_Larger_Than_1()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => AssertAttributeAdded(
+                expression => expression.WithPeripheries(2),
+                typeof(PeripheriesAttribute), 2));
+
         }
 
 
@@ -136,12 +137,7 @@ namespace FluentDot.Tests.Expressions.Graphs
 
         #region Private Members
 
-        private static void AssertAttributeAdded(Action<IClusterExpression> action, Type attributeType, object attributeValue)
-        {
-            AssertAttributeAdded(action, attributeType, attributeValue, null);
-        }
-
-        private static void AssertAttributeAdded(Action<IClusterExpression> action, Type attributeType, object attributeValue, Action<ICluster> customAsserts)
+        private static void AssertAttributeAdded(Action<IClusterExpression> action, Type attributeType, object attributeValue, Action<ICluster> customAsserts = null)
         {
             var graph = new DirectedGraph();
             var expression = new ClusterExpression(graph);
@@ -152,13 +148,10 @@ namespace FluentDot.Tests.Expressions.Graphs
             Assert.AreEqual(cluster.Attributes.CurrentAttributes.Count, 1);
 
             var attribute = cluster.Attributes.CurrentAttributes[0];
-            Assert.IsInstanceOfType(attributeType, attribute);
+            Assert.IsInstanceOf(attributeType, attribute);
             Assert.AreEqual(attribute.Value, attributeValue);
 
-            if (customAsserts != null)
-            {
-                customAsserts(expression.Cluster);
-            }
+            customAsserts?.Invoke(expression.Cluster);
         }
 
         #endregion

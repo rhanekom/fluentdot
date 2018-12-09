@@ -40,17 +40,15 @@ namespace FluentDot.Tests.Attributes.Graphs
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Constructor_Should_Throw_If_Major_Null()
         {
-            new PageDirection(null, VerticalDirection.BottomToTop);
+            Assert.Throws<ArgumentNullException>(() => new PageDirection(null, VerticalDirection.BottomToTop));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Constructor_Should_Throw_If_Minor_Null()
         {
-            new PageDirection(VerticalDirection.BottomToTop, null);
+            Assert.Throws<ArgumentNullException>(() => new PageDirection(VerticalDirection.BottomToTop, null));
         }
     }
 }

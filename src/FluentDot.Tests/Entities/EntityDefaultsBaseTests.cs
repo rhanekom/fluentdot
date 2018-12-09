@@ -10,8 +10,8 @@ using System;
 using FluentDot.Attributes.Shared;
 using FluentDot.Entities;
 using FluentDot.Entities.Nodes;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Entities {
 
@@ -19,16 +19,15 @@ namespace FluentDot.Tests.Entities {
     public class EntityDefaultsBaseTests {
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Constructor_Should_Throw_If_Invalid_Name_Specified()
         {
-            new EntityDefaultsBase(null, MockRepository.GenerateMock<IAttributeBasedEntity>());
+            Assert.Throws<ArgumentException>(() => new EntityDefaultsBase(null, new Mock<IAttributeBasedEntity>().Object));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Constructor_Should_Throw_If_Invalid_Template_Specified() {
-            new EntityDefaultsBase("name", null);
+        public void Constructor_Should_Throw_If_Invalid_Template_Specified()
+        {
+            Assert.Throws<ArgumentNullException>(() => new EntityDefaultsBase("name", null));
         }
 
         [Test]

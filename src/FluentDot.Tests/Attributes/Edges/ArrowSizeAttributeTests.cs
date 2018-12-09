@@ -16,10 +16,9 @@ namespace FluentDot.Tests.Attributes.Edges
     public class ArrowSizeAttributeTests {
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Constructor_Must_Throw_For_Value_Smaller_Than_0()
         {
-            new ArrowSizeAttribute(-0.1);
+            Assert.Throws<ArgumentException>(() => new ArrowSizeAttribute(-0.1));
         }
 
         [Test]

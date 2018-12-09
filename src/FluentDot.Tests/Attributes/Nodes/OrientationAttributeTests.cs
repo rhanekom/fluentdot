@@ -23,17 +23,15 @@ namespace FluentDot.Tests.Attributes.Nodes
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_When_Degrees_Smaller_Than_0()
         {
-            new OrientationAttribute(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new OrientationAttribute(-1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_When_Degrees_Larger_Than_360()
         {
-            new OrientationAttribute(361);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new OrientationAttribute(361));
         }
     }
 }

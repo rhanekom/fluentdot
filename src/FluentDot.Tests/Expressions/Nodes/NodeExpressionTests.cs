@@ -14,8 +14,8 @@ using FluentDot.Attributes.Nodes;
 using FluentDot.Attributes.Shared;
 using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Nodes;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Expressions.Nodes
 {
@@ -158,10 +158,10 @@ namespace FluentDot.Tests.Expressions.Nodes
 
         [Test]
         public void WithCustomAttribute_Should_Apply_Attribute() {
-            var attribute = MockRepository.GenerateMock<IDotAttribute>();
-            attribute.Expect(x => x.Value).Return("aa");
+            var attribute = new Mock<IDotAttribute>();
+            attribute.SetupGet(x => x.Value).Returns("aa");
 
-            AssertAttributeAdded(expression => expression.WithCustomAttribute(attribute),
+            AssertAttributeAdded(expression => expression.WithCustomAttribute(attribute.Object),
                                  attribute.GetType(), "aa");
         }
 
@@ -239,7 +239,7 @@ namespace FluentDot.Tests.Expressions.Nodes
 
         private static void AssertAttributeAdded(IDotAttribute attribute, Type attributeType, object attributeValue)
         {
-            Assert.IsInstanceOfType(attributeType, attribute);
+            Assert.IsInstanceOf(attributeType, attribute);
             Assert.AreEqual(attribute.Value, attributeValue);
         }
 

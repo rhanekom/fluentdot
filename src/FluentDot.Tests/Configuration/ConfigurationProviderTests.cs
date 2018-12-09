@@ -16,16 +16,14 @@ namespace FluentDot.Tests.Configuration {
     public class ConfigurationProviderTests {
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void DotExecutableLocation_Must_Throw_When_Set_To_Null()
         {
-            new ConfigurationProvider().DotExecutableLocation = null;
+            Assert.Throws<ArgumentException>(() => new ConfigurationProvider().DotExecutableLocation = null);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void DotExecutableLocation_Must_Throw_When_Set_To_Empty_String() {
-            new ConfigurationProvider().DotExecutableLocation = String.Empty;
+            Assert.Throws<ArgumentException>(() => new ConfigurationProvider().DotExecutableLocation = String.Empty);
         }
 
         [Test]
@@ -36,16 +34,14 @@ namespace FluentDot.Tests.Configuration {
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void DotProcessTimeout_Must_Throw_When_Set_To_Smaller_Than_1()
         {
-            new ConfigurationProvider().DotProcessTimeout = 0;
+            Assert.Throws<ArgumentException>(() => new ConfigurationProvider().DotProcessTimeout = 0);
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void DotProcessTimeout_Must_Throw_When_Set_To_Negative() {
-            new ConfigurationProvider().DotProcessTimeout = -1;
+            Assert.Throws<ArgumentException>(() => new ConfigurationProvider().DotProcessTimeout = -1);
         }
 
         [Test]
@@ -55,10 +51,9 @@ namespace FluentDot.Tests.Configuration {
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void DefaultFileFormat_Must_Throw_If_Value_Null()
         {
-            new ConfigurationProvider().DefaultFileFormat = null;
+            Assert.Throws<ArgumentException>(() => new ConfigurationProvider().DefaultFileFormat = null);
         }
     }
 }

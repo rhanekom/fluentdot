@@ -7,8 +7,8 @@
 */
 
 using FluentDot.Entities.Graphs;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Entities.Graphs
 {
@@ -18,15 +18,18 @@ namespace FluentDot.Tests.Entities.Graphs
         [Test]
         public void AddSubGraph_Keeps_Reference_To_Cluster()
         {
-            var cluster1 = MockRepository.GenerateMock<ICluster>();
-            var cluster2 = MockRepository.GenerateMock<ICluster>();
+            var cluster1 = new Mock<ICluster>();
+            var cluster2 = new Mock<ICluster>();
 
-            cluster1.Expect(x => x.Name).Return("a");
-            cluster2.Expect(x => x.Name).Return("b");
+            cluster1.Setup(x => x.Name).Returns("a");
+            cluster2.Setup(x => x.Name).Returns("b");
 
             var tracker = new SubGraphTracker();
-            tracker.AddSubGraph(cluster1);
-            tracker.AddSubGraph(cluster2);
+            tracker.AddSubGraph(cluster1.Object);
+            tracker.AddSubGraph(cluster2.Object);
+
+            CollectionAssert.Contains(tracker.Clusters, cluster1.Object);
+            CollectionAssert.Contains(tracker.Clusters, cluster2.Object);
         }
     }
 }

@@ -23,10 +23,9 @@ namespace FluentDot.Tests.Attributes.Edges
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_If_Value_Less_Than_0()
         {
-            new LabelDistanceAttribute(-0.1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new LabelDistanceAttribute(-0.1));
         }
     }
 }

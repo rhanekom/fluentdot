@@ -28,17 +28,15 @@ namespace FluentDot.Tests.Attributes.Graphs
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Value_Must_Throw_If_Value_Equal_To_0()
         {
-            new RatioType(0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new RatioType(0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Value_Must_Throw_If_Value_Less_Than_0()
         {
-            new RatioType(-1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new RatioType(-1));
         }
     }
 }

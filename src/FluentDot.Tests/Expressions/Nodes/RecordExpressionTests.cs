@@ -51,12 +51,11 @@ namespace FluentDot.Tests.Expressions.Nodes
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void WithElement_Should_Throw_For_Duplicate_Elements() {
             var recordGroup = new RecordGroup();
             var expression = new RecordExpression(recordGroup);
             expression.WithElement("a");
-            expression.WithElement("a");
+            Assert.Throws<ArgumentException>(() => expression.WithElement("a"));
         }
     }
 }

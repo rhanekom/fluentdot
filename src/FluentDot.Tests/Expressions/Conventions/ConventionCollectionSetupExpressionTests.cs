@@ -6,6 +6,7 @@
  of the license can be found at http://www.gnu.org/copyleft/lesser.html.
 */
 
+using System;
 using FluentDot.Expressions.Conventions;
 using NUnit.Framework;
 using FluentDot.Conventions;
@@ -33,12 +34,11 @@ namespace FluentDot.Tests.Expressions.Conventions
         }
 
         [Test]
-        [ExpectedException(typeof(System.ArgumentException))]
         public void AddType_Should_Throw_For_Conventions_Other_Than_Edge_And_Node()
         {
             var tracker = new ConventionTracker();
             var expression = new ConventionCollectionSetupExpression(tracker);
-            expression.AddType<DummyConvention>();
+            Assert.Throws<ArgumentException>(() => expression.AddType<DummyConvention>());
         }
 
         [Test]
@@ -56,11 +56,10 @@ namespace FluentDot.Tests.Expressions.Conventions
         }
 
         [Test]
-        [ExpectedException(typeof(System.ArgumentException))]
         public void AddInstance_Should_Throw_For_Conventions_Other_Than_Edge_And_Node() {
             var tracker = new ConventionTracker();
             var expression = new ConventionCollectionSetupExpression(tracker);
-            expression.AddInstance(new DummyConvention());
+            Assert.Throws<ArgumentException>(() => expression.AddInstance(new DummyConvention()));
         }
 
         #endregion

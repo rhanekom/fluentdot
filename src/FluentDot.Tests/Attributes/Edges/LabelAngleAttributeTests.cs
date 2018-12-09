@@ -22,17 +22,15 @@ namespace FluentDot.Tests.Attributes.Edges
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_If_Angle_Less_Than_Minus_180()
         {
-            new LabelAngleAttribute(-181);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new LabelAngleAttribute(-181));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_If_Angle_Greater_Than_180()
         {
-            new LabelAngleAttribute(181);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new LabelAngleAttribute(181));
         }
     }
 }

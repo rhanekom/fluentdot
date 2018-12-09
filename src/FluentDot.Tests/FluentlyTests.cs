@@ -36,10 +36,9 @@ namespace FluentDot.Tests {
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Configure_Should_Throw_If_Null_Is_Passed()
         {
-            Fluently.Configure(null);
+            Assert.Throws<ArgumentNullException>(() => Fluently.Configure(null));
         }
 
         [Test]

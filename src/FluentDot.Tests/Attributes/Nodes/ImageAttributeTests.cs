@@ -9,8 +9,8 @@
 using System;
 using FluentDot.Attributes.Nodes;
 using FluentDot.Common;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Attributes.Nodes
 {
@@ -20,21 +20,20 @@ namespace FluentDot.Tests.Attributes.Nodes
         [Test]
         public void ToDot_Should_Produce_Correct_Output()
         {
-            var fileService = MockRepository.GenerateMock<IFileService>();
-            fileService.Expect(x => x.GetFullPath("a")).Return("b");
-            fileService.Expect(x => x.FileExists("a")).Return(true);
+            var fileService = new Mock<IFileService>();
+            fileService.Setup(x => x.GetFullPath("a")).Returns("b");
+            fileService.Setup(x => x.FileExists("a")).Returns(true);
          
-            Assert.AreEqual(new ImageAttribute("a", fileService).ToDot(), "image=\"b\"");
+            Assert.AreEqual(new ImageAttribute("a", fileService.Object).ToDot(), "image=\"b\"");
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_If_File_Does_Not_Exist() {
-            var fileService = MockRepository.GenerateMock<IFileService>();
-            fileService.Expect(x => x.GetFullPath("a")).Return("b");
-            fileService.Expect(x => x.FileExists("a")).Return(false);
+            var fileService = new Mock<IFileService>();
+            fileService.Setup(x => x.GetFullPath("a")).Returns("b");
+            fileService.Setup(x => x.FileExists("a")).Returns(false);
 
-            new ImageAttribute("a", fileService);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new ImageAttribute("a", fileService.Object));
         }
     }
 }

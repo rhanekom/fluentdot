@@ -31,14 +31,13 @@ namespace FluentDot.Tests.Expressions.Execution
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void UsingFormat_Must_Throw_If_Format_Is_Set_To_Null() {
             var parameter = new OutputFileWithFormatParameter(
                 new OutputFileParameter("a"),
                 OutputFormat.ClientSideImageMap
                 );
 
-            new FileOutputExpression(parameter).UsingFormat(null);
+            Assert.Throws<ArgumentNullException>(() => new FileOutputExpression(parameter).UsingFormat(null));
         }
     }
 }

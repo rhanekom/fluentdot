@@ -520,13 +520,7 @@ namespace FluentDot.Expressions.Graphs
         /// Gets the graph.
         /// </summary>
         /// <value>The graph.</value>
-        public T Graph
-        {
-            get
-            {
-                return graph;
-            }
-        }
+        public T Graph => graph;
 
         #endregion
     }

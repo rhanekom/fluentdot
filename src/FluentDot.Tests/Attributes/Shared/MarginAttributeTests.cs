@@ -22,16 +22,15 @@ namespace FluentDot.Tests.Attributes.Shared
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_If_X_Smaller_Than_0()
         {
-            new MarginAttribute(-1, 0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new MarginAttribute(-1, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Constructor_Should_Throw_If_Y_Smaller_Than_0() {
-            new MarginAttribute(0, -1);
+        public void Constructor_Should_Throw_If_Y_Smaller_Than_0()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => new MarginAttribute(0, -1));
         }
     }
 }

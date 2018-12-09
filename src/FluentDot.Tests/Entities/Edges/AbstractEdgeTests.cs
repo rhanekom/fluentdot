@@ -9,8 +9,8 @@
 using FluentDot.Attributes;
 using FluentDot.Entities.Edges;
 using FluentDot.Entities.Nodes;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Entities.Edges
 {
@@ -35,11 +35,11 @@ namespace FluentDot.Tests.Entities.Edges
             var a = new GraphNode("a");
             var b = new GraphNode("b");
 
-            var attribute = MockRepository.GenerateMock<IDotAttribute>();
-            attribute.Expect(x => x.ToDot()).Return("att=custom");
+            var attribute = new Mock<IDotAttribute>();
+            attribute.Setup(x => x.ToDot()).Returns("att=custom");
             
             var edge = new TestEdge(a, b);
-            edge.Attributes.AddAttribute(attribute);
+            edge.Attributes.AddAttribute(attribute.Object);
             Assert.AreEqual(edge.ToDot(), "\"a\" ** \"b\" [att=custom]");
         }
 
@@ -55,9 +55,7 @@ namespace FluentDot.Tests.Entities.Edges
 
             }
 
-            protected override string EdgeIndicator {
-                get { return "**"; }
-            }
+            protected override string EdgeIndicator => "**";
         }
 
         #endregion

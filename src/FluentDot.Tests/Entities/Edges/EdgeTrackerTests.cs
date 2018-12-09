@@ -9,8 +9,8 @@
 using System.Linq;
 using FluentDot.Entities.Edges;
 using FluentDot.Entities.Nodes;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Entities.Edges
 {
@@ -21,8 +21,8 @@ namespace FluentDot.Tests.Entities.Edges
         public void Add_Should_Add_Edge_To_Collection() {
             var tracker = new EdgeTracker();
 
-            var node1 = MockRepository.GenerateMock<IGraphNode>();
-            var node2 = MockRepository.GenerateMock<IGraphNode>();
+            var node1 = new Mock<IGraphNode>().Object;
+            var node2 = new Mock<IGraphNode>().Object;
 
             var edge = new DirectedEdge(new NodeTarget(node1), new NodeTarget(node2));
             tracker.AddEdge(edge);
@@ -34,10 +34,10 @@ namespace FluentDot.Tests.Entities.Edges
         public void GetEdgeByTag_Should_Retrieve_Node_By_Tag() {
             var tracker = new EdgeTracker();
 
-            var node1 = MockRepository.GenerateMock<IGraphNode>();
-            var node2 = MockRepository.GenerateMock<IGraphNode>();
-            var node3 = MockRepository.GenerateMock<IGraphNode>();
-            var node4 = MockRepository.GenerateMock<IGraphNode>();
+            var node1 = new Mock<IGraphNode>().Object;
+            var node2 = new Mock<IGraphNode>().Object;
+            var node3 = new Mock<IGraphNode>().Object;
+            var node4 = new Mock<IGraphNode>().Object;
 
             var edge1 = new UndirectedEdge(new NodeTarget(node1), new NodeTarget(node2)) {Tag = 1};
             var edge2 = new UndirectedEdge(new NodeTarget(node3), new NodeTarget(node4)) { Tag = 2 };
@@ -55,8 +55,8 @@ namespace FluentDot.Tests.Entities.Edges
         public void GetEdgeByTag_With_Invalid_Tag_Should_Return_Null() {
             var tracker = new EdgeTracker();
 
-            var node1 = MockRepository.GenerateMock<IGraphNode>();
-            var node2 = MockRepository.GenerateMock<IGraphNode>();
+            var node1 = new Mock<IGraphNode>().Object;
+            var node2 = new Mock<IGraphNode>().Object;
 
             var edge = new UndirectedEdge(new NodeTarget(node1), new NodeTarget(node2));
             tracker.AddEdge(edge);

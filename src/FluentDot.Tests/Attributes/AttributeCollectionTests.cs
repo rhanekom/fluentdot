@@ -8,8 +8,8 @@
 
 using System;
 using FluentDot.Attributes;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Attributes
 {
@@ -21,16 +21,16 @@ namespace FluentDot.Tests.Attributes
         [Test]
         public void Add_Adds_Attribute_To_Collection()
         {
-            var attribute1 = MockRepository.GenerateMock<IDotAttribute>();
-            var attribute2 = MockRepository.GenerateMock<OtherDotAttribute>();
+            var attribute1 = new Mock<IDotAttribute>();
+            var attribute2 = new Mock<OtherDotAttribute>();
             
             var collection = new AttributeCollection();
             
-            collection.AddAttribute(attribute1);
+            collection.AddAttribute(attribute1.Object);
             Assert.AreEqual(collection.CurrentAttributes.Count, 1);
             Assert.AreSame(collection.CurrentAttributes[0], attribute1);
 
-            collection.AddAttribute(attribute2);
+            collection.AddAttribute(attribute2.Object);
             Assert.AreEqual(collection.CurrentAttributes.Count, 2);
             Assert.AreSame(collection.CurrentAttributes[0], attribute1);
             Assert.AreSame(collection.CurrentAttributes[1], attribute2);
@@ -55,38 +55,33 @@ namespace FluentDot.Tests.Attributes
         [Test]
         public void ToDot_Generates_Dot_For_All_Attributes()
         {
-            var attribute1 = MockRepository.GenerateMock<IDotAttribute>();
-            var attribute2 = MockRepository.GenerateMock<OtherDotAttribute>();
+            var attribute1 = new Mock<IDotAttribute>();
+            var attribute2 = new Mock<OtherDotAttribute>();
 
             var collection = new AttributeCollection();
 
-            collection.AddAttribute(attribute1);
-            collection.AddAttribute(attribute2);
+            collection.AddAttribute(attribute1.Object);
+            collection.AddAttribute(attribute2.Object);
 
 
-            attribute1.Expect(x => x.ToDot()).Return("label=\"some label\"");
-            attribute2.Expect(x => x.ToDot()).Return("fontcolor=darkgreen");
-
+            attribute1.Setup(x => x.ToDot()).Returns("label=\"some label\"");
+            attribute2.Setup(x => x.ToDot()).Returns("fontcolor=darkgreen");
+            
             string dot = collection.ToDot();
-
-            attribute1.VerifyAllExpectations();
-            attribute2.VerifyAllExpectations();
 
             Assert.AreEqual(dot, "[label=\"some label\", fontcolor=darkgreen]");
         }
 
         [Test]
         public void ToDot_Generates_Dot_Correctly_With_Only_One_Attribute() {
-            var attribute = MockRepository.GenerateMock<IDotAttribute>();
+            var attribute = new Mock<IDotAttribute>();
             
             var collection = new AttributeCollection();
-            collection.AddAttribute(attribute);
+            collection.AddAttribute(attribute.Object);
 
-            attribute.Expect(x => x.ToDot()).Return("label=\"some label\"");
+            attribute.Setup(x => x.ToDot()).Returns("label=\"some label\"");
 
             string dot = collection.ToDot();
-
-            attribute.VerifyAllExpectations();
 
             Assert.AreEqual(dot, "[label=\"some label\"]");
         }

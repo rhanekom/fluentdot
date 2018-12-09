@@ -51,7 +51,7 @@ namespace FluentDot.Tests.Expressions.Graphs
             Assert.AreEqual(cluster.Attributes.CurrentAttributes.Count, 1);
 
             var attribute = cluster.Attributes.CurrentAttributes[0];
-            Assert.IsInstanceOfType(attributeType, attribute);
+            Assert.IsInstanceOf(attributeType, attribute);
             Assert.AreEqual(attribute.Value, attributeValue);
 
             if (customAsserts != null)

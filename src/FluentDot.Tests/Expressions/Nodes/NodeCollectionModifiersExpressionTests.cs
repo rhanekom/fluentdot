@@ -10,9 +10,8 @@ using FluentDot.Entities.Graphs;
 using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Graphs;
 using FluentDot.Expressions.Nodes;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
-using Rhino.Mocks.Constraints;
 
 namespace FluentDot.Tests.Expressions.Nodes
 {
@@ -22,7 +21,7 @@ namespace FluentDot.Tests.Expressions.Nodes
         [Test]
         public void Add_Gets_Applied_To_Graph()
         {
-            var graph = MockRepository.GenerateMock<IGraph>();
+            var graph = new Mock<IGraph>();
 
             graph.Expect(x => x.AddNode(null))
                 .IgnoreArguments()
@@ -48,7 +47,7 @@ namespace FluentDot.Tests.Expressions.Nodes
         [Test]
         public void Add_Returns_Parent_Expression()
         {
-            var graph = MockRepository.GenerateMock<IGraph>();
+            var graph = new Mock<IGraph>();
             var graphExpression = new GraphExpression<IGraph>(graph);
             var expression = new NodeCollectionModifiersExpression<IGraphExpression>(graph, graphExpression);
 
@@ -59,7 +58,7 @@ namespace FluentDot.Tests.Expressions.Nodes
         [Test]
         public void AddRecord_Gets_Applied_To_Graph()
         {
-            var graph = MockRepository.GenerateMock<IGraph>();
+            var graph = new Mock<IGraph>();
 
             graph.Expect(x => x.AddNode(null))
                 .IgnoreArguments()
@@ -83,7 +82,7 @@ namespace FluentDot.Tests.Expressions.Nodes
 
         [Test]
         public void AddRecord_Returns_Parent_Expression() {
-            var graph = MockRepository.GenerateMock<IGraph>();
+            var graph = new Mock<IGraph>();
             var graphExpression = new GraphExpression<IGraph>(graph);
             var expression = new NodeCollectionModifiersExpression<IGraphExpression>(graph, graphExpression);
 

@@ -7,11 +7,9 @@
 */
 
 using System.Drawing;
-using FluentDot.Entities.Graphs;
 using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Nodes;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Expressions.Nodes
 {
@@ -21,7 +19,6 @@ namespace FluentDot.Tests.Expressions.Nodes
         [Test]
         public void Customize_Should_Apply_Configuration_To_Node()
         {
-            var graph = MockRepository.GenerateMock<IGraph>();
             var group = new RecordGroup();
             var node = new RecordNode("a", group);
 

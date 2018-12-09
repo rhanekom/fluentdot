@@ -22,10 +22,9 @@ namespace FluentDot.Tests.Attributes.Shared {
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_For_Value_Less_Than_0()
         {
-            new PenWidthAttribute(-0.1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new PenWidthAttribute(-0.1));
         }
     }
 }

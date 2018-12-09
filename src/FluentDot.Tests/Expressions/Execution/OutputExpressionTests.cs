@@ -10,8 +10,8 @@
 using FluentDot.Configuration;
 using FluentDot.Execution;
 using FluentDot.Expressions.Execution;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Expressions.Execution
 {
@@ -44,14 +44,12 @@ namespace FluentDot.Tests.Expressions.Execution
         [Test]
         public void ToFile_Should_Save_File_With_Default_Format_If_Not_Specified()
         {
-            var configurationProvider = MockRepository.GenerateMock<IConfigurationProvider>();
-            configurationProvider.Expect(x => x.DefaultFileFormat).Return(OutputFormat.Canon);
+            var configurationProvider = new Mock<IConfigurationProvider>();
+            configurationProvider.Setup(x => x.DefaultFileFormat).Returns(OutputFormat.Canon);
 
-            var expression = new OutputExpression(configurationProvider);
+            var expression = new OutputExpression(configurationProvider.Object);
             expression.ToFile(fileName1);
-
-            configurationProvider.VerifyAllExpectations();
-
+            
             Assert.AreEqual(expression.OutputParameters.Count, 1);
 
             var outputParameter = expression.OutputParameters[0];

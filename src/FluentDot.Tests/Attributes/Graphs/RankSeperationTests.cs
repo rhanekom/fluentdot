@@ -16,17 +16,15 @@ namespace FluentDot.Tests.Attributes.Graphs
     public class RankSeperationTests
     {
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Constructor_Throws_If_All_Arguments_Are_Negative()
         {
-            new RankSeperation(null, false);
+            Assert.Throws<ArgumentException>(() => new RankSeperation(null, false));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Throws_If_Inches_Less_Than_0_02()
         {
-            new RankSeperation(0.019, false);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new RankSeperation(0.019, false));
         }
 
         [Test]

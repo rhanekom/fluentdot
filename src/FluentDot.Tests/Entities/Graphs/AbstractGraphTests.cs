@@ -13,8 +13,8 @@ using FluentDot.Attributes;
 using FluentDot.Entities.Edges;
 using FluentDot.Entities.Graphs;
 using FluentDot.Entities.Nodes;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Entities.Graphs
 {
@@ -34,17 +34,17 @@ namespace FluentDot.Tests.Entities.Graphs
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
-        public void AddNode_Should_Throw_If_Node_Null() {
-            new TestGraph().AddNode(null);
+        public void AddNode_Should_Throw_If_Node_Null()
+        {
+            Assert.Throws<ArgumentException>(() => new TestGraph().AddNode(null));
         }
 
 
         [Test]
         public void AddEdge_Should_Add_Edge_To_Edge_Collection() {
 
-            var node1 = MockRepository.GenerateMock<IGraphNode>();
-            var node2 = MockRepository.GenerateMock<IGraphNode>();
+            var node1 = new Mock<IGraphNode>().Object;
+            var node2 = new Mock<IGraphNode>().Object;
             var edge = new DirectedEdge(new NodeTarget(node1), new NodeTarget(node2));
 
             var graph = new TestGraph();
@@ -56,9 +56,8 @@ namespace FluentDot.Tests.Entities.Graphs
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddEdge_Should_Throw_If_edge_Null() {
-            new TestGraph().AddEdge(null);
+            Assert.Throws< ArgumentException>(() => new TestGraph().AddEdge(null));
         }
 
         [Test]
@@ -76,15 +75,13 @@ namespace FluentDot.Tests.Entities.Graphs
         [Test]
         public void ToDot_Should_Add_Attributes_To_Graph()
         {
-            var attribute = MockRepository.GenerateMock<IDotAttribute>();
-            attribute.Expect(x => x.ToDot()).Return("a=bb");
+            var attribute = new Mock<IDotAttribute>();
+            attribute.Setup(x => x.ToDot()).Returns("a=bb");
 
             var graph = new TestGraph {Name = "a"};
-            graph.Attributes.AddAttribute(attribute);
+            graph.Attributes.AddAttribute(attribute.Object);
 
             string dot = graph.ToDot();
-
-            attribute.VerifyAllExpectations();
 
             Assert.IsTrue(Regex.Match(dot, "^testGraph \\\"a\\\" {[^}]*graph \\[a=bb\\][^}]*}$", RegexOptions.Multiline).Success);
         }
@@ -93,11 +90,11 @@ namespace FluentDot.Tests.Entities.Graphs
         [Test]
         public void AddCluster_Should_Add_Cluster()
         {
-            var cluster = MockRepository.GenerateMock<ICluster>();
-            cluster.Expect(x => x.Name).Return("a");
+            var cluster = new Mock<ICluster>();
+            cluster.Setup(x => x.Name).Returns("a");
 
             var graph = new TestGraph();
-            graph.AddSubGraph(cluster);
+            graph.AddSubGraph(cluster.Object);
 
             Assert.AreEqual(graph.SubGraphLookup.Clusters.Count(), 1);
             Assert.AreEqual(graph.SubGraphLookup.Clusters.First(), cluster);

@@ -14,8 +14,8 @@ using FluentDot.Attributes.Shared;
 using FluentDot.Entities.Edges;
 using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Edges;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Expressions.Edges
 {
@@ -32,9 +32,9 @@ namespace FluentDot.Tests.Expressions.Edges
 
         [Test]
         public void WithTag_Should_Set_Tag_On_Edge() {
-            var node1 = MockRepository.GenerateMock<IGraphNode>();
-            var node2 = MockRepository.GenerateMock<IGraphNode>();
-            var edge = new UndirectedEdge(new NodeTarget(node1), new NodeTarget(node2));
+            var node1 = new Mock<IGraphNode>();
+            var node2 = new Mock<IGraphNode>();
+            var edge = new UndirectedEdge(new NodeTarget(node1.Object), new NodeTarget(node2.Object));
 
             var expression = new EdgeExpression(edge);
             expression.WithTag(5);
@@ -127,10 +127,10 @@ namespace FluentDot.Tests.Expressions.Edges
 
         [Test]
         public void WithCustomAttribute_Should_Apply_Attribute() {
-            var attribute = MockRepository.GenerateMock<IDotAttribute>();
-            attribute.Expect(x => x.Value).Return("aa");
+            var attribute = new Mock<IDotAttribute>();
+            attribute.Setup(x => x.Value).Returns("aa");
 
-            AssertAttributeAdded(expression => expression.WithCustomAttribute(attribute),
+            AssertAttributeAdded(expression => expression.WithCustomAttribute(attribute.Object),
                                  attribute.GetType(), "aa");
         }
 
@@ -325,9 +325,9 @@ namespace FluentDot.Tests.Expressions.Edges
 
         [Test]
         public void WithTailURL_Should_Set_URL_And_Target() {
-            var node1 = MockRepository.GenerateMock<IGraphNode>();
-            var node2 = MockRepository.GenerateMock<IGraphNode>();
-            var edge = new DirectedEdge(new NodeTarget(node1), new NodeTarget(node2));
+            var node1 = new Mock<IGraphNode>();
+            var node2 = new Mock<IGraphNode>();
+            var edge = new DirectedEdge(new NodeTarget(node1.Object), new NodeTarget(node2.Object));
 
             var expression = new EdgeExpression(edge);
             Assert.IsNotNull(expression.WithTailURL("http://www.google.com", "_new"));
@@ -335,19 +335,19 @@ namespace FluentDot.Tests.Expressions.Edges
             Assert.AreEqual(edge.Attributes.CurrentAttributes.Count, 2);
 
             var attribute = edge.Attributes.CurrentAttributes[0];
-            Assert.IsInstanceOfType(typeof(TailURLAttribute), attribute);
+            Assert.IsInstanceOf(typeof(TailURLAttribute), attribute);
             Assert.AreEqual(attribute.Value, "http://www.google.com");
 
             attribute = edge.Attributes.CurrentAttributes[1];
-            Assert.IsInstanceOfType(typeof(TailTargetAttribute), attribute);
+            Assert.IsInstanceOf(typeof(TailTargetAttribute), attribute);
             Assert.AreEqual(attribute.Value, "_new");
         }
 
         [Test]
         public void WithHeadURL_Should_Set_URL_And_Target() {
-            var node1 = MockRepository.GenerateMock<IGraphNode>();
-            var node2 = MockRepository.GenerateMock<IGraphNode>();
-            var edge = new DirectedEdge(new NodeTarget(node1), new NodeTarget(node2));
+            var node1 = new Mock<IGraphNode>();
+            var node2 = new Mock<IGraphNode>();
+            var edge = new DirectedEdge(new NodeTarget(node1.Object), new NodeTarget(node2.Object));
 
             var expression = new EdgeExpression(edge);
             Assert.IsNotNull(expression.WithHeadURL("http://www.google.com", "_new"));
@@ -355,20 +355,20 @@ namespace FluentDot.Tests.Expressions.Edges
             Assert.AreEqual(edge.Attributes.CurrentAttributes.Count, 2);
 
             var attribute = edge.Attributes.CurrentAttributes[0];
-            Assert.IsInstanceOfType(typeof(HeadURLAttribute), attribute);
+            Assert.IsInstanceOf(typeof(HeadURLAttribute), attribute);
             Assert.AreEqual(attribute.Value, "http://www.google.com");
 
             attribute = edge.Attributes.CurrentAttributes[1];
-            Assert.IsInstanceOfType(typeof(HeadTargetAttribute), attribute);
+            Assert.IsInstanceOf(typeof(HeadTargetAttribute), attribute);
             Assert.AreEqual(attribute.Value, "_new");
         }
 
         [Test]
         public void WithEdgeURL_Should_Set_URL_And_Target()
         {
-            var node1 = MockRepository.GenerateMock<IGraphNode>();
-            var node2 = MockRepository.GenerateMock<IGraphNode>();
-            var edge = new DirectedEdge(new NodeTarget(node1), new NodeTarget(node2));
+            var node1 = new Mock<IGraphNode>();
+            var node2 = new Mock<IGraphNode>();
+            var edge = new DirectedEdge(new NodeTarget(node1.Object), new NodeTarget(node2.Object));
 
             var expression = new EdgeExpression(edge);
             Assert.IsNotNull(expression.WithEdgeURL("http://www.google.com", "_new"));
@@ -376,11 +376,11 @@ namespace FluentDot.Tests.Expressions.Edges
             Assert.AreEqual(edge.Attributes.CurrentAttributes.Count, 2);
 
             var attribute = edge.Attributes.CurrentAttributes[0];
-            Assert.IsInstanceOfType(typeof(EdgeURLAttribute), attribute);
+            Assert.IsInstanceOf(typeof(EdgeURLAttribute), attribute);
             Assert.AreEqual(attribute.Value, "http://www.google.com");
 
             attribute = edge.Attributes.CurrentAttributes[1];
-            Assert.IsInstanceOfType(typeof(EdgeTargetAttribute), attribute);
+            Assert.IsInstanceOf(typeof(EdgeTargetAttribute), attribute);
             Assert.AreEqual(attribute.Value, "_new");
         }
 
@@ -393,9 +393,9 @@ namespace FluentDot.Tests.Expressions.Edges
         }
 
         private static void AssertAttributeAdded(Action<IEdgeExpression> action, Type attributeType, object attributeValue, Action<IEdge> customAsserts) {
-            var node1 = MockRepository.GenerateMock<IGraphNode>();
-            var node2 = MockRepository.GenerateMock<IGraphNode>();
-            var edge = new DirectedEdge(new NodeTarget(node1), new NodeTarget(node2));
+            var node1 = new Mock<IGraphNode>();
+            var node2 = new Mock<IGraphNode>();
+            var edge = new DirectedEdge(new NodeTarget(node1.Object), new NodeTarget(node2.Object));
 
             var expression = new EdgeExpression(edge);
             action(expression);
@@ -403,7 +403,7 @@ namespace FluentDot.Tests.Expressions.Edges
             Assert.AreEqual(edge.Attributes.CurrentAttributes.Count, 1);
 
             var attribute = edge.Attributes.CurrentAttributes[0];
-            Assert.IsInstanceOfType(attributeType, attribute);
+            Assert.IsInstanceOf(attributeType, attribute);
             Assert.AreEqual(attribute.Value, attributeValue);
 
             if (customAsserts != null) {

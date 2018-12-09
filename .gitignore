@@ -114,4 +114,5 @@ src\[Pp]ackages
 Settings.StyleCop
 *.[Dd]otSettings
 
-
+.vs
+src/.vs

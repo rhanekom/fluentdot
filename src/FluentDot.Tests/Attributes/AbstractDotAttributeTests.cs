@@ -37,22 +37,19 @@ namespace FluentDot.Tests.Attributes
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Constructor_Should_Throw_For_Null_Name()
         {
-            new TestDotAttribute(null, "", true);
+            Assert.Throws<ArgumentException>(() => new TestDotAttribute(null, "", true));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Constructor_Should_Throw_For_Empty_Name() {
-            new TestDotAttribute("", "", true);
+            Assert.Throws<ArgumentException>(() => new TestDotAttribute("", "", true));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
-        public void Constructor_Should_Throw_For_Null_Vaue() {
-            new TestDotAttribute("aa", null, true);
+        public void Constructor_Should_Throw_For_Null_Value() {
+            Assert.Throws<ArgumentException>(() => new TestDotAttribute("aa", null, true));
         }
 
         #endregion

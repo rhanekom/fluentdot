@@ -12,9 +12,8 @@ using FluentDot.Entities.Edges;
 using FluentDot.Entities.Graphs;
 using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Edges;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
-using Rhino.Mocks.Constraints;
 
 namespace FluentDot.Tests.Expressions.Edges
 {
@@ -24,26 +23,23 @@ namespace FluentDot.Tests.Expressions.Edges
         [Test]
         public void NodeWithName_Should_Add_Node_To_Graph_And_Return_Configuration_Options()
         {
-            var fromNode = MockRepository.GenerateMock<IGraphNode>();
-            var toNode = MockRepository.GenerateMock<IGraphNode>();
+            var fromNode = new Mock<IGraphNode>();
+            var toNode = new Mock<IGraphNode>();
 
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var nodeLookup = MockRepository.GenerateMock<INodeTracker>();
+            var graph = new Mock<IGraph>();
+            var nodeLookup = new Mock<INodeTracker>();
             
 
-            graph.Expect(x => x.NodeLookup).Return(nodeLookup);
-            nodeLookup.Expect(x => x.GetNodeByName("b")).Return(toNode);
+            graph.Setup(x => x.NodeLookup).Returns(nodeLookup.Object);
+            nodeLookup.Setup(x => x.GetNodeByName("b")).Returns(toNode.Object);
 
             IEdge edge = null;
 
-            graph.Expect(x => x.AddEdge(null))
-                .IgnoreArguments()
-                .WhenCalled(x => edge = (IEdge) x.Arguments[0]);
+            graph.Setup(x => x.AddEdge(It.IsAny<IEdge>()))
+                .Callback<IEdge>(x => edge = x);
 
-            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToNodeWithName("b");
-
-            graph.VerifyAllExpectations();
-            nodeLookup.VerifyAllExpectations();
+            var edgeExpression = new EdgeDestinationSelectionExpression(
+                new NodeTarget(fromNode.Object), graph.Object).ToNodeWithName("b");
 
             Assert.IsNotNull(edge);
             Assert.IsNotNull(edgeExpression);
@@ -59,47 +55,40 @@ namespace FluentDot.Tests.Expressions.Edges
 
         [Test]
         public void NodeWithName_Should_AddNode_If_Node_Not_Found() {
-            var fromNode = MockRepository.GenerateMock<IGraphNode>();
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var nodeLookup = MockRepository.GenerateMock<INodeTracker>();
+            var fromNode = new Mock<IGraphNode>();
+            var graph = new Mock<IGraph>();
+            var nodeLookup = new Mock<INodeTracker>();
             
-            graph.Expect(x => x.NodeLookup).Return(nodeLookup);
-            graph.Expect(x => x.AddNode(null))
-                .IgnoreArguments()
-                .Constraints(Is.Matching<IGraphNode>(x => x.Name == "b"));
+            graph.Setup(x => x.NodeLookup).Returns(nodeLookup.Object);
+            graph.Setup(x => x.AddNode(It.Is<IGraphNode>(n => n.Name == "b")));
 
-            nodeLookup.Expect(x => x.GetNodeByName("b")).Return(null);
-            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToNodeWithName("b");
-
-            nodeLookup.VerifyAllExpectations();
-            graph.VerifyAllExpectations();
+            nodeLookup.Setup(x => x.GetNodeByName("b")).Returns((IGraphNode) null);
+            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode.Object), graph.Object)
+                .ToNodeWithName("b");
         }
 
 
 
         [Test]
         public void NodeWithTag_Should_Add_Node_To_Graph_And_Return_Configuration_Options() {
-            var fromNode = MockRepository.GenerateMock<IGraphNode>();
-            var toNode = MockRepository.GenerateMock<IGraphNode>();
+            var fromNode = new Mock<IGraphNode>();
+            var toNode = new Mock<IGraphNode>();
 
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var nodeLookup = MockRepository.GenerateMock<INodeTracker>();
+            var graph = new Mock<IGraph>();
+            var nodeLookup = new Mock<INodeTracker>();
 
 
-            graph.Expect(x => x.NodeLookup).Return(nodeLookup);
-            nodeLookup.Expect(x => x.GetNodeByTag(7)).Return(toNode);
+            graph.Setup(x => x.NodeLookup).Returns(nodeLookup.Object);
+            nodeLookup.Setup(x => x.GetNodeByTag(7)).Returns(toNode.Object);
 
             IEdge edge = null;
 
-            graph.Expect(x => x.AddEdge(null))
-                .IgnoreArguments()
-                .WhenCalled(x => edge = (IEdge)x.Arguments[0]);
+            graph.Setup(x => x.AddEdge(It.IsAny<IEdge>()))
+                .Callback<IEdge>(x => edge = x);
 
-            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToNodeWithTag(7);
-
-            graph.VerifyAllExpectations();
-            nodeLookup.VerifyAllExpectations();
-
+            var edgeExpression = new EdgeDestinationSelectionExpression(
+                new NodeTarget(fromNode.Object), graph.Object).ToNodeWithTag(7);
+            
             Assert.IsNotNull(edge);
             Assert.IsNotNull(edgeExpression);
 
@@ -114,37 +103,33 @@ namespace FluentDot.Tests.Expressions.Edges
 
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void NodeWithTag_Should_Throw_Exception_If_Node_Not_Found() {
-            var fromNode = MockRepository.GenerateMock<IGraphNode>();
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var nodeLookup = MockRepository.GenerateMock<INodeTracker>();
+            var fromNode = new Mock<IGraphNode>();
+            var graph = new Mock<IGraph>();
+            var nodeLookup = new Mock<INodeTracker>();
             
-            graph.Expect(x => x.NodeLookup).Return(nodeLookup);
-            nodeLookup.Expect(x => x.GetNodeByTag(7)).Return(null);
+            graph.SetupGet(x => x.NodeLookup).Returns(nodeLookup.Object);
+            nodeLookup.Setup(x => x.GetNodeByTag(7)).Returns((IGraphNode) null);
             
-            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToNodeWithTag(7);
+            Assert.Throws<ArgumentException>(() => new EdgeDestinationSelectionExpression(
+                new NodeTarget(fromNode.Object), graph.Object).ToNodeWithTag(7));
         }
 
         [Test]
         public void NewNode_Should_Add_NewNode_To_Graph_And_Return_Configuration_Options() {
-            var fromNode = MockRepository.GenerateMock<IGraphNode>();
+            var fromNode = new Mock<IGraphNode>();
             
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var nodeLookup = MockRepository.GenerateMock<ILookupNodes>();
+            var graph = new Mock<IGraph>();
             
             IEdge edge = null;
 
-            graph.Expect(x => x.AddEdge(null))
-                .IgnoreArguments()
-                .WhenCalled(x => edge = (IEdge)x.Arguments[0]);
+            graph.Setup(x => x.AddEdge(It.IsAny<IEdge>()))
+                .Callback<IEdge>(x => edge = x);
 
-            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph)
+            var edgeExpression = new EdgeDestinationSelectionExpression(
+                    new NodeTarget(fromNode.Object), graph.Object)
                 .ToNewNode("a");
-
-            graph.VerifyAllExpectations();
-            nodeLookup.VerifyAllExpectations();
-
+            
             Assert.IsNotNull(edge);
             Assert.IsNotNull(edgeExpression);
 
@@ -154,23 +139,18 @@ namespace FluentDot.Tests.Expressions.Edges
 
         [Test]
         public void NewNode_Should_Add_NewNode_To_Graph_And_Apply_Node_Configuraiton() {
-            var fromNode = MockRepository.GenerateMock<IGraphNode>();
+            var fromNode = new Mock<IGraphNode>();
 
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var nodeLookup = MockRepository.GenerateMock<ILookupNodes>();
+            var graph = new Mock<IGraph>();
 
             IEdge edge = null;
 
-            graph.Expect(x => x.AddEdge(null))
-                .IgnoreArguments()
-                .WhenCalled(x => edge = (IEdge)x.Arguments[0]);
+            graph.Setup(x => x.AddEdge(It.IsAny<IEdge>()))
+                .Callback<IEdge>(x => edge = x);
 
-            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph)
+            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode.Object), graph.Object)
                 .ToNewNode("a", x => x.WithLabel("aa"));
-
-            graph.VerifyAllExpectations();
-            nodeLookup.VerifyAllExpectations();
-
+            
             Assert.IsNotNull(edge);
             Assert.IsNotNull(edgeExpression);
 
@@ -184,31 +164,27 @@ namespace FluentDot.Tests.Expressions.Edges
 
         [Test]
         public void RecordWithName_Should_Add_Node_To_Graph_And_Return_Configuration_Options() {
-            var fromNode = MockRepository.GenerateMock<IRecordNode>();
-            var toNode = MockRepository.GenerateMock<IRecordNode>();
+            var fromNode = new Mock<IRecordNode>();
+            var toNode = new Mock<IRecordNode>();
 
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var nodeLookup = MockRepository.GenerateMock<INodeTracker>();
-            var elementTracker = MockRepository.GenerateMock<IElementTracker>();
+            var graph = new Mock<IGraph>();
+            var nodeLookup = new Mock<INodeTracker>();
+            var elementTracker = new Mock<IElementTracker>();
 
-            graph.Expect(x => x.NodeLookup).Return(nodeLookup);
-            nodeLookup.Expect(x => x.GetNodeByName("b")).Return(toNode);
+            graph.Setup(x => x.NodeLookup).Returns(nodeLookup.Object);
+            nodeLookup.Setup(x => x.GetNodeByName("b")).Returns(toNode.Object);
 
             IEdge edge = null;
 
-            graph.Expect(x => x.AddEdge(null))
-                .IgnoreArguments()
-                .WhenCalled(x => edge = (IEdge)x.Arguments[0]);
+            graph.Setup(x => x.AddEdge(It.IsAny<IEdge>()))
+                .Callback<IEdge>(x => edge = x);
 
-            toNode.Expect(x => x.ElementTracker).Return(elementTracker);
-            elementTracker.Expect(x => x.ContainsElement("c")).Return(true);
+            toNode.Setup(x => x.ElementTracker).Returns(elementTracker.Object);
+            elementTracker.Setup(x => x.ContainsElement("c")).Returns(true);
 
-            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToRecordWithName("b", "c");
-
-            graph.VerifyAllExpectations();
-            nodeLookup.VerifyAllExpectations();
-            elementTracker.VerifyAllExpectations();
-
+            var edgeExpression = new EdgeDestinationSelectionExpression(
+                new NodeTarget(fromNode.Object), graph.Object).ToRecordWithName("b", "c");
+            
             Assert.IsNotNull(edge);
             Assert.IsNotNull(edgeExpression);
 
@@ -217,51 +193,47 @@ namespace FluentDot.Tests.Expressions.Edges
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void RecordWithName_Should_Throw_If_Node_Was_Not_Found() {
-            var fromNode = MockRepository.GenerateMock<IRecordNode>();
-            var toNode = MockRepository.GenerateMock<IRecordNode>();
+            var fromNode = new Mock<IRecordNode>();
+            var toNode = new Mock<IRecordNode>();
 
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var nodeLookup = MockRepository.GenerateMock<INodeTracker>();
-            var elementTracker = MockRepository.GenerateMock<IElementTracker>();
+            var graph = new Mock<IGraph>();
+            var nodeLookup = new Mock<INodeTracker>();
+            var elementTracker = new Mock<IElementTracker>();
 
-            graph.Expect(x => x.NodeLookup).Return(nodeLookup);
-            nodeLookup.Expect(x => x.GetNodeByName("b")).Return(toNode);
+            graph.Setup(x => x.NodeLookup).Returns(nodeLookup.Object);
+            nodeLookup.Setup(x => x.GetNodeByName("b")).Returns(toNode.Object);
 
-            toNode.Expect(x => x.ElementTracker).Return(elementTracker);
-            elementTracker.Expect(x => x.ContainsElement("c")).Return(false);
+            toNode.Setup(x => x.ElementTracker).Returns(elementTracker.Object);
+            elementTracker.Setup(x => x.ContainsElement("c")).Returns(false);
 
-            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToRecordWithName("b", "c");
+            Assert.Throws<ArgumentException>(() => new EdgeDestinationSelectionExpression(
+                new NodeTarget(fromNode.Object), graph.Object).ToRecordWithName("b", "c"));
         }
 
 
         [Test]
         public void RecordWithTag_Should_Add_Node_To_Graph_And_Return_Configuration_Options() {
-            var fromNode = MockRepository.GenerateMock<IRecordNode>();
-            var toNode = MockRepository.GenerateMock<IRecordNode>();
+            var fromNode = new Mock<IRecordNode>();
+            var toNode = new Mock<IRecordNode>();
 
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var nodeLookup = MockRepository.GenerateMock<INodeTracker>();
-            var elementTracker = MockRepository.GenerateMock<IElementTracker>();
+            var graph = new Mock<IGraph>();
+            var nodeLookup = new Mock<INodeTracker>();
+            var elementTracker = new Mock<IElementTracker>();
 
-            graph.Expect(x => x.NodeLookup).Return(nodeLookup);
-            nodeLookup.Expect(x => x.GetNodeByTag("tag")).Return(toNode);
+            graph.Setup(x => x.NodeLookup).Returns(nodeLookup.Object);
+            nodeLookup.Setup(x => x.GetNodeByTag("tag")).Returns(toNode.Object);
 
             IEdge edge = null;
 
-            graph.Expect(x => x.AddEdge(null))
-                .IgnoreArguments()
-                .WhenCalled(x => edge = (IEdge)x.Arguments[0]);
+            graph.Setup(x => x.AddEdge(It.IsAny<IEdge>()))
+                .Callback<IEdge>(x => edge = x);
 
-            toNode.Expect(x => x.ElementTracker).Return(elementTracker);
-            elementTracker.Expect(x => x.ContainsElement("c")).Return(true);
+            toNode.Setup(x => x.ElementTracker).Returns(elementTracker.Object);
+            elementTracker.Setup(x => x.ContainsElement("c")).Returns(true);
 
-            var edgeExpression = new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToRecordWithTag("tag", "c");
-
-            graph.VerifyAllExpectations();
-            nodeLookup.VerifyAllExpectations();
-            elementTracker.VerifyAllExpectations();
+            var edgeExpression = new EdgeDestinationSelectionExpression(
+                new NodeTarget(fromNode.Object), graph.Object).ToRecordWithTag("tag", "c");
 
             Assert.IsNotNull(edge);
             Assert.IsNotNull(edgeExpression);
@@ -271,23 +243,22 @@ namespace FluentDot.Tests.Expressions.Edges
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void RecordWithTag_Should_Throw_If_Node_Was_Not_Found() {
-            var fromNode = MockRepository.GenerateMock<IRecordNode>();
-            var toNode = MockRepository.GenerateMock<IRecordNode>();
+            var fromNode = new Mock<IRecordNode>();
+            var toNode = new Mock<IRecordNode>();
 
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var nodeLookup = MockRepository.GenerateMock<INodeTracker>();
-            var elementTracker = MockRepository.GenerateMock<IElementTracker>();
+            var graph = new Mock<IGraph>();
+            var nodeLookup = new Mock<INodeTracker>();
+            var elementTracker = new Mock<IElementTracker>();
 
-            graph.Expect(x => x.NodeLookup).Return(nodeLookup);
-            nodeLookup.Expect(x => x.GetNodeByTag("tag")).Return(toNode);
+            graph.Setup(x => x.NodeLookup).Returns(nodeLookup.Object);
+            nodeLookup.Setup(x => x.GetNodeByTag("tag")).Returns(toNode.Object);
 
-            toNode.Expect(x => x.ElementTracker).Return(elementTracker);
-            elementTracker.Expect(x => x.ContainsElement("c")).Return(false);
+            toNode.Setup(x => x.ElementTracker).Returns(elementTracker.Object);
+            elementTracker.Setup(x => x.ContainsElement("c")).Returns(false);
 
-            new EdgeDestinationSelectionExpression(new NodeTarget(fromNode), graph).ToRecordWithTag("tag", "c");
+            Assert.Throws<ArgumentException>(() => new EdgeDestinationSelectionExpression(
+                new NodeTarget(fromNode.Object), graph.Object).ToRecordWithTag("tag", "c"));
         }
-       
     }
 }

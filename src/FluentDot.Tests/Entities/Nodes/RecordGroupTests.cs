@@ -16,17 +16,15 @@ namespace FluentDot.Tests.Entities.Nodes
     public class RecordGroupTests {
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Constructor_Must_Throw_If_Elements_Null()
         {
-            new RecordGroup((IRecordItem[]) null);
+            Assert.Throws<ArgumentException>(() => new RecordGroup((IRecordItem[]) null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Constructor_Must_Throw_If_No_Elements_Provided()
         {
-            new RecordGroup(new IRecordElement[0]);
+            Assert.Throws<ArgumentException>(() => new RecordGroup(new IRecordElement[0]));
         }
 
         [Test]

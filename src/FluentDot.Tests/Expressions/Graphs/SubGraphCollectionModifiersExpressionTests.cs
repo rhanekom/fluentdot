@@ -10,9 +10,8 @@ using FluentDot.Entities.Edges;
 using FluentDot.Entities.Graphs;
 using FluentDot.Entities.Nodes;
 using FluentDot.Expressions.Graphs;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
-using Rhino.Mocks.Constraints;
 
 namespace FluentDot.Tests.Expressions.Graphs {
     [TestFixture]
@@ -20,10 +19,10 @@ namespace FluentDot.Tests.Expressions.Graphs {
 
         [Test]
         public void Add_Should_Apply_Action_And_Add_SubGraph_To_Graph() {
-            var graph = MockRepository.GenerateMock<IGraph>();
-            var graphExpression = MockRepository.GenerateMock<IGraphExpression>();
-            var edgeTracker = MockRepository.GenerateMock<IEdgeTracker>();
-            var nodeTracker = MockRepository.GenerateMock<INodeTracker>();
+            var graph = new Mock<IGraph>();
+            var graphExpression = new Mock<IGraphExpression>();
+            var edgeTracker = new Mock<IEdgeTracker>();
+            var nodeTracker = new Mock<INodeTracker>();
 
             graph.Expect(x => x.EdgeLookup).Return(edgeTracker).Repeat.AtLeastOnce();
             graph.Expect(x => x.NodeLookup).Return(nodeTracker).Repeat.AtLeastOnce();

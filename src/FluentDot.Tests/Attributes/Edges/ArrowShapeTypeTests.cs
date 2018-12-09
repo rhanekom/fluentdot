@@ -30,17 +30,15 @@ namespace FluentDot.Tests.Attributes.Edges
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Constructor_Throws_If_ArrowShape_Null()
         {
-            new ArrowShapeType((ArrowShape)null);
+            Assert.Throws<ArgumentNullException>(() => new ArrowShapeType((ArrowShape) null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Constructor_Throws_If_CompositeArrowShape_Null()
         {
-            new ArrowShapeType((CompositeArrowShape) null);
+            Assert.Throws<ArgumentNullException>(() => new ArrowShapeType((CompositeArrowShape) null));
         }
     }
 }

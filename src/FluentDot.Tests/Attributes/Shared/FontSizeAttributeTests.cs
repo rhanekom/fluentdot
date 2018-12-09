@@ -22,10 +22,9 @@ namespace FluentDot.Tests.Attributes.Shared
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_If_FontSize_Smaller_Than_1()
         {
-            new FontSizeAttribute(0.9);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new FontSizeAttribute(0.9));
         }
     }
 }

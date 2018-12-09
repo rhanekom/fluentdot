@@ -16,9 +16,8 @@ using FluentDot.Common;
 using FluentDot.Entities.Graphs;
 using FluentDot.Execution;
 using FluentDot.Expressions.Graphs;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
-using Rhino.Mocks.Constraints;
 
 namespace FluentDot.Tests.Expressions.Graphs
 {
@@ -143,16 +142,14 @@ namespace FluentDot.Tests.Expressions.Graphs
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Save_Should_Throw_If_Null_Was_Passed()
         {
-            new TestGraphExpression().Save(null);
+            Assert.Throws<ArgumentNullException>(() => new TestGraphExpression().Save(null));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void Save_Should_Throw_If_No_Files_Were_Passed() {
-            new TestGraphExpression().Save(x => { });
+            Assert.Throws<ArgumentException>(() => new TestGraphExpression().Save(x => { }));
         }
 
         [Test]
@@ -230,10 +227,10 @@ namespace FluentDot.Tests.Expressions.Graphs
         [Test]
         public void WithCustomAttribute_Should_Apply_Attribute()
         {
-            var attribute = MockRepository.GenerateMock<IDotAttribute>();
-            attribute.Expect(x => x.Value).Return("aa");
+            var attribute = new Mock<IDotAttribute>();
+            attribute.Setup(x => x.Value).Returns("aa");
 
-            AssertAttributeAdded(expression => expression.WithCustomAttribute(attribute),
+            AssertAttributeAdded(expression => expression.WithCustomAttribute(attribute.Object),
                                  attribute.GetType(), "aa");
         }
 
@@ -384,7 +381,7 @@ namespace FluentDot.Tests.Expressions.Graphs
             Assert.AreEqual(attributes.CurrentAttributes.Count, 1);
 
             var attribute = attributes.CurrentAttributes[0];
-            Assert.IsInstanceOfType(attributeType, attribute);
+            Assert.IsInstanceOf(attributeType, attribute);
             Assert.AreEqual(attribute.Value, attributeValue);
 
             if (customAsserts != null) {
@@ -400,9 +397,9 @@ namespace FluentDot.Tests.Expressions.Graphs
             private readonly IDotExecutor dotExecutor;
 
             public TestGraphExpression() : this(
-                MockRepository.GenerateMock<IGraph>(), 
-                MockRepository.GenerateMock<IFileService>(),
-                MockRepository.GenerateMock<IDotExecutor>()
+                new Mock<IGraph>().Object, 
+                new Mock<IFileService>().Object,
+                new Mock<IDotExecutor>().Object
                 ) {
 
                 }
@@ -413,9 +410,9 @@ namespace FluentDot.Tests.Expressions.Graphs
                 this.dotExecutor = dotExecutor;
                 }
             
-            public IFileService FileService { get { return fileService; } }
+            public IFileService FileService => fileService;
 
-            public IDotExecutor DotExecutor { get { return dotExecutor; } }
+            public IDotExecutor DotExecutor => dotExecutor;
         }
 
         #endregion

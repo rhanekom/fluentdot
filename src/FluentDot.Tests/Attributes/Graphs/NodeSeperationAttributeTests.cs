@@ -22,10 +22,9 @@ namespace FluentDot.Tests.Attributes.Graphs
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_When_Inches_Smaller_Than_0_02()
         {
-            new NodeSeperationAttribute(0.01);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new NodeSeperationAttribute(0.01));
         }
     }
 }

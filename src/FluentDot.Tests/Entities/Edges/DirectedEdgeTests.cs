@@ -8,8 +8,8 @@
 
 using FluentDot.Entities.Edges;
 using FluentDot.Entities.Nodes;
+using Moq;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace FluentDot.Tests.Entities.Edges
 {
@@ -18,8 +18,8 @@ namespace FluentDot.Tests.Entities.Edges
 
         [Test]
         public void Constructor_Should_Save_Arguments() {
-            var fromNode = MockRepository.GenerateMock<IGraphNode>();
-            var toNode = MockRepository.GenerateMock<IGraphNode>();
+            var fromNode = new Mock<IGraphNode>().Object;
+            var toNode = new Mock<IGraphNode>().Object;
 
             var edge = new DirectedEdge(new NodeTarget(fromNode), new NodeTarget(toNode));
             Assert.AreSame(fromNode, edge.From.Node);

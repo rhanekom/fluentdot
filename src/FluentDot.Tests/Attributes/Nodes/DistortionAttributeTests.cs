@@ -23,17 +23,15 @@ namespace FluentDot.Tests.Attributes.Nodes
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_If_Value_Less_Than_Minus_100()
         {
-            new DistortionAttribute(-100.1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new DistortionAttribute(-100.1));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_Should_Throw_If_Value_Larger_Than_100()
         {
-            new DistortionAttribute(100.1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new DistortionAttribute(100.1));
         }
     }
 }

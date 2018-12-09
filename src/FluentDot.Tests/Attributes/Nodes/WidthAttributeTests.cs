@@ -22,10 +22,9 @@ namespace FluentDot.Tests.Attributes.Nodes
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Values_Less_Than_0_1_Should_Throw_Exception()
         {
-            new WidthAttribute(0.005);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new WidthAttribute(0.005));
         }
     }
 }
