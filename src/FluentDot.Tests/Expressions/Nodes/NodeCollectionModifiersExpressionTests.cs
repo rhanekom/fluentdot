@@ -23,16 +23,8 @@ namespace FluentDot.Tests.Expressions.Nodes
         {
             var graph = new Mock<IGraph>();
 
-            graph.Expect(x => x.AddNode(null))
-                .IgnoreArguments()
-                .Constraints(Is.Matching<IGraphNode>(x => x.Name == "a"));
-
-            graph.Expect(x => x.AddNode(null))
-                .IgnoreArguments()
-                .Constraints(Is.Matching<IGraphNode>(x => x.Name == "b"));
-
-            var graphExpression = new GraphExpression<IGraph>(graph);
-            var expression = new NodeCollectionModifiersExpression<IGraphExpression>(graph, graphExpression);
+            var graphExpression = new GraphExpression<IGraph>(graph.Object);
+            var expression = new NodeCollectionModifiersExpression<IGraphExpression>(graph.Object, graphExpression);
             expression.Add(
                 nodes =>
                     {
@@ -41,15 +33,16 @@ namespace FluentDot.Tests.Expressions.Nodes
                     }
                 );
 
-            graph.VerifyAllExpectations();
+            graph.Verify(x => x.AddNode(It.Is<IRecordNode>(n => n.Name == "a")));
+            graph.Verify(x => x.AddNode(It.Is<IRecordNode>(n => n.Name == "b")));
         }
 
         [Test]
         public void Add_Returns_Parent_Expression()
         {
             var graph = new Mock<IGraph>();
-            var graphExpression = new GraphExpression<IGraph>(graph);
-            var expression = new NodeCollectionModifiersExpression<IGraphExpression>(graph, graphExpression);
+            var graphExpression = new GraphExpression<IGraph>(graph.Object);
+            var expression = new NodeCollectionModifiersExpression<IGraphExpression>(graph.Object, graphExpression);
 
             var instance = expression.Add(nodes => nodes.WithName("a"));
             Assert.AreSame(instance, graphExpression);
@@ -60,16 +53,8 @@ namespace FluentDot.Tests.Expressions.Nodes
         {
             var graph = new Mock<IGraph>();
 
-            graph.Expect(x => x.AddNode(null))
-                .IgnoreArguments()
-                .Constraints(Is.Matching<IRecordNode>(x => x.Name == "a"));
-
-            graph.Expect(x => x.AddNode(null))
-                .IgnoreArguments()
-                .Constraints(Is.Matching<IRecordNode>(x => x.Name == "b"));
-
-            var graphExpression = new GraphExpression<IGraph>(graph);
-            var expression = new NodeCollectionModifiersExpression<IGraphExpression>(graph, graphExpression);
+            var graphExpression = new GraphExpression<IGraph>(graph.Object);
+            var expression = new NodeCollectionModifiersExpression<IGraphExpression>(graph.Object, graphExpression);
             expression.AddRecord(
                 records =>
                     {
@@ -77,14 +62,15 @@ namespace FluentDot.Tests.Expressions.Nodes
                         records.WithName("b").WithElement("b1");
                     });
 
-            graph.VerifyAllExpectations();
+            graph.Verify(x => x.AddNode(It.Is<IRecordNode>(n => n.Name == "a")));
+            graph.Verify(x => x.AddNode(It.Is<IRecordNode>(n => n.Name == "b")));
         }
 
         [Test]
         public void AddRecord_Returns_Parent_Expression() {
             var graph = new Mock<IGraph>();
-            var graphExpression = new GraphExpression<IGraph>(graph);
-            var expression = new NodeCollectionModifiersExpression<IGraphExpression>(graph, graphExpression);
+            var graphExpression = new GraphExpression<IGraph>(graph.Object);
+            var expression = new NodeCollectionModifiersExpression<IGraphExpression>(graph.Object, graphExpression);
 
             var instance = expression.AddRecord(nodes => nodes.WithName("a"));
             Assert.AreSame(instance, graphExpression);

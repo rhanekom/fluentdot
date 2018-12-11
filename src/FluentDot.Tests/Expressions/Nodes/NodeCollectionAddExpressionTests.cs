@@ -22,14 +22,11 @@ namespace FluentDot.Tests.Expressions.Nodes
         public void CreateNode_Should_Add_Node_To_Graph() {
             var graph = new Mock<IGraph>();
 
-            var expression = new NodeCollectionAddExpression(graph);
-
-            graph.Expect(x => x.AddNode(null))
-                .Constraints(Is.Matching<IGraphNode>(x => x.Name == "a" && x.Attributes.CurrentAttributes.Count == 0));
+            var expression = new NodeCollectionAddExpression(graph.Object);
 
             expression.WithName("a");
 
-            graph.VerifyAllExpectations();
+            graph.Verify(x => x.AddNode(It.Is<IGraphNode>(n => n.Name == "a" && n.Attributes.CurrentAttributes.Count == 0)));
         }
 
         [Test]
@@ -37,11 +34,9 @@ namespace FluentDot.Tests.Expressions.Nodes
             var graph = new Mock<IGraph>();
 
             var expression = new NodeCollectionAddExpression(graph);
-            graph.Expect(x => x.AddNode(null))
-                .Constraints(Is.Matching<IGraphNode>(x => x.Name == "a"));
-
             expression.WithName("a").WithLabel("label");
-            graph.VerifyAllExpectations();
+            
+            graph.Verify(x => x.AddNode(It.Is<IGraphNode>(n => n.Name == "a")));
         }
     }
 }

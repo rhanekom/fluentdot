@@ -23,12 +23,11 @@ namespace FluentDot.Tests.Expressions.Configuration
             const string expected = "c:\\tmp\\a.tt";
             
             var configurationProvider = new Mock<IConfigurationProvider>();
-            configurationProvider.Expect(x => x.DotExecutableLocation = expected);
 
-            var expression = new ConfigurationExpression(configurationProvider);
+            var expression = new ConfigurationExpression(configurationProvider.Object);
             expression.DotFilePath.Is(expected);
 
-            configurationProvider.VerifyAllExpectations();
+            configurationProvider.VerifySet(x => x.DotExecutableLocation = expected);
         }
 
         [Test]
@@ -36,24 +35,22 @@ namespace FluentDot.Tests.Expressions.Configuration
             const int expected = 2312;
 
             var configurationProvider = new Mock<IConfigurationProvider>();
-            configurationProvider.Expect(x => x.DotProcessTimeout = expected);
 
-            var expression = new ConfigurationExpression(configurationProvider);
+            var expression = new ConfigurationExpression(configurationProvider.Object);
             expression.DotProcessTimeout.Is(expected);
-
-            configurationProvider.VerifyAllExpectations();
+            
+            configurationProvider.VerifySet(x => x.DotProcessTimeout = expected);
         }
 
         [Test]
         public void DefaultFileFormat_Sets_DefaultFileFormat_On_Configuration()
         {
             var configurationProvider = new Mock<IConfigurationProvider>();
-            configurationProvider.Expect(x => x.DefaultFileFormat = OutputFormat.GD);
 
-            var expression = new ConfigurationExpression(configurationProvider);
+                var expression = new ConfigurationExpression(configurationProvider.Object);
             expression.DefaultFileFormat.Is(OutputFormat.GD);
 
-            configurationProvider.VerifyAllExpectations();
+            configurationProvider.VerifySet(x => x.DefaultFileFormat = OutputFormat.GD);
         }
     }
 }

@@ -32,10 +32,11 @@ namespace FluentDot.Tests.Expressions.Graphs
 
             IGraph graph = graphExpression.Graph;
 
-            graph.Expect(x => x.Name = "testName");
 
             var instance = graphExpression.WithName("testName");
             Assert.AreSame(instance, graphExpression);
+            
+            graph.Name  (x => x.Name = "testName");
 
             graph.VerifyAllExpectations();
         }
@@ -110,6 +111,13 @@ namespace FluentDot.Tests.Expressions.Graphs
             
             var graphExpression = new TestGraphExpression();
 
+
+            graphExpression.Save(x => {
+                                          x.ToFile(fileName1).UsingFormat(OutputFormat.GIF);
+                                          x.ToFile(fileName2).UsingFormat(OutputFormat.Canon);
+            });
+            
+            
             graphExpression.DotExecutor.Expect(x => x.Execute(null, null))
                 .IgnoreArguments()
                 .Constraints(
@@ -123,11 +131,6 @@ namespace FluentDot.Tests.Expressions.Graphs
                     )
                 );
 
-
-            graphExpression.Save(x => {
-                                          x.ToFile(fileName1).UsingFormat(OutputFormat.GIF);
-                                          x.ToFile(fileName2).UsingFormat(OutputFormat.Canon);
-            });
         }
 
         [Test]
@@ -369,12 +372,18 @@ namespace FluentDot.Tests.Expressions.Graphs
             AssertAttributeAdded(action, attributeType, attributeValue, null);
         }
 
-        private static void AssertAttributeAdded(Action<IGraphExpression> action, Type attributeType, object attributeValue, Action<IGraph> customAsserts) {
-            var expression = new TestGraphExpression();
+        private static void AssertAttributeAdded(Action<IGraphExpression> action, Type attributeType, object attributeValue, Action<IGraph> customAsserts)
+        {
+
+            var graph = new Mock<IGraph>();
+            var expression = new TestGraphExpression(
+                graph.Object, 
+                new Mock<IFileService>().Object, 
+                new Mock<IDotExecutor>().Object);
 
             var attributes = new AttributeCollection();
 
-            expression.Graph.Expect(x => x.Attributes).Return(attributes);
+            graph.SetupGet(x => x.Attributes).Returns(attributes);
 
             action(expression);
 
@@ -384,35 +393,31 @@ namespace FluentDot.Tests.Expressions.Graphs
             Assert.IsInstanceOf(attributeType, attribute);
             Assert.AreEqual(attribute.Value, attributeValue);
 
-            if (customAsserts != null) {
-                customAsserts(expression.Graph);
-            }
-
-            expression.Graph.VerifyAllExpectations();
+            customAsserts?.Invoke(expression.Graph);
         }
         
         private class TestGraphExpression : GraphExpression<IGraph> {
-            
-            private readonly IFileService fileService;
-            private readonly IDotExecutor dotExecutor;
-
             public TestGraphExpression() : this(
                 new Mock<IGraph>().Object, 
                 new Mock<IFileService>().Object,
                 new Mock<IDotExecutor>().Object
-                ) {
-
-                }
-
-            private TestGraphExpression(IGraph graph, IFileService fileService, IDotExecutor dotExecutor)
-                : base(graph, fileService, dotExecutor) {
-                this.fileService = fileService;
-                this.dotExecutor = dotExecutor;
-                }
+                ) {}
             
-            public IFileService FileService => fileService;
+            
+            public TestGraphExpression(
+                IGraph graph, 
+                IFileService fileService = null, 
+                IDotExecutor dotExecutor = null)
+                : base(graph, fileService, dotExecutor) {
 
-            public IDotExecutor DotExecutor => dotExecutor;
+
+                FileService = fileService;
+                DotExecutor = dotExecutor;
+            }
+            
+            public IFileService FileService { get; }
+
+            public IDotExecutor DotExecutor { get; }
         }
 
         #endregion

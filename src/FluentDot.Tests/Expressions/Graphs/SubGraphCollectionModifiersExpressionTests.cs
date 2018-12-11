@@ -24,21 +24,15 @@ namespace FluentDot.Tests.Expressions.Graphs {
             var edgeTracker = new Mock<IEdgeTracker>();
             var nodeTracker = new Mock<INodeTracker>();
 
-            graph.Expect(x => x.EdgeLookup).Return(edgeTracker).Repeat.AtLeastOnce();
-            graph.Expect(x => x.NodeLookup).Return(nodeTracker).Repeat.AtLeastOnce();
-            graph.Expect(x => x.Type).Return(GraphType.Directed);
+            graph.SetupGet(x => x.EdgeLookup).Returns(edgeTracker.Object);
+            graph.SetupGet(x => x.NodeLookup).Returns(nodeTracker.Object);
+            graph.SetupGet(x => x.Type).Returns(GraphType.Directed);
 
 
-            graph.Expect(x => x.AddSubGraph(null))
-                .IgnoreArguments()
-                .Constraints(
-                Is.Matching<ISubGraph>(x => x.Name.Contains("bla"))
-                );
-
-            var expression = new SubGraphCollectionModifiersExpression<IGraphExpression>(graph, graphExpression);
+            var expression = new SubGraphCollectionModifiersExpression<IGraphExpression>(graph.Object, graphExpression);
             expression.Add(x => x.WithName("bla"));
 
-            graph.VerifyAllExpectations();
+            graph.Verify(x => x.AddSubGraph(It.Is<ISubGraph>(g => g.Name.Contains("bla"))));
         }
     }
 }

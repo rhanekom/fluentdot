@@ -25,22 +25,16 @@ namespace FluentDot.Tests.Expressions.Graphs
             var graphExpression = new Mock<IGraphExpression>();
             var edgeTracker = new Mock<IEdgeTracker>();
             var nodeTracker = new Mock<INodeTracker>();
+
+            graph.Setup(x => x.EdgeLookup).Returns(edgeTracker.Object);
+            graph.Setup(x => x.NodeLookup).Returns(nodeTracker.Object);
             
-            graph.Expect(x => x.EdgeLookup).Return(edgeTracker).Repeat.AtLeastOnce();
-            graph.Expect(x => x.NodeLookup).Return(nodeTracker).Repeat.AtLeastOnce();
-            graph.Expect(x => x.Type).Return(GraphType.Directed);
-
-
-            graph.Expect(x => x.AddSubGraph(null))
-                .IgnoreArguments()
-                .Constraints(
-                Is.Matching<ICluster>(x => x.Name.Contains("bla"))
-                );
+            graph.SetupGet(x => x.Type).Returns(GraphType.Directed);
 
             var expression = new ClusterCollectionModifiersExpression<IGraphExpression>(graph, graphExpression);
             expression.Add(x => x.WithName("bla"));
 
-            graph.VerifyAllExpectations();
+            graph.Verify(x => x.AddSubGraph(It.Is<ICluster>(c => c.Name.Contains("bla"))));
         }
     }
 }

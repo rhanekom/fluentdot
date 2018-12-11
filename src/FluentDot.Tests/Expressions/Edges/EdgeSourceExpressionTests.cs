@@ -19,7 +19,7 @@ namespace FluentDot.Tests.Expressions.Edges
     public class EdgeSourceExpressionTests {
         
         [Test]
-        public void NodeWithName_Should_Select_Node_And_REturn_Expression() {
+        public void NodeWithName_Should_Select_Node_And_Return_Expression() {
             var fromNode = new Mock<IGraphNode>();
 
             var graph = new Mock<IGraph>();
@@ -56,13 +56,10 @@ namespace FluentDot.Tests.Expressions.Edges
             var nodeLookup = new Mock<INodeTracker>();
 
 
-            graph.Expect(x => x.NodeLookup).Return(nodeLookup);
-            nodeLookup.Expect(x => x.GetNodeByTag(7)).Return(fromNode);
+            graph.SetupGet(x => x.NodeLookup).Returns(nodeLookup.Object);
+            nodeLookup.Setup(x => x.GetNodeByTag(7)).Returns(fromNode.Object);
             
-            var edgeExpression = new EdgeSourceExpression(graph).FromNodeWithTag(7);
-
-            graph.VerifyAllExpectations();
-            nodeLookup.VerifyAllExpectations();
+            var edgeExpression = new EdgeSourceExpression(graph.Object).FromNodeWithTag(7);
 
             Assert.IsNotNull(edgeExpression);
         }
@@ -72,28 +69,19 @@ namespace FluentDot.Tests.Expressions.Edges
             var graph = new Mock<IGraph>();
             var nodeLookup = new Mock<INodeTracker>();
 
-            graph.Expect(x => x.NodeLookup).Return(nodeLookup);
-            nodeLookup.Expect(x => x.GetNodeByTag(7)).Return(null);
+            graph.Setup(x => x.NodeLookup).Returns(nodeLookup.Object);
+            nodeLookup.Setup(x => x.GetNodeByTag(7)).Returns((IGraphNode) null);
 
-            Assert.Throws<ArgumentException>(() => new EdgeSourceExpression(graph).FromNodeWithTag(7));
+            Assert.Throws<ArgumentException>(() => new EdgeSourceExpression(graph.Object).FromNodeWithTag(7));
         }
 
         [Test]
         public void NewNode_Should_AddNode_To_Graph() {
             
             var graph = new Mock<IGraph>();
+            var edgeExpression = new EdgeSourceExpression(graph.Object).FromNewNode("a");
             
-            graph.Expect(x => x.AddNode(null))
-                .IgnoreArguments()
-                .Constraints(
-                Is.Matching<IGraphNode>(x => 
-                                        x.Name == "a")
-                );
-
-
-            var edgeExpression = new EdgeSourceExpression(graph).FromNewNode("a");
-            graph.VerifyAllExpectations();
-            
+            graph.Verify(x => x.AddNode(It.Is<IGraphNode>(n => n.Name == "a")));
             Assert.IsNotNull(edgeExpression);
         }
 
@@ -101,18 +89,9 @@ namespace FluentDot.Tests.Expressions.Edges
         public void NewNode_Should_AddNode_To_Graph_And_Apply_Configuration() {
 
             var graph = new Mock<IGraph>();
+            var edgeExpression = new EdgeSourceExpression(graph.Object).FromNewNode("a", x => x.WithLabel("b"));
 
-            graph.Expect(x => x.AddNode(null))
-                .IgnoreArguments()
-                .Constraints(
-                Is.Matching<IGraphNode>(x =>
-                                        x.Name == "a")
-                );
-
-
-            var edgeExpression = new EdgeSourceExpression(graph).FromNewNode("a", x => x.WithLabel("b"));
-            graph.VerifyAllExpectations();
-
+            graph.Verify(x => x.AddNode(It.Is<IGraphNode>(n => n.Name == "a")));
             Assert.IsNotNull(edgeExpression);
         }
 
